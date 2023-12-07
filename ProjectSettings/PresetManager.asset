@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1386491679 &1
+PresetManager:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_DefaultPresets:
+  - first:
+      m_NativeTypeID: 1006
+      m_ManagedTypePPtr: {fileID: 0}
+      m_ManagedTypeFallback: 
+    second:
+    - m_Preset: {fileID: 2655988077585873504, guid: 5fc32c3ba023d8c4f9767d5612c273a8, type: 2}
+      m_Filter: 
+      m_Disabled: 0
+    - m_Preset: {fileID: 2655988077585873504, guid: de819eb26747b3f409e571f8c2175477, type: 2}
+      m_Filter: tileset
+      m_Disabled: 0
+  - first:
+      m_NativeTypeID: 50
+      m_ManagedTypePPtr: {fileID: 0}
+      m_ManagedTypeFallback: 
+    second:
+    - m_Preset: {fileID: 2655988077585873504, guid: 72fb16c130bae3344aa1c609b7fb19e6, type: 2}
+      m_Filter: 
+      m_Disabled: 0
