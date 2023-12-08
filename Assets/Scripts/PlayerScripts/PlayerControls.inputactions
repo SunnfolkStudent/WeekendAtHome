@@ -2,20 +2,11 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Top-Down Movement",
+            "name": "Player",
             "id": "538b8dbc-c86a-45d5-ac64-3d1a010ec0d2",
             "actions": [
                 {
-                    "name": "WASD",
-                    "type": "Value",
-                    "id": "bb95de64-6397-41dc-8109-2181590423cc",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Arrow Keys",
+                    "name": "Movement",
                     "type": "Value",
                     "id": "bd3e33b4-153e-4f40-bd76-0049e6b26b7e",
                     "expectedControlType": "Vector2",
@@ -26,68 +17,13 @@
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
-                    "id": "980d5010-6842-4ce2-9756-dd365230904f",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WASD",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "00c6afde-79c9-4728-bd9b-e2005bdf2542",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player",
-                    "action": "WASD",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "a98ef521-7157-4bd3-a57e-cb312c787297",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player",
-                    "action": "WASD",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "bb8927d0-20f0-46c7-97fb-697481fa4fc2",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player",
-                    "action": "WASD",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "09809c51-423a-48e5-b375-dfecca886bbe",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player",
-                    "action": "WASD",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "2D Vector",
+                    "name": "Arrow Keys",
                     "id": "7209eacc-c02c-458c-aa1d-973c6eceb490",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Arrow Keys",
+                    "action": "Movement",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -98,7 +34,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Arrow Keys",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -109,7 +45,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Arrow Keys",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -120,7 +56,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Arrow Keys",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -131,7 +67,62 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Arrow Keys",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "WASD",
+                    "id": "51f6c5e0-26a7-42f0-a5f5-bf1d3fbacf74",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "right",
+                    "id": "09809c51-423a-48e5-b375-dfecca886bbe",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "bb8927d0-20f0-46c7-97fb-697481fa4fc2",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "a98ef521-7157-4bd3-a57e-cb312c787297",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "up",
+                    "id": "00c6afde-79c9-4728-bd9b-e2005bdf2542",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

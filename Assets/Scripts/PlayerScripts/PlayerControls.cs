@@ -24,20 +24,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     ""name"": ""PlayerControls"",
     ""maps"": [
         {
-            ""name"": ""Top-Down Movement"",
+            ""name"": ""Player"",
             ""id"": ""538b8dbc-c86a-45d5-ac64-3d1a010ec0d2"",
             ""actions"": [
                 {
-                    ""name"": ""WASD"",
-                    ""type"": ""Value"",
-                    ""id"": ""bb95de64-6397-41dc-8109-2181590423cc"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Arrow Keys"",
+                    ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""bd3e33b4-153e-4f40-bd76-0049e6b26b7e"",
                     ""expectedControlType"": ""Vector2"",
@@ -48,68 +39,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""980d5010-6842-4ce2-9756-dd365230904f"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""WASD"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""00c6afde-79c9-4728-bd9b-e2005bdf2542"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player"",
-                    ""action"": ""WASD"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""a98ef521-7157-4bd3-a57e-cb312c787297"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player"",
-                    ""action"": ""WASD"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""bb8927d0-20f0-46c7-97fb-697481fa4fc2"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player"",
-                    ""action"": ""WASD"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""09809c51-423a-48e5-b375-dfecca886bbe"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player"",
-                    ""action"": ""WASD"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""2D Vector"",
+                    ""name"": ""Arrow Keys"",
                     ""id"": ""7209eacc-c02c-458c-aa1d-973c6eceb490"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Arrow Keys"",
+                    ""action"": ""Movement"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -120,7 +56,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Arrow Keys"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -131,7 +67,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Arrow Keys"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -142,7 +78,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Arrow Keys"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -153,7 +89,62 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Arrow Keys"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""51f6c5e0-26a7-42f0-a5f5-bf1d3fbacf74"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""09809c51-423a-48e5-b375-dfecca886bbe"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""bb8927d0-20f0-46c7-97fb-697481fa4fc2"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""a98ef521-7157-4bd3-a57e-cb312c787297"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""00c6afde-79c9-4728-bd9b-e2005bdf2542"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -162,10 +153,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Top-Down Movement
-        m_TopDownMovement = asset.FindActionMap("Top-Down Movement", throwIfNotFound: true);
-        m_TopDownMovement_WASD = m_TopDownMovement.FindAction("WASD", throwIfNotFound: true);
-        m_TopDownMovement_ArrowKeys = m_TopDownMovement.FindAction("Arrow Keys", throwIfNotFound: true);
+        // Player
+        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
+        m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -224,62 +214,53 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Top-Down Movement
-    private readonly InputActionMap m_TopDownMovement;
-    private List<ITopDownMovementActions> m_TopDownMovementActionsCallbackInterfaces = new List<ITopDownMovementActions>();
-    private readonly InputAction m_TopDownMovement_WASD;
-    private readonly InputAction m_TopDownMovement_ArrowKeys;
-    public struct TopDownMovementActions
+    // Player
+    private readonly InputActionMap m_Player;
+    private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
+    private readonly InputAction m_Player_Movement;
+    public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
-        public TopDownMovementActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @WASD => m_Wrapper.m_TopDownMovement_WASD;
-        public InputAction @ArrowKeys => m_Wrapper.m_TopDownMovement_ArrowKeys;
-        public InputActionMap Get() { return m_Wrapper.m_TopDownMovement; }
+        public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(TopDownMovementActions set) { return set.Get(); }
-        public void AddCallbacks(ITopDownMovementActions instance)
+        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerActions instance)
         {
-            if (instance == null || m_Wrapper.m_TopDownMovementActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_TopDownMovementActionsCallbackInterfaces.Add(instance);
-            @WASD.started += instance.OnWASD;
-            @WASD.performed += instance.OnWASD;
-            @WASD.canceled += instance.OnWASD;
-            @ArrowKeys.started += instance.OnArrowKeys;
-            @ArrowKeys.performed += instance.OnArrowKeys;
-            @ArrowKeys.canceled += instance.OnArrowKeys;
+            if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
+            @Movement.started += instance.OnMovement;
+            @Movement.performed += instance.OnMovement;
+            @Movement.canceled += instance.OnMovement;
         }
 
-        private void UnregisterCallbacks(ITopDownMovementActions instance)
+        private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @WASD.started -= instance.OnWASD;
-            @WASD.performed -= instance.OnWASD;
-            @WASD.canceled -= instance.OnWASD;
-            @ArrowKeys.started -= instance.OnArrowKeys;
-            @ArrowKeys.performed -= instance.OnArrowKeys;
-            @ArrowKeys.canceled -= instance.OnArrowKeys;
+            @Movement.started -= instance.OnMovement;
+            @Movement.performed -= instance.OnMovement;
+            @Movement.canceled -= instance.OnMovement;
         }
 
-        public void RemoveCallbacks(ITopDownMovementActions instance)
+        public void RemoveCallbacks(IPlayerActions instance)
         {
-            if (m_Wrapper.m_TopDownMovementActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PlayerActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(ITopDownMovementActions instance)
+        public void SetCallbacks(IPlayerActions instance)
         {
-            foreach (var item in m_Wrapper.m_TopDownMovementActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PlayerActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_TopDownMovementActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PlayerActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public TopDownMovementActions @TopDownMovement => new TopDownMovementActions(this);
-    public interface ITopDownMovementActions
+    public PlayerActions @Player => new PlayerActions(this);
+    public interface IPlayerActions
     {
-        void OnWASD(InputAction.CallbackContext context);
-        void OnArrowKeys(InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
     }
 }
