@@ -10,9 +10,6 @@ public class InputManager : MonoBehaviour
     
     public bool interactKeyPressed;
     
-    
-    
-    
     void Start()
     {
         keyboard = Keyboard.current;
