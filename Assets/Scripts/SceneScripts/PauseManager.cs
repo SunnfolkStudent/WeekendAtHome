@@ -23,6 +23,7 @@ public class PauseManager : MonoBehaviour
 
     public void SetPauseSceneIsActiveToInactive()
     {
+        Time.timeScale = 1f;
         pauseSceneIsActive = false;
         return;
     }
@@ -33,6 +34,7 @@ public class PauseManager : MonoBehaviour
         {
             if (!pauseSceneIsActive)
             {
+                Time.timeScale = 0f;
                 SceneManager.LoadScene("PauseOverlayScene", LoadSceneMode.Additive);
                 pauseSceneIsActive = true;
             }
