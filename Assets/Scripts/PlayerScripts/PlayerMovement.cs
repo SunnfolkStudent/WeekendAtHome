@@ -26,5 +26,6 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         Movement = _controls.Player.Movement.ReadValue<Vector2>();
+        
     }
 }
