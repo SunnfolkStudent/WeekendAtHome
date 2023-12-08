@@ -21,6 +21,12 @@ public class LevelLoader : MonoBehaviour
         return;
     }
 
+    public void loadSceneByName(string sceneName)
+    {
+        StartCoroutine(LoadLevel(SceneManager.GetSceneByName(sceneName).buildIndex + 1));
+        return;
+    }
+    
     IEnumerator LoadLevel(int levelIndex)
     {
         transition.SetTrigger("StartFade");
