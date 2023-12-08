@@ -133,8 +133,8 @@
             "id": "b77ac212-76ea-42f5-a634-3bcfd2da6c62",
             "actions": [
                 {
-                    "name": "New action",
-                    "type": "Value",
+                    "name": "OpenMenu",
+                    "type": "Button",
                     "id": "5fe8bb45-1930-44a2-83a4-a5dc58a03479",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -150,7 +150,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "OpenMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
