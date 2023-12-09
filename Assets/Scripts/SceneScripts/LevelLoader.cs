@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,14 @@ public class LevelLoader : MonoBehaviour
 
     public Animator transition;
 
+    public bool noFadeOut;
+
     public float transitionTime = 1;
-    // Update is called once per frame
-    void Update()
+
+    public void Start()
     {
-        
+        if (noFadeOut)
+            transition.Play("Crossfade_Idle");
     }
 
     public void loadNextLevel()

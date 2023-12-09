@@ -1123,6 +1123,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1437222097}
     m_Modifications:
     - target: {fileID: 5731248728417759576, guid: 7e8c756d4350ca24fbc6a6226cedcaed, type: 3}
+      propertyPath: noFadeOut
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731248728417759576, guid: 7e8c756d4350ca24fbc6a6226cedcaed, type: 3}
       propertyPath: transitionTime
       value: 1.3
       objectReference: {fileID: 0}
