@@ -177,6 +177,34 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""AnyButton"",
+            ""id"": ""58a76a56-71fb-42be-82e3-5d7b71a5915f"",
+            ""actions"": [
+                {
+                    ""name"": ""AnyKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""1e65ee15-14b2-4047-afd0-c4bef532eb3e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""8596de3e-a9c8-4fac-92ad-47f4513f9bb7"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AnyKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -187,6 +215,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // Pause
         m_Pause = asset.FindActionMap("Pause", throwIfNotFound: true);
         m_Pause_OpenMenu = m_Pause.FindAction("OpenMenu", throwIfNotFound: true);
+        // AnyButton
+        m_AnyButton = asset.FindActionMap("AnyButton", throwIfNotFound: true);
+        m_AnyButton_AnyKey = m_AnyButton.FindAction("AnyKey", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -336,6 +367,52 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public PauseActions @Pause => new PauseActions(this);
+
+    // AnyButton
+    private readonly InputActionMap m_AnyButton;
+    private List<IAnyButtonActions> m_AnyButtonActionsCallbackInterfaces = new List<IAnyButtonActions>();
+    private readonly InputAction m_AnyButton_AnyKey;
+    public struct AnyButtonActions
+    {
+        private @PlayerControls m_Wrapper;
+        public AnyButtonActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @AnyKey => m_Wrapper.m_AnyButton_AnyKey;
+        public InputActionMap Get() { return m_Wrapper.m_AnyButton; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(AnyButtonActions set) { return set.Get(); }
+        public void AddCallbacks(IAnyButtonActions instance)
+        {
+            if (instance == null || m_Wrapper.m_AnyButtonActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_AnyButtonActionsCallbackInterfaces.Add(instance);
+            @AnyKey.started += instance.OnAnyKey;
+            @AnyKey.performed += instance.OnAnyKey;
+            @AnyKey.canceled += instance.OnAnyKey;
+        }
+
+        private void UnregisterCallbacks(IAnyButtonActions instance)
+        {
+            @AnyKey.started -= instance.OnAnyKey;
+            @AnyKey.performed -= instance.OnAnyKey;
+            @AnyKey.canceled -= instance.OnAnyKey;
+        }
+
+        public void RemoveCallbacks(IAnyButtonActions instance)
+        {
+            if (m_Wrapper.m_AnyButtonActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IAnyButtonActions instance)
+        {
+            foreach (var item in m_Wrapper.m_AnyButtonActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_AnyButtonActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public AnyButtonActions @AnyButton => new AnyButtonActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -343,5 +420,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public interface IPauseActions
     {
         void OnOpenMenu(InputAction.CallbackContext context);
+    }
+    public interface IAnyButtonActions
+    {
+        void OnAnyKey(InputAction.CallbackContext context);
     }
 }

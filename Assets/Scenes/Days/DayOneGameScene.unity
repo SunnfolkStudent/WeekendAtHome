@@ -135,6 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 141462169}
   - component: {fileID: 141462170}
+  - component: {fileID: 141462171}
   m_Layer: 0
   m_Name: Camera Confiner
   m_TagString: Untagged
@@ -208,6 +209,18 @@ PolygonCollider2D:
       - {x: -8.419125, y: -7.1101966}
       - {x: 6.6217113, y: -7.0897293}
   m_UseDelaunayMesh: 0
+--- !u!114 &141462171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141462168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5fa329c2e87024428df414cdc5aa6ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &253540902
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6bce0b079dbd8240a27e45bfb556792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveSpeed: 2
 --- !u!1 &640812117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,7 +1652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1508026465
 Transform:
   m_ObjectHideFlags: 0
