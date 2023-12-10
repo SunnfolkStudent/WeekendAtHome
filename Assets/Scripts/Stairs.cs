@@ -10,7 +10,7 @@ public class Stairs : MonoBehaviour
 
     private GameObject[] bottomFloor, topFloor;
     
-    // Start is called before the first frame update
+
     void Start()
     {
         currentFloor = "BottomFloor";
@@ -20,12 +20,6 @@ public class Stairs : MonoBehaviour
         
         foreach(GameObject topFloorGameObject in topFloor)
             topFloorGameObject.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
