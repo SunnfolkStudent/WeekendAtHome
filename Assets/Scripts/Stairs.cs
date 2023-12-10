@@ -8,17 +8,18 @@ public class Stairs : MonoBehaviour
 
     private String currentFloor;
 
-    private GameObject bottomFloor, topFloor;
+    private GameObject[] bottomFloor, topFloor;
     
     // Start is called before the first frame update
     void Start()
     {
         currentFloor = "BottomFloor";
         
-        bottomFloor = GameObject.FindGameObjectWithTag("BottomFloor");
-        topFloor = GameObject.FindGameObjectWithTag("TopFloor");
+        bottomFloor = GameObject.FindGameObjectsWithTag("BottomFloor");
+        topFloor = GameObject.FindGameObjectsWithTag("TopFloor");
         
-        topFloor.SetActive(false);
+        foreach(GameObject topFloorGameObject in topFloor)
+            topFloorGameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,15 +32,21 @@ public class Stairs : MonoBehaviour
     {
         if (currentFloor.Equals("BottomFloor"))
         {
-            bottomFloor.SetActive(false);
-            topFloor.SetActive(true);
+            foreach(GameObject bottomFloorGameObject in bottomFloor)
+                bottomFloorGameObject.SetActive(false);
+            
+            foreach(GameObject topFloorGameObject in topFloor)
+                topFloorGameObject.SetActive(true);
             
             currentFloor = "TopFloor";
         }
         else
         {
-            topFloor.SetActive(false);
-            bottomFloor.SetActive(true);
+            foreach(GameObject bottomFloorGameObject in bottomFloor)
+                bottomFloorGameObject.SetActive(true);
+            
+            foreach(GameObject topFloorGameObject in topFloor)
+                topFloorGameObject.SetActive(false);
             
             currentFloor = "BottomFloor";
         }
