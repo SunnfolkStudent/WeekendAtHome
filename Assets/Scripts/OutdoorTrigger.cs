@@ -15,6 +15,9 @@ public class OutdoorTrigger : MonoBehaviour
 
     void Start()
     {
+        // Fetch all of the objects with the Outdoor and OutdoorToDespawn tags and store them in a list
+        // and hide all of the outdoor objects
+        
         insideOrOutside = "Inside";
         
         outdoorToDespawn = GameObject.FindGameObjectsWithTag("Outdoor to Despawn");
@@ -27,6 +30,9 @@ public class OutdoorTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         
+        // Ran when the player enters the outdoor trigger
+        // Checks if the player is currently inside or outside
+        // Then it activates all of the objects corresponding to where the player is + hiding objects that need to be hidden
         
         if (insideOrOutside.Equals("Inside"))
         {
