@@ -6,19 +6,23 @@ using UnityEngine;
 public class StairsTrigger : MonoBehaviour
 {
 
-    private String currentFloor;
+    private static String currentFloor;
 
     public GameObject[] bottomFloor, topFloor;
-    
 
+    private static int num;
+    
     void Start()
     {
         currentFloor = "BottomFloor";
         
         bottomFloor = GameObject.FindGameObjectsWithTag("BottomFloor");
         topFloor = GameObject.FindGameObjectsWithTag("TopFloor");
+
+        num++;
         
-        foreach(GameObject topFloorGameObject in topFloor)
+        if (num == 2)
+            foreach(GameObject topFloorGameObject in topFloor)
                 topFloorGameObject.SetActive(false);
     }
 
@@ -34,19 +38,20 @@ public class StairsTrigger : MonoBehaviour
                 topFloorGameObject.SetActive(true);
             
             currentFloor = "TopFloor";
-            //this.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
         }
         else
         {
-            foreach(GameObject bottomFloorGameObject in bottomFloor)
-                bottomFloorGameObject.SetActive(true);
             
             foreach(GameObject topFloorGameObject in topFloor)
                 if (!topFloorGameObject.Equals(this.gameObject))
                     topFloorGameObject.SetActive(false);
             
+            foreach(GameObject bottomFloorGameObject in bottomFloor)
+                bottomFloorGameObject.SetActive(true);
+            
             currentFloor = "BottomFloor";
-            this.gameObject.SetActive(true);
+            this.gameObject.SetActive(false);
         }
 
         return;

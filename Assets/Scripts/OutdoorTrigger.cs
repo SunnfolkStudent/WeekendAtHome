@@ -11,8 +11,7 @@ public class OutdoorTrigger : MonoBehaviour
     private String insideOrOutside;
     
     private GameObject[] outdoorToDespawn, outdoor;
-
-    public static int num;
+    
 
     void Start()
     {
@@ -20,17 +19,15 @@ public class OutdoorTrigger : MonoBehaviour
         
         outdoorToDespawn = GameObject.FindGameObjectsWithTag("Outdoor to Despawn");
         outdoor = GameObject.FindGameObjectsWithTag("Outdoors");
-
-        num++;
-        Debug.Log(num);
         
-        if (num == 3)
-            foreach(GameObject outdoorObjects in outdoor)
-                outdoorObjects.SetActive(false);
+        foreach(GameObject outdoorObjects in outdoor)
+            outdoorObjects.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
+        
         if (insideOrOutside.Equals("Inside"))
         {
             bottomFloor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.38f);
