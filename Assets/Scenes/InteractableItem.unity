@@ -295,7 +295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &80767020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,12 +635,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemScrub: []
-  itemName: {fileID: 0}
-  itemText: {fileID: 0}
-  itemImage: {fileID: 0}
+  itemName: {fileID: 1766555584}
+  itemText: {fileID: 30708643}
+  itemImage: {fileID: 1063971861}
   audioPlayer: {fileID: 0}
   timeline: {fileID: 1035590260}
-  current: 0
 --- !u!1 &814968377
 GameObject:
   m_ObjectHideFlags: 0

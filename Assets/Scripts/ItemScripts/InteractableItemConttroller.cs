@@ -14,21 +14,21 @@ public class InteractableItemConttroller : MonoBehaviour
     public AudioSource audioPlayer;
     public PlayableDirector timeline;
     //Should Get From Another Script
-    public int current;
 
     private void Start()
     {
         audioPlayer = GetComponent<AudioSource>();
-        itemName.text = itemScrub[current].itemName;
-        itemText.text = itemScrub[current].itemText;
-        itemImage.sprite = itemScrub[current].itemImage;
-        audioPlayer.PlayOneShot(itemScrub[current].itemAudio);
+        //itemName.text = itemScrub[ItemObjectScript.currentObjectInt].itemName;
+        itemName.text = ItemObjectScript.currentObjectInt.ToString();
+        itemText.text = itemScrub[ItemObjectScript.currentObjectInt].itemText;
+        itemImage.sprite = itemScrub[ItemObjectScript.currentObjectInt].itemImage;
+        audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.currentObjectInt].itemAudio);
     }
 
     public void OnClickYes()
     {
         timeline.Play();
-        audioPlayer.PlayOneShot(itemScrub[current].cutSceneAudio);
+        audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.currentObjectInt].cutSceneAudio);
     }
 
     public void OnClickNo()

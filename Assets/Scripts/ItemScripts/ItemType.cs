@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ItemType : ScriptableObject
 {
-    public bool isInteractable;
     public string itemName;
     public string itemText;
     public Sprite itemImage;

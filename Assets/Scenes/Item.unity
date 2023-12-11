@@ -453,7 +453,6 @@ MonoBehaviour:
   itemText: {fileID: 2042354092}
   itemImage: {fileID: 1702025507}
   audioPlayer: {fileID: 0}
-  current: 0
 --- !u!1 &993726762
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,7 +539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1637323562
 AudioListener:
   m_ObjectHideFlags: 0
