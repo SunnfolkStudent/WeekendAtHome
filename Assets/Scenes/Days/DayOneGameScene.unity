@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 253540910}
   - component: {fileID: 253540909}
   - component: {fileID: 253540908}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BottomFloorCollisionTilemap
   m_TagString: BottomFloor
   m_Icon: {fileID: 0}
@@ -4384,6 +4384,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4227610513980736266, guid: 7103b7437cbde774f982edcf6f03c66f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7598710503018809415, guid: 7103b7437cbde774f982edcf6f03c66f, type: 3}
       propertyPath: moveSpeed
       value: 2
@@ -5253,7 +5257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1073678053
 SpriteRenderer:
   m_ObjectHideFlags: 0
