@@ -8,7 +8,7 @@ public class StairsTrigger : MonoBehaviour
 
     private String currentFloor;
 
-    private GameObject[] bottomFloor, topFloor;
+    public GameObject[] bottomFloor, topFloor;
     
 
     void Start()
@@ -19,7 +19,7 @@ public class StairsTrigger : MonoBehaviour
         topFloor = GameObject.FindGameObjectsWithTag("TopFloor");
         
         foreach(GameObject topFloorGameObject in topFloor)
-            topFloorGameObject.SetActive(false);
+                topFloorGameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -27,12 +27,14 @@ public class StairsTrigger : MonoBehaviour
         if (currentFloor.Equals("BottomFloor"))
         {
             foreach(GameObject bottomFloorGameObject in bottomFloor)
-                bottomFloorGameObject.SetActive(false);
+                if (!bottomFloorGameObject.Equals(this.gameObject))
+                    bottomFloorGameObject.SetActive(false);
             
             foreach(GameObject topFloorGameObject in topFloor)
                 topFloorGameObject.SetActive(true);
             
             currentFloor = "TopFloor";
+            //this.gameObject.SetActive(false);
         }
         else
         {
@@ -40,9 +42,11 @@ public class StairsTrigger : MonoBehaviour
                 bottomFloorGameObject.SetActive(true);
             
             foreach(GameObject topFloorGameObject in topFloor)
-                topFloorGameObject.SetActive(false);
+                if (!topFloorGameObject.Equals(this.gameObject))
+                    topFloorGameObject.SetActive(false);
             
             currentFloor = "BottomFloor";
+            this.gameObject.SetActive(true);
         }
 
         return;

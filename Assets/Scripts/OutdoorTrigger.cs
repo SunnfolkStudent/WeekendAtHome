@@ -11,7 +11,8 @@ public class OutdoorTrigger : MonoBehaviour
     private String insideOrOutside;
     
     private GameObject[] outdoorToDespawn, outdoor;
-    
+
+    public static int num;
 
     void Start()
     {
@@ -19,9 +20,13 @@ public class OutdoorTrigger : MonoBehaviour
         
         outdoorToDespawn = GameObject.FindGameObjectsWithTag("Outdoor to Despawn");
         outdoor = GameObject.FindGameObjectsWithTag("Outdoors");
+
+        num++;
+        Debug.Log(num);
         
-        foreach(GameObject outdoorObjects in outdoor)
-            outdoorObjects.SetActive(false);
+        if (num == 3)
+            foreach(GameObject outdoorObjects in outdoor)
+                outdoorObjects.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
