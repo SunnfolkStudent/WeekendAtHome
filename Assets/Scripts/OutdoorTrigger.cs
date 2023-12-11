@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class OutdoorTrigger : MonoBehaviour
 {
-
+    // Declare Variables
     [SerializeField] private GameObject bottomFloor;
     
     private String insideOrOutside;

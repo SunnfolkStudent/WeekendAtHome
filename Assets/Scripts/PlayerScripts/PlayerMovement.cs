@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     private PlayerControls _controls;
 
+    // Initialize the player controls
     private void Awake() => _controls = new PlayerControls();
 
     private void OnEnable() => _controls.Enable();
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void Update()
     {
+        // Move the player
         transform.Translate(_controls.Player.Movement.ReadValue<Vector2>() * (moveSpeed * Time.deltaTime));
         // Movement = _controls.Player.Movement.ReadValue<Vector2>();
     }
