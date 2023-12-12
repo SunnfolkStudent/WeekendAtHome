@@ -17,10 +17,13 @@ public class CatAnimation : MonoBehaviour
     public AudioClip[] whatSoundToPlay;
     private int _randomGoal;
     private float _timeBetweenMeows = 0;
+
+    public AudioSource meows;
     
     private bool onTheMove = true;
     private void FixedUpdate()
     {
+        //Finds Which Direction The Cat is Generally Moving
         if (onTheMove)
         {
             if (aiPath.desiredVelocity.x >= 0.1)
@@ -42,6 +45,7 @@ public class CatAnimation : MonoBehaviour
                 Debug.Log("Moving Down");
             }
 
+            //If At Destination. Play Goal Function
             if (aiPath.reachedDestination)
             {
                 onTheMove = false;
@@ -49,21 +53,22 @@ public class CatAnimation : MonoBehaviour
                 OnGoalEnter();
             }
             
-            //Counter For Random Accasional Meows
+            //Counter For Random Occasional Meows
             if (_timeBetweenMeows > 0)
             {
                 _timeBetweenMeows -= Time.deltaTime;
             }
             else
             {
-                //Play Meow Sound
+                meows.Play();
                 Debug.Log("Meow");
-                _timeBetweenMeows = Random.Range(5, 60);
+                _timeBetweenMeows = Random.Range(5, 30);
             }
             
         }
     }
 
+    //Plays When At Goal, Sets A New Goal, Then Starts Coroutine
     private void OnGoalEnter()
     {
         _randomGoal = Random.Range(0, goalSpots.Length);
@@ -72,6 +77,7 @@ public class CatAnimation : MonoBehaviour
         StartCoroutine(WaitForNewGoal());
     }
 
+    //Waits For Seconds, Then Starts New Goal
     IEnumerator WaitForNewGoal()
     {
         yield return new WaitForSeconds(howLongToStay[_randomGoal]);
