@@ -18,8 +18,8 @@ public class InteractableItemConttroller : MonoBehaviour
     private void Start()
     {
         audioPlayer = GetComponent<AudioSource>();
-        //itemName.text = itemScrub[ItemObjectScript.currentObjectInt].itemName;
-        itemName.text = ItemObjectScript.currentObjectInt.ToString();
+        itemName.text = itemScrub[ItemObjectScript.currentObjectInt].itemName;
+        //itemName.text = ItemObjectScript.currentObjectInt.ToString();
         itemText.text = itemScrub[ItemObjectScript.currentObjectInt].itemText;
         itemImage.sprite = itemScrub[ItemObjectScript.currentObjectInt].itemImage;
         audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.currentObjectInt].itemAudio);
