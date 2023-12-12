@@ -162,7 +162,7 @@ namespace Pathfinding {
 			if (updateCheckDownload != null && updateCheckDownload.isDone) {
 				if (!string.IsNullOrEmpty(updateCheckDownload.error)) {
 					Debug.LogWarning("There was an error checking for updates to the A* Pathfinding Project\n" +
-						"The error might disappear if you switch build target from Webplayer to Standalone because of the webplayer security emulation\nError: " +
+						"The error might disappear if you switch build target from Webplayer to Standalone because of the Webplayer security emulation\nError: " +
 						updateCheckDownload.error);
 					updateCheckDownload = null;
 					return false;
@@ -189,7 +189,7 @@ namespace Pathfinding {
 		}
 
 		static void DownloadVersionInfo () {
-			var script = AstarPath.active != null ? AstarPath.active : GameObject.FindObjectOfType(typeof(AstarPath)) as AstarPath;
+			var script = AstarPath.active != null ? AstarPath.active : GameObject.FindAnyObjectByType(typeof(AstarPath)) as AstarPath;
 
 			if (script != null) {
 				script.ConfigureReferencesInternal();
@@ -198,7 +198,7 @@ namespace Pathfinding {
 				}
 			}
 
-			bool mecanim = GameObject.FindObjectOfType(typeof(Animator)) != null;
+			bool mecanim = GameObject.FindAnyObjectByType(typeof(Animator)) != null;
 			string query = updateURL+
 						   "?v="+AstarPath.Version+
 						   "&pro=0"+
