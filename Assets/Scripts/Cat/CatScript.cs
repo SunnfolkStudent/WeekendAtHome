@@ -17,6 +17,7 @@ public class CatAnimation : MonoBehaviour
     public AudioClip[] whatSoundToPlay;
     private int _randomGoal;
     private float _timeBetweenMeows = 0;
+    private bool _destinationReached;
 
     public AudioSource meows;
     
@@ -28,26 +29,30 @@ public class CatAnimation : MonoBehaviour
         {
             if (aiPath.desiredVelocity.x >= 0.1)
             {
-                Debug.Log("Moving Right");
+                //Debug.Log("Moving Right");
             }
         
             if (aiPath.desiredVelocity.x <= -0.1)
             {
-                Debug.Log("Moving Left");
+                //Debug.Log("Moving Left");
             }
             if (aiPath.desiredVelocity.y >= 0.1)
             {
-                Debug.Log("Moving Up");
+                //Debug.Log("Moving Up");
             }
         
             if (aiPath.desiredVelocity.y <= -0.1)
             {
-                Debug.Log("Moving Down");
+                //Debug.Log("Moving Down");
             }
 
             //If At Destination. Play Goal Function
-            if (aiPath.reachedDestination)
+            if (aiPath.reachedDestination && !_destinationReached)
             {
+                _destinationReached = true;
+                Debug.Log(_randomGoal);
+                meows.PlayOneShot(whatSoundToPlay[_randomGoal]);
+                //Play Animation
                 onTheMove = false;
                 Debug.Log("Reached Destination");
                 OnGoalEnter();
@@ -60,9 +65,9 @@ public class CatAnimation : MonoBehaviour
             }
             else
             {
-                meows.Play();
+                //meows.Play();
                 Debug.Log("Meow");
-                _timeBetweenMeows = Random.Range(5, 30);
+                _timeBetweenMeows = Random.Range(5, 20);
             }
             
         }
@@ -71,9 +76,6 @@ public class CatAnimation : MonoBehaviour
     //Plays When At Goal, Sets A New Goal, Then Starts Coroutine
     private void OnGoalEnter()
     {
-        _randomGoal = Random.Range(0, goalSpots.Length);
-        //Play Animation
-        //Play OneShot Sound
         StartCoroutine(WaitForNewGoal());
     }
 
@@ -84,9 +86,11 @@ public class CatAnimation : MonoBehaviour
         if (staysForRandom[_randomGoal])
         {
             Debug.Log("Random Time Added");
-            yield return new WaitForSeconds(Random.Range(5,30));
+            yield return new WaitForSeconds(Random.Range(1,15));
         }
-        goal.transform.position = goalSpots[Random.Range(0,goalSpots.Length)];
+        _randomGoal = Random.Range(0, goalSpots.Length);
+        goal.transform.position = goalSpots[_randomGoal];
         onTheMove = true;
+        _destinationReached = false;
     }
 }
