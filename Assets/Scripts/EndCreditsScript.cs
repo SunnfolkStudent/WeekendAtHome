@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class EndCreditsScript : MonoBehaviour
 {
+
+    public Camera mainCamera;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        mainCamera = GetComponent<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        mainCamera.orthographicSize += 0.3f * Time.deltaTime;
     }
 }
