@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EndCreditsLevelLoaderTimer : MonoBehaviour
 {
-    
+    //Declare variables
     private LevelLoader levelLoader;
 
     private bool timerDone = false;
@@ -20,15 +20,17 @@ public class EndCreditsLevelLoaderTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Check if the timer is done before loading the title scene
         if (timerDone)
             levelLoader.loadSceneByName("TitleScene");
     }
 
     IEnumerator timer()
     {
+        // set timerDone to true after 23 seconds
         while (true)
         {
-            yield return new WaitForSeconds(25);
+            yield return new WaitForSeconds(23);
             timerDone = true;
         }
     }
