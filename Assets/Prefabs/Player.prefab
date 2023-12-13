@@ -223,7 +223,6 @@ GameObject:
   - component: {fileID: 5777862381733213784}
   - component: {fileID: 2902720887657905688}
   - component: {fileID: 3948218849854958231}
-  - component: {fileID: 6859911269123303}
   m_Layer: 3
   m_Name: PlayerVisuals
   m_TagString: Untagged
@@ -320,17 +319,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6859911269123303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7327544092081864957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b9ca139756d23b468a8316db1371be6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  rb: {fileID: 5449740253909411392}
