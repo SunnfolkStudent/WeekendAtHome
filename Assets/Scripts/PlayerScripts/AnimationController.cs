@@ -8,10 +8,10 @@ public class AnimationController : MonoBehaviour
     public Rigidbody2D rb;
 
     // The below code t
-    public static readonly int WalkRight = Animator.StringToHash("Walk_Right");
-    public static readonly int WalkLeft = Animator.StringToHash("Walk_Left");
-    public static readonly int WalkUp = Animator.StringToHash("Walk_Up");
-    public static readonly int WalkDown = Animator.StringToHash("Walk_Down");
+    public static readonly int WalkRight = Animator.StringToHash("Player_Walk_Right_Normal");
+    public static readonly int WalkLeft = Animator.StringToHash("Player_Walk_Left_Normal");
+    public static readonly int WalkUp = Animator.StringToHash("Player_Walk_Up_Normal");
+    public static readonly int WalkDown = Animator.StringToHash("Player_Walk_Down_Normal");
 
     private void Start()
     {

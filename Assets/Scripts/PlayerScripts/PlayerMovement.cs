@@ -2,37 +2,39 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Configurable Parameters")]
     [SerializeField] private float moveSpeed = 2.5f;
 
-    private PlayerControls _controls;
+    public Animator anim;
 
-    // Initialize the player controls
-    private void Awake() => _controls = new PlayerControls();
-
-    private void OnEnable() => _controls.Enable();
-
-    private void OnDisable() => _controls.Disable();
+    [SerializeField] private Rigidbody2D rb;
     
-    // TODO: Update the Update() (general playerMovement), so that colliders on objects still work when framerate is below 60.  
+    private Vector2 _movement;
+    private static readonly int Horizontal = Animator.StringToHash("Horizontal");
+    private static readonly int Vertical = Animator.StringToHash("Vertical");
+    private static readonly int Speed = Animator.StringToHash("Speed");
+
     private void Update()
     {
+        _movement.x = Input.GetAxisRaw("Horizontal");
+        _movement.y = Input.GetAxisRaw("Vertical");
         // Move the player
-        transform.Translate(_controls.Player.Movement.ReadValue<Vector2>() * (moveSpeed * Time.deltaTime));
+        // transform.Translate(_controls.Player.Movement.ReadValue<Vector2>() * (moveSpeed * Time.deltaTime));
         // Movement = _controls.Player.Movement.ReadValue<Vector2>();
+        
+        anim.SetFloat(Horizontal, _movement.x);
+        anim.SetFloat(Vertical, _movement.y);
+        anim.SetFloat(Speed, _movement.sqrMagnitude);
     }
-    
-    // public Vector2 Movement { get; private set; }
-    
-    // The below commented code is the same as the above,
-    // but shows the processes behind-the-scenes.
 
-    /*{
-          get => movement;
-          private set => movement = value;
-      } */
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + _movement.normalized * (moveSpeed * Time.fixedDeltaTime));
+    }
 
 }
