@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class ItemObjectScript : MonoBehaviour
 {
     public static int currentObjectInt;
+    public bool isCustom;
+    public string customSceneToLoad;
     public int thisObjectInt;
     public bool isInteractable;
     public bool alreadyUsed;
@@ -31,6 +33,7 @@ public class ItemObjectScript : MonoBehaviour
     }
     
 
+    //If E is clicked when near, open the correct scene
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && _playerIsInTrigger)
@@ -38,7 +41,11 @@ public class ItemObjectScript : MonoBehaviour
             currentObjectInt = thisObjectInt;
             alreadyUsed = true;
             _playerIsInTrigger = false;
-            if (isInteractable)
+            if(isCustom)
+            {
+                SceneManager.LoadScene(customSceneToLoad,LoadSceneMode.Additive);
+            }
+            else if (isInteractable)
             {
                 SceneManager.LoadScene("InteractableItem",LoadSceneMode.Additive);
             }
