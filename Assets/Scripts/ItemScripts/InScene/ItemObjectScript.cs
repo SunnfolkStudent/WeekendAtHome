@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class ItemObjectScript : MonoBehaviour
 {
+    public static Vector2 currentObjectSize;
     public static int currentObjectInt;
     public bool isCustom;
     public string customSceneToLoad;
@@ -38,6 +39,7 @@ public class ItemObjectScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && _playerIsInTrigger)
         {
+            Time.timeScale = 0;
             currentObjectInt = thisObjectInt;
             alreadyUsed = true;
             _playerIsInTrigger = false;
