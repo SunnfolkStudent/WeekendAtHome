@@ -7,7 +7,7 @@ public class StairsTrigger : MonoBehaviour
 {
 
     // Declare variables
-    private static String currentFloor;
+    public static String currentFloor;
 
     public GameObject[] bottomFloor, topFloor;
 
