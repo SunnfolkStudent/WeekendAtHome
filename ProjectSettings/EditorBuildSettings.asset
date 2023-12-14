@@ -5,35 +5,38 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TitleScene.unity
     guid: 37df2bdc9fa79ca42bebd33109f94848
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Days/OLD - Day 1 Scene.unity
     guid: 5afa3de5a2d30284b9ca377779e0c67e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Days/DayTwoGameScene.unity
     guid: afc4af044cc1d9d4a8bfbe1f8cb64c87
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Days/DayThreeGameScene.unity
     guid: 63a22798769c760439a706530c7c425c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CreditsScene.unity
     guid: cce4f96777f11684bb52b6a63b956a5d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DialogueBoxScene.unity
     guid: 41debc54d757c264aaf9b050cc0f3e7e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PauseOverlayScene.unity
     guid: 2011fd9469347be40be1ca18ed8d3c40
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Item.unity
     guid: 038fd81c49927224d9fd0daded2512a3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/InteractableItem.unity
     guid: 10ed7429607910c4d853e5e9e614573a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CustomItemScenes/CatFood/CatFoodScene.unity
     guid: 2481647b6cfe7804abb79c185a79947b
+  - enabled: 1
+    path: Assets/Scenes/TestScenes/Magnus.unity
+    guid: 836c79079751d6842a14d21742d60ea7
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
