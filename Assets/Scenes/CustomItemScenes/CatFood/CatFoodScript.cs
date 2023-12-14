@@ -19,14 +19,18 @@ public class CatFoodScript : MonoBehaviour
     private void Start()
     {
         audioPlayer = GetComponent<AudioSource>();
-        itemName.text = itemScrub[ItemObjectScript.currentObjectInt].itemName;
-        //itemName.text = ItemObjectScript.currentObjectInt.ToString();
+        //aitemName.text = ItemObjectScript.currentObjectInt.ToString();
         audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.currentObjectInt].itemAudio);
 
         if (catFoodFull)
         {
-            itemText.text = itemScrub[ItemObjectScript.currentObjectInt].itemText;
-            itemImage.sprite = itemScrub[ItemObjectScript.currentObjectInt].itemImage;
+            itemText.text = itemScrub[1].itemText;
+            itemImage.sprite = itemScrub[1].itemImage;
+        }
+        else
+        {
+            itemImage.sprite = itemScrub[0].itemImage;
+            itemName.text = itemScrub[0].itemName;
         }
     }
 
