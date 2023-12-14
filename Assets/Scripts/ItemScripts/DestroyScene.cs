@@ -9,6 +9,7 @@ public class DestroyScene : MonoBehaviour
 {
     private void OnEnable()
     {
+        Time.timeScale = 1;
         Debug.Log("DeleteScene");
         SceneManager.UnloadSceneAsync("InteractableItem");
     }

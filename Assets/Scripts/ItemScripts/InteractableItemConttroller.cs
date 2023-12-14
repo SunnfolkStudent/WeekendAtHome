@@ -22,6 +22,7 @@ public class InteractableItemConttroller : MonoBehaviour
         //itemName.text = ItemObjectScript.currentObjectInt.ToString();
         itemText.text = itemScrub[ItemObjectScript.currentObjectInt].itemText;
         itemImage.sprite = itemScrub[ItemObjectScript.currentObjectInt].itemImage;
+        itemImage.transform.localScale = itemScrub[ItemObjectScript.currentObjectInt].itemSize;
         audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.currentObjectInt].itemAudio);
     }
 
@@ -33,6 +34,7 @@ public class InteractableItemConttroller : MonoBehaviour
 
     public void OnClickNo()
     {
+        Time.timeScale = 1;
         Debug.Log("DeleteScene");
         SceneManager.UnloadSceneAsync("InteractableItem");
     }
