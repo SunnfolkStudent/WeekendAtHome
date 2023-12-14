@@ -15,6 +15,8 @@ public class OutdoorTrigger : MonoBehaviour
     [SerializeField] private float transparencyValue, moveAmount;
 
     private float playerLightIntensity;
+
+    private GameObject player;
     
     void Start()
     {
@@ -25,8 +27,10 @@ public class OutdoorTrigger : MonoBehaviour
         
         outdoorToDespawn = GameObject.FindGameObjectsWithTag("Outdoor to Despawn");
         outdoor = GameObject.FindGameObjectsWithTag("Outdoors");
-
-        playerLightIntensity = GameObject.FindWithTag("Player").GetComponentInChildren<Light2D>().intensity;
+        
+        player = GameObject.FindWithTag("Player");
+        
+        playerLightIntensity = player.GetComponentInChildren<Light2D>().intensity;
         
         foreach(GameObject outdoorObjects in outdoor)
             outdoorObjects.SetActive(false);
@@ -57,7 +61,8 @@ public class OutdoorTrigger : MonoBehaviour
 
             transform.position = new Vector3(transform.position.x, transform.position.y - moveAmount);
             
-            GameObject.FindWithTag("Player").GetComponentInChildren<Light2D>().intensity = 0;
+            player.GetComponentInChildren<Light2D>().intensity = 0;
+            player.GetComponentInChildren<SpriteRenderer>().sortingOrder = -1;
             insideOrOutside = "Outside";
         }
         else
@@ -75,7 +80,8 @@ public class OutdoorTrigger : MonoBehaviour
             
             transform.position = new Vector3(transform.position.x, transform.position.y + moveAmount);
             
-            GameObject.FindWithTag("Player").GetComponentInChildren<Light2D>().intensity = playerLightIntensity;
+            player.GetComponentInChildren<Light2D>().intensity = playerLightIntensity;
+            player.GetComponentInChildren<SpriteRenderer>().sortingOrder = 50;
             insideOrOutside = "Inside";
         }
 
