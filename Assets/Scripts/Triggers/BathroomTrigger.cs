@@ -24,6 +24,7 @@ public class BathroomTrigger : MonoBehaviour
         
     }
 
+    // Sets the bathroom to inactive while you are outside the bathroom and on the top floor
     void Update()
     {
         if (StairsTrigger.currentFloor.Equals("TopFloor") && insideOrOutsideBathroom.Equals("Outside"))
