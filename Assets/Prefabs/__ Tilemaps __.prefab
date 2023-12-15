@@ -3172,7 +3172,7 @@ GameObject:
   - component: {fileID: 2920892832235530297}
   - component: {fileID: 6317362515547584283}
   - component: {fileID: 5816896928489086241}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: TopFloorCollisionTilemap
   m_TagString: TopFloor
   m_Icon: {fileID: 0}
@@ -9258,7 +9258,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.044025064, g: 1, b: 0.06433635, a: 1}
+  m_Color: {r: 0.044025064, g: 1, b: 0.06433635, a: 0}
   m_Origin: {x: -45, y: -33, z: 0}
   m_Size: {x: 91, y: 67, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -17019,7 +17019,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.022523636, g: 0.8679245, b: 0, a: 1}
+  m_Color: {r: 0.022523636, g: 0.8679245, b: 0, a: 0}
   m_Origin: {x: -45, y: -33, z: 0}
   m_Size: {x: 92, y: 62, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
