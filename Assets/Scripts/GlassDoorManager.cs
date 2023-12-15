@@ -9,10 +9,14 @@ public class GlassDoorManager : MonoBehaviour
     public bool isOpen;
 
     public bool isPlaying;
+
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip doorClosing, doorOpening;
     
     void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         isOpen = false;
     }
 
@@ -20,9 +24,17 @@ public class GlassDoorManager : MonoBehaviour
     {
         if (isPlaying)
             return;
-        
-        if (!isOpen) { animator.Play("GlassDoorSliding"); }
-        else { animator.Play("GlassDoorSlidingClosed"); }
+
+        if (!isOpen)
+        {
+            animator.Play("GlassDoorSliding");
+            audioSource.PlayOneShot(doorOpening);
+        }
+        else
+        {
+            animator.Play("GlassDoorSlidingClosed");
+            audioSource.PlayOneShot(doorClosing);
+        }
 
         isOpen = !isOpen;
         
