@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class ItemObjectScript : MonoBehaviour
 {
+    //Variables for what object should load
     public static Vector2 currentObjectSize;
     public static int currentObjectInt;
     public bool isCustom;
@@ -17,6 +18,8 @@ public class ItemObjectScript : MonoBehaviour
 
     private bool _playerIsInTrigger;
 
+    
+    //If in trigger load object.
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !alreadyUsed)
@@ -39,7 +42,6 @@ public class ItemObjectScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && _playerIsInTrigger)
         {
-            Time.timeScale = 0;
             currentObjectInt = thisObjectInt;
             alreadyUsed = true;
             _playerIsInTrigger = false;

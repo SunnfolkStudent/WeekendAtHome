@@ -13,8 +13,8 @@ public class InteractableItemConttroller : MonoBehaviour
     public Image itemImage;
     public AudioSource audioPlayer;
     public PlayableDirector timeline;
-    //Should Get From Another Script
 
+    //Get Components
     private void Start()
     {
         audioPlayer = GetComponent<AudioSource>();
@@ -26,15 +26,16 @@ public class InteractableItemConttroller : MonoBehaviour
         audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.currentObjectInt].itemAudio);
     }
 
+    //When Yes is Clicked, Play Cutscene
     public void OnClickYes()
     {
         timeline.Play();
         audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.currentObjectInt].cutSceneAudio);
     }
 
+    //On No Leave Scene
     public void OnClickNo()
     {
-        Time.timeScale = 1;
         Debug.Log("DeleteScene");
         SceneManager.UnloadSceneAsync("InteractableItem");
     }
