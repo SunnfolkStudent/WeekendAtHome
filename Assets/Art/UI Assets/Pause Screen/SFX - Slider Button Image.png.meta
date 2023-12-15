@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d571517ea3e890e43b5d1396f1135fa4
+guid: d8559663fdd78484d9df3cecccddf6b9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4106372724163979995
-    second: Glass Door_0
+      213: -9080255073863902015
+    second: SFX - Slider Button Image_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 150
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Glass Door_0
+      name: SFX - Slider Button Image_0
       rect:
         serializedVersion: 2
-        x: 418
-        y: 87
-        width: 244
-        height: 439
+        x: 0
+        y: 0
+        width: 86
+        height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bdaa5237c34ccf830800000000000000
-      internalID: 4106372724163979995
+      spriteID: 1cc576c9e147cf180800000000000000
+      internalID: -9080255073863902015
       vertices: []
       indices: 
       edges: []
