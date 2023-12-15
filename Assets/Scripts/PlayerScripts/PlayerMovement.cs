@@ -40,9 +40,13 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("Vertical", _movement.y);
         }
         
-        if (_movement.x != 0)
+        if (_movement.x != 0 && _movement.y == 0)
         {
            anim.transform.localScale = new Vector3(-_movement.x, 1f, 1f);
+        }
+        else
+        {
+            anim.transform.localScale = new Vector3(1f, 1f, 1f);
         }
      
     }
