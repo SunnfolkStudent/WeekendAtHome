@@ -12,7 +12,7 @@ public class OutdoorTrigger : MonoBehaviour
     private String insideOrOutside;
     private GameObject[] outdoorToDespawn, outdoor;
 
-    [SerializeField] private float transparencyValue, moveAmount;
+    [SerializeField] private float transparencyValue, moveAmount, playerOutdoorLightValue;
 
     private float playerLightIntensity;
 
@@ -61,7 +61,7 @@ public class OutdoorTrigger : MonoBehaviour
 
             transform.position = new Vector3(transform.position.x, transform.position.y - moveAmount);
             
-            player.GetComponentInChildren<Light2D>().intensity = 0;
+            player.GetComponentInChildren<Light2D>().intensity = playerOutdoorLightValue;
             player.GetComponentInChildren<SpriteRenderer>().sortingOrder = -1;
             insideOrOutside = "Outside";
         }
