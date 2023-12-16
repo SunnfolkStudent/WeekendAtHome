@@ -267,7 +267,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.01750803, y: 0.017508507}
+  m_Offset: {x: 0.0011850595, y: 0.061233997}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -277,7 +277,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.78, y: 0.47475147}
+  m_Size: {x: 0.279423, y: 0.29177165}
   m_EdgeRadius: 0
 --- !u!1 &2168989407851218850
 GameObject:
@@ -538,6 +538,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4057878375574179297}
   - component: {fileID: 3972216838289667545}
+  - component: {fileID: 6377923348263028809}
   - component: {fileID: 767967587495076674}
   - component: {fileID: 1804135296446572343}
   m_Layer: 0
@@ -556,7 +557,7 @@ Transform:
   m_GameObject: {fileID: 8716812284766928673}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.012, z: -0.038021266}
+  m_LocalPosition: {x: 0, y: -0.091, z: -0.038021266}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -602,18 +603,40 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2184422361294405358, guid: 0a9e20eb415dc38469d79e5a025929bf, type: 3}
+  m_SortingOrder: 50
+  m_Sprite: {fileID: -8597107059991917968, guid: b3011ed24cc0e764b95d3529903af50c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.83, y: 1.12}
+  m_Size: {x: 15, y: 8.4375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
+--- !u!95 &6377923348263028809
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8716812284766928673}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 0f57e8c9a01cb3d4baa1b3008fd9ae08, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &767967587495076674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,7 +650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiPath: {fileID: 1244830607977128666}
-  animator: {fileID: 0}
+  anim: {fileID: 6377923348263028809}
   goal: {fileID: 1071420533694517889}
   goalSpots:
   - {x: -10, y: 2}

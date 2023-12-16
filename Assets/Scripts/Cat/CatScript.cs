@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class CatAnimation : MonoBehaviour
 {
     public AIPath aiPath;
-    public Animator animator;
+    [FormerlySerializedAs("animator")] public Animator anim;
     public GameObject goal;
     public Vector2[] goalSpots;
     public bool[] staysForRandom;
@@ -27,23 +28,15 @@ public class CatAnimation : MonoBehaviour
         //Finds Which Direction The Cat is Generally Moving
         if (onTheMove)
         {
-            if (aiPath.desiredVelocity.x >= 0.1)
+            if (aiPath.desiredVelocity == Vector3.zero)
             {
-                //Debug.Log("Moving Right");
+                anim.Play("Player_Idle_Normal");
             }
-        
-            if (aiPath.desiredVelocity.x <= -0.1)
+            else
             {
-                //Debug.Log("Moving Left");
-            }
-            if (aiPath.desiredVelocity.y >= 0.1)
-            {
-                //Debug.Log("Moving Up");
-            }
-        
-            if (aiPath.desiredVelocity.y <= -0.1)
-            {
-                //Debug.Log("Moving Down");
+                anim.Play("Movement");
+                anim.SetFloat("Horizontal", aiPath.desiredVelocity.x);
+                anim.SetFloat("Vertical", aiPath.desiredVelocity.y);
             }
 
             //If At Destination. Play Goal Function
