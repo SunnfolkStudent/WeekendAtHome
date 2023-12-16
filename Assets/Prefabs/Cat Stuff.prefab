@@ -370,11 +370,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0e24755f39824b8cc63ccf7086793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCustom: 1
-  customSceneToLoad: Item
   thisObjectInt: 5
   isInteractable: 1
+  canNotInteractMultiple: 0
+  autoInteract: 0
   alreadyUsed: 0
+  whatHappensOnYes: 0
 --- !u!1 &3695447187006227299
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +544,7 @@ GameObject:
   - component: {fileID: 1804135296446572343}
   m_Layer: 0
   m_Name: CatPNG
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
