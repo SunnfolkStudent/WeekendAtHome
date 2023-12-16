@@ -38,6 +38,15 @@ public class CatAnimation : MonoBehaviour
                 anim.SetFloat("Horizontal", aiPath.desiredVelocity.x);
                 anim.SetFloat("Vertical", aiPath.desiredVelocity.y);
             }
+            
+            if (aiPath.desiredVelocity.x != 0 && aiPath.desiredVelocity.y == 0)
+            {
+                anim.transform.localScale = new Vector3(-aiPath.desiredVelocity.x, 1f, 1f);
+            }
+            else
+            {
+                anim.transform.localScale = new Vector3(1f, 1f, 1f);
+            }
 
             //If At Destination. Play Goal Function
             if (aiPath.reachedDestination && !_destinationReached)
