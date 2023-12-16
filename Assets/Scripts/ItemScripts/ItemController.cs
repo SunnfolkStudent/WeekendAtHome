@@ -19,11 +19,11 @@ public class ItemController : MonoBehaviour
     //Sets Scrub To Scene
     private void Start()
     {
-        itemName.text = itemScrub[ItemObjectScript.currentObjectInt].itemName;
-        itemText.text = itemScrub[ItemObjectScript.currentObjectInt].itemText;
-        itemImage.sprite = itemScrub[ItemObjectScript.currentObjectInt].itemImage;
-        itemImage.transform.localScale = itemScrub[ItemObjectScript.currentObjectInt].itemSize;
-        audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.currentObjectInt].itemAudio);
+        itemName.text = itemScrub[ItemObjectScript.CurrentObjectInt].itemName;
+        itemText.text = itemScrub[ItemObjectScript.CurrentObjectInt].itemText;
+        itemImage.sprite = itemScrub[ItemObjectScript.CurrentObjectInt].itemImage;
+        itemImage.transform.localScale = itemScrub[ItemObjectScript.CurrentObjectInt].itemSize;
+        audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.CurrentObjectInt].itemAudio);
 
     }
 
@@ -32,6 +32,7 @@ public class ItemController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            ItemObjectScript.InItemCutscene = false;
             SceneManager.UnloadSceneAsync("Item");
         }
     }

@@ -8,21 +8,33 @@ using UnityEngine.SceneManagement;
 public class ItemObjectScript : MonoBehaviour
 {
     //Variables for what object should load
-    public static Vector2 currentObjectSize;
-    public static int currentObjectInt;
-    public bool isCustom;
-    public string customSceneToLoad;
+    [Header("What Scrub It Gets From The Scene")]
     public int thisObjectInt;
+    
+    [Header("Item Properties")]
     public bool isInteractable;
+    public bool canNotInteractMultiple;
+    public bool autoInteract;
+    
+    [Header("Disables Item")]
     public bool alreadyUsed;
-
+    
+    public static Vector2 currentObjectSize;
+    public static int CurrentObjectInt;
+    public static bool InItemCutscene;
+    public static int CurrentYesAnswer;
+    
     private bool _playerIsInTrigger;
+
+    [Header("What Happens On Yes:")]
+    [Header("0Nothing,1FillCatfood,2CloseCatDoor,3Sleep")]
+    public int whatHappensOnYes;
 
     
     //If in trigger load object.
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !alreadyUsed)
+        if (other.CompareTag("Player"))
         {
             _playerIsInTrigger = true;
         }
@@ -30,7 +42,7 @@ public class ItemObjectScript : MonoBehaviour
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !alreadyUsed)
+        if (other.CompareTag("Player"))
         {
             _playerIsInTrigger = false;
         }
@@ -40,21 +52,24 @@ public class ItemObjectScript : MonoBehaviour
     //If E is clicked when near, open the correct scene
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && _playerIsInTrigger)
+        if ((Input.GetKeyDown(KeyCode.E) && _playerIsInTrigger && !InItemCutscene && (!alreadyUsed || !canNotInteractMultiple)) || (autoInteract && _playerIsInTrigger && !InItemCutscene && (!alreadyUsed || !canNotInteractMultiple)))
         {
-            currentObjectInt = thisObjectInt;
-            alreadyUsed = true;
-            _playerIsInTrigger = false;
-            if(isCustom)
+            if (autoInteract && !canNotInteractMultiple)
             {
-                SceneManager.LoadScene(customSceneToLoad,LoadSceneMode.Additive);
+                _playerIsInTrigger = false;
             }
-            else if (isInteractable)
+
+            CurrentYesAnswer = whatHappensOnYes;
+            CurrentObjectInt = thisObjectInt;
+            alreadyUsed = true;
+            if (isInteractable)
             {
+                InItemCutscene = true;
                 SceneManager.LoadScene("InteractableItem",LoadSceneMode.Additive);
             }
             else
             {
+                InItemCutscene = true;
                 SceneManager.LoadScene("Item",LoadSceneMode.Additive);
             }
         }
