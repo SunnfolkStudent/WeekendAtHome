@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7504993725098927629}
   m_Layer: 0
   m_Name: Furniture (Living Room + Hallway)
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 3307000825378903103}
   m_Layer: 0
   m_Name: LoungeChairFacingForward
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 8692007503569514167}
   m_Layer: 0
   m_Name: Lamp
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 980384509202537851}
   m_Layer: 0
   m_Name: LoungeChairFacingBack
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 5650854783756905506}
   m_Layer: 0
   m_Name: TV
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 85748284886694338}
   m_Layer: 0
   m_Name: CatBed
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -771,7 +771,7 @@ GameObject:
   - component: {fileID: 5177254288103484588}
   m_Layer: 0
   m_Name: Couch
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1023,7 +1023,7 @@ GameObject:
   - component: {fileID: 2075666663002623472}
   m_Layer: 0
   m_Name: Right Shelf
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1191,7 +1191,7 @@ GameObject:
   - component: {fileID: 1923817047066982383}
   m_Layer: 0
   m_Name: WallPhone
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1335,7 +1335,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 13
+  m_SortingOrder: 52
   m_Sprite: {fileID: 333429438446966774, guid: d1f996c0cff2e2c4a80ab9b873ffc25b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1359,7 +1359,7 @@ GameObject:
   - component: {fileID: 68895799334971004}
   m_Layer: 0
   m_Name: RightWallBlackButton1
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1443,7 +1443,7 @@ GameObject:
   - component: {fileID: 3408210466192808746}
   m_Layer: 0
   m_Name: WallShelfKitchen
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1527,7 +1527,7 @@ GameObject:
   - component: {fileID: 6375942741193376539}
   m_Layer: 0
   m_Name: RightWallBlackButton2
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1775,7 +1775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 6793288581954636664
+  uniqueID: 7784145624344184141
   points: []
   convex: 1
   minBoundsHeight: 1
@@ -1804,7 +1804,7 @@ GameObject:
   - component: {fileID: 5163294754595790645}
   m_Layer: 0
   m_Name: Wall Mounted Objects
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1890,7 +1890,7 @@ GameObject:
   - component: {fileID: 6712521192512205886}
   m_Layer: 0
   m_Name: DrawerHallway
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2060,6 +2060,7 @@ GameObject:
   - component: {fileID: 3248194949444005703}
   - component: {fileID: 1696680341990130736}
   - component: {fileID: 1269129896091574180}
+  - component: {fileID: 7065238732817862386}
   m_Layer: 0
   m_Name: Glass Door
   m_TagString: BottomFloor
@@ -2366,6 +2367,102 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &7065238732817862386
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6895074788042682746}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 1300177940598335445, guid: 54693cb1a629091438be814a797a46ff, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 91374220fcafebe4693affa8eafb7b22, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 5.0358763
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6908211643824929727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,7 +2559,7 @@ GameObject:
   - component: {fileID: 5086353509911417277}
   m_Layer: 0
   m_Name: ClothesServantHallway
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2546,7 +2643,7 @@ GameObject:
   - component: {fileID: 2102959116852302005}
   m_Layer: 0
   m_Name: RightShelvesBottom
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2630,7 +2727,7 @@ GameObject:
   - component: {fileID: 5469705707459700276}
   m_Layer: 0
   m_Name: Bookshelves
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
