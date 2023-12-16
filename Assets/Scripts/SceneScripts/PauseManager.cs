@@ -29,6 +29,7 @@ public class PauseManager : MonoBehaviour
         // Resume the time
         Time.timeScale = 1f;
         pauseSceneIsActive = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioListener>().enabled = true;
         return;
     }
     
@@ -43,6 +44,7 @@ public class PauseManager : MonoBehaviour
                 Time.timeScale = 0f;
                 SceneManager.LoadScene("PauseOverlayScene", LoadSceneMode.Additive);
                 pauseSceneIsActive = true;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<AudioListener>().enabled = false;
             }
         }
     }
