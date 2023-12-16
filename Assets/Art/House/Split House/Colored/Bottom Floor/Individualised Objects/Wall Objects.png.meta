@@ -52,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -104,15 +104,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Map (2)_0
+      name: WallShelfKitchen
       rect:
         serializedVersion: 2
-        x: 1237
+        x: 1355
         y: 1840
-        width: 401
+        width: 283
         height: 77
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -125,15 +125,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map (2)_1
+      name: WallPhone
       rect:
         serializedVersion: 2
         x: 500
         y: 424
-        width: 94
+        width: 84
         height: 108
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,27 +141,6 @@ TextureImporter:
       bones: []
       spriteID: 8cd76031f03449710800000000000000
       internalID: 1699056691448282568
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Map (2)_2
-      rect:
-        serializedVersion: 2
-        x: 585
-        y: 511
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1bfb6769b312b81a0800000000000000
-      internalID: -6806309872029220943
       vertices: []
       indices: 
       edges: []
@@ -177,6 +156,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      WallPhone: 1699056691448282568
+      WallShelfKitchen: 9128878139248752539
       tornado - Copy_0: 511886627088611061
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
