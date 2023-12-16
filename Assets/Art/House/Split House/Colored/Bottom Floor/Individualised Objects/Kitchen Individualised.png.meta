@@ -170,13 +170,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KitchenCounterStandalone
+      name: KitchenCounterTopStandaloneLeft
       rect:
         serializedVersion: 2
-        x: 836
-        y: 1022
-        width: 519
-        height: 327
+        x: 838
+        y: 1191
+        width: 494
+        height: 158
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,7 +199,7 @@ TextureImporter:
         width: 586
         height: 300
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -220,7 +220,7 @@ TextureImporter:
         width: 151
         height: 73
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,6 +228,48 @@ TextureImporter:
       bones: []
       spriteID: a65f56f44125a474183566f73ee505b8
       internalID: -1430159344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KitchenCounterBenchStandaloneLeft
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 1026
+        width: 494
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54aeedbb371944842b3cf42e492868a8
+      internalID: -73183348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KitchenCounterStandaloneRight
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 1026
+        width: 21
+        height: 323
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d963d8d132d092348a730fcbe788bfc8
+      internalID: 177369484
       vertices: []
       indices: 
       edges: []
@@ -245,8 +287,10 @@ TextureImporter:
     nameFileIdTable:
       CatFeedingBowls: -1430159344
       Fridge: -3388171239741720236
-      KitchenCounterStandalone: 333429438446966774
+      KitchenCounterBenchStandaloneLeft: -73183348
+      KitchenCounterStandaloneRight: 177369484
       KitchenCounterTop: -944878882
+      KitchenCounterTopStandaloneLeft: 333429438446966774
       Oven: 74182755500991555
       RightSideKitchenCounter: -3973523666385309978
       tornado - Copy_0: 511886627088611061
