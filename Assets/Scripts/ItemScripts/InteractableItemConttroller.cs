@@ -15,7 +15,7 @@ public class InteractableItemConttroller : MonoBehaviour
     public AudioSource audioPlayer;
     public PlayableDirector timeline;
 
-    private string _sceneToLoad;
+    private int _sceneToLoad;
     
     //public ScriptObject[] _scriptObject;
 
@@ -42,19 +42,17 @@ public class InteractableItemConttroller : MonoBehaviour
                 Debug.Log("Nothing");
                 break;
             case 1:
-                SceneManager.LoadScene("Day 2 - Morning");
-                _sceneToLoad = "Day 2 - Morning";
+                _sceneToLoad = 0;
                 StartCoroutine("NextDay");
                 Debug.Log("LoadMorning2");
                 //_scriptObject.GetComponent<ScriptObject>().GetMethod(int)
-                
                 break;
             case 2:
-                _sceneToLoad = "Day 3 - Morning";
+                _sceneToLoad = 1;
                 Debug.Log("LoadMorning 3");
                 break;
             case 3:
-                _sceneToLoad = "EndScene";
+                _sceneToLoad = 2;
                 Debug.Log("EndGame");
                 break;
             case 4:
@@ -79,7 +77,18 @@ public class InteractableItemConttroller : MonoBehaviour
 
     private IEnumerator NextDay()
     {
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(_sceneToLoad);
+        if (_sceneToLoad == 0)
+        {
+            yield return new WaitForSeconds(2);
+            SceneManager.LoadScene("Day 2 - Morning");
+        }
+        else if (_sceneToLoad == 1)
+        {
+            
+        }
+        else
+        {
+            
+        }
     }
 }

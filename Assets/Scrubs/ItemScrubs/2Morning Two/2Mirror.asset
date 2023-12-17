@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3742e5fc08d489e48bbb678522480aa1, type: 3}
-  m_Name: Cat Photo
+  m_Name: 2Mirror
   m_EditorClassIdentifier: 
-  itemName: Photo of Toes
-  itemText: Toes was the cutest cat at the shelter. It feels like yesterday that
-    I got them.
-  itemImage: {fileID: 21300000, guid: 140f5a501f5cc5544a26a5020b7a0b67, type: 3}
-  itemSize: {x: 6.132, y: 3.5}
-  itemAudio: {fileID: 8300000, guid: aede053730a682241bdfaf21171920d2, type: 3}
-  cutSceneAudio: {fileID: 0}
+  itemName: Mirror
+  itemText: "It\u2019s me."
+  itemImage: {fileID: 21300000, guid: 8cb01e837707a4d45b2666865df6d3b6, type: 3}
+  itemSize: {x: 9, y: 5}
+  itemAudio: {fileID: 8300000, guid: c9275cbdd0dbca24d8729496a3582a84, type: 3}
+  cutSceneAudio: {fileID: 8300000, guid: c9275cbdd0dbca24d8729496a3582a84, type: 3}
