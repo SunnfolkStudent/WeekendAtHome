@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1071420533694517889}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.61, y: -0.62, z: -0.015899928}
+  m_LocalPosition: {x: -3.6, y: -1.11, z: -0.015899928}
   m_LocalScale: {x: 0.40213263, y: 0.40213263, z: 0.40213263}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -370,8 +370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa0e24755f39824b8cc63ccf7086793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisObjectInt: 5
-  isInteractable: 1
+  thisObjectInt: 7
+  isInteractable: 0
   canNotInteractMultiple: 0
   autoInteract: 0
   alreadyUsed: 0
@@ -402,7 +402,7 @@ Transform:
   m_GameObject: {fileID: 3695447187006227299}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.95077544, y: 0.6803429, z: 0.023215892}
+  m_LocalPosition: {x: 0, y: 0, z: 0.023215892}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -558,7 +558,7 @@ Transform:
   m_GameObject: {fileID: 8716812284766928673}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.091, z: -0.038021266}
+  m_LocalPosition: {x: -0.1, y: -0.17, z: -0.038021266}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -654,19 +654,28 @@ MonoBehaviour:
   anim: {fileID: 6377923348263028809}
   goal: {fileID: 1071420533694517889}
   goalSpots:
-  - {x: -10, y: 2}
-  - {x: 5, y: -3}
-  - {x: -4.5, y: 6}
-  staysForRandom: 000000
+  - {x: -7, y: 1}
+  - {x: -5, y: 9}
+  - {x: -1, y: 3}
+  - {x: 9, y: -4}
+  - {x: 8, y: -7}
+  - {x: -6, y: -7}
+  staysForRandom: 000000000000
   howLongToStay:
-  - 1
-  - 2
-  - 5
+  - 6
+  - 7
+  - 6
+  - 4
+  - 6
+  - 4
   whichAnimationToPlay: []
   whatSoundToPlay:
-  - {fileID: 8300000, guid: 7d650bf8c701c2b4abc82dc8ecfedc75, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 319797c8960605941af3ced7e97f658c, type: 3}
+  - {fileID: 8300000, guid: 2fea35190f36f714586dc60c2d129be2, type: 3}
+  - {fileID: 8300000, guid: 567d8b484ef1a3b438bfe251079f791c, type: 3}
+  - {fileID: 8300000, guid: 87c1ff179ce520149a3c642e47f190de, type: 3}
+  - {fileID: 8300000, guid: 567d8b484ef1a3b438bfe251079f791c, type: 3}
+  - {fileID: 8300000, guid: 567d8b484ef1a3b438bfe251079f791c, type: 3}
   meows: {fileID: 1804135296446572343}
 --- !u!82 &1804135296446572343
 AudioSource:
