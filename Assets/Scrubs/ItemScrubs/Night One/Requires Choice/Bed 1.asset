@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3742e5fc08d489e48bbb678522480aa1, type: 3}
-  m_Name: Radio
+  m_Name: Bed 1
   m_EditorClassIdentifier: 
-  itemName: Radio
-  itemText: Should I play something relaxing on the radio?
-  itemImage: {fileID: 21300000, guid: 8390fe383b043d74b877cf78021617d4, type: 3}
-  itemSize: {x: 2.5, y: 1.5}
-  itemAudio: {fileID: 0}
-  cutSceneAudio: {fileID: 8300000, guid: c22adfbcc80591d44803e6cdd084a159, type: 3}
+  itemName: Bed
+  itemText: Should I go to bed now?
+  itemImage: {fileID: 0}
+  itemSize: {x: 0, y: 0}
+  itemAudio: {fileID: 8300000, guid: e88f4391cf5fac8489697998787fb22e, type: 3}
+  cutSceneAudio: {fileID: 8300000, guid: 79a8021b064bf1549bb0a0f6138c88a4, type: 3}

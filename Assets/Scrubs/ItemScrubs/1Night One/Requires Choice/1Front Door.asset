@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3742e5fc08d489e48bbb678522480aa1, type: 3}
-  m_Name: Cat Food
+  m_Name: 1Front Door
   m_EditorClassIdentifier: 
-  itemName: 
-  itemText: 
+  itemName: Front Door
+  itemText: It's my front door.
   itemImage: {fileID: 0}
   itemSize: {x: 0, y: 0}
-  itemAudio: {fileID: 0}
+  itemAudio: {fileID: 8300000, guid: f1a65d81d03001e40b4b63055efa8ebc, type: 3}
   cutSceneAudio: {fileID: 0}

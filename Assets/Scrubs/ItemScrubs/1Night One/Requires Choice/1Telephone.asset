@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3742e5fc08d489e48bbb678522480aa1, type: 3}
-  m_Name: OpenDoor
+  m_Name: 1Telephone
   m_EditorClassIdentifier: 
-  itemName: Front Door
-  itemText: It's a door.
-  itemImage: {fileID: 715368135737836640, guid: 2d6fcf9c8a23d644da0dc9bb074ff29d, type: 3}
-  itemSize: {x: 2, y: 2}
-  itemAudio: {fileID: 8300000, guid: f22922e45b631db4eb66c5935ef97bf4, type: 3}
-  cutSceneAudio: {fileID: 8300000, guid: fc2823997cab15a42a403a3496dc8331, type: 3}
+  itemName: Telephone
+  itemText: It's my telephone! Should I call someone?
+  itemImage: {fileID: 0}
+  itemSize: {x: 0, y: 0}
+  itemAudio: {fileID: 0}
+  cutSceneAudio: {fileID: 0}

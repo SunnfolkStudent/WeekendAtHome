@@ -19,6 +19,7 @@ public class CatAnimation : MonoBehaviour
     private int _randomGoal;
     private float _timeBetweenMeows = 0;
     private bool _destinationReached;
+    
 
     public AudioSource meows;
     
@@ -30,7 +31,7 @@ public class CatAnimation : MonoBehaviour
         {
             if (aiPath.desiredVelocity == Vector3.zero)
             {
-                anim.Play("Player_Idle_Normal");
+                //anim.Play("Player_Idle_Normal");
             }
             else
             {
@@ -53,10 +54,9 @@ public class CatAnimation : MonoBehaviour
             {
                 _destinationReached = true;
                 Debug.Log(_randomGoal);
-                meows.PlayOneShot(whatSoundToPlay[_randomGoal]);
-                //Play Animation
+                anim.Play("Player_Idle_Normal");
                 onTheMove = false;
-                Debug.Log("Reached Destination");
+                //Debug.Log("Reached Destination");
                 OnGoalEnter();
             }
             
