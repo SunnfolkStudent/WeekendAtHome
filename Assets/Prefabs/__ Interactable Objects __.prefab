@@ -266,7 +266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 595163396683510852, guid: 994e025c7e5281943b5cd21dbb64ad54, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1730807523142602653, guid: 994e025c7e5281943b5cd21dbb64ad54, type: 3}
       propertyPath: m_LocalPosition.x
@@ -308,7 +308,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 378368002544196154, guid: 994e025c7e5281943b5cd21dbb64ad54, type: 3}
+    - {fileID: 8937887611788888574, guid: 994e025c7e5281943b5cd21dbb64ad54, type: 3}
+    - {fileID: 7180174592971032642, guid: 994e025c7e5281943b5cd21dbb64ad54, type: 3}
+    - {fileID: 2530399324760923816, guid: 994e025c7e5281943b5cd21dbb64ad54, type: 3}
+    - {fileID: 6552349878032921876, guid: 994e025c7e5281943b5cd21dbb64ad54, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -482,7 +487,9 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: -248536390038547353, guid: 7e857bbdb2431ff44855dc56402e9524, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &916588560958797533 stripped

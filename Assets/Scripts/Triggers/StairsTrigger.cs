@@ -24,10 +24,13 @@ public class StairsTrigger : MonoBehaviour
         topFloor = GameObject.FindGameObjectsWithTag("TopFloor");
 
         num++;
-        
+
         if (num == 2)
-            foreach(GameObject topFloorGameObject in topFloor)
+        {
+            foreach (GameObject topFloorGameObject in topFloor)
                 topFloorGameObject.SetActive(false);
+            num = 0;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
