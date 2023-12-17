@@ -14,7 +14,6 @@ public class InteractableItemConttroller : MonoBehaviour
     public Image itemImage;
     public AudioSource audioPlayer;
     public PlayableDirector timeline;
-    public GameObject catBowlFull;
 
     private string _sceneToLoad;
     
@@ -59,8 +58,7 @@ public class InteractableItemConttroller : MonoBehaviour
                 Debug.Log("EndGame");
                 break;
             case 4:
-                catBowlFull = GameObject.FindWithTag("CatBowlFull");
-                catBowlFull.transform.position = new Vector3(8.417f, 7.561f, -0.1129886f);
+                CatFoodFull.catBowlFull = true;
                 break;
                 
         }
