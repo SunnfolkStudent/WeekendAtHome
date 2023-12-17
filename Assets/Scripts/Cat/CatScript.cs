@@ -77,7 +77,8 @@ public class CatAnimation : MonoBehaviour
 
         if (CatFoodFull.catBowlFull)
         {
-            
+            _goingTowardsCatFood = true;
+            goal.transform.position = new Vector3(1,0,0);
         }
     }
 
@@ -95,6 +96,13 @@ public class CatAnimation : MonoBehaviour
         {
             Debug.Log("Random Time Added");
             yield return new WaitForSeconds(Random.Range(1,15));
+        }
+
+        if (_goingTowardsCatFood)
+        {
+            yield return new WaitForSeconds(13);
+            CatFoodFull.catBowlFull = false;
+            _goingTowardsCatFood = false;
         }
         _randomGoal = Random.Range(0, goalSpots.Length);
         Debug.Log(goalSpots[_randomGoal]);
