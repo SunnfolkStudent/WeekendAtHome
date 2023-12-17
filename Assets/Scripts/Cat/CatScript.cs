@@ -19,6 +19,7 @@ public class CatAnimation : MonoBehaviour
     private int _randomGoal;
     private float _timeBetweenMeows = 0;
     private bool _destinationReached;
+    private bool _goingTowardsCatFood;
     
 
     public AudioSource meows;
@@ -73,6 +74,11 @@ public class CatAnimation : MonoBehaviour
             }
             
         }
+
+        if (CatFoodFull.catBowlFull)
+        {
+            
+        }
     }
 
     //Plays When At Goal, Sets A New Goal, Then Starts Coroutine
@@ -91,7 +97,9 @@ public class CatAnimation : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(1,15));
         }
         _randomGoal = Random.Range(0, goalSpots.Length);
+        Debug.Log(goalSpots[_randomGoal]);
         goal.transform.position = goalSpots[_randomGoal];
+        Debug.Log(goal.transform.position);
         onTheMove = true;
         _destinationReached = false;
     }
