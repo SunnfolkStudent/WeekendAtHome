@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3048053434477900853}
   - component: {fileID: 7702956595415995046}
-  - component: {fileID: 4875325564240496703}
   m_Layer: 0
   m_Name: CatFeedingBowls
   m_TagString: BottomFloor
@@ -85,24 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4875325564240496703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2723986466498369634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33affe7266025b84589a954b8d388f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemScrub: []
-  itemName: {fileID: 0}
-  itemText: {fileID: 0}
-  itemImage: {fileID: 0}
-  audioPlayer: {fileID: 0}
-  timeline: {fileID: 0}
 --- !u!1 &3026529164320097305
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,8 +97,6 @@ GameObject:
   - component: {fileID: 2707342889249064278}
   - component: {fileID: 7433635210461367781}
   - component: {fileID: 2474998116202961186}
-  - component: {fileID: 8240422121441887215}
-  - component: {fileID: 5732638366338237892}
   m_Layer: 0
   m_Name: Glass Door
   m_TagString: BottomFloor
@@ -328,198 +307,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &8240422121441887215
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3026529164320097305}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 1300177940598335445, guid: 54693cb1a629091438be814a797a46ff, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 91374220fcafebe4693affa8eafb7b22, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 5.0358763
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!82 &5732638366338237892
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3026529164320097305}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 1300177940598335445, guid: 54693cb1a629091438be814a797a46ff, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 91374220fcafebe4693affa8eafb7b22, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 5.0358763
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &3352431523623318167
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,7 +401,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4687180229773819789}
   - component: {fileID: 4015325060288937673}
-  - component: {fileID: 5580053203285797248}
   m_Layer: 0
   m_Name: WallPhone
   m_TagString: BottomFloor
@@ -689,24 +475,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5580053203285797248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4350037517931896344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33affe7266025b84589a954b8d388f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemScrub: []
-  itemName: {fileID: 0}
-  itemText: {fileID: 0}
-  itemImage: {fileID: 0}
-  audioPlayer: {fileID: 0}
-  timeline: {fileID: 0}
 --- !u!1 &5184081147414781670
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,7 +614,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8669623321713981944}
-  - {fileID: 3414902765123031737}
   - {fileID: 4629086455190560000}
   - {fileID: 4687180229773819789}
   - {fileID: 3048053434477900853}
@@ -867,7 +634,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2984893664615406205}
   - component: {fileID: 3345220059610282362}
-  - component: {fileID: 5168840673933221547}
   m_Layer: 0
   m_Name: Couch
   m_TagString: BottomFloor
@@ -942,24 +708,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5168840673933221547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6066087935681938417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33affe7266025b84589a954b8d388f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemScrub: []
-  itemName: {fileID: 0}
-  itemText: {fileID: 0}
-  itemImage: {fileID: 0}
-  audioPlayer: {fileID: 0}
-  timeline: {fileID: 0}
 --- !u!1 &6511992767514629842
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,7 +718,6 @@ GameObject:
   m_Component:
   - component: {fileID: 564589009779547075}
   - component: {fileID: 124583075475873120}
-  - component: {fileID: 2766464681913433042}
   m_Layer: 0
   m_Name: Bookshelves
   m_TagString: BottomFloor
@@ -1045,24 +792,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2766464681913433042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6511992767514629842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33affe7266025b84589a954b8d388f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemScrub: []
-  itemName: {fileID: 0}
-  itemText: {fileID: 0}
-  itemImage: {fileID: 0}
-  audioPlayer: {fileID: 0}
-  timeline: {fileID: 0}
 --- !u!1 &7404806627430864624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,7 +802,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4629086455190560000}
   - component: {fileID: 3604461311088978231}
-  - component: {fileID: 1245743354461306537}
   m_Layer: 0
   m_Name: Fridge
   m_TagString: BottomFloor
@@ -1148,24 +876,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1245743354461306537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7404806627430864624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33affe7266025b84589a954b8d388f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemScrub: []
-  itemName: {fileID: 0}
-  itemText: {fileID: 0}
-  itemImage: {fileID: 0}
-  audioPlayer: {fileID: 0}
-  timeline: {fileID: 0}
 --- !u!1 &7914707852825420500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +886,6 @@ GameObject:
   m_Component:
   - component: {fileID: 110294351589598043}
   - component: {fileID: 3385686141279633588}
-  - component: {fileID: 7915233187643339160}
   m_Layer: 0
   m_Name: TV
   m_TagString: BottomFloor
@@ -1251,24 +960,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7915233187643339160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7914707852825420500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33affe7266025b84589a954b8d388f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemScrub: []
-  itemName: {fileID: 0}
-  itemText: {fileID: 0}
-  itemImage: {fileID: 0}
-  audioPlayer: {fileID: 0}
-  timeline: {fileID: 0}
 --- !u!1 &8494177519138517908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,7 +970,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4311310056753340226}
   - component: {fileID: 6233126435609600838}
-  - component: {fileID: 5643322352898741414}
   - component: {fileID: 4506471344594440173}
   m_Layer: 0
   m_Name: Lamp
@@ -1355,24 +1045,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5643322352898741414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8494177519138517908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33affe7266025b84589a954b8d388f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemScrub: []
-  itemName: {fileID: 0}
-  itemText: {fileID: 0}
-  itemImage: {fileID: 0}
-  audioPlayer: {fileID: 0}
-  timeline: {fileID: 0}
 --- !u!114 &4506471344594440173
 MonoBehaviour:
   m_ObjectHideFlags: 0
