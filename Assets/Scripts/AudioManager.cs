@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         if (instance == null)
             instance = this;
         else
@@ -15,6 +16,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
+        */
     }
 
     // Update is called once per frame
