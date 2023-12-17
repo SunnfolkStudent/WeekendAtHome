@@ -14,6 +14,8 @@ public class InteractableItemConttroller : MonoBehaviour
     public Image itemImage;
     public AudioSource audioPlayer;
     public PlayableDirector timeline;
+
+    private string _sceneToLoad;
     
     //public ScriptObject[] _scriptObject;
 
@@ -38,28 +40,26 @@ public class InteractableItemConttroller : MonoBehaviour
         {
             case 0:
                 Debug.Log("Nothing");
-                
                 break;
             case 1:
-                Debug.Log("Fill Cat Food");
+                SceneManager.LoadScene("Day 2 - Morning");
+                _sceneToLoad = "Day 2 - Morning";
+                StartCoroutine("NextDay");
+                Debug.Log("LoadMorning2");
                 //_scriptObject.GetComponent<ScriptObject>().GetMethod(int)
                 
                 break;
             case 2:
-                Debug.Log("Close Catdoor");
+                _sceneToLoad = "Day 3 - Morning";
+                Debug.Log("LoadMorning 3");
                 break;
             case 3:
-                Debug.Log("start Sleep Scene");
+                _sceneToLoad = "EndScene";
+                Debug.Log("EndGame");
                 break;
         }
     }
-
-    /*public override void Interact()
-    {
-        
-    }*/
-
-    //On No Leave Scene
+    
     public void OnClickNo()
     {
         Debug.Log("DeleteScene");
@@ -70,5 +70,11 @@ public class InteractableItemConttroller : MonoBehaviour
     public void PlayMethod(int objectNumber)
     {
         
+    }
+
+    private IEnumerator NextDay()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(_sceneToLoad);
     }
 }

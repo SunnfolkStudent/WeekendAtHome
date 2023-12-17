@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3742e5fc08d489e48bbb678522480aa1, type: 3}
   m_Name: 1Cat Food
   m_EditorClassIdentifier: 
-  itemName: 
-  itemText: 
-  itemImage: {fileID: 0}
-  itemSize: {x: 0, y: 0}
-  itemAudio: {fileID: 0}
-  cutSceneAudio: {fileID: 0}
+  itemName: Cat Food
+  itemText: I bet Toes is getting hungry. Maybe I should feed them?
+  itemImage: {fileID: 21300000, guid: 87c12140bc71574409f83163fcef4158, type: 3}
+  itemSize: {x: 6, y: 3}
+  itemAudio: {fileID: 8300000, guid: 8379da722b290f04abd4af04461c08ff, type: 3}
+  cutSceneAudio: {fileID: 8300000, guid: 35dab7b6db422ea438c652d4f73f24d1, type: 3}

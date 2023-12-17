@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3742e5fc08d489e48bbb678522480aa1, type: 3}
-  m_Name: 1Front Door
+  m_Name: 1Telephone
   m_EditorClassIdentifier: 
-  itemName: Front Door
-  itemText: It's my front door.
-  itemImage: {fileID: 0}
-  itemSize: {x: 0, y: 0}
-  itemAudio: {fileID: 8300000, guid: f1a65d81d03001e40b4b63055efa8ebc, type: 3}
+  itemName: Telephone
+  itemText: It's my telephone... I don't have anyone to call.
+  itemImage: {fileID: 21300000, guid: 0e9f8dda8dfda6d4189794dfadd01208, type: 3}
+  itemSize: {x: 6, y: 3}
+  itemAudio: {fileID: 8300000, guid: fdc57de890d3a7e439e4ddacd0b206c5, type: 3}
   cutSceneAudio: {fileID: 0}
