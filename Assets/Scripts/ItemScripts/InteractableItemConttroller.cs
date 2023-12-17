@@ -14,6 +14,7 @@ public class InteractableItemConttroller : MonoBehaviour
     public Image itemImage;
     public AudioSource audioPlayer;
     public PlayableDirector timeline;
+    public GameObject catBowlFull;
 
     private string _sceneToLoad;
     
@@ -33,7 +34,7 @@ public class InteractableItemConttroller : MonoBehaviour
     //When Yes is Clicked, Play Cutscene
     public void OnClickYes()
     {
-        
+        Time.timeScale = 1;
         timeline.Play();
         audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.CurrentObjectInt].cutSceneAudio);
         switch (ItemObjectScript.CurrentYesAnswer)
@@ -57,11 +58,17 @@ public class InteractableItemConttroller : MonoBehaviour
                 _sceneToLoad = "EndScene";
                 Debug.Log("EndGame");
                 break;
+            case 4:
+                catBowlFull = GameObject.FindWithTag("CatBowlFull");
+                catBowlFull.transform.position = new Vector3(8.417f, 7.561f, -0.1129886f);
+                break;
+                
         }
     }
     
     public void OnClickNo()
     {
+        Time.timeScale = 1;
         Debug.Log("DeleteScene");
         ItemObjectScript.InItemCutscene = false;
         SceneManager.UnloadSceneAsync("InteractableItem");

@@ -32,6 +32,7 @@ public class ItemController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            Time.timeScale = 1;
             ItemObjectScript.InItemCutscene = false;
             SceneManager.UnloadSceneAsync("Item");
         }

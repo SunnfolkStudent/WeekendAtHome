@@ -54,6 +54,7 @@ public class ItemObjectScript : MonoBehaviour
     {
         if ((Input.GetKeyDown(KeyCode.E) && _playerIsInTrigger && !InItemCutscene && (!alreadyUsed || !canNotInteractMultiple)) || (autoInteract && _playerIsInTrigger && !InItemCutscene && (!alreadyUsed || !canNotInteractMultiple)))
         {
+            Time.timeScale = 0;
             if (autoInteract && !canNotInteractMultiple)
             {
                 _playerIsInTrigger = false;
