@@ -2890,7 +2890,7 @@ PrefabInstance:
       objectReference: {fileID: 1883562950}
     - target: {fileID: 1724435939816850966, guid: 09c523a7383393345899804ac7a43432, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1775949646208878720, guid: 09c523a7383393345899804ac7a43432, type: 3}
       propertyPath: m_ShadowMesh.m_Mesh
@@ -2930,7 +2930,7 @@ PrefabInstance:
       objectReference: {fileID: 1979408086}
     - target: {fileID: 2220366384194942957, guid: 09c523a7383393345899804ac7a43432, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2226000393506266867, guid: 09c523a7383393345899804ac7a43432, type: 3}
       propertyPath: m_ShadowMesh.m_Mesh
@@ -3042,7 +3042,7 @@ PrefabInstance:
       objectReference: {fileID: 1371807823}
     - target: {fileID: 5137322828450034658, guid: 09c523a7383393345899804ac7a43432, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5251674046616183805, guid: 09c523a7383393345899804ac7a43432, type: 3}
       propertyPath: m_ShadowMesh.m_Mesh
@@ -3074,7 +3074,7 @@ PrefabInstance:
       objectReference: {fileID: 715022549}
     - target: {fileID: 6236175557040743794, guid: 09c523a7383393345899804ac7a43432, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6481128125754706982, guid: 09c523a7383393345899804ac7a43432, type: 3}
       propertyPath: m_ShadowMesh.m_Mesh
@@ -3094,7 +3094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7681088967146695563, guid: 09c523a7383393345899804ac7a43432, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7886733477708229852, guid: 09c523a7383393345899804ac7a43432, type: 3}
       propertyPath: m_ShadowMesh.m_Mesh
@@ -3122,7 +3122,7 @@ PrefabInstance:
       objectReference: {fileID: 676740115}
     - target: {fileID: 8204889022086420695, guid: 09c523a7383393345899804ac7a43432, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8408951759986722756, guid: 09c523a7383393345899804ac7a43432, type: 3}
       propertyPath: m_ShadowMesh.m_Mesh
@@ -3130,7 +3130,7 @@ PrefabInstance:
       objectReference: {fileID: 20173084}
     - target: {fileID: 8655211903673711052, guid: 09c523a7383393345899804ac7a43432, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8690724780555892630, guid: 09c523a7383393345899804ac7a43432, type: 3}
       propertyPath: m_ShadowMesh.m_Mesh
@@ -3545,6 +3545,10 @@ PlayableDirector:
     value: {fileID: 881485853}
   - key: {fileID: 3854281786467889044, guid: 3972c38ad72bcef4696cc10a21a3c514, type: 2}
     value: {fileID: 2103037447}
+  - key: {fileID: 3530070724964896748, guid: 3972c38ad72bcef4696cc10a21a3c514, type: 2}
+    value: {fileID: 2103037445}
+  - key: {fileID: -293232945890111628, guid: 3972c38ad72bcef4696cc10a21a3c514, type: 2}
+    value: {fileID: 1448135532}
   m_ExposedReferences:
     m_References: []
 --- !u!43 &997370631
@@ -6388,6 +6392,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!82 &1448135532 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1379458488771144212, guid: 70826d026e8c6e4439b834be2cf0cfd8, type: 3}
+  m_PrefabInstance: {fileID: 1191647938470341103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1455908435
 Mesh:
   m_ObjectHideFlags: 0
@@ -8820,14 +8829,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cat Stuff
       objectReference: {fileID: 0}
-    - target: {fileID: 6922257749135651188, guid: 1d3ab260b044a334cbb89163657e5571, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 6922257749135651188, guid: 1d3ab260b044a334cbb89163657e5571, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.48
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9711,6 +9712,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2103037445 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1804135296446572343, guid: 1d3ab260b044a334cbb89163657e5571, type: 3}
+  m_PrefabInstance: {fileID: 1943094767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2103037447 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6377923348263028809, guid: 1d3ab260b044a334cbb89163657e5571, type: 3}
