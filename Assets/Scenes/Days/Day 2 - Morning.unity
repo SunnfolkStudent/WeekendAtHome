@@ -1145,6 +1145,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 776963576}
+  - {fileID: 928150029}
   m_Father: {fileID: 1636114587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &310711623
@@ -3443,11 +3444,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 610460355192338474, guid: 674df914bd922334bbdea02af86213f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.4817877
+      value: 0.30449677
       objectReference: {fileID: 0}
     - target: {fileID: 610460355192338474, guid: 674df914bd922334bbdea02af86213f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.35784
+      value: 0.00004990399
       objectReference: {fileID: 0}
     - target: {fileID: 610460355192338474, guid: 674df914bd922334bbdea02af86213f1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3459,11 +3460,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3259772748982060559, guid: 674df914bd922334bbdea02af86213f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.638212
+      value: 4.525503
       objectReference: {fileID: 0}
     - target: {fileID: 3259772748982060559, guid: 674df914bd922334bbdea02af86213f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.56216
+      value: 0.09995
       objectReference: {fileID: 0}
     - target: {fileID: 3259772748982060559, guid: 674df914bd922334bbdea02af86213f1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5126,7 +5127,7 @@ GameObject:
   - component: {fileID: 776963576}
   - component: {fileID: 776963577}
   m_Layer: 0
-  m_Name: Day 2 - Morning Timeline
+  m_Name: Day 2 - Morning Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5164,7 +5165,7 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -248536390038547353, guid: 7e857bbdb2431ff44855dc56402e9524, type: 2}
     value: {fileID: 2067520416}
-  - key: {fileID: -6041881758919822915, guid: 7e857bbdb2431ff44855dc56402e9524, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 1191647938470341104}
   m_ExposedReferences:
     m_References: []
@@ -5715,11 +5716,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2570721380460187152, guid: 7103b7437cbde774f982edcf6f03c66f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 14.95
       objectReference: {fileID: 0}
     - target: {fileID: 2570721380460187152, guid: 7103b7437cbde774f982edcf6f03c66f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 7.02
       objectReference: {fileID: 0}
     - target: {fileID: 2570721380460187152, guid: 7103b7437cbde774f982edcf6f03c66f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6867,6 +6868,61 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &928150028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 928150029}
+  - component: {fileID: 928150030}
+  m_Layer: 0
+  m_Name: Day 2 - Transition to Evening
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &928150029
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928150028}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 269942154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &928150030
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928150028}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 3972c38ad72bcef4696cc10a21a3c514, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -8400785188222924981, guid: 3972c38ad72bcef4696cc10a21a3c514, type: 2}
+    value: {fileID: 881485855}
+  - key: {fileID: 1308736988344943069, guid: 3972c38ad72bcef4696cc10a21a3c514, type: 2}
+    value: {fileID: 881485853}
+  - key: {fileID: 3854281786467889044, guid: 3972c38ad72bcef4696cc10a21a3c514, type: 2}
+    value: {fileID: 2103037447}
+  m_ExposedReferences:
+    m_References: []
 --- !u!43 &931466328
 Mesh:
   m_ObjectHideFlags: 0
@@ -15935,6 +15991,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cat Stuff
       objectReference: {fileID: 0}
+    - target: {fileID: 6922257749135651188, guid: 1d3ab260b044a334cbb89163657e5571, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 6922257749135651188, guid: 1d3ab260b044a334cbb89163657e5571, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.48
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17313,6 +17377,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!95 &2103037447 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6377923348263028809, guid: 1d3ab260b044a334cbb89163657e5571, type: 3}
+  m_PrefabInstance: {fileID: 1943094767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2106259358 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3259772748982060559, guid: 674df914bd922334bbdea02af86213f1, type: 3}
@@ -17887,8 +17956,6 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -248536390038547353, guid: 7e857bbdb2431ff44855dc56402e9524, type: 2}
     value: {fileID: 1191647938470341104}
-  - key: {fileID: -6041881758919822915, guid: 7e857bbdb2431ff44855dc56402e9524, type: 2}
-    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!82 &1191647938470341113
