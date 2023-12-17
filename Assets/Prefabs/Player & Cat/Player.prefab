@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6bce0b079dbd8240a27e45bfb556792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.25
+  moveSpeed: 2
   anim: {fileID: 2902720887657905688}
   rb: {fileID: 5449740253909411392}
   canMove: 1
@@ -257,6 +257,7 @@ GameObject:
   - component: {fileID: 2902720887657905688}
   - component: {fileID: 3948218849854958231}
   - component: {fileID: 1546548318107174116}
+  - component: {fileID: 44586858691879206}
   m_Layer: 3
   m_Name: PlayerVisuals
   m_TagString: Untagged
@@ -476,3 +477,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &44586858691879206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7327544092081864957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb60a8fffb670840864a0cf591c6bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indoorStep: {fileID: 8300000, guid: 62bc18d748be7b94aba1f307bb0b081d, type: 3}
+  snowyStep: {fileID: 8300000, guid: 04f64f3b65c98934c991ccb36878004d, type: 3}
+  isOutside: 0
