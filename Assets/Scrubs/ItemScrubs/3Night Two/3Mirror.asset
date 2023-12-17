@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3742e5fc08d489e48bbb678522480aa1, type: 3}
-  m_Name: Mirror
+  m_Name: 3Mirror
   m_EditorClassIdentifier: 
   itemName: Mirror
-  itemText: "I might need glasses because I can\u2019t see myself."
+  itemText: I look... like I should get some sleep.
   itemImage: {fileID: 21300000, guid: 67da1ca5a20cb4f4db1bb27b3391f61e, type: 3}
   itemSize: {x: 9, y: 5}
-  itemAudio: {fileID: 0}
-  cutSceneAudio: {fileID: 0}
+  itemAudio: {fileID: 8300000, guid: c9275cbdd0dbca24d8729496a3582a84, type: 3}
+  cutSceneAudio: {fileID: 8300000, guid: c9275cbdd0dbca24d8729496a3582a84, type: 3}
