@@ -620,6 +620,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6882266535371866660, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
   m_PrefabInstance: {fileID: 5048623177233906190}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &111236902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111236899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e58edd7555b00e3429dc4ce02fb211c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 377209190}
+        m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!43 &138904765
 Mesh:
   m_ObjectHideFlags: 0
@@ -12957,7 +12984,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6882266535371866660, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 111236902}
   m_SourcePrefab: {fileID: 100100000, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
 --- !u!1001 &8009387663915904299
 PrefabInstance:
