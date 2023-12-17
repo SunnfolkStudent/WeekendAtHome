@@ -58,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Map (2)_0
+      name: Toilet
       rect:
         serializedVersion: 2
         x: 753
@@ -118,7 +118,7 @@ TextureImporter:
         width: 162
         height: 207
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map (2)_1
+      name: BathroomMirror
       rect:
         serializedVersion: 2
         x: 1060
@@ -139,7 +139,7 @@ TextureImporter:
         width: 148
         height: 343
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map (2)_2
+      name: BathroomShelves
       rect:
         serializedVersion: 2
         x: 1378
@@ -160,7 +160,7 @@ TextureImporter:
         width: 85
         height: 335
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map (2)_3
+      name: BathroomHandle
       rect:
         serializedVersion: 2
         x: 750
@@ -181,7 +181,7 @@ TextureImporter:
         width: 42
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map (2)_4
+      name: BathroomCarpet
       rect:
         serializedVersion: 2
         x: 949
@@ -202,7 +202,7 @@ TextureImporter:
         width: 339
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -225,6 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      BathroomCarpet: -4695174106676367763
+      BathroomHandle: 4026608819764610467
+      BathroomMirror: 1699056691448282568
+      BathroomShelves: -6806309872029220943
+      Toilet: 9128878139248752539
       tornado - Copy_0: 511886627088611061
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

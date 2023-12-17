@@ -73,7 +73,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -125,7 +125,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Map (4)_0
+      name: OpenSplitBoxes2Left
       rect:
         serializedVersion: 2
         x: 83
@@ -133,7 +133,7 @@ TextureImporter:
         width: 277
         height: 139
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -146,7 +146,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map (4)_1
+      name: OpenBoxes2Left
       rect:
         serializedVersion: 2
         x: 434
@@ -154,7 +154,7 @@ TextureImporter:
         width: 277
         height: 241
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -167,7 +167,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map (4)_2
+      name: ShelvesHallwayTopFloor
       rect:
         serializedVersion: 2
         x: 1488
@@ -175,7 +175,7 @@ TextureImporter:
         width: 129
         height: 566
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -188,7 +188,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map (4)_3
+      name: StacksofBoxes
       rect:
         serializedVersion: 2
         x: 2405
@@ -196,7 +196,7 @@ TextureImporter:
         width: 528
         height: 398
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,7 +209,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map (4)_4
+      name: OpenBoxRight
       rect:
         serializedVersion: 2
         x: 2098
@@ -217,7 +217,7 @@ TextureImporter:
         width: 203
         height: 186
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -230,7 +230,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map (4)_5
+      name: OpenBoxes2RIght
       rect:
         serializedVersion: 2
         x: 2352
@@ -238,7 +238,7 @@ TextureImporter:
         width: 277
         height: 209
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -259,7 +259,7 @@ TextureImporter:
         width: 7
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -272,7 +272,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map (4)_7
+      name: BedsideDrawerLeft
       rect:
         serializedVersion: 2
         x: 2074
@@ -280,7 +280,7 @@ TextureImporter:
         width: 152
         height: 174
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -293,7 +293,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map (4)_8
+      name: Bed
       rect:
         serializedVersion: 2
         x: 2245
@@ -301,7 +301,7 @@ TextureImporter:
         width: 412
         height: 549
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -314,7 +314,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map (4)_9
+      name: BedsideDrawerRight
       rect:
         serializedVersion: 2
         x: 2671
@@ -322,7 +322,7 @@ TextureImporter:
         width: 152
         height: 174
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -345,6 +345,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Bed: -5665121810911576187
+      BedsideDrawerLeft: 3912841215369706569
+      BedsideDrawerRight: -3551145253609336982
+      OpenBoxRight: 5683348767758245341
+      OpenBoxes2Left: 3386688479894319305
+      OpenBoxes2RIght: 5926961075423606514
+      OpenSplitBoxes2Left: -3973008669601917646
+      ShelvesHallwayTopFloor: 421315799058396632
+      StacksofBoxes: -6548623197382331805
       tornado - Copy_0: 511886627088611061
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
