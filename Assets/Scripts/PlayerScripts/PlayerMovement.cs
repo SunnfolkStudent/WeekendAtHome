@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         if (canMove)
             rb.MovePosition(rb.position + _movement.normalized * (moveSpeed * Time.fixedDeltaTime));
     }
-
+    
     public void SetCanMove(bool canMove)
     {
         this.canMove = canMove;

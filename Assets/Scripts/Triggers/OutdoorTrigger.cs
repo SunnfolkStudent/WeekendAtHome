@@ -17,6 +17,8 @@ public class OutdoorTrigger : MonoBehaviour
     private float playerLightIntensity;
 
     private GameObject player;
+
+    [SerializeField] private FootstepManager footstepManager;
     
     void Start()
     {
@@ -24,6 +26,7 @@ public class OutdoorTrigger : MonoBehaviour
         // and hide all of the outdoor objects
         
         insideOrOutside = "Inside";
+        footstepManager.isOutside = false;
         
         outdoorToDespawn = GameObject.FindGameObjectsWithTag("Outdoor to Despawn");
         outdoor = GameObject.FindGameObjectsWithTag("Outdoors");
@@ -48,6 +51,8 @@ public class OutdoorTrigger : MonoBehaviour
         
         if (insideOrOutside.Equals("Inside"))
         {
+            footstepManager.isOutside = true;
+            
             bottomFloor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
             
             foreach (Transform child in bottomFloor.transform)
@@ -67,6 +72,8 @@ public class OutdoorTrigger : MonoBehaviour
         }
         else
         {
+            footstepManager.isOutside = false;
+            
             bottomFloor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             
             foreach (Transform child in bottomFloor.transform)
