@@ -9449,6 +9449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1773699777}
+  - component: {fileID: 1773699778}
   m_Layer: 0
   m_Name: Evening 2 - Sounds
   m_TagString: Untagged
@@ -9471,6 +9472,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 269942154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &1773699778
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773699776}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 661896cc063181f418f551e7ff672462, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 5958791585063307568, guid: 661896cc063181f418f551e7ff672462, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1001 &1803169264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11793,6 +11813,14 @@ PrefabInstance:
       propertyPath: cat
       value: 
       objectReference: {fileID: 585009599}
+    - target: {fileID: 4520021469150341736, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520021469150341736, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -14.64
+      objectReference: {fileID: 0}
     - target: {fileID: 4923783147336015049, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
       propertyPath: mainCamera
       value: 
