@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisObjectInt: 2
-  isInteractable: 1
+  isInteractable: 0
   canNotInteractMultiple: 0
   autoInteract: 0
   alreadyUsed: 0
@@ -233,7 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1076178739742245372}
   - component: {fileID: 5710865417559800015}
-  - component: {fileID: 683249856821043501}
+  - component: {fileID: 7889573335028441019}
   m_Layer: 0
   m_Name: Radio
   m_TagString: BottomFloor
@@ -250,8 +250,8 @@ Transform:
   m_GameObject: {fileID: 1120604690693428676}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.26, y: -6.37, z: 0}
-  m_LocalScale: {x: 0.6042969, y: 1.5626563, z: 1}
+  m_LocalPosition: {x: -1.34, y: -6.19, z: 0}
+  m_LocalScale: {x: 0.62702817, y: 1.3102524, z: 0.8384776}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8697465141943337045}
@@ -290,7 +290,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -1.4213594, y: 0.12236261}
+  m_Offset: {x: -1.5106406, y: 0.07109153}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -300,9 +300,9 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.844611, y: 1.2447252}
+  m_Size: {x: 4.487384, y: 1.9112508}
   m_EdgeRadius: 0
---- !u!114 &683249856821043501
+--- !u!114 &7889573335028441019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -311,15 +311,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1120604690693428676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa0e24755f39824b8cc63ccf7086793, type: 3}
+  m_Script: {fileID: 11500000, guid: aa26a3bb3baeee44ea7b61c8d9a8682a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisObjectInt: 0
-  isInteractable: 1
-  canNotInteractMultiple: 0
-  autoInteract: 0
-  alreadyUsed: 0
-  whatHappensOnYes: 0
+  isPlaying: 0
+  turnedOn: 0
+  audioSource: {fileID: 0}
+  turnOnSound: {fileID: 8300000, guid: c22adfbcc80591d44803e6cdd084a159, type: 3}
+  turnOffSound: {fileID: 8300000, guid: 5e0f327976aebb446903fb913178a9e0, type: 3}
+  music: {fileID: 8300000, guid: ef8fa6ba45a258e4095c4e40d047604b, type: 3}
 --- !u!1 &1839561707261491102
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisObjectInt: 0
-  isInteractable: 1
+  isInteractable: 0
   canNotInteractMultiple: 0
   autoInteract: 0
   alreadyUsed: 0
@@ -1107,7 +1107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisObjectInt: 4
-  isInteractable: 1
+  isInteractable: 0
   canNotInteractMultiple: 0
   autoInteract: 0
   alreadyUsed: 0
@@ -1457,7 +1457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisObjectInt: 3
-  isInteractable: 1
+  isInteractable: 0
   canNotInteractMultiple: 0
   autoInteract: 0
   alreadyUsed: 0
@@ -1647,7 +1647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisObjectInt: 1
-  isInteractable: 1
+  isInteractable: 0
   canNotInteractMultiple: 0
   autoInteract: 0
   alreadyUsed: 0
