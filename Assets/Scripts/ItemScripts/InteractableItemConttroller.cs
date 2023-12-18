@@ -41,38 +41,51 @@ public class InteractableItemConttroller : MonoBehaviour
         switch (ItemObjectScript.CurrentYesAnswer)
         {
             case 0:
+                //Nothing
                 Debug.Log("Nothing");
                 audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.CurrentObjectInt].cutSceneAudio);
                 crossFade.Play();
                 Invoke("ExitScene",2f);
                 break;
             case 1:
+                //Bed 1
                 _sceneToLoad = "Day 2 - Morning";
                 crossFade.Play();
                 Invoke("PlayNextScene",2f);
                 break;
             case 2:
-                _sceneToLoad = "Day 3 - Morning";
+                //Bed 2
+                _sceneToLoad = "Day 3 - Morning 1";
                 crossFade.Play();
                 Invoke("PlayNextScene",3f);
                 break;
             case 3:
+                //Bed 3?
                 break;
             case 4:
+                //Cat Food
                 CatFoodFull.catBowlFull = true;
                 audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.CurrentObjectInt].cutSceneAudio);
                 crossFade.Play();
-                Invoke("ExitScene",3f);
+                Invoke("ExitScene",2f);
                 break;
             case 5:
+                //Couch 1
                 _sceneToLoad = "Day 2 - Evening";
                 evening2.Play();
                 Invoke("PlayNextScene",22f);
                 break;
             case 6:
+                //Couch 2
                 _sceneToLoad = "Day 3 - Evening";
                 evening3.Play();
                 Invoke("PlayNextScene",22f);
+                break;
+            case 7:
+                //Dead Cat Rip
+                _sceneToLoad = "Day 3 - Morning 2";
+                evening3.Play();
+                Invoke("PlayNextScene",3f);
                 break;
         }
     }
