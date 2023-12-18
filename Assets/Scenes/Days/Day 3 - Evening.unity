@@ -633,33 +633,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6882266535371866660, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
   m_PrefabInstance: {fileID: 5048623177233906190}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &111236902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 111236899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e58edd7555b00e3429dc4ce02fb211c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 377209190}
-        m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!43 &160849407
 Mesh:
   m_ObjectHideFlags: 0
@@ -1663,11 +1636,23 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 857252836a5ac6a45893a177971a8d23, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: 3750722237353060743, guid: 0674dbbb0f0364b478b31c6edc25863b, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1020530012958209544, guid: 0674dbbb0f0364b478b31c6edc25863b, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 3688015685219997842, guid: 0674dbbb0f0364b478b31c6edc25863b, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7112998976862231955, guid: 0674dbbb0f0364b478b31c6edc25863b, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 9067634144875508290, guid: 0674dbbb0f0364b478b31c6edc25863b, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1915087556625209371, guid: 0674dbbb0f0364b478b31c6edc25863b, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &408406453
@@ -3807,11 +3792,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &804659345 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6669505061202296381, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
-  m_PrefabInstance: {fileID: 5048623177233906190}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &833306745 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7598710503018809415, guid: 7103b7437cbde774f982edcf6f03c66f, type: 3}
@@ -4468,6 +4448,8 @@ PlayableDirector:
     value: {fileID: 881485856}
   - key: {fileID: 9067634144875508290, guid: 0674dbbb0f0364b478b31c6edc25863b, type: 2}
     value: {fileID: 377209191}
+  - key: {fileID: 1915087556625209371, guid: 0674dbbb0f0364b478b31c6edc25863b, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1053546315
@@ -6590,7 +6572,7 @@ PlayableDirector:
   - key: {fileID: -6863973479094946059, guid: 34402c6efae9db24a8657e6963de5eba, type: 2}
     value: {fileID: 0}
   - key: {fileID: -3257599915531663434, guid: 34402c6efae9db24a8657e6963de5eba, type: 2}
-    value: {fileID: 804659345}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1636114586
@@ -9099,6 +9081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: '>> TriggerBoxes <<'
       objectReference: {fileID: 0}
+    - target: {fileID: 1065086410903223008, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
+      propertyPath: startEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 377209190}
     - target: {fileID: 1177188036714823065, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
       propertyPath: bottomFloor
       value: 
@@ -9171,10 +9157,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: BottomFloor
       objectReference: {fileID: 0}
-    - target: {fileID: 6882266535371866660, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
-      propertyPath: m_TagString
-      value: BottomFloor
-      objectReference: {fileID: 0}
+    - target: {fileID: 6956148077835950011, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
+      propertyPath: startEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1053546314}
     - target: {fileID: 7103452926102403042, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
       propertyPath: mainCamera
       value: 
@@ -9190,10 +9176,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6882266535371866660, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 111236902}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
 --- !u!1001 &8009387663915904299
 PrefabInstance:
