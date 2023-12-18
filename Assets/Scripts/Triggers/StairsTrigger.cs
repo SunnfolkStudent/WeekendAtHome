@@ -12,13 +12,18 @@ public class StairsTrigger : MonoBehaviour
     public GameObject[] bottomFloor, topFloor;
 
     private static int num;
+
+    public bool startOnTopFloor;
     
     void Start()
     {
         // Fetch all of the objects with the bottomFloor and topFloor tags and store them in a list
         // and hide all of the top floor objects
+        if (!startOnTopFloor) 
+            currentFloor = "BottomFloor";
+        else
+            currentFloor = "TopFloor";
         
-        currentFloor = "BottomFloor";
         
         bottomFloor = GameObject.FindGameObjectsWithTag("BottomFloor");
         topFloor = GameObject.FindGameObjectsWithTag("TopFloor");
@@ -27,8 +32,12 @@ public class StairsTrigger : MonoBehaviour
 
         if (num == 2)
         {
-            foreach (GameObject topFloorGameObject in topFloor)
-                topFloorGameObject.SetActive(false);
+            if (!startOnTopFloor) 
+                foreach (GameObject topFloorGameObject in topFloor)
+                    topFloorGameObject.SetActive(false);
+            else
+                foreach (GameObject bottomFloorGameObject in bottomFloor)
+                    bottomFloorGameObject.SetActive(false);
             num = 0;
         }
     }
