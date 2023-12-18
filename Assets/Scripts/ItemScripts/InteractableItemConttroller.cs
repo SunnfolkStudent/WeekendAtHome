@@ -78,8 +78,8 @@ public class InteractableItemConttroller : MonoBehaviour
             case 6:
                 //Couch 2
                 _sceneToLoad = "Day 3 - Evening";
-                //evening3.Play();
-                Invoke("PlayNextScene",3f);
+                evening3.Play();
+                Invoke("PlayNextScene",22f);
                 break;
             case 7:
                 //Dead Cat Rip
