@@ -41,7 +41,7 @@ PlayableDirector:
   m_GameObject: {fileID: 385971176951403180}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 3972c38ad72bcef4696cc10a21a3c514, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: c3bf85c227af2444e814d5aff13ad9b8, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -56,6 +56,16 @@ PlayableDirector:
   - key: {fileID: -293232945890111628, guid: 3972c38ad72bcef4696cc10a21a3c514, type: 2}
     value: {fileID: 0}
   - key: {fileID: 2226334302810761269, guid: 3972c38ad72bcef4696cc10a21a3c514, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8400785188222924981, guid: c3bf85c227af2444e814d5aff13ad9b8, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1308736988344943069, guid: c3bf85c227af2444e814d5aff13ad9b8, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 3530070724964896748, guid: c3bf85c227af2444e814d5aff13ad9b8, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -293232945890111628, guid: c3bf85c227af2444e814d5aff13ad9b8, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2226334302810761269, guid: c3bf85c227af2444e814d5aff13ad9b8, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
@@ -280,7 +290,7 @@ GameObject:
   - component: {fileID: 1709224562826126985}
   - component: {fileID: 7883294344623794406}
   m_Layer: 0
-  m_Name: DeathTimeline
+  m_Name: DeathGlassDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -311,12 +321,20 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 6663a86f1e073cd49a144d738c640a58, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 8279334198719302731, guid: 6663a86f1e073cd49a144d738c640a58, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5325678370426372010, guid: 6663a86f1e073cd49a144d738c640a58, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2463693283111876686, guid: 6663a86f1e073cd49a144d738c640a58, type: 2}
+    value: {fileID: 4893525688606348498}
+  - key: {fileID: 6252535078603025732, guid: 6663a86f1e073cd49a144d738c640a58, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5593309561935620566, guid: 6663a86f1e073cd49a144d738c640a58, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
@@ -1619,6 +1637,8 @@ PlayableDirector:
     value: {fileID: 6735711857693798008}
   - key: {fileID: -6311497873171568656, guid: 0674dbbb0f0364b478b31c6edc25863b, type: 2}
     value: {fileID: 4893525688606348498}
+  - key: {fileID: -4012727931749791111, guid: 0674dbbb0f0364b478b31c6edc25863b, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &4189092318188615472
