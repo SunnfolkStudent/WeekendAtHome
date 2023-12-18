@@ -7844,6 +7844,10 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[3].value
       value: 
       objectReference: {fileID: 881485856}
+    - target: {fileID: 7230514078704887383, guid: 6c18880c1edb38a49a0aac716e0361d4, type: 3}
+      propertyPath: m_SceneBindings.Array.data[5].value
+      value: 
+      objectReference: {fileID: 5048623177233906191}
     - target: {fileID: 7302341215414785390, guid: 6c18880c1edb38a49a0aac716e0361d4, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
@@ -7868,6 +7872,14 @@ PrefabInstance:
     - target: {fileID: 641607133450067824, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
       propertyPath: m_Name
       value: '>> TriggerBoxes <<'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065086410903223008, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
+      propertyPath: triggerbox
+      value: 
+      objectReference: {fileID: 111236899}
+    - target: {fileID: 1065086410903223008, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
+      propertyPath: destroySelf
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1065086410903223008, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
       propertyPath: startEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7941,9 +7953,25 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1538688836}
+    - target: {fileID: 6420475915787505416, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
+      propertyPath: triggerbox
+      value: 
+      objectReference: {fileID: 5048623177233906192}
+    - target: {fileID: 6420475915787505416, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
+      propertyPath: destroySelf
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6669505061202296381, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
       propertyPath: m_TagString
       value: BottomFloor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956148077835950011, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
+      propertyPath: triggerbox
+      value: 
+      objectReference: {fileID: 5048623177233906191}
+    - target: {fileID: 6956148077835950011, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
+      propertyPath: destroySelf
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6956148077835950011, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
       propertyPath: startEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7966,6 +7994,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
+--- !u!1 &5048623177233906191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 703336035663899305, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
+  m_PrefabInstance: {fileID: 5048623177233906190}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5048623177233906192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 500485489196673939, guid: cdb01af34d153de40833212dbeed5a53, type: 3}
+  m_PrefabInstance: {fileID: 5048623177233906190}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8009387663915904299
 PrefabInstance:
   m_ObjectHideFlags: 0

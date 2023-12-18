@@ -27,7 +27,7 @@ public class ItemObjectScript : MonoBehaviour
     private bool _playerIsInTrigger;
 
     [Header("What Happens On Yes:")]
-    [Header("0Nothing,1BedToTwo,2BedToThree,3BedToEnd,4CatFoodFull")]
+    [Header("0Nothing,1BedToTwo,2BedToThree,3BedToEnd,4CatFoodFull,5Couch1,6Couch2,7CatDead")]
     public int whatHappensOnYes;
 
     private void Start()
