@@ -38,17 +38,18 @@ public class InteractableItemConttroller : MonoBehaviour
     public void OnClickYes()
     {
         Time.timeScale = 1;
-        audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.CurrentObjectInt].cutSceneAudio);
         switch (ItemObjectScript.CurrentYesAnswer)
         {
             case 0:
                 Debug.Log("Nothing");
-                timeline.Play();
+                audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.CurrentObjectInt].cutSceneAudio);
+                crossFade.Play();
+                Invoke("ExitScene",2f);
                 break;
             case 1:
                 _sceneToLoad = "Day 2 - Morning";
                 crossFade.Play();
-                Invoke("PlayNextScene",3f);
+                Invoke("PlayNextScene",2f);
                 break;
             case 2:
                 _sceneToLoad = "Day 3 - Morning";
@@ -59,6 +60,9 @@ public class InteractableItemConttroller : MonoBehaviour
                 break;
             case 4:
                 CatFoodFull.catBowlFull = true;
+                audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.CurrentObjectInt].cutSceneAudio);
+                crossFade.Play();
+                Invoke("ExitScene",3f);
                 break;
             case 5:
                 _sceneToLoad = "Day 2 - Evening";
@@ -85,5 +89,12 @@ public class InteractableItemConttroller : MonoBehaviour
     {
         ItemObjectScript.InItemCutscene = false;
         SceneManager.LoadScene(_sceneToLoad);
+    }
+
+    void ExitScene()
+    {
+        Debug.Log("Exit Scene");
+        ItemObjectScript.InItemCutscene = false;
+        SceneManager.UnloadSceneAsync("InteractableItem");
     }
 }

@@ -756,6 +756,7 @@ GameObject:
   - component: {fileID: 710847591}
   - component: {fileID: 710847595}
   - component: {fileID: 710847596}
+  - component: {fileID: 710847597}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -879,7 +880,7 @@ MonoBehaviour:
   timeline: {fileID: 1035590260}
   crossFade: {fileID: 874653292}
   evening2: {fileID: 1543488093}
-  evening3: {fileID: 0}
+  evening3: {fileID: 1543488093}
   levelLoader: {fileID: 1435490824}
 --- !u!82 &710847596
 AudioSource:
@@ -977,6 +978,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &710847597
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710847590}
+  m_Enabled: 1
 --- !u!1 &814968377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1724,7 +1733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1390077253
 RectTransform:
   m_ObjectHideFlags: 0
