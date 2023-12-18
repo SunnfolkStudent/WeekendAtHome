@@ -14,8 +14,12 @@ public class InteractableItemConttroller : MonoBehaviour
     public Image itemImage;
     public AudioSource audioPlayer;
     public PlayableDirector timeline;
+    public PlayableDirector crossFade;
+    public PlayableDirector evening2;
+    public PlayableDirector evening3;
+    public LevelLoader levelLoader;
 
-    private int _sceneToLoad;
+    private string _sceneToLoad;
     
     //public ScriptObject[] _scriptObject;
 
@@ -34,31 +38,38 @@ public class InteractableItemConttroller : MonoBehaviour
     public void OnClickYes()
     {
         Time.timeScale = 1;
-        timeline.Play();
         audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.CurrentObjectInt].cutSceneAudio);
         switch (ItemObjectScript.CurrentYesAnswer)
         {
             case 0:
                 Debug.Log("Nothing");
+                timeline.Play();
                 break;
             case 1:
-                _sceneToLoad = 0;
-                StartCoroutine("NextDay");
-                Debug.Log("LoadMorning2");
-                //_scriptObject.GetComponent<ScriptObject>().GetMethod(int)
+                _sceneToLoad = "Day 2 - Morning";
+                crossFade.Play();
+                Invoke("PlayNextScene",3f);
                 break;
             case 2:
-                _sceneToLoad = 1;
-                Debug.Log("LoadMorning 3");
+                _sceneToLoad = "Day 3 - Morning";
+                crossFade.Play();
+                Invoke("PlayNextScene",3f);
                 break;
             case 3:
-                _sceneToLoad = 2;
-                Debug.Log("EndGame");
                 break;
             case 4:
                 CatFoodFull.catBowlFull = true;
                 break;
-                
+            case 5:
+                _sceneToLoad = "Day 2 - Evening";
+                evening2.Play();
+                Invoke("PlayNextScene",22f);
+                break;
+            case 6:
+                _sceneToLoad = "Day 3 - Evening";
+                evening3.Play();
+                Invoke("PlayNextScene",22f);
+                break;
         }
     }
     
@@ -70,25 +81,9 @@ public class InteractableItemConttroller : MonoBehaviour
         SceneManager.UnloadSceneAsync("InteractableItem");
     }
 
-    public void PlayMethod(int objectNumber)
+    void PlayNextScene()
     {
-        
-    }
-
-    private IEnumerator NextDay()
-    {
-        if (_sceneToLoad == 0)
-        {
-            yield return new WaitForSeconds(2);
-            SceneManager.LoadScene("Day 2 - Morning");
-        }
-        else if (_sceneToLoad == 1)
-        {
-            
-        }
-        else
-        {
-            
-        }
+        ItemObjectScript.InItemCutscene = false;
+        SceneManager.LoadScene(_sceneToLoad);
     }
 }

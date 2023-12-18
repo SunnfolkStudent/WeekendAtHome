@@ -30,7 +30,11 @@ public class ItemObjectScript : MonoBehaviour
     [Header("0Nothing,1BedToTwo,2BedToThree,3BedToEnd,4CatFoodFull")]
     public int whatHappensOnYes;
 
-    
+    private void Start()
+    {
+        InItemCutscene = false;
+    }
+
     //If in trigger load object.
     private void OnTriggerEnter2D(Collider2D other)
     {
