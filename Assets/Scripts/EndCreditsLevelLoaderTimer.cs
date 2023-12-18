@@ -30,7 +30,7 @@ public class EndCreditsLevelLoaderTimer : MonoBehaviour
         // set timerDone to true after 23 seconds
         while (true)
         {
-            yield return new WaitForSeconds(23);
+            yield return new WaitForSeconds(35.7f);
             timerDone = true;
         }
     }
