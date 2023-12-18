@@ -1327,7 +1327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &269942154
 Transform:
   m_ObjectHideFlags: 0
@@ -1388,7 +1388,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: d35304d36bd08cb4ba19bb2ad8847dc1, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -2604,8 +2604,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Events:
-    m_Signals: []
-    m_Events: []
+    m_Signals:
+    - {fileID: 0}
+    - {fileID: 11400000, guid: 05ac175196d9356469cf49088d9334dd, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls: []
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 632778497}
+          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+          m_MethodName: Stop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &634244898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2640,11 +2658,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3259772748982060559, guid: 674df914bd922334bbdea02af86213f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.48000002
+      value: 5.7799997
       objectReference: {fileID: 0}
     - target: {fileID: 3259772748982060559, guid: 674df914bd922334bbdea02af86213f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.42000002
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 3259772748982060559, guid: 674df914bd922334bbdea02af86213f1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3133,7 +3151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &707166510
 Transform:
   m_ObjectHideFlags: 0
@@ -3729,7 +3747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &879481147
 Transform:
   m_ObjectHideFlags: 0
@@ -3754,6 +3772,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1029465234}
     m_Modifications:
+    - target: {fileID: 1546548318107174116, guid: 7103b7437cbde774f982edcf6f03c66f, type: 3}
+      propertyPath: m_Volume
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546548318107174116, guid: 7103b7437cbde774f982edcf6f03c66f, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2570721380460187152, guid: 7103b7437cbde774f982edcf6f03c66f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.18
@@ -4018,7 +4044,7 @@ Transform:
   m_GameObject: {fileID: 1029465233}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.66, y: -0.36, z: 0}
+  m_LocalPosition: {x: 5.6, y: 0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
