@@ -2387,6 +2387,10 @@ PlayableDirector:
     value: {fileID: 111236899}
   - key: {fileID: 55692762231676667, guid: d35304d36bd08cb4ba19bb2ad8847dc1, type: 2}
     value: {fileID: 1448135532}
+  - key: {fileID: -7425728380348791394, guid: d35304d36bd08cb4ba19bb2ad8847dc1, type: 2}
+    value: {fileID: 2009807517}
+  - key: {fileID: 7598823600339057642, guid: d35304d36bd08cb4ba19bb2ad8847dc1, type: 2}
+    value: {fileID: 1079008410}
   m_ExposedReferences:
     m_References: []
 --- !u!43 &395376893
@@ -4417,11 +4421,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3259772748982060559, guid: 674df914bd922334bbdea02af86213f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.77
+      value: -0.48000002
       objectReference: {fileID: 0}
     - target: {fileID: 3259772748982060559, guid: 674df914bd922334bbdea02af86213f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4
+      value: -0.42000002
       objectReference: {fileID: 0}
     - target: {fileID: 3259772748982060559, guid: 674df914bd922334bbdea02af86213f1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6780,7 +6784,7 @@ Transform:
   m_GameObject: {fileID: 1029465233}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.59, y: 0.46, z: 0}
+  m_LocalPosition: {x: -0.66, y: -0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7228,6 +7232,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!82 &1079008410 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 352140131294405229, guid: 70826d026e8c6e4439b834be2cf0cfd8, type: 3}
+  m_PrefabInstance: {fileID: 1191647938470341103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1094621958
 Mesh:
   m_ObjectHideFlags: 0
@@ -9818,6 +9827,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: __ Lighting Evening One __
       objectReference: {fileID: 0}
+    - target: {fileID: 1890109857989245708, guid: 43119cc60cb8b0f408b5ac95d1c81c6b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1993948412964090108, guid: 43119cc60cb8b0f408b5ac95d1c81c6b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.917211
@@ -12007,6 +12020,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1809306232521771278, guid: b3d24100f32e1444f95404dcbc921b0f, type: 3}
   m_PrefabInstance: {fileID: 1964905266}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &2009807517 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8363394689105573749, guid: 70826d026e8c6e4439b834be2cf0cfd8, type: 3}
+  m_PrefabInstance: {fileID: 1191647938470341103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2010539121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5863193442504985250, guid: 7e8c756d4350ca24fbc6a6226cedcaed, type: 3}
@@ -12538,9 +12556,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 352140131294405229, guid: 70826d026e8c6e4439b834be2cf0cfd8, type: 3}
+      propertyPath: MaxDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379458488771144212, guid: 70826d026e8c6e4439b834be2cf0cfd8, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2120765673033324771, guid: 70826d026e8c6e4439b834be2cf0cfd8, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120765673033324771, guid: 70826d026e8c6e4439b834be2cf0cfd8, type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2463643918241348104, guid: 70826d026e8c6e4439b834be2cf0cfd8, type: 3}
       propertyPath: m_IsActive
@@ -12725,6 +12755,14 @@ PrefabInstance:
     - target: {fileID: 7628439955320187210, guid: 70826d026e8c6e4439b834be2cf0cfd8, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outWeight
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363394689105573749, guid: 70826d026e8c6e4439b834be2cf0cfd8, type: 3}
+      propertyPath: MaxDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363394689105573749, guid: 70826d026e8c6e4439b834be2cf0cfd8, type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
