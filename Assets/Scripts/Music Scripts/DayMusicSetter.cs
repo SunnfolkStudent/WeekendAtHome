@@ -14,12 +14,9 @@ public class DayMusicSetter : MonoBehaviour
     {
         currentlyPlaying = FindAnyObjectByType<MusicManager>().musicSource.ToString();
         FindAnyObjectByType<MusicManager>().StopPlay(currentlyPlaying);
-        FindAnyObjectByType<MusicManager>().Play(musicToPlay);
+        
+        if (!musicToPlay.Equals("Nothing"))
+            FindAnyObjectByType<MusicManager>().Play(musicToPlay);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
