@@ -10,10 +10,6 @@ using Random = UnityEngine.Random;
 
 public class TVManager : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-    [SerializeField] private DataTransfer dataTransfer;
-    [SerializeField] private PlayerInput input;
-    
     [SerializeField] private Light2D light2D;
     
     [SerializeField] private AudioSource audioSource;
@@ -21,16 +17,20 @@ public class TVManager : MonoBehaviour
 
     private float _timer;
     private bool _triggerActive;
-    public bool tvOn;
     
     // Start is called before the first frame update
     private void Start()
     {
         light2D = GetComponent<Light2D>();
-        input = player.GetComponentInChildren<PlayerInput>();
-        dataTransfer = dataTransfer.GetComponent<DataTransfer>();
-        tvOn = dataTransfer.tvOn;
-        // StartCoroutine(StartOrStopTvLightSwitch(0.04f));
+        
+        if (DataTransfer.TvOn)
+        {
+            if (!light2D.enabled)
+            {
+                light2D.enabled = true;
+            }
+            StartCoroutine(ChangeLightAndWait(2.5f));
+        }
     }
     
     private void OnTriggerEnter2D(Collider2D other) { _triggerActive = true; }
@@ -38,49 +38,47 @@ public class TVManager : MonoBehaviour
 
     private void Update()
     {
-        tvOn = dataTransfer.tvOn;
-        _timer += Time.deltaTime;
-        
-        if (_timer > 12f)
-        {
-           StartCoroutine(StartOrStopTvLightSwitch(0.04f));
-           _timer = -Time.deltaTime;
-        }
-        
-        if (!input.interact || !_triggerActive)
+        if (!UserInput.Interact || !_triggerActive)
             return;
-        
-        if (tvOn)
         {
-            tvOn = false;
-            audioSource.PlayOneShot(tvTurningOff);
-            light2D.enabled = false;
+            if (DataTransfer.TvOn)
+            {
+                DataTransfer.TurnTVOnOrOff();
+                audioSource.PlayOneShot(tvTurningOff);
+                light2D.enabled = false;
+            }
+            else if (!DataTransfer.TvOn)
+            {
+                DataTransfer.TurnTVOnOrOff();
+                audioSource.PlayOneShot(tvTurningOn);
+                light2D.enabled = true;
+                // the float below in the ChangeLightAndWait is the initial start-up time before it starts changing colours (if 0f, it will blink very often)
+                StartCoroutine(ChangeLightAndWait(2.5f));
+            }
         }
-        else if (!tvOn)
-        {
-            tvOn = true;
-            audioSource.PlayOneShot(tvTurningOn);
-            light2D.enabled = true;
-        }
-        dataTransfer.TurnTVOnOrOff();
     }
     
-    private IEnumerator StartOrStopTvLightSwitch(float checkTime)
+    /* private IEnumerator StartOrStopTvLightSwitch(float checkTime)
     {
         if (tvOn)
         {
-            StartCoroutine(ChangeLightAndWait(2f));
+            // The float inside ChangeLightAndWait determines how quickly the TvLight switches
+            StartCoroutine(ChangeLightAndWait(1.5f));
         }
         yield return new WaitForSeconds(checkTime);
-    }
+    } */
 
     private IEnumerator ChangeLightAndWait(float waitTime)
     {
+        if (!DataTransfer.TvOn)
+        {
+            yield break;
+        }
         light2D.intensity = 0.2f;
         light2D.shapeLightFalloffSize = 0.8f;
         light2D.color = new Color(Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255), 0.02f);
         yield return new WaitForSeconds(waitTime);
-        yield return StartOrStopTvLightSwitch(0.1f);
+        yield return ChangeLightAndWait(2.5f);
     }
     
 }

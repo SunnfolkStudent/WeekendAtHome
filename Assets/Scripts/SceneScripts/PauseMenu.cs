@@ -5,7 +5,7 @@ namespace PlayerScripts
 { 
     public class PauseMenu : MonoBehaviour
     {
-        /* [SerializeField] private PlayerInput input;
+        /* [SerializeField] private UserUserInput _userInput;
 
         [Header("PauseMenu")]
         [SerializeField] private bool isPaused;

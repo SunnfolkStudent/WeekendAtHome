@@ -1,5 +1,7 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace PlayerScripts
 {
@@ -7,11 +9,9 @@ namespace PlayerScripts
     {
         [Header("Configurable Parameters")]
         [SerializeField] private float moveSpeed = 2.25f;
-        public bool playerCanMove;
         
         public Animator anim;
-        [SerializeField] private PlayerInput input;
-        [SerializeField] private DataTransfer dataTransfer;
+        [SerializeField] private UserInput userInput;
         [SerializeField] private Rigidbody2D rb;
     
         private Vector2 _movement;
@@ -21,15 +21,13 @@ namespace PlayerScripts
         
         private void Start()
         {
-            input = GetComponent<PlayerInput>();
-            dataTransfer = dataTransfer.GetComponent<DataTransfer>();
-            playerCanMove = dataTransfer.playerCanMove = true;
+            userInput = GetComponent<UserInput>();
+            DataTransfer.PlayerCanMove = true;
         }
 
         private void Update()
         {
-            playerCanMove = dataTransfer.playerCanMove;
-            if (!playerCanMove)
+            if (!DataTransfer.PlayerCanMove)
                 return;
             
             _movement.x = Input.GetAxisRaw("Horizontal");
@@ -39,7 +37,7 @@ namespace PlayerScripts
             // Movement = _controls.Player.Movement.ReadValue<Vector2>();
 
         
-            if (_movement == Vector2.zero || !playerCanMove)
+            if (_movement == Vector2.zero || !DataTransfer.PlayerCanMove)
             {
                 anim.Play("Player_Idle_Normal");
             }
@@ -64,7 +62,7 @@ namespace PlayerScripts
 
         private void FixedUpdate()
         {
-            if (playerCanMove)
+            if (DataTransfer.PlayerCanMove)
                 rb.MovePosition(rb.position + _movement.normalized * (moveSpeed * Time.fixedDeltaTime));
         }
     

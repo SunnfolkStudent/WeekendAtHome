@@ -14,7 +14,7 @@ public class ItemController : MonoBehaviour
     public TMP_Text itemText;
     public Image itemImage;
     public AudioSource audioPlayer;
-    private PlayerInput _input;
+    private UserInput _input;
 
     //Sets Scrub To Scene
     private void Start()

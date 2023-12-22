@@ -3,15 +3,15 @@ using UnityEngine.Serialization;
 
 namespace PlayerScripts
 {
-    public class PlayerInput : MonoBehaviour
+    public class UserInput : MonoBehaviour
     {
         private PlayerControls _controls;
 
         private void Awake() => _controls = new PlayerControls();
 
-        internal void OnEnable() => _controls.Enable();
+        public void OnEnable() => _controls.Enable();
 
-        internal void OnDisable() => _controls.Disable();
+        public void OnDisable() => _controls.Disable();
 
         public Vector2 Movement { get; private set; }
       
@@ -23,14 +23,14 @@ namespace PlayerScripts
           private set => movement = value;
       } */
         
-        public bool interact;
-        public bool pause;
+        public static bool Interact;
+        public static bool Pause;
     
         public void Update()
         {
             Movement = _controls.Player.Movement.ReadValue<Vector2>();
-            interact = _controls.Interact.Keyboard.triggered;
-            pause = _controls.Pause.OpenMenu.triggered;
+            Interact = _controls.Interact.Keyboard.triggered;
+            Pause = _controls.Pause.OpenMenu.triggered;
         }
     }
 }

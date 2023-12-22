@@ -2,27 +2,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using PlayerScripts;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class DataTransfer : MonoBehaviour
 {
     private static DataTransfer _instance;
+    [FormerlySerializedAs("playerInput")] [SerializeField] private UserInput userInput;
 
-    [Header("Configurable Parameters")] 
-    public bool lampOn;
-    public bool tvOn; 
-    public bool radioOn;
-    public bool glassDoorOpen;
-    public bool playerCanMove;
-    public bool TopFloorElseBottomFloor;
-    public bool BottomFloorElseOutside;
+    [Header("Configurable Universal Bools")] 
+    public static bool LampOn;
+    public static bool TvOn; 
+    public static bool RadioOn;
+    public static bool GlassDoorOpen;
+    public static bool PlayerCanMove;
+    public static bool TopFloorElseBottomFloor;
+    public static bool BottomFloorOrOutside;
     
     //Awake is always called before any Start functions
     void Awake()
     {
         //Check if instance already exists
-        if (_instance == null)
+        if (_instance != null && _instance != this)
         {
             Destroy(_instance);
             _instance = this;
@@ -36,63 +38,70 @@ public class DataTransfer : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void TurnLampOnOrOff()
+    private void Start()
     {
-        if (lampOn)
+        userInput = GetComponent<UserInput>();
+    }
+
+    public static void TurnLampOnOrOff()
+    {
+        if (LampOn)
         {
-           lampOn = false;
+           LampOn = false;
         }
-        else if (!lampOn)
+        else if (!LampOn)
         {
-            lampOn = true;
+            LampOn = true;
         }
     }
-    public void TurnTVOnOrOff()
+    public static void TurnTVOnOrOff()
     {
-        if (tvOn)
+        if (TvOn)
         {
-            tvOn = false;
+            TvOn = false;
         }
-        else if (!tvOn)
+        else if (!TvOn)
         {
-            tvOn = true;
+            TvOn = true;
         }
     }
-    public void TurnRadioOnOrOff()
+    public static void TurnRadioOnOrOff()
     {
-        if (radioOn)
+        if (RadioOn)
         {
-            radioOn = false;
+            RadioOn = false;
         }
-        else if (!radioOn)
+        else if (!RadioOn)
         {
-            radioOn = true;
+            RadioOn = true;
         }
     }
-    public void OpenOrCloseGlassDoor()
+    public static void OpenOrCloseGlassDoor()
     {
-        if (glassDoorOpen)
+        if (GlassDoorOpen)
         {
-            glassDoorOpen = false;
+            GlassDoorOpen = false;
         }
-        else if (!glassDoorOpen)
+        else if (!GlassDoorOpen)
         {
-            glassDoorOpen = true;
+            GlassDoorOpen = true;
         }
     }
-    public void CanPlayerMove()
+    public static void CanPlayerMove(UserInput userInput)
     {
-        if (playerCanMove)
+        if (PlayerCanMove)
         {
-            playerCanMove = false;
+            PlayerCanMove = false;
+            userInput.OnDisable();
         }
-        else if (!playerCanMove)
+        else if (!PlayerCanMove)
         {
-            playerCanMove = true;
+            PlayerCanMove = true;
+            userInput.OnEnable();
         }
     }
 
-    public void TopOrBottomFloor()
+    public static void TopOrBottomFloor()
     {
         if (TopFloorElseBottomFloor)
         {
@@ -104,15 +113,15 @@ public class DataTransfer : MonoBehaviour
         }
     }
 
-    public void InsideOrOutside()
+    public static void MoveInsideOrOutside()
     {
-        if (BottomFloorElseOutside)
+        if (BottomFloorOrOutside)
         {
-            BottomFloorElseOutside = false;
+            BottomFloorOrOutside = false;
         }
-        else if (!BottomFloorElseOutside)
+        else if (!BottomFloorOrOutside)
         {
-            BottomFloorElseOutside = true;
+            BottomFloorOrOutside = true;
         }
     }
     

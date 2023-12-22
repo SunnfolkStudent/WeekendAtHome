@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class FootstepManager : MonoBehaviour
 {
-
-    private AudioSource audioSource;
-
+    [SerializeField] private AudioSource audioSource;
     public AudioClip indoorStep, snowyStep;
-
-    public bool isOutside;
     
     // Start is called before the first frame update
     void Start()
@@ -17,17 +13,11 @@ public class FootstepManager : MonoBehaviour
         audioSource = GetComponentInParent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayFootstep()
     {
-        
-    }
-
-    public void playFootstep()
-    {
-        if (!isOutside)
-            audioSource.PlayOneShot(indoorStep);
+        if (!DataTransfer.BottomFloorOrOutside)
+            audioSource.PlayOneShot(snowyStep);
         else
-            audioSource.PlayOneShot(snowyStep); 
+            audioSource.PlayOneShot(indoorStep); 
     }
 }

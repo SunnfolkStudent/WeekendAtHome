@@ -1,46 +1,56 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using PlayerScripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class RadioManager : MonoBehaviour
 {
-
-    public bool isPlaying;
-    public bool turnedOn;
-
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip turnOnSound, turnOffSound, music;
-
-    private bool canTurnOn;
+    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioClip turnOnSfx, turnOffSfx, radioMusic;
+    
+    private bool _triggerActive;
     
     void Start()
     {
-        //audioSource = GetComponent<AudioSource>();
+        if (DataTransfer.RadioOn)
+        {
+            StartCoroutine(TurnRadioMusicOn(1f));
+        }
     }
 
     private void Update()
     {
-        if (!canTurnOn)
+        if (!UserInput.Interact || !_triggerActive)
             return;
-        
-        if (Keyboard.current.eKey.wasReleasedThisFrame)
-            TurnOnOrOffRadio();
-        
-        if (turnedOn && !isPlaying)
         {
-            isPlaying = true;
-            audioSource.Play();
+            if (DataTransfer.RadioOn)
+            {
+                DataTransfer.TurnRadioOnOrOff();
+                sfxSource.PlayOneShot(turnOffSfx);
+                musicSource.Stop();
+                StopAllCoroutines();
+            }
+
+            else if (!DataTransfer.RadioOn)
+            {
+                DataTransfer.TurnRadioOnOrOff();
+                sfxSource.PlayOneShot(turnOnSfx);
+                StartCoroutine(TurnRadioMusicOn(1f));
+            }
+            
         }
 
-        if (turnedOn && audioSource.volume < 1)
+        /* if (radioOn && audioSource.volume < 1)
             StartCoroutine(TurnUpVolume());
-        else if (!turnedOn && audioSource.volume > 0)
-            StartCoroutine(TurnDownVolume());
+        else if (!radioOn && audioSource.volume > 0)
+            StartCoroutine(TurnDownVolume()); */
     }
 
-    IEnumerator TurnUpVolume()
+    /* IEnumerator TurnUpVolume()
     {
         audioSource.volume += 0.5f * Time.deltaTime;
         yield return new WaitForSeconds(0.1f);
@@ -50,25 +60,25 @@ public class RadioManager : MonoBehaviour
     {
         audioSource.volume -= 2f * Time.deltaTime;
         yield return new WaitForSeconds(0.1f);
-    }
+    } */
     
-    private void OnTriggerEnter2D(Collider2D other) { canTurnOn = true; }
-    private void OnTriggerExit2D(Collider2D other) { canTurnOn = false; }
+    private void OnTriggerEnter2D(Collider2D other) { _triggerActive = true; }
+    private void OnTriggerExit2D(Collider2D other) { _triggerActive = false; }
 
-    
-    public void TurnOnOrOffRadio()
+    private IEnumerator TurnRadioMusicOn(float startTime)
     {
-
-        if (!turnedOn) { audioSource.PlayOneShot(turnOnSound); }
+        yield return new WaitForSecondsRealtime(1);
+        musicSource.PlayOneShot(radioMusic);
+        yield return new WaitForSecondsRealtime(startTime);
+    }
+    /* public void TurnOnOrOffRadio()
+    {
+        if (!radioOn) { sfxSource.PlayOneShot(turnOnSfx); }
         else
         {
-            audioSource.Stop();
-            isPlaying = false;
-            audioSource.PlayOneShot(turnOffSound);
+            musicSource.Stop();
+            sfxSource.PlayOneShot(turnOffSfx);
+            radioOn = false;
         }
-
-        turnedOn = !turnedOn;
-        
-        return;
-    }
+    } */
 }
