@@ -54,7 +54,7 @@ namespace Cat
                 if (aiPath.reachedDestination && !_destinationReached)
                 {
                     _destinationReached = true;
-                    Debug.Log(_randomGoal);
+                    /* Debug.Log(_randomGoal);*/
                     anim.Play("Player_Idle_Normal");
                     onTheMove = false;
                     //Debug.Log("Reached Destination");
@@ -105,9 +105,9 @@ namespace Cat
                 _goingTowardsCatFood = false;
             }
             _randomGoal = Random.Range(0, goalSpots.Length);
-            Debug.Log(goalSpots[_randomGoal]);
+            /*Debug.Log(goalSpots[_randomGoal]);*/
             goal.transform.position = goalSpots[_randomGoal];
-            Debug.Log(goal.transform.position);
+            /*Debug.Log(goal.transform.position);*/
             onTheMove = true;
             _destinationReached = false;
         }

@@ -51,6 +51,7 @@ namespace Triggers
         
             if (insideOrOutside.Equals("Inside"))
             {
+                Debug.Log("Player Triggers Outdoors");
                 footstepManager.isOutside = true;
             
                 bottomFloor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
@@ -72,6 +73,7 @@ namespace Triggers
             }
             else
             {
+                Debug.Log("Player Triggers Inside");
                 footstepManager.isOutside = false;
             
                 bottomFloor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);

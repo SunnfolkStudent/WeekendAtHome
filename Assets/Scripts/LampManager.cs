@@ -1,42 +1,53 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
+using PlayerInput = PlayerScripts.PlayerInput;
 
 public class LampManager : MonoBehaviour
 {
-
-    private bool isTurnedOn;
-    private bool canTurnOn;
-
+    [SerializeField] private GameObject player;
+    [SerializeField] private DataTransfer dataTransfer;
+    
+    public bool lampOn;
+    private bool _canTurnOn;
+    
+    [SerializeField] private PlayerInput input;
     [SerializeField] private Light2D lampLight;
     
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        isTurnedOn = true;
+        input = player.GetComponent<PlayerInput>();
+        dataTransfer = dataTransfer.GetComponent<DataTransfer>();
+        lampOn = dataTransfer.lampOn;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) { canTurnOn = true; }
-    private void OnTriggerExit2D(Collider2D other) { canTurnOn = false; }
+    private void OnTriggerEnter2D(Collider2D other) { _canTurnOn = true; }
+    private void OnTriggerExit2D(Collider2D other) { _canTurnOn = false; }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (!canTurnOn)
+        lampOn = dataTransfer.lampOn;
+        
+        if (!_canTurnOn || !input.interact)
             return;
         
-        if (Keyboard.current.eKey.wasPressedThisFrame && isTurnedOn)
+        if (lampOn)
         {
-            isTurnedOn = false;
+            lampOn = false;
             lampLight.intensity = 0;
         }
-        else if (Keyboard.current.eKey.wasPressedThisFrame && !isTurnedOn)
+        else if (!lampOn)
         {
-            isTurnedOn = true;
+            lampOn = true;
             lampLight.intensity = 1;
         }
+        dataTransfer.TurnLampOnOrOff();
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace PlayerScripts
 {
@@ -8,9 +9,9 @@ namespace PlayerScripts
 
         private void Awake() => _controls = new PlayerControls();
 
-        private void OnEnable() => _controls.Enable();
+        internal void OnEnable() => _controls.Enable();
 
-        private void OnDisable() => _controls.Disable();
+        internal void OnDisable() => _controls.Disable();
 
         public Vector2 Movement { get; private set; }
       
@@ -21,10 +22,15 @@ namespace PlayerScripts
           get => movement;
           private set => movement = value;
       } */
+        
+        public bool interact;
+        public bool pause;
     
-        private void Update()
+        public void Update()
         {
             Movement = _controls.Player.Movement.ReadValue<Vector2>();
+            interact = _controls.Interact.Keyboard.triggered;
+            pause = _controls.Pause.OpenMenu.triggered;
         }
     }
 }

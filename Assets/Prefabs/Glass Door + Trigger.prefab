@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 1313547604339602112
+  uniqueID: 8645811154943475898
   points: []
   convex: 1
   minBoundsHeight: 1
@@ -207,7 +207,6 @@ GameObject:
   - component: {fileID: 5199249220480607006}
   - component: {fileID: 2609523992617093939}
   - component: {fileID: 2852251589391453578}
-  - component: {fileID: 8699973542912232288}
   m_Layer: 0
   m_Name: Glass Door + Trigger
   m_TagString: BottomFloor
@@ -464,30 +463,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8699973542912232288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8989446273147014651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3053176d8e61b3145b2b49803de52a22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2609523992617093939}
-        m_TargetAssemblyTypeName: GlassDoorManager, Assembly-CSharp
-        m_MethodName: OpenOrCloseDoor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
