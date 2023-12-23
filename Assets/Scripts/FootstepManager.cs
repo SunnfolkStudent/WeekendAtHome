@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FootstepManager : MonoBehaviour
@@ -12,7 +10,6 @@ public class FootstepManager : MonoBehaviour
     {
         audioSource = GetComponentInParent<AudioSource>();
     }
-
     public void PlayFootstep()
     {
         if (!DataTransfer.BottomFloorOrOutside)

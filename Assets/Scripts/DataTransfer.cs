@@ -1,17 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using PlayerScripts;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class DataTransfer : MonoBehaviour
 {
     private static DataTransfer _instance;
-    [FormerlySerializedAs("playerInput")] [SerializeField] private UserInput userInput;
-
-    [Header("Configurable Universal Bools")] 
+    
     public static bool LampOn;
     public static bool TvOn; 
     public static bool RadioOn;
@@ -37,12 +30,12 @@ public class DataTransfer : MonoBehaviour
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
     }
-
+    
     private void Start()
     {
-        userInput = GetComponent<UserInput>();
+        TvOn = false;
+        LampOn = false;
     }
-
     public static void TurnLampOnOrOff()
     {
         if (LampOn)
@@ -100,7 +93,6 @@ public class DataTransfer : MonoBehaviour
             userInput.OnEnable();
         }
     }
-
     public static void TopOrBottomFloor()
     {
         if (TopFloorElseBottomFloor)
@@ -112,7 +104,6 @@ public class DataTransfer : MonoBehaviour
             TopFloorElseBottomFloor = true;
         }
     }
-
     public static void MoveInsideOrOutside()
     {
         if (BottomFloorOrOutside)
@@ -124,5 +115,4 @@ public class DataTransfer : MonoBehaviour
             BottomFloorOrOutside = true;
         }
     }
-    
 }

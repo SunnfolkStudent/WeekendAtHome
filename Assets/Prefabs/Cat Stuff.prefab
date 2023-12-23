@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1071420533694517889}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.6, y: -0.571, z: -0.015899928}
+  m_LocalPosition: {x: -3.61, y: -0.05, z: -0.015899928}
   m_LocalScale: {x: 0.40213263, y: 0.40213263, z: 0.40213263}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIezYgcNWagIAACQFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMziVjgxNwby0hpIckTGgnF1+EtMYaZMkjyQGS4b93JdvYJdMTy9u3u28/5E8ilK2AOW1WRvAnzYF8HxFvk2+j3vkIR7rTaiM+oOO8Ce4KT6KB80qd0IjHPszqEpwR7IfaSU+OEKyVyLUpl3wHC22dRTin0gK6jHY+WiH0OSJH/BmnPuSE1mTmrQ+00mh0RpOBcmB6akccRzfpNJnPk1nLb+i1YpKWFXCvvY+aTG8mt12J28BU2FhLihon01IK2woj7lSFxjdVAQZ851xQ7DOIiW/uUkQKELvC+ZzD8Jc8t+BarYae7oXBiTV5yU/djLGkdt/oe6ey9pXidBKENUmfvvjHcXDnRpePXd048jVcIdj+lZ4YtW4w5yF8P9AexnSgck+3Et4KUM96ZXStODqdqX1obWFy3/+9tLYogO17vJF6BdbV1211S/U9nEP3x4UU5TYMP2mAjdRh4uEWwOB6fqHgcCm2TYGoV/HHwm+6G55U63gQxjp0tV0qL2+ra+OpZBlm5rup3UIbBWaYoQJFpTutMY+73uGV7/9RD9S/nrZ66+sexVVIgHt+FF251vpw2ZYt9OEJbPFSOykU9KP2jmcc1EIr1ZzYsKUubFObnLJB2K4W/N/bIvGU3fEon0csnrFoxsZpkm7T6V2SpEk0n09nJByfUNgnletGaDseXJvqkys8tO6jMloZWoVz54YeVuKj1LZnCpXrDTMA6qXJcBEOBovg2+RLLnBAG3BOqLBw8pkRqdkeeHZJlIVOl0dnaNZnyUgl3rXzSEYW4SuSEQ9fjnlt4F3AwRfvkp3J+S9QSwMEFAAACAgAAAgh7CKWLJdtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKhcbJZikGahUGyoXmygXmyrqWJZZKlsZmJiaWJgYWFsblSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7NiBw1ZqAgAAJAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7CKWLJdtAAAAeAAAAAkAJAAAAAAAAAAAAAAAtwIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABvAwAAAAA=
+    dataString: UEsDBBQAAAgIAAAIIexae/lgYAIAABsFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk3GBgpxby0hpAcSJqSTiy9CWmMNsuSR5ADJ8N+7kj9LpifE27er93ZX/iRC2RKY02ZlBF9rDuTHiPgz+Tbqg49wonuttuIDWs6b4C73JBo4L9QJjXjs06wuwBnBfqq99OQIwUqJTJtiyfew0NZZhDMqLWDIaOezFUKfI3LCn5vEp5zxNJ770weekmh0wSMD5cD01I7Y0GpWpZikRQncS+7J48nt+HubUDMV+mlIUR1kWkphGz3Encvgd1vmYMAb5oKivaAhvp0liOQg9rlrRHTpz1lmwTUSDT3fC4ONquuSX7ruXkHtodb3TmXlb4qTcRBWF11/id/EIZwZXTy298aRv8Plgh1e6JlR6wbtHcL3A+2hTUcqD3Qn4S0H9aRXRleKY9CZyqdWFsb3/d/O2iIHdujxWuoVWJVfh9TO0nu4BPenhRTFLjR/WgNbqUPHwwqAwfH8RsFhQWxTAlGv4o+FV7ofblITeBDGOgw1LpWXt9OV8VSyDD3zbiq30EaBGVYoQVHpzhus465neBX7f9YD9Y+mub2JtW/hKiXAPT+KrkIbfeymZXN9XIPNnysnhYK+1T7whI1aaKXqFRtaatO2lckoG6TtK8H/3S0ST9iMR9ldxOI5i+bsJpkmu2Qym06TaXR3N5mTsHxCoU8qN7XQpj04NtUXV7ho7bdktDK0DOvODT2uxEehbc8UKtNbZgDUc12hEw4GL8G3yZdcYIO24JxQYeDkMyVSswPwtCuUBqfLkzM07aukpBTv2nkkJYvw8UiJh7tl3hh4F3D0l7fFLuTyF1BLAwQUAAAICAAACCHsIpYsl20AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kqFxslmKQZqFQbKhebKBebKupYllkqWxmYmJpYmBhYWxuVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAACCHsWnv5YGACAAAbBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHsIpYsl20AAAB4AAAACQAkAAAAAAAAAAAAAACtAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAGUDAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -558,7 +558,7 @@ Transform:
   m_GameObject: {fileID: 8716812284766928673}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: -0.038021266}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -626,7 +626,7 @@ Animator:
   m_GameObject: {fileID: 8716812284766928673}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 0f57e8c9a01cb3d4baa1b3008fd9ae08, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9a6f6536c4e6f984b9d4a3e0f5d64756, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -654,29 +654,33 @@ MonoBehaviour:
   anim: {fileID: 6377923348263028809}
   goal: {fileID: 1071420533694517889}
   goalSpots:
-  - {x: -7, y: 1}
+  - {x: -7, y: 2.75}
   - {x: -5, y: 9}
-  - {x: -1, y: 3}
+  - {x: -1, y: 2.75}
   - {x: 9, y: -4}
   - {x: 8, y: -7}
-  - {x: -6, y: -7}
-  staysForRandom: 000000000000
+  - {x: -6, y: -6.5}
+  - {x: 4, y: 9}
+  - {x: 6, y: -6.5}
+  - {x: -6, y: 5}
+  staysForRandom: 010101010101010101
   howLongToStay:
   - 6
   - 7
-  - 6
+  - 2
   - 4
-  - 6
+  - 5
   - 4
-  whichAnimationToPlay: []
-  whatSoundToPlay:
-  - {fileID: 8300000, guid: 319797c8960605941af3ced7e97f658c, type: 3}
+  - 7
+  - 3
+  - 10
+  meowAudioSource: {fileID: 1804135296446572343}
+  meows:
   - {fileID: 8300000, guid: 2fea35190f36f714586dc60c2d129be2, type: 3}
+  - {fileID: 8300000, guid: c5dd98df6f0829e4b9497cec9b24cbe2, type: 3}
+  - {fileID: 8300000, guid: 319797c8960605941af3ced7e97f658c, type: 3}
   - {fileID: 8300000, guid: 567d8b484ef1a3b438bfe251079f791c, type: 3}
   - {fileID: 8300000, guid: 87c1ff179ce520149a3c642e47f190de, type: 3}
-  - {fileID: 8300000, guid: 567d8b484ef1a3b438bfe251079f791c, type: 3}
-  - {fileID: 8300000, guid: 567d8b484ef1a3b438bfe251079f791c, type: 3}
-  meows: {fileID: 1804135296446572343}
 --- !u!82 &1804135296446572343
 AudioSource:
   m_ObjectHideFlags: 0
@@ -686,8 +690,8 @@ AudioSource:
   m_GameObject: {fileID: 8716812284766928673}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c5dd98df6f0829e4b9497cec9b24cbe2, type: 3}
+  OutputAudioMixerGroup: {fileID: -5443969320384851222, guid: 54693cb1a629091438be814a797a46ff, type: 2}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -698,7 +702,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 150
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

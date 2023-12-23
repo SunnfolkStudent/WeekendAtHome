@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 
 namespace Triggers
 {
@@ -8,35 +9,32 @@ namespace Triggers
     {
         // Declare Variables
         [SerializeField] private GameObject bottomFloor;
-    
-        private String insideOrOutside;
-        private GameObject[] outdoorToDespawn, outdoor;
+        
+        private GameObject[] _outdoorToDespawn, _outdoor;
 
         [SerializeField] private float transparencyValue, moveAmount, playerOutdoorLightValue;
 
-        private float playerLightIntensity;
-
-        private GameObject player;
-
-        [SerializeField] private FootstepManager footstepManager;
+        private float _playerLightIntensity;
+        [SerializeField] private GameObject player;
     
         void Start()
         {
             // Fetch all of the objects with the Outdoor and OutdoorToDespawn tags and store them in a list
             // and hide all of the outdoor objects
-        
-            insideOrOutside = "Inside";
-            footstepManager.isOutside = false;
-        
-            outdoorToDespawn = GameObject.FindGameObjectsWithTag("Outdoor to Despawn");
-            outdoor = GameObject.FindGameObjectsWithTag("Outdoors");
-        
+
+            if (!DataTransfer.BottomFloorOrOutside) return;
+            DataTransfer.BottomFloorOrOutside = true;
+                      
+            _outdoorToDespawn = GameObject.FindGameObjectsWithTag("Outdoor to Despawn");
+            _outdoor = GameObject.FindGameObjectsWithTag("Outdoors");
+                      
             player = GameObject.FindWithTag("Player");
-        
-            playerLightIntensity = player.GetComponentInChildren<Light2D>().intensity;
-        
-            foreach(GameObject outdoorObjects in outdoor)
+                      
+            _playerLightIntensity = player.GetComponentInChildren<Light2D>().intensity;
+                      
+            foreach(GameObject outdoorObjects in _outdoor)
                 outdoorObjects.SetActive(false);
+
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -49,52 +47,48 @@ namespace Triggers
         
             // Does opposite when player reenters
         
-            if (insideOrOutside.Equals("Inside"))
+            if (!DataTransfer.BottomFloorOrOutside)
             {
                 Debug.Log("Player Triggers Outdoors");
-                footstepManager.isOutside = true;
+                DataTransfer.BottomFloorOrOutside = false;
             
                 bottomFloor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
             
                 foreach (Transform child in bottomFloor.transform)
                     child.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
             
-                foreach(GameObject outdoorToDespawnObjects in outdoorToDespawn)
+                foreach(GameObject outdoorToDespawnObjects in _outdoorToDespawn)
                     outdoorToDespawnObjects.SetActive(false);
             
-                foreach(GameObject outdoorObjects in outdoor)
+                foreach(GameObject outdoorObjects in _outdoor)
                     outdoorObjects.SetActive(true);
 
                 transform.position = new Vector3(transform.position.x, transform.position.y - moveAmount);
             
                 player.GetComponentInChildren<Light2D>().intensity = playerOutdoorLightValue;
                 player.GetComponentInChildren<SpriteRenderer>().sortingOrder = -1;
-                insideOrOutside = "Outside";
             }
             else
             {
                 Debug.Log("Player Triggers Inside");
-                footstepManager.isOutside = false;
+                DataTransfer.BottomFloorOrOutside = true;
             
                 bottomFloor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             
                 foreach (Transform child in bottomFloor.transform)
                     child.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             
-                foreach(GameObject outdoorToDespawnObjects in outdoorToDespawn)
+                foreach(GameObject outdoorToDespawnObjects in _outdoorToDespawn)
                     outdoorToDespawnObjects.SetActive(true);
             
-                foreach(GameObject outdoorObjects in outdoor)
+                foreach(GameObject outdoorObjects in _outdoor)
                     outdoorObjects.SetActive(false);
             
                 transform.position = new Vector3(transform.position.x, transform.position.y + moveAmount);
             
-                player.GetComponentInChildren<Light2D>().intensity = playerLightIntensity;
+                player.GetComponentInChildren<Light2D>().intensity = _playerLightIntensity;
                 player.GetComponentInChildren<SpriteRenderer>().sortingOrder = 50;
-                insideOrOutside = "Inside";
             }
-
-            return;
         }
     }
 }

@@ -10,7 +10,7 @@ public class GlassDoorManager : MonoBehaviour
 {
     [SerializeField] private float slideTimer;
     
-    public bool triggerActive;
+    private bool _triggerActive;
     private Animator _animator;
     
     private AudioSource _audioSource;
@@ -26,7 +26,7 @@ public class GlassDoorManager : MonoBehaviour
     {
         slideTimer += Time.deltaTime;
         
-        if (!triggerActive)
+        if (!_triggerActive)
             return;
         
         // if animation is done, and player is within triggerBox and presses Interact, continue downwards.
@@ -43,15 +43,15 @@ public class GlassDoorManager : MonoBehaviour
                 Debug.Log("DoorIsOpening");
                 _animator.Play("GlassDoorSliding");
                 _audioSource.PlayOneShot(doorOpening);
-                DataTransfer.GlassDoorOpen = true;
                 break;
             case true:
                 Debug.Log("DoorIsClosing");
                 _animator.Play("GlassDoorSlidingClosed");
                 _audioSource.PlayOneShot(doorClosing);
-                DataTransfer.GlassDoorOpen = false;
                 break;
         }
+        DataTransfer.OpenOrCloseGlassDoor();
+        
         // Reset the timer to be 0.
         slideTimer = -Time.deltaTime;
         
@@ -62,8 +62,8 @@ public class GlassDoorManager : MonoBehaviour
         } */
     }
 
-    private void OnTriggerEnter2D(Collider2D other) { triggerActive = true; }
-    private void OnTriggerExit2D(Collider2D other) { triggerActive = false; }
+    private void OnTriggerEnter2D(Collider2D other) { _triggerActive = true; }
+    private void OnTriggerExit2D(Collider2D other) { _triggerActive = false; }
 
     
     /* public void SetAnimationToPlayingOrNot()
