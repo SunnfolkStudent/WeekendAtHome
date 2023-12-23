@@ -1,75 +1,59 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace PlayerScripts
 {
     public class PlayerMovement : MonoBehaviour
     {
+        public Animator anim;
+        [SerializeField] private Rigidbody2D rb; 
+               
         [Header("Configurable Parameters")]
         [SerializeField] private float moveSpeed = 2.25f;
         
-        public Animator anim;
-        [SerializeField] private UserInput userInput;
-        [SerializeField] private Rigidbody2D rb;
-    
-        private Vector2 _movement;
-        private static readonly int Horizontal = Animator.StringToHash("Horizontal");
-        private static readonly int Vertical = Animator.StringToHash("Vertical");
-        private static readonly int Speed = Animator.StringToHash("Speed");
+        private Vector2 _directionV2;
         
-        private void Start()
-        {
-            userInput = GetComponent<UserInput>();
-            DataTransfer.PlayerCanMove = true;
-        }
+        // We're giving the string any initial value ("_Down"), to avoid yellow errors with Animator Index-1; which is the Animator not finding a string to play;
+        // This makes sure the animator always can fall back to play "_Down", at any point!
+        private string _direction = "_Down";
 
         private void Update()
         {
+            // Animation direction
+            if (_directionV2.y > Mathf.Sqrt(0.5f))
+            {
+                _direction = "_Up";
+            } 
+            else if (_directionV2.y < -Mathf.Sqrt(0.5f))
+            {
+                _direction = "_Down";
+            } 
+            else if (_directionV2.x > Mathf.Sqrt(0.5f))
+            {
+                _direction = "_Right";
+            }
+            else if (_directionV2.x < -Mathf.Sqrt(0.5f))
+            {
+                _direction = "_Left";
+            }
+
+            Animate(_directionV2 == Vector2.zero ? "Player_Idle" : "Player_Walk");
+
             if (!DataTransfer.PlayerCanMove)
                 return;
             
-            _movement.x = Input.GetAxisRaw("Horizontal");
-            _movement.y = Input.GetAxisRaw("Vertical");
-            // Move the player
-            // transform.Translate(_controls.Player.Movement.ReadValue<Vector2>() * (moveSpeed * Time.deltaTime));
-            // Movement = _controls.Player.Movement.ReadValue<Vector2>();
-
+            _directionV2.x = Input.GetAxisRaw("Horizontal");
+            _directionV2.y = Input.GetAxisRaw("Vertical");
+        }
         
-            if (_movement == Vector2.zero || !DataTransfer.PlayerCanMove)
-            {
-                anim.Play("Player_Idle_Normal");
-            }
-            else
-            {
-                anim.Play("Movement");
-                anim.SetFloat("Horizontal", _movement.x);
-                anim.SetFloat("Vertical", _movement.y);
-            } 
-
-            /*
-        if (_movement.x != 0 && _movement.y == 0 && canMove)
+        private void Animate(string unitAnimation)
         {
-           anim.transform.localScale = new Vector3(-_movement.x, 1f, 1f);
-        }
-        else
-        {
-            anim.transform.localScale = new Vector3(1f, 1f, 1f);
-        }
-        */
+            anim.Play(unitAnimation + _direction);
         }
 
         private void FixedUpdate()
         {
             if (DataTransfer.PlayerCanMove)
-                rb.MovePosition(rb.position + _movement.normalized * (moveSpeed * Time.fixedDeltaTime));
+                rb.MovePosition(rb.position + _directionV2.normalized * (moveSpeed * Time.fixedDeltaTime));
         }
-    
-        /* public void SetCanMove(bool PlayerCanMove)
-        {
-            PlayerCanMove = PlayerCanMove;
-        } */
-
     }
 }
