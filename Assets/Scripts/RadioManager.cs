@@ -1,5 +1,6 @@
 using System.Collections;
 using PlayerScripts;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RadioManager : MonoBehaviour
@@ -11,8 +12,10 @@ public class RadioManager : MonoBehaviour
     private bool _triggerActive;
     void Start()
     {
-        DataTransfer.RadioOn = true;
-        StartCoroutine(PlayRadioMusic());
+        if (DataTransfer.RadioOn)
+        {
+            StartCoroutine(PlayRadioMusic());  
+        }
     }
 
     private void Update()
@@ -32,7 +35,7 @@ public class RadioManager : MonoBehaviour
             musicSource.Stop();
             yield break;
         }
-        if (DataTransfer.RadioOn && !musicSource.isPlaying)
+        if (DataTransfer.RadioOn && !musicSource.isPlaying && Time.deltaTime > 3f)
         {
             sfxSource.PlayOneShot(turnOnSfx);
         }

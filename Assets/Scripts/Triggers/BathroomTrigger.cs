@@ -17,7 +17,7 @@ public class BathroomTrigger : MonoBehaviour
     
     void Start()
     {
-        insideOrOutsideBathroom = "Outside";
+        insideOrOutsideBathroom = "Inside";
         
         insideBathroomToDespawn = GameObject.FindGameObjectsWithTag("Inside Bathroom to Despawn");
         bathroom = GameObject.FindGameObjectsWithTag("Top Floor Inside Bathroom");
@@ -27,7 +27,7 @@ public class BathroomTrigger : MonoBehaviour
     // Sets the bathroom to inactive while you are outside the bathroom and on the top floor
     void Update()
     {
-        if (StairsTrigger.currentFloor.Equals("TopFloor") && insideOrOutsideBathroom.Equals("Outside"))
+        if (StairsTrigger.currentFloor.Equals("TopFloor") && insideOrOutsideBathroom.Equals("Inside"))
         {
             
             bathroomObject.SetActive(false);
@@ -46,7 +46,7 @@ public class BathroomTrigger : MonoBehaviour
 
         // Does opposite when player reenters
 
-        if (insideOrOutsideBathroom.Equals("Outside"))
+        if (insideOrOutsideBathroom.Equals("Inside"))
         {
             bathroomObject.SetActive(false);
 
@@ -70,7 +70,7 @@ public class BathroomTrigger : MonoBehaviour
                 bathroomObjects.SetActive(false);
 
             transform.position = new Vector3(transform.position.x, transform.position.y + moveAmount);
-            insideOrOutsideBathroom = "Outside";
+            insideOrOutsideBathroom = "Inside";
         }
 
         return;

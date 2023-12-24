@@ -12,9 +12,6 @@ public class FootstepManager : MonoBehaviour
     }
     public void PlayFootstep()
     {
-        if (!DataTransfer.BottomFloorOrOutside)
-            audioSource.PlayOneShot(snowyStep);
-        else
-            audioSource.PlayOneShot(indoorStep); 
+        audioSource.PlayOneShot(!DataTransfer.Inside ? snowyStep : indoorStep);
     }
 }

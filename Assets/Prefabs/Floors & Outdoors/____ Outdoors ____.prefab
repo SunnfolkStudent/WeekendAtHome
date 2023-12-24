@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 538641326874092453}
   m_Layer: 0
   m_Name: Tree
-  m_TagString: Outdoors
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -769,7 +769,7 @@ GameObject:
   - component: {fileID: 6449507772137246949}
   m_Layer: 0
   m_Name: CollisionGrid - Outdoors
-  m_TagString: Outdoors
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -898,7 +898,7 @@ GameObject:
   - component: {fileID: 1523179637466318645}
   m_Layer: 0
   m_Name: Bushes
-  m_TagString: Outdoors
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1447,7 +1447,7 @@ GameObject:
   - component: {fileID: 33637991355916083}
   m_Layer: 6
   m_Name: OutdoorCollisionTilemap
-  m_TagString: Outdoors
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6741,7 +6741,7 @@ GameObject:
   - component: {fileID: 6477030426028511401}
   m_Layer: 0
   m_Name: Shed
-  m_TagString: Outdoors
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7077,7 +7077,7 @@ GameObject:
   - component: {fileID: 6729801826571911347}
   m_Layer: 0
   m_Name: Backyard (Snow)
-  m_TagString: Outdoors
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7412,15 +7412,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1433539322086027234, guid: 2278ebe45ac141c4da994cef4f63f17f, type: 3}
       propertyPath: m_TagString
-      value: Outdoors
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2379502426939485507, guid: 2278ebe45ac141c4da994cef4f63f17f, type: 3}
       propertyPath: m_TagString
-      value: Outdoors
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3783200822962232355, guid: 2278ebe45ac141c4da994cef4f63f17f, type: 3}
       propertyPath: m_TagString
-      value: Outdoors
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4718361172708475859, guid: 2278ebe45ac141c4da994cef4f63f17f, type: 3}
       propertyPath: m_Sprite
@@ -7488,7 +7488,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8542172764204570897, guid: 2278ebe45ac141c4da994cef4f63f17f, type: 3}
       propertyPath: m_TagString
-      value: Outdoors
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7508,6 +7508,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4144685100041546804}
     m_Modifications:
+    - target: {fileID: 530984235720022861, guid: c2f0c94f85a2f5849a0bbcc57df886c6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 954267290482875600, guid: c2f0c94f85a2f5849a0bbcc57df886c6, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
       value: 0.8751999
@@ -7540,9 +7544,13 @@ PrefabInstance:
       propertyPath: m_LocalBounds.m_Extent.y
       value: 2.3314
       objectReference: {fileID: 0}
+    - target: {fileID: 4472329974620030082, guid: c2f0c94f85a2f5849a0bbcc57df886c6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4799300155127727857, guid: c2f0c94f85a2f5849a0bbcc57df886c6, type: 3}
       propertyPath: m_TagString
-      value: Outdoors
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5093812564092052693, guid: c2f0c94f85a2f5849a0bbcc57df886c6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7592,6 +7600,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5404547927132945775, guid: c2f0c94f85a2f5849a0bbcc57df886c6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588029692690491655, guid: c2f0c94f85a2f5849a0bbcc57df886c6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 6545753272471473437, guid: c2f0c94f85a2f5849a0bbcc57df886c6, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
       value: 0.08434999
@@ -7639,6 +7655,10 @@ PrefabInstance:
     - target: {fileID: 7956423273001499836, guid: c2f0c94f85a2f5849a0bbcc57df886c6, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
       value: 2.51635
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234907858963535594, guid: c2f0c94f85a2f5849a0bbcc57df886c6, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7767,6 +7787,10 @@ PrefabInstance:
     - target: {fileID: 6773922969328616068, guid: d464af4bee1c32f4baeb730e91d15fe1, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773922969328616068, guid: d464af4bee1c32f4baeb730e91d15fe1, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

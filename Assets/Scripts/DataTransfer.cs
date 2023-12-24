@@ -5,16 +5,20 @@ public class DataTransfer : MonoBehaviour
 {
     private static DataTransfer _instance;
     
+    // Set these to true / false inside here during testing.
+    
+    // PlayerCanMove should be true from the start.
+    
     public static bool LampOn;
     public static bool TvOn; 
     public static bool RadioOn;
     public static bool GlassDoorOpen;
-    public static bool PlayerCanMove;
-    public static bool TopFloorElseBottomFloor;
-    public static bool BottomFloorOrOutside;
+    public static bool PlayerCanMove = true;
+    public static bool OnTopFloor;
+    public static bool Inside;
     
     //Awake is always called before any Start functions
-    void Awake()
+    private void Awake()
     {
         //Check if instance already exists
         if (_instance != null && _instance != this)
@@ -93,26 +97,26 @@ public class DataTransfer : MonoBehaviour
             userInput.OnEnable();
         }
     }
-    public static void TopOrBottomFloor()
+    public static void SwitchFloors()
     {
-        if (TopFloorElseBottomFloor)
+        if (OnTopFloor)
         {
-            TopFloorElseBottomFloor = false;
+            OnTopFloor = false;
         }
-        else if (!TopFloorElseBottomFloor)
+        else if (!OnTopFloor)
         {
-            TopFloorElseBottomFloor = true;
+            OnTopFloor = true;
         }
     }
     public static void MoveInsideOrOutside()
     {
-        if (BottomFloorOrOutside)
+        if (Inside)
         {
-            BottomFloorOrOutside = false;
+            Inside = false;
         }
-        else if (!BottomFloorOrOutside)
+        else if (!Inside)
         {
-            BottomFloorOrOutside = true;
+            Inside = true;
         }
     }
 }

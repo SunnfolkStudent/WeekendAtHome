@@ -2,15 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public class CatFlapOutdoorTrigger : MonoBehaviour
 {
     // Declare Variables
     
-    private String insideOrOutside;
+    private String _insideOrOutside;
     
-    private bool switched = false;
+    private bool _switched = false;
     
     [SerializeField] private float moveAmount;
     [SerializeField] private GameObject cat;
@@ -20,7 +19,7 @@ public class CatFlapOutdoorTrigger : MonoBehaviour
         // Fetch all of the objects with the Outdoor and OutdoorToDespawn tags and store them in a list
         // and hide all of the outdoor objects
         
-        insideOrOutside = "Inside";
+        _insideOrOutside = "Inside";
         cat = GameObject.FindWithTag("Cat");
     }
 
@@ -29,23 +28,22 @@ public class CatFlapOutdoorTrigger : MonoBehaviour
         //Debug.Log(transform.position.y - cat.transform.position.y);
         float diff = transform.position.y - cat.transform.position.y;
 
-        if (diff < 0.1 && diff > -0.1 && !switched)
+        if (diff < 0.1 && diff > -0.1 && !_switched)
         {
             exitOrEnterHouse();
-            switched = true;
+            _switched = true;
         }
-        else { switched = false; }
+        else { _switched = false; }
     }
 
     private void exitOrEnterHouse()
     {
-        
-        if (insideOrOutside.Equals("Inside"))
+        if (_insideOrOutside.Equals("Inside"))
         {
             transform.position = new Vector3(transform.position.x, transform.position.y - moveAmount);
             
             cat.GetComponent<SpriteRenderer>().sortingOrder = -1;
-            insideOrOutside = "Outside";
+            _insideOrOutside = "Inside";
         }
         else
         {
@@ -53,9 +51,7 @@ public class CatFlapOutdoorTrigger : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y + moveAmount);
 
             cat.GetComponent<SpriteRenderer>().sortingOrder = 50;
-            insideOrOutside = "Inside";
+            _insideOrOutside = "Inside";
         }
-
-        return;
     }
 }
