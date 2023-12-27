@@ -15,7 +15,9 @@ public class DataTransfer : MonoBehaviour
     public static bool GlassDoorOpen;
     public static bool PlayerCanMove = true;
     public static bool OnTopFloor;
-    public static bool Inside;
+    public static bool PlayerInside = true;
+    public static int PlayerSortingOrder = 50;
+    public static int VFXSortingOrder = 5;
     
     //Awake is always called before any Start functions
     private void Awake()
@@ -39,6 +41,14 @@ public class DataTransfer : MonoBehaviour
     {
         TvOn = false;
         LampOn = false;
+        if (PlayerInside)
+        {
+            PlayerSortingOrder = 50;
+        }
+        if (!PlayerInside)
+        {
+            PlayerSortingOrder = -1;
+        }
     }
     public static void TurnLampOnOrOff()
     {
@@ -108,15 +118,19 @@ public class DataTransfer : MonoBehaviour
             OnTopFloor = true;
         }
     }
-    public static void MoveInsideOrOutside()
+    public static void PlayerInsideOrOutside()
     {
-        if (Inside)
+        if (PlayerInside)
         {
-            Inside = false;
+            PlayerSortingOrder = 2;
+            VFXSortingOrder = 30;
+            PlayerInside = false;
         }
-        else if (!Inside)
+        else if (!PlayerInside)
         {
-            Inside = true;
+            PlayerSortingOrder = 50;
+            VFXSortingOrder = 5;
+            PlayerInside = true;
         }
     }
 }

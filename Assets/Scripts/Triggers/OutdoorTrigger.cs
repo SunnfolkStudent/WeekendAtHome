@@ -1,23 +1,26 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 
 namespace Triggers
 {
+    // TODO: Fix black semi-transparent overlay over house when going outside!
+    // TODO: Make sure the VFX Weather shows better onto the snow
+    // TODO: Fix the cat going in and out of the house! (Currently ends up on a layer underneath the house after player has gone outside).
     public class OutdoorTrigger : MonoBehaviour
     {
         // Declare Variables
         [SerializeField] private GameObject bottomFloor;
-        [SerializeField] private GameObject outdoors;
-        
         private GameObject[] _outdoorToDespawn, _outdoor;
-
-        [SerializeField] private float transparencyValue, moveAmount, playerOutdoorLightValue;
-
-        private float _playerLightIntensity;
+        
         [SerializeField] private GameObject player;
-
+        [SerializeField] private SortingGroup playerSortingGroup;
+        
+        [SerializeField] private float transparencyValue, moveAmount, playerOutdoorLightValue;
+        private float _playerLightIntensity;
+        
         void Start()
         {
             // Fetch all of the objects with the Outdoor and OutdoorToDespawn tags and store them in a list
@@ -28,14 +31,15 @@ namespace Triggers
             player = GameObject.FindWithTag("Player");
 
             _playerLightIntensity = player.GetComponentInChildren<Light2D>().intensity;
+            playerSortingGroup = player.GetComponent<SortingGroup>();
 
-            if (DataTransfer.Inside)
+            if (DataTransfer.PlayerInside)
             {
-                foreach (GameObject outdoorObjects in _outdoor)
-                    outdoorObjects.SetActive(false);
+                Debug.Log("PlayerIsInside");
             }
-            else
+            if (!DataTransfer.PlayerInside)
             {
+                Debug.Log("PlayerIsOutside");
                 foreach (GameObject outdoorObjects in _outdoor)
                     outdoorObjects.SetActive(true);
             }
@@ -47,54 +51,50 @@ namespace Triggers
             // Checks if the player is currently inside or outside
             // Then it activates all of the objects corresponding to where the player is + hiding objects that need to be hidden
             // Sets the light2d child of player to an intensity of 0 and then moves down
-            // Does opposite when player reenters
-            DataTransfer.MoveInsideOrOutside();
+            // Does opposite when player reenter.
             
-            switch (DataTransfer.Inside)
+            
+            if (!DataTransfer.PlayerInside)
             {
-                case true:
-                {
-                    Debug.Log("Player Triggers Outdoors");
-            
-                    bottomFloor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
-            
-                    foreach (Transform child in bottomFloor.transform)
-                        child.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
-            
-                    foreach(GameObject outdoorToDespawnObjects in _outdoorToDespawn)
-                        outdoorToDespawnObjects.SetActive(false);
-            
-                    foreach(GameObject outdoorObjects in _outdoor)
-                        outdoorObjects.SetActive(true);
+                Debug.Log("Player Triggers Outdoors");
 
-                    transform.position = new Vector3(transform.position.x, transform.position.y - moveAmount);
-            
-                    player.GetComponentInChildren<Light2D>().intensity = playerOutdoorLightValue;
-                    player.GetComponentInChildren<SpriteRenderer>().sortingOrder = -1;
-                    break;
-                }
-                case false:
-                {
-                    Debug.Log("Player Triggers Inside");
-            
-                    bottomFloor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            
-                    foreach (Transform child in bottomFloor.transform)
-                        child.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            
-                    foreach(GameObject outdoorToDespawnObjects in _outdoorToDespawn)
-                        outdoorToDespawnObjects.SetActive(true);
-            
-                    foreach(GameObject outdoorObjects in _outdoor)
-                        outdoorObjects.SetActive(false);
-            
-                    transform.position = new Vector3(transform.position.x, transform.position.y + moveAmount);
-            
-                    player.GetComponentInChildren<Light2D>().intensity = _playerLightIntensity;
-                    player.GetComponentInChildren<SpriteRenderer>().sortingOrder = 50;
-                    break;
-                }
+                bottomFloor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
+
+                /*foreach (Transform child in bottomFloor.transform)
+                    child.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue); */
+
+                foreach (GameObject outdoorToDespawnObjects in _outdoorToDespawn)
+                    outdoorToDespawnObjects.SetActive(false); 
+
+                /*foreach (GameObject outdoorObjects in _outdoor)
+                    outdoorObjects.SetActive(true);*/
+
+                transform.position = new Vector3(transform.position.x, transform.position.y - moveAmount);
+
+                player.GetComponentInChildren<Light2D>().intensity = playerOutdoorLightValue;
+                playerSortingGroup.sortingOrder = DataTransfer.PlayerSortingOrder;
             }
+            else if (DataTransfer.PlayerInside)
+            {
+                Debug.Log("Player Triggers Inside");
+            
+                bottomFloor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            
+                /* foreach (Transform child in bottomFloor.transform) 
+                    child.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1); */
+            
+                foreach(GameObject outdoorToDespawnObjects in _outdoorToDespawn)
+                    outdoorToDespawnObjects.SetActive(true);
+            
+                /*foreach(GameObject outdoorObjects in _outdoor)
+                    outdoorObjects.SetActive(false);*/
+            
+                transform.position = new Vector3(transform.position.x, transform.position.y + moveAmount);
+            
+                player.GetComponentInChildren<Light2D>().intensity = _playerLightIntensity;
+                playerSortingGroup.sortingOrder = DataTransfer.PlayerSortingOrder;
+            }
+            DataTransfer.PlayerInsideOrOutside();
         }
     }
 }

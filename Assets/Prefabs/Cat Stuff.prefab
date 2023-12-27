@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1071420533694517889}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.61, y: -0.05, z: -0.015899928}
+  m_LocalPosition: {x: 6.08, y: 8.49, z: -0.015899928}
   m_LocalScale: {x: 0.40213263, y: 0.40213263, z: 0.40213263}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.79322517, b: 0, a: 1}
   m_FlipX: 0
@@ -125,9 +125,11 @@ GameObject:
   - component: {fileID: 1244830607977128666}
   - component: {fileID: 318737463846437850}
   - component: {fileID: 8901071456324687247}
+  - component: {fileID: 981759500746199730}
+  - component: {fileID: 5244405035685371149}
   m_Layer: 0
   m_Name: Cat
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,6 +242,64 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1585401999032617709}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.0011850595, y: 0.04137215}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.279423, y: 0.25204796}
+  m_EdgeRadius: 0
+--- !u!210 &981759500746199730
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585401999032617709}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 50
+  m_SortAtRoot: 0
+--- !u!58 &5244405035685371149
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585401999032617709}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -267,18 +327,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0011850595, y: 0.061233997}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.279423, y: 0.29177165}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.00541687, y: 0.03250119}
+  m_Radius: 0.1695714
 --- !u!1 &2168989407851218850
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +396,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.1304898, y: 0.009665787}
+  m_Offset: {x: 0.1304898, y: 0.0006376654}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -356,7 +406,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9710018, y: 0.729355}
+  m_Size: {x: 0.9710018, y: 0.7112987}
   m_EdgeRadius: 0
 --- !u!114 &761358526874448170
 MonoBehaviour:
@@ -422,7 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIexae/lgYAIAABsFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk3GBgpxby0hpAcSJqSTiy9CWmMNsuSR5ADJ8N+7kj9LpifE27er93ZX/iRC2RKY02ZlBF9rDuTHiPgz+Tbqg49wonuttuIDWs6b4C73JBo4L9QJjXjs06wuwBnBfqq99OQIwUqJTJtiyfew0NZZhDMqLWDIaOezFUKfI3LCn5vEp5zxNJ770weekmh0wSMD5cD01I7Y0GpWpZikRQncS+7J48nt+HubUDMV+mlIUR1kWkphGz3Encvgd1vmYMAb5oKivaAhvp0liOQg9rlrRHTpz1lmwTUSDT3fC4ONquuSX7ruXkHtodb3TmXlb4qTcRBWF11/id/EIZwZXTy298aRv8Plgh1e6JlR6wbtHcL3A+2hTUcqD3Qn4S0H9aRXRleKY9CZyqdWFsb3/d/O2iIHdujxWuoVWJVfh9TO0nu4BPenhRTFLjR/WgNbqUPHwwqAwfH8RsFhQWxTAlGv4o+FV7ofblITeBDGOgw1LpWXt9OV8VSyDD3zbiq30EaBGVYoQVHpzhus465neBX7f9YD9Y+mub2JtW/hKiXAPT+KrkIbfeymZXN9XIPNnysnhYK+1T7whI1aaKXqFRtaatO2lckoG6TtK8H/3S0ST9iMR9ldxOI5i+bsJpkmu2Qym06TaXR3N5mTsHxCoU8qN7XQpj04NtUXV7ho7bdktDK0DOvODT2uxEehbc8UKtNbZgDUc12hEw4GL8G3yZdcYIO24JxQYeDkMyVSswPwtCuUBqfLkzM07aukpBTv2nkkJYvw8UiJh7tl3hh4F3D0l7fFLuTyF1BLAwQUAAAICAAACCHsIpYsl20AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kqFxslmKQZqFQbKhebKBebKupYllkqWxmYmJpYmBhYWxuVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAACCHsWnv5YGACAAAbBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHsIpYsl20AAAB4AAAACQAkAAAAAAAAAAAAAACtAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAGUDAAAAAA==
+    dataString: UEsDBBQAAAgIAAAIIezNuND4YQIAABoFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk3GBgq4t5YQ0gMJE9rJxRchrbEGWfJIcvjI8N+7km3skOkJ8d7b1dsP+YMIZUtgTpulEXylOZAfA+LP5NugI5/gSHdabcQZWs2b4C73Iho0r9QJjXjsw6wuwBnBfqqd9OIIwUqJTJtiwXcw19ZZhDMqLSBltPPRCqGPATniz13iQ054Gk796YynJBpc8MhAOTCd9CpsZLWqUkzSogTuLXfi4eh++L0NqJUK62lEUU0yLaWwjR/iTmWod1PmYMAXzAXF8oKH+H6SIJKD2OWuMXENf8kyC66xaOjpQRhsVJ2X/NJ19wpq97W/dyorf1OcDIOxOunqC38XBzozunhq740jf4fLBdu/0hOj1vXa24cfet5Dmw5U7ulWwlsO6lkvja4UR9KZyodWFoYP3d9rafMc2L7Da6s3YFV+HVI7S1/DJVR/nEtRbEPzxzWwkTp0PKwAGBzPbzQcFsQ2KRD1Lv5a+EN3/U1qiEdhrEOqqVJ5e1tdGS8li9AzX03l5tooMP0MJSgq3WmNedztDG+4/0c9Uv9omtsbrn0LNyEB7vRRdEOt9eE6LZvrwwps/lI5KRR0rfbEMzZqrpWqV8x+Jn3UpjIZZb2oXSX459Ui8YhNeJTNIhZPWTRld8k42SajyXicjKPZbDQlYfeEwjKpXNc+m+7g1FSXXOGetZ+SwdLQMmw7N/SwFOdC9/wJlekNMwDqpc7QdsiCwUvwafIFF9ifDTgnVJg3+UiJ1GwPPL0mSkOli6MzNO2ypKQU79p5JCXz8O1IiYevu7w28C7g4C9vk13I5R9QSwMEFAAACAgAAAgh7CKWLJdtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKhcbJZikGahUGyoXmygXmyrqWJZZKlsZmJiaWJgYWFsblSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7M240PhhAgAAGgUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7CKWLJdtAAAAeAAAAAkAJAAAAAAAAAAAAAAArgIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABmAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -506,7 +556,7 @@ GameObject:
   - component: {fileID: 3275841277874132504}
   m_Layer: 0
   m_Name: Cat Stuff
-  m_TagString: BottomFloor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -544,7 +594,7 @@ GameObject:
   - component: {fileID: 1804135296446572343}
   m_Layer: 0
   m_Name: CatPNG
-  m_TagString: Cat
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -693,7 +743,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -5443969320384851222, guid: 54693cb1a629091438be814a797a46ff, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -702,9 +752,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 150
+  MaxDistance: 17
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -712,23 +762,50 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.06666667
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -15.005997
+      outSlope: -15.005997
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.13333334
+      value: 0.5
+      inSlope: -3.7514992
+      outSlope: -3.7514992
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.2642863
+      value: 0.20443726
+      inSlope: -0.9378748
+      outSlope: -0.9378748
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.53571373
+      value: 0.05493164
+      inSlope: -0.40833068
+      outSlope: -0.40833068
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.38220257
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.06669331
+      outSlope: -0.06669331
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -737,7 +814,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
