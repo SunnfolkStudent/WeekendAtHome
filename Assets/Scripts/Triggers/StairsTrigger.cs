@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StairsTrigger : MonoBehaviour
-{
-
+{ 
     // Declare variables
     public static String currentFloor;
 

@@ -29,7 +29,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7098991988934407247}
   - {fileID: 941225631671295835}
   - {fileID: 363415057218422787}
   - {fileID: 5131671568751970906}
@@ -51,7 +50,7 @@ GameObject:
   - component: {fileID: 4096692765516689518}
   m_Layer: 0
   m_Name: OutdoorTrigger
-  m_TagString: Untagged
+  m_TagString: Outdoors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,7 +147,7 @@ GameObject:
   - component: {fileID: 2544242124984356302}
   m_Layer: 0
   m_Name: BathroomTrigger
-  m_TagString: Untagged
+  m_TagString: TopFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -319,7 +318,7 @@ GameObject:
   - component: {fileID: 8728046819448551730}
   m_Layer: 0
   m_Name: StairsBottomFloor
-  m_TagString: Untagged
+  m_TagString: BottomFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -447,7 +446,7 @@ GameObject:
   - component: {fileID: 6527435801732501361}
   m_Layer: 0
   m_Name: OutdoorTriggerForCat
-  m_TagString: Untagged
+  m_TagString: Outdoors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -633,37 +632,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 2.296426}
   m_EdgeRadius: 0
---- !u!1 &8496772581640777319
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7098991988934407247}
-  m_Layer: 0
-  m_Name: Area & Timeline Triggers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7098991988934407247
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8496772581640777319}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2007879032044914665}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8576202092570788784
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +645,7 @@ GameObject:
   - component: {fileID: 6086511553997320415}
   m_Layer: 0
   m_Name: StairsTopFloor
-  m_TagString: Untagged
+  m_TagString: TopFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
