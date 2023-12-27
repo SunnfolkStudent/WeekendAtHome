@@ -104,7 +104,7 @@ namespace Cat
             if (staysForRandom[_randomGoal])
             {
                 Debug.Log("Random Time Added");
-                yield return new WaitForSeconds(Random.Range(2, 10));
+                yield return new WaitForSeconds(Random.Range(0, 10));
             }
 
             if (_goingTowardsCatFood)
