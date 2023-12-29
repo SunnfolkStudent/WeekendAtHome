@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Triggers;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -27,7 +28,7 @@ public class BathroomTrigger : MonoBehaviour
     // Sets the bathroom to inactive while you are outside the bathroom and on the top floor
     void Update()
     {
-        if (StairsTrigger.currentFloor.Equals("TopFloor") && insideOrOutsideBathroom.Equals("Inside"))
+        if (StairsTrigger.CurrentFloor.Equals("TopFloor") && insideOrOutsideBathroom.Equals("Inside"))
         {
             
             bathroomObject.SetActive(false);

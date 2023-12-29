@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using Pathfinding;
 using UnityEngine;
+using UnityEngine.Rendering;
 using Random = UnityEngine.Random;
 
 namespace Cat
@@ -10,25 +12,47 @@ namespace Cat
         public AIPath aiPath;
         public Animator anim;
         public GameObject goal;
-        public Vector2[] goalSpots;
+        public AudioSource meowAudioSource;
+        public AudioClip[] meows;
+        public Vector2[] goalSpots; 
+        
         public bool[] staysForRandom;
         public float[] howLongToStay;
+        
         private string _direction;
         private Vector2 _directionValue;
+        private Vector2 _lastPosition; 
+        
+        [SerializeField] private GameObject cat;
+        [SerializeField] private SortingGroup catSortingGroup;
         
         private int _randomGoal;
         private float _timeBetweenMeows;
         private bool _destinationReached;
         private bool _goingTowardsCatFood;
-
-        public AudioSource meowAudioSource;
-        public AudioClip[] meows;
-        
         private bool _onTheMove = true;
 
-        private Vector2 _lastPosition;
+        private void Start()
+        {
+            cat = GameObject.FindWithTag("Cat");
+            catSortingGroup = cat.GetComponent<SortingGroup>();
+            
+            if (DataTransfer.CatOutside)
+            {
+                catSortingGroup.sortingOrder = DataTransfer.CatSortingOrderOutside;
+                Debug.Log("Cat Is Outside");
+            }
+            else
+            {
+                catSortingGroup.sortingOrder = DataTransfer.CatSortingOrderInside;
+                Debug.Log("Cat Is Inside");
+            }
+        }
+
         private void Update()
         {
+            catSortingGroup.sortingOrder = DataTransfer.CatOutside ? DataTransfer.CatSortingOrderOutside : DataTransfer.CatSortingOrderInside;
+            
             // Calculates direction from last-pos to current-pos
             var directionValue = ((Vector2)transform.position - _lastPosition).normalized;
        

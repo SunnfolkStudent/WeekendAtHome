@@ -1,3 +1,5 @@
+using System;
+using Cat;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -7,7 +9,6 @@ namespace Triggers
     {
         [SerializeField] private GameObject cat;
         [SerializeField] private SortingGroup catSortingGroup;
-        [SerializeField] private bool catOutside;
     
         void Start()
         {
@@ -15,35 +16,39 @@ namespace Triggers
             // and hide all of the outdoor objects
             cat = GameObject.FindWithTag("Cat");
             catSortingGroup = cat.GetComponent<SortingGroup>();
-        
-            if (catOutside)
+            
+            /* if (DataTransfer.CatOutside)
             {
                 Debug.Log("CatIsOutside");
-                catSortingGroup.sortingOrder = 2;
+                catSortingGroup.sortingOrder = DataTransfer.CatSortingOrderOutside;
             }
-            else if (!catOutside)
+            else if (!DataTransfer.CatOutside)
             {
                 Debug.Log("CatIsInside");
-                catSortingGroup.sortingOrder = 50;
-            }
+                catSortingGroup.sortingOrder = DataTransfer.CatSortingOrderInside;
+            } */
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision == null) return;
             if (!collision.CompareTag("Cat")) return;
-            catOutside = true;
-            catSortingGroup.sortingOrder = 2;
+            
+            // catSortingGroup.sortingOrder = DataTransfer.CatSortingOrderOutside;
+            
+            DataTransfer.CatOutside = true;
+            
             Debug.Log("CatIsOutside");
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            catOutside = false;
+            DataTransfer.CatOutside = false;
+            Debug.Log("CatIsInside");
+            // The line is to prevent errors during Unity Load/Unload in Editor with missing SortingGroup.
             if (catSortingGroup == null)
                 return;
-            catSortingGroup.sortingOrder = 50;
-            Debug.Log("CatIsInside");
+            // catSortingGroup.sortingOrder = DataTransfer.CatSortingOrderInside;
         }
     }
 }

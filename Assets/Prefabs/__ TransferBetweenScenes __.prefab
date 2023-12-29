@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3242821697465180417}
   - component: {fileID: 5720842621899006978}
   - component: {fileID: 6525881169959396625}
+  - component: {fileID: 1105035188594258490}
   m_Layer: 0
   m_Name: __ TransferBetweenScenes __
   m_TagString: Untagged
@@ -58,6 +59,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3ebdf51eebc724385981d8ac37d82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1105035188594258490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4552145741463328867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a945db60e2d5945b91eaca2d4df58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bottomFloor: {fileID: 0}
+  stairsBottomFloor: {fileID: 0}
+  toesInteraction: {fileID: 0}
+  topFloor: {fileID: 0}
+  stairsTopFloor: {fileID: 0}
+  bathroomTrigger: {fileID: 0}
 --- !u!1 &5554653625493563328
 GameObject:
   m_ObjectHideFlags: 0

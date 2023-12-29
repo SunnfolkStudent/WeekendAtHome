@@ -1,22 +1,28 @@
 using PlayerScripts;
+using Triggers;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class DataTransfer : MonoBehaviour
 {
     private static DataTransfer _instance;
     
-    // Set these to true / false inside here during testing.
-    
-    // PlayerCanMove should be true from the start.
+    /// <summary>
+    /// Set the bools inside here to true / false inside here during testing.
+    /// </summary>
+    /// <returns></returns>
+    public const int CatSortingOrderOutside = -1;
     
     public static bool LampOn;
     public static bool TvOn; 
     public static bool RadioOn;
     public static bool GlassDoorOpen;
-    public static bool PlayerCanMove = true;
+    public static bool PlayerCanMove = true; // PlayerCanMove should be true from the start.
     public static bool OnTopFloor;
     public static bool PlayerInside = true;
+    public static bool CatOutside;
     public static int PlayerSortingOrder = 50;
+    public static int CatSortingOrderInside = 50;
     public static int VFXSortingOrder = 5;
     
     //Awake is always called before any Start functions
@@ -41,13 +47,20 @@ public class DataTransfer : MonoBehaviour
     {
         TvOn = false;
         LampOn = false;
-        if (PlayerInside)
+        
+        if (PlayerInside && !OnTopFloor)
         {
             PlayerSortingOrder = 50;
+            CatSortingOrderInside = 50;
         }
-        if (!PlayerInside)
+        else if (PlayerInside && OnTopFloor)
+        {
+            CatSortingOrderInside = -1;
+        }
+        else if (!PlayerInside)
         {
             PlayerSortingOrder = -1;
+            CatSortingOrderInside = 50;
         }
     }
     public static void TurnLampOnOrOff()
@@ -112,17 +125,19 @@ public class DataTransfer : MonoBehaviour
         if (OnTopFloor)
         {
             OnTopFloor = false;
+            CatSortingOrderInside = 50;
         }
         else if (!OnTopFloor)
         {
             OnTopFloor = true;
+            CatSortingOrderInside = -1;
         }
     }
     public static void PlayerInsideOrOutside()
     {
         if (PlayerInside)
         {
-            PlayerSortingOrder = 2;
+            PlayerSortingOrder = -1;
             VFXSortingOrder = 30;
             PlayerInside = false;
         }

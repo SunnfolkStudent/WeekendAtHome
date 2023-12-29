@@ -1,78 +1,53 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class StairsTrigger : MonoBehaviour
-{ 
-    // Declare variables
-    public static String currentFloor;
+namespace Triggers
+{
+    // Make sure this script runs after FloorManager.cs in Project Settings, in Script Execution Order.
+    public class StairsTrigger : MonoBehaviour
+    { 
+        // Declare variables
+        public static String CurrentFloor;
 
-    public GameObject[] bottomFloor, topFloor;
-
-    private static int num;
-
-    public bool startOnTopFloor;
+        public GameObject[] bottomFloorArray;
+        public GameObject[] topFloorArray;
     
-    void Start()
-    {
-        // Fetch all of the objects with the bottomFloor and topFloor tags and store them in a list
-        // and hide all of the top floor objects
-        if (!startOnTopFloor) 
-            currentFloor = "BottomFloor";
-        else
-            currentFloor = "TopFloor";
-        
-        
-        bottomFloor = GameObject.FindGameObjectsWithTag("BottomFloor");
-        topFloor = GameObject.FindGameObjectsWithTag("TopFloor");
-
-        num++;
-
-        if (num == 2)
+        private void Awake()
         {
-            if (!startOnTopFloor) 
-                foreach (GameObject topFloorGameObject in topFloor)
-                    topFloorGameObject.SetActive(false);
+            // Fetch all of the objects with the bottomFloorArray and topFloorArray tags and store them in a list
+            // and hide all of the top floor objects
+            if (!DataTransfer.OnTopFloor) 
+                CurrentFloor = "BottomFloor";
             else
-                foreach (GameObject bottomFloorGameObject in bottomFloor)
-                    bottomFloorGameObject.SetActive(false);
-            num = 0;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        // Ran when the player enters either stair trigger
-        // Checks which floor the player is currently on and hides the objects on the same floor
-        // Then it activates all of the objects on the floor the player is entering
+                CurrentFloor = "TopFloor";
         
-        if (currentFloor.Equals("BottomFloor"))
-        {
-            foreach(GameObject bottomFloorGameObject in bottomFloor)
-                if (!bottomFloorGameObject.Equals(this.gameObject))
-                    bottomFloorGameObject.SetActive(false);
-            
-            foreach(GameObject topFloorGameObject in topFloor)
-                topFloorGameObject.SetActive(true);
-            
-            currentFloor = "TopFloor";
-            this.gameObject.SetActive(false);
+            bottomFloorArray = GameObject.FindGameObjectsWithTag("BottomFloor");
+            topFloorArray = GameObject.FindGameObjectsWithTag("TopFloor");
         }
-        else
+        
+        private void OnTriggerEnter2D(Collider2D other)
         {
+            if (!DataTransfer.OnTopFloor)
+            {
+                foreach(GameObject bottomFloorGameObject in bottomFloorArray)
+                    if (!bottomFloorGameObject.Equals(this.gameObject))
+                        bottomFloorGameObject.SetActive(false);
             
-            foreach(GameObject topFloorGameObject in topFloor)
-                if (!topFloorGameObject.Equals(this.gameObject))
-                    topFloorGameObject.SetActive(false);
+                foreach(GameObject topFloorGameObject in topFloorArray)
+                    topFloorGameObject.SetActive(true);
+                // this.gameObject.SetActive(false);
+            }
+            else if (DataTransfer.OnTopFloor)
+            {
+                foreach(GameObject topFloorGameObject in topFloorArray)
+                    if (!topFloorGameObject.Equals(this.gameObject))
+                        topFloorGameObject.SetActive(false);
             
-            foreach(GameObject bottomFloorGameObject in bottomFloor)
-                bottomFloorGameObject.SetActive(true);
-            
-            currentFloor = "BottomFloor";
-            this.gameObject.SetActive(false);
+                foreach(GameObject bottomFloorGameObject in bottomFloorArray)
+                    bottomFloorGameObject.SetActive(true);
+                // this.gameObject.SetActive(false);
+            }
+            DataTransfer.SwitchFloors();
         }
-
-        return;
     }
 }

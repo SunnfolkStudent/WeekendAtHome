@@ -35,24 +35,26 @@ namespace Triggers
 
             if (DataTransfer.PlayerInside)
             {
-                Debug.Log("PlayerIsInside");
+                Debug.Log("OutdoorTrigger - PlayerIsInside");
             }
             if (!DataTransfer.PlayerInside)
             {
-                Debug.Log("PlayerIsOutside");
+                Debug.Log("OutdoorTrigger - PlayerIsOutside");
                 foreach (GameObject outdoorObjects in _outdoor)
                     outdoorObjects.SetActive(true);
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
+            if (collision == null) return;
+            if (!collision.CompareTag("Player")) return;
+            
             // Ran when the player enters the outdoor trigger
             // Checks if the player is currently inside or outside
             // Then it activates all of the objects corresponding to where the player is + hiding objects that need to be hidden
             // Sets the light2d child of player to an intensity of 0 and then moves down
             // Does opposite when player reenter.
-            
             
             if (!DataTransfer.PlayerInside)
             {
@@ -60,7 +62,7 @@ namespace Triggers
 
                 bottomFloor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
 
-                /*foreach (Transform child in bottomFloor.transform)
+                /*foreach (Transform child in bottomFloorArray.transform)
                     child.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue); */
 
                 foreach (GameObject outdoorToDespawnObjects in _outdoorToDespawn)
@@ -80,7 +82,7 @@ namespace Triggers
             
                 bottomFloor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             
-                /* foreach (Transform child in bottomFloor.transform) 
+                /* foreach (Transform child in bottomFloorArray.transform) 
                     child.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1); */
             
                 foreach(GameObject outdoorToDespawnObjects in _outdoorToDespawn)

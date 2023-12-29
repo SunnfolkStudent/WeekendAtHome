@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1071420533694517889}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.08, y: 8.49, z: -0.015899928}
+  m_LocalPosition: {x: -10.2, y: -6.08, z: -0.015899928}
   m_LocalScale: {x: 0.40213263, y: 0.40213263, z: 0.40213263}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -15
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.79322517, b: 0, a: 1}
   m_FlipX: 0
@@ -124,8 +124,7 @@ GameObject:
   - component: {fileID: 5885341168859204006}
   - component: {fileID: 1244830607977128666}
   - component: {fileID: 318737463846437850}
-  - component: {fileID: 8901071456324687247}
-  - component: {fileID: 981759500746199730}
+  - component: {fileID: 645500915541137228}
   - component: {fileID: 5244405035685371149}
   m_Layer: 0
   m_Name: Cat
@@ -235,53 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 7459018565569369123}
---- !u!61 &8901071456324687247
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1585401999032617709}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0.0011850595, y: 0.04137215}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.279423, y: 0.25204796}
-  m_EdgeRadius: 0
---- !u!210 &981759500746199730
+--- !u!210 &645500915541137228
 SortingGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -703,6 +656,13 @@ MonoBehaviour:
   aiPath: {fileID: 1244830607977128666}
   anim: {fileID: 6377923348263028809}
   goal: {fileID: 1071420533694517889}
+  meowAudioSource: {fileID: 1804135296446572343}
+  meows:
+  - {fileID: 8300000, guid: 2fea35190f36f714586dc60c2d129be2, type: 3}
+  - {fileID: 8300000, guid: c5dd98df6f0829e4b9497cec9b24cbe2, type: 3}
+  - {fileID: 8300000, guid: 319797c8960605941af3ced7e97f658c, type: 3}
+  - {fileID: 8300000, guid: 567d8b484ef1a3b438bfe251079f791c, type: 3}
+  - {fileID: 8300000, guid: 87c1ff179ce520149a3c642e47f190de, type: 3}
   goalSpots:
   - {x: -7, y: 2.75}
   - {x: -5, y: 9}
@@ -724,13 +684,8 @@ MonoBehaviour:
   - 7
   - 3
   - 8
-  meowAudioSource: {fileID: 1804135296446572343}
-  meows:
-  - {fileID: 8300000, guid: 2fea35190f36f714586dc60c2d129be2, type: 3}
-  - {fileID: 8300000, guid: c5dd98df6f0829e4b9497cec9b24cbe2, type: 3}
-  - {fileID: 8300000, guid: 319797c8960605941af3ced7e97f658c, type: 3}
-  - {fileID: 8300000, guid: 567d8b484ef1a3b438bfe251079f791c, type: 3}
-  - {fileID: 8300000, guid: 87c1ff179ce520149a3c642e47f190de, type: 3}
+  cat: {fileID: 1585401999032617709}
+  catSortingGroup: {fileID: 645500915541137228}
 --- !u!82 &1804135296446572343
 AudioSource:
   m_ObjectHideFlags: 0
