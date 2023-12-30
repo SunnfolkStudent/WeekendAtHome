@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8960164706302032998}
   - component: {fileID: 1909244260812723503}
   m_Layer: 0
-  m_Name: Bathroom West Wall (1)
+  m_Name: Bathroom East Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 0.13099317, y: 9.782861, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3887172449181134311}
+  m_Father: {fileID: 7281624904863508612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1909244260812723503
 MonoBehaviour:
@@ -91,8 +91,8 @@ GameObject:
   - component: {fileID: 800800525748156853}
   - component: {fileID: 8516396258109816384}
   m_Layer: 0
-  m_Name: Bathroom West Wall (2)
-  m_TagString: Top Floor Inside Bathroom
+  m_Name: Bathroom West Wall Behind Bathtub
+  m_TagString: Inside Bathroom to Despawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,7 @@ Transform:
   m_LocalScale: {x: 0.13099317, y: 4.018807, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3887172449181134311}
+  m_Father: {fileID: 7281624904863508612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8516396258109816384
 MonoBehaviour:
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 7583798402397220148}
   m_Layer: 0
   m_Name: Bathroom South Wall Long
-  m_TagString: Top Floor Inside Bathroom
+  m_TagString: TopFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -430,7 +430,7 @@ Transform:
   m_LocalScale: {x: 3.7103162, y: 0.14521433, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3887172449181134311}
+  m_Father: {fileID: 7281624904863508612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7583798402397220148
 MonoBehaviour:
@@ -548,8 +548,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.05155003, y: -1.59975, z: 0}
-    m_Extent: {x: 3.0180502, y: 3.5455499, z: 0}
+    m_Center: {x: 0.053499937, y: -1.6039999, z: 0}
+    m_Extent: {x: 3.0204, y: 3.5511, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -566,39 +566,6 @@ MonoBehaviour:
   - {x: 0.6618084, y: 0.5128193, z: 0}
   - {x: -0.55764544, y: 0.5280218, z: 0}
   - {x: -0.5375433, y: -0.73451805, z: 0}
---- !u!1 &2487022457090276771
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3668395276651317226}
-  m_Layer: 0
-  m_Name: Objects
-  m_TagString: TopFloor
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3668395276651317226
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2487022457090276771}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 850483375921281563}
-  - {fileID: 113172562545529087}
-  m_Father: {fileID: 4568355093543576143}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2597746436176278008
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,8 +933,8 @@ GameObject:
   - component: {fileID: 113172562545529087}
   - component: {fileID: 3670213274296545512}
   m_Layer: 0
-  m_Name: Bathtub Curtain (1)
-  m_TagString: Top Floor Inside Bathroom
+  m_Name: Bathtub Curtain Right
+  m_TagString: Inside Bathroom to Despawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -981,11 +948,11 @@ Transform:
   m_GameObject: {fileID: 2950381154342031968}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.64, y: 0.179, z: 0}
+  m_LocalPosition: {x: -5.6399994, y: 0.17900002, z: 0}
   m_LocalScale: {x: 0.051361788, y: 2.6411133, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3668395276651317226}
+  m_Father: {fileID: 7281624904863508612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3670213274296545512
 MonoBehaviour:
@@ -1072,11 +1039,6 @@ Transform:
   - {fileID: 8102398475918357542}
   - {fileID: 7875533467510602482}
   - {fileID: 158412840069780492}
-  - {fileID: 8445219029105206254}
-  - {fileID: 800800525748156853}
-  - {fileID: 8960164706302032998}
-  - {fileID: 6511955548969623576}
-  - {fileID: 4185758793605488905}
   - {fileID: 7534888178510852739}
   - {fileID: 6232761189434651320}
   - {fileID: 7336939980218964845}
@@ -1152,8 +1114,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.86959994, y: -0.6878, z: 0}
-    m_Extent: {x: 3.6875, y: 2.4147, z: 0}
+    m_Center: {x: 0.87179995, y: -0.6888, z: 0}
+    m_Extent: {x: 3.6908998, y: 2.4098, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1170,6 +1132,44 @@ MonoBehaviour:
   - {x: 2.601759, y: -0.23161852, z: 0}
   - {x: -0.85686475, y: -0.23618492, z: 0}
   - {x: -0.45482403, y: -0.79345685, z: 0}
+--- !u!1 &4988016473920743310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7281624904863508612}
+  m_Layer: 0
+  m_Name: '>> Bathroom <<'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7281624904863508612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4988016473920743310}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8445219029105206254}
+  - {fileID: 800800525748156853}
+  - {fileID: 8960164706302032998}
+  - {fileID: 6511955548969623576}
+  - {fileID: 4185758793605488905}
+  - {fileID: 850483375921281563}
+  - {fileID: 113172562545529087}
+  m_Father: {fileID: 4568355093543576143}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5171739113914898075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,8 +1238,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.87724996, y: -0.68365, z: 0}
-    m_Extent: {x: 3.68795, y: 2.41735, z: 0}
+    m_Center: {x: 0.8678999, y: -0.684, z: 0}
+    m_Extent: {x: 3.691, y: 2.4142, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1404,8 +1404,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.86829996, y: -0.68134993, z: 0}
-    m_Extent: {x: 3.6887999, y: 2.41425, z: 0}
+    m_Center: {x: 0.87819993, y: -0.67600006, z: 0}
+    m_Extent: {x: 3.6892, y: 2.4101, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1546,8 +1546,8 @@ GameObject:
   - component: {fileID: 850483375921281563}
   - component: {fileID: 4107588920872228507}
   m_Layer: 0
-  m_Name: Bathtub Curtain
-  m_TagString: Top Floor Inside Bathroom
+  m_Name: Bathtub Curtain Top
+  m_TagString: Inside Bathroom to Despawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1565,7 +1565,7 @@ Transform:
   m_LocalScale: {x: 2.8337538, y: 0.0526402, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3668395276651317226}
+  m_Father: {fileID: 7281624904863508612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4107588920872228507
 MonoBehaviour:
@@ -1763,8 +1763,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.87415004, y: -0.6847001, z: 0}
-    m_Extent: {x: 3.6828501, y: 2.4065, z: 0}
+    m_Center: {x: 0.87460005, y: -0.6843, z: 0}
+    m_Extent: {x: 3.6911001, y: 2.4181, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1890,8 +1890,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3668395276651317226}
   - {fileID: 3887172449181134311}
+  - {fileID: 7281624904863508612}
   m_Father: {fileID: 5269179422752899059}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8063514605981091719
@@ -2066,7 +2066,7 @@ GameObject:
   - component: {fileID: 4324076449386931789}
   m_Layer: 0
   m_Name: Bathroom West Wall
-  m_TagString: Untagged
+  m_TagString: Inside Bathroom to Despawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2080,11 +2080,11 @@ Transform:
   m_GameObject: {fileID: 8422317756040132548}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.35, y: 5.9, z: 0}
+  m_LocalPosition: {x: -8.35, y: 4.85, z: 0}
   m_LocalScale: {x: 0.13099317, y: 6.603431, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3887172449181134311}
+  m_Father: {fileID: 7281624904863508612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4324076449386931789
 MonoBehaviour:
@@ -2112,7 +2112,7 @@ MonoBehaviour:
   - {x: -0.5, y: 0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: 0.5, y: -0.49999994, z: 0}
-  m_ShapePathHash: 0
+  m_ShapePathHash: -298991275
   m_InstanceId: 0
   m_ShadowShape2DComponent: {fileID: 0}
   m_ShadowShape2DProvider:
@@ -2146,7 +2146,7 @@ GameObject:
   - component: {fileID: 3549846262917058848}
   m_Layer: 0
   m_Name: Bathroom South Wall Short
-  m_TagString: Top Floor Inside Bathroom
+  m_TagString: TopFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2164,7 +2164,7 @@ Transform:
   m_LocalScale: {x: 0.6855968, y: 0.14521433, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3887172449181134311}
+  m_Father: {fileID: 7281624904863508612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3549846262917058848
 MonoBehaviour:

@@ -44,7 +44,7 @@ namespace Triggers
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision == null) return;
-            if (!collision.CompareTag("CatStuff")) return;
+            if (!collision.CompareTag("Cat")) return;
             
             DataTransfer.CatOutside = false;
             Debug.Log("CatIsInside");
