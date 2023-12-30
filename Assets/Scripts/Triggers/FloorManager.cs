@@ -19,6 +19,9 @@ namespace Triggers
         public GameObject stairsTopFloor;
         public GameObject bathroomTrigger;
 
+        [Header("Cat:")]
+        public GameObject cat;
+
         // Awake is called before any Start functions, across scripts.
         private void Awake()
         {
@@ -51,12 +54,23 @@ namespace Triggers
                 topFloor.SetActive(false);
                 stairsTopFloor.SetActive(false);
                 bathroomTrigger.SetActive(false);
+                
+                int layerDefault = LayerMask.NameToLayer("Default");
+                cat.layer = layerDefault;
+                Debug.Log("Current layer (cat): Default");
             }
             else if (DataTransfer.OnTopFloor)
             {
+                // Recalculate the graph for the cat, using only the bottom floor Scan.
+                AstarPath.active.Scan();
+                
                 bottomFloor.SetActive(false);
                 stairsBottomFloor.SetActive(false);
                 toesInteraction.SetActive(false);
+                
+                int layerCat = LayerMask.NameToLayer("Cat");
+                cat.layer = layerCat;
+                Debug.Log("Current layer (cat): Cat");
             }
             yield break;
         }

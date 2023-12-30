@@ -43,6 +43,9 @@ namespace Triggers
 
         private void OnTriggerExit2D(Collider2D collision)
         {
+            if (collision == null) return;
+            if (!collision.CompareTag("CatStuff")) return;
+            
             DataTransfer.CatOutside = false;
             Debug.Log("CatIsInside");
             // The line is to prevent errors during Unity Load/Unload in Editor with missing SortingGroup.

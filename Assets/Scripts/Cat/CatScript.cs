@@ -47,11 +47,26 @@ namespace Cat
                 catSortingGroup.sortingOrder = DataTransfer.CatSortingOrderInside;
                 Debug.Log("Cat Is Inside");
             }
+            
         }
 
         private void Update()
         {
-            catSortingGroup.sortingOrder = DataTransfer.CatOutside ? DataTransfer.CatSortingOrderOutside : DataTransfer.CatSortingOrderInside;
+            // TODO: Fix bug that happens when player is outside and walks inside, causing the cat to appear above the inside walls if outside as well.
+            
+            if (DataTransfer.CatOutside)
+            {
+                catSortingGroup.sortingOrder = DataTransfer.CatSortingOrderOutside;
+            }
+            else if (DataTransfer.CatOutside && DataTransfer.PlayerInside)
+            {
+                catSortingGroup.sortingOrder = DataTransfer.CatSortingOrderOutside;
+            }
+            else if (!DataTransfer.CatOutside)
+            {
+                catSortingGroup.sortingOrder = DataTransfer.CatSortingOrderInside;
+            }
+            
             
             // Calculates direction from last-pos to current-pos
             var directionValue = ((Vector2)transform.position - _lastPosition).normalized;

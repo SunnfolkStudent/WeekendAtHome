@@ -18,7 +18,8 @@ public class DataTransfer : MonoBehaviour
     public static bool RadioOn;
     public static bool GlassDoorOpen;
     public static bool PlayerCanMove = true; // PlayerCanMove should be true from the start.
-    public static bool OnTopFloor;
+    public static bool OnTopFloor = true;
+    public static bool InsideBathroom;
     public static bool PlayerInside = true;
     public static bool CatOutside;
     public static int PlayerSortingOrder = 50;
@@ -126,11 +127,24 @@ public class DataTransfer : MonoBehaviour
         {
             OnTopFloor = false;
             CatSortingOrderInside = 50;
+            
         }
         else if (!OnTopFloor)
         {
             OnTopFloor = true;
             CatSortingOrderInside = -1;
+        }
+    }
+
+    public static void EnterOrExitBathroom()
+    {
+        if (InsideBathroom)
+        {
+            InsideBathroom = false;
+        }
+        else
+        {
+            InsideBathroom = true;
         }
     }
     public static void PlayerInsideOrOutside()
