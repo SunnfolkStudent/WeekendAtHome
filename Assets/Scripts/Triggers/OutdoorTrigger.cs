@@ -16,6 +16,7 @@ namespace Triggers
         
         [SerializeField] private GameObject player;
         [SerializeField] private SortingGroup playerSortingGroup;
+        [SerializeField] private SortingGroup vfxSortingGroup;
         
         [SerializeField] private float transparencyValue, moveAmount, playerOutdoorLightValue;
         private float _playerLightIntensity;
@@ -30,6 +31,7 @@ namespace Triggers
 
             _playerLightIntensity = player.GetComponentInChildren<Light2D>().intensity;
             playerSortingGroup = player.GetComponent<SortingGroup>();
+            vfxSortingGroup = GameObject.FindWithTag("VFX").GetComponent<SortingGroup>();
 
             if (DataTransfer.PlayerInside)
             {
@@ -72,7 +74,8 @@ namespace Triggers
                 transform.position = new Vector3(transform.position.x, transform.position.y - moveAmount);
 
                 player.GetComponentInChildren<Light2D>().intensity = playerOutdoorLightValue;
-                playerSortingGroup.sortingOrder = DataTransfer.PlayerSortingOrder = -1;
+                playerSortingGroup.sortingOrder = DataTransfer.PlayerSortingOrder;
+                vfxSortingGroup.sortingOrder = DataTransfer.VFXSortingOrder;
             }
             else if (!DataTransfer.PlayerInside)
             {
@@ -92,7 +95,8 @@ namespace Triggers
                 transform.position = new Vector3(transform.position.x, transform.position.y + moveAmount);
             
                 player.GetComponentInChildren<Light2D>().intensity = _playerLightIntensity;
-                playerSortingGroup.sortingOrder = DataTransfer.PlayerSortingOrder = 50;
+                playerSortingGroup.sortingOrder = DataTransfer.PlayerSortingOrder;
+                vfxSortingGroup.sortingOrder = DataTransfer.VFXSortingOrder;
             }
             DataTransfer.PlayerInsideOrOutside();
         }

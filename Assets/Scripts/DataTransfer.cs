@@ -152,7 +152,7 @@ public class DataTransfer : MonoBehaviour
         if (PlayerInside)
         {
             PlayerSortingOrder = -1;
-            VFXSortingOrder = 30;
+            VFXSortingOrder = 60;
             PlayerInside = false;
         }
         else if (!PlayerInside)
