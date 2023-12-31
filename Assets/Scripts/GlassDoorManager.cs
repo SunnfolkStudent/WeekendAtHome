@@ -20,6 +20,17 @@ public class GlassDoorManager : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
+
+        if (DataTransfer.GlassDoorOpen)
+        {
+            _animator.Play("GlassDoorOpen");
+            Debug.Log("GlassDoor Open");
+        }
+        else
+        {
+            _animator.Play("GlassDoorClosed");
+            Debug.Log("GlassDoor Closed");
+        }
     }
 
     private void Update()
@@ -41,12 +52,12 @@ public class GlassDoorManager : MonoBehaviour
         {
             case false:
                 Debug.Log("DoorIsOpening");
-                _animator.Play("GlassDoorSliding");
+                _animator.Play("GlassDoorOpening");
                 _audioSource.PlayOneShot(doorOpening);
                 break;
             case true:
                 Debug.Log("DoorIsClosing");
-                _animator.Play("GlassDoorSlidingClosed");
+                _animator.Play("GlassDoorClosing");
                 _audioSource.PlayOneShot(doorClosing);
                 break;
         }

@@ -17,8 +17,9 @@ public class DataTransfer : MonoBehaviour
     public static bool TvOn; 
     public static bool RadioOn;
     public static bool GlassDoorOpen;
+    public static bool BedroomDoorOpen;
     public static bool PlayerCanMove = true; // PlayerCanMove should be true from the start.
-    public static bool OnTopFloor = true;
+    public static bool OnTopFloor = false; // Change this in Editor if you're changing starting floors.
     public static bool InsideBathroom;
     public static bool PlayerInside = true;
     public static bool CatOutside;
@@ -106,6 +107,18 @@ public class DataTransfer : MonoBehaviour
         else if (!GlassDoorOpen)
         {
             GlassDoorOpen = true;
+        }
+    }
+
+    public static void OpenOrCloseBedroomDoor()
+    {
+        if (BedroomDoorOpen)
+        {
+            BedroomDoorOpen = false;
+        }
+        else if (!BedroomDoorOpen)
+        {
+            BedroomDoorOpen = true;
         }
     }
     public static void CanPlayerMove(UserInput userInput)

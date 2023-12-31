@@ -119,7 +119,7 @@ namespace Cat
                 Debug.Log("Meow");
                 _timeBetweenMeows = Random.Range(10, 30);
             }
-            if (!CatFoodFull.catBowlFull) return;
+            if (!CatFoodFull.CatBowlFull) return;
             
             _goingTowardsCatFood = true;
             goal.transform.position = new Vector3(1,0,0);
@@ -149,7 +149,7 @@ namespace Cat
             if (_goingTowardsCatFood)
             {
                 yield return new WaitForSeconds(13);
-                CatFoodFull.catBowlFull = false;
+                CatFoodFull.CatBowlFull = false;
                 _goingTowardsCatFood = false;
             }
             _randomGoal = Random.Range(0, goalSpots.Length);

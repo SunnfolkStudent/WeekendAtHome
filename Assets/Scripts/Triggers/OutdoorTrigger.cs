@@ -11,8 +11,10 @@ namespace Triggers
     public class OutdoorTrigger : MonoBehaviour
     {
         // Declare Variables
-        [SerializeField] private GameObject bottomFloor;
-        private GameObject _outdoor;
+        [SerializeField] private GameObject[] _bottomFloor;
+        [SerializeField] private GameObject[] kitchenWithDoorAndLamp;
+
+        [SerializeField] private GameObject backgroundBottomFloor;
         
         [SerializeField] private GameObject player;
         [SerializeField] private SortingGroup playerSortingGroup;
@@ -25,23 +27,47 @@ namespace Triggers
         {
             // Fetch all of the objects with the Outdoor and OutdoorToDespawn tags and store them in a list
             // and hide all of the outdoor objects.
-            _outdoor = GameObject.FindWithTag("Outdoors");
-
+            
+            _bottomFloor = GameObject.FindGameObjectsWithTag("BottomFloor");
+            
             player = GameObject.FindWithTag("Player");
 
             _playerLightIntensity = player.GetComponentInChildren<Light2D>().intensity;
+            
             playerSortingGroup = player.GetComponent<SortingGroup>();
+            playerSortingGroup.sortingOrder = DataTransfer.PlayerSortingOrder;
+            
             vfxSortingGroup = GameObject.FindWithTag("VFX").GetComponent<SortingGroup>();
+            vfxSortingGroup.sortingOrder = DataTransfer.VFXSortingOrder;
 
             if (DataTransfer.PlayerInside)
             {
+                foreach (GameObject bottomFloorGameObject in _bottomFloor)
+                {
+                    bottomFloorGameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                }
+
+                foreach (GameObject kitchenAndMoreGameObject in kitchenWithDoorAndLamp)
+                {
+                    kitchenAndMoreGameObject.GetComponent<SpriteRenderer>().sortingOrder = 45;
+                }
+                
+                
                 Debug.Log("OutdoorTrigger - Player Is Inside");
             }
             if (!DataTransfer.PlayerInside)
             {
+                foreach (GameObject bottomFloorGameObject in _bottomFloor)
+                {
+                    bottomFloorGameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
+                }
+                
+                foreach (GameObject kitchenAndMoreGameObject in kitchenWithDoorAndLamp)
+                {
+                    kitchenAndMoreGameObject.GetComponent<SpriteRenderer>().sortingOrder = 55;
+                }
+                
                 Debug.Log("OutdoorTrigger - Player Is Outside");
-                /* foreach (GameObject outdoorObjects in _outdoor)
-                    outdoorObjects.SetActive(true); */
             }
         }
 
@@ -60,45 +86,40 @@ namespace Triggers
             {
                 Debug.Log("Player Goes Outdoors");
 
-                bottomFloor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
-
-                /*foreach (Transform child in bottomFloorArray.transform)
-                    child.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue); */
-
-                /* foreach (GameObject outdoorToDespawnObjects in _outdoorToDespawn)
-                    outdoorToDespawnObjects.SetActive(false); */
-
-                /*foreach (GameObject outdoorObjects in _outdoor)
-                    outdoorObjects.SetActive(true);*/
+                foreach (GameObject bottomFloorGameObject in _bottomFloor)
+                {
+                    bottomFloorGameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
+                }
+                
+                foreach (GameObject kitchenAndMoreGameObject in kitchenWithDoorAndLamp)
+                {
+                    kitchenAndMoreGameObject.GetComponent<SpriteRenderer>().sortingOrder = 55;
+                }
 
                 transform.position = new Vector3(transform.position.x, transform.position.y - moveAmount);
 
                 player.GetComponentInChildren<Light2D>().intensity = playerOutdoorLightValue;
-                playerSortingGroup.sortingOrder = DataTransfer.PlayerSortingOrder;
-                vfxSortingGroup.sortingOrder = DataTransfer.VFXSortingOrder;
             }
             else if (!DataTransfer.PlayerInside)
             {
                 Debug.Log("Player Goes Inside");
             
-                bottomFloor.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            
-                /* foreach (Transform child in bottomFloorArray.transform) 
-                    child.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1); */
-            
-                /* foreach(GameObject outdoorToDespawnObjects in _outdoorToDespawn)
-                    outdoorToDespawnObjects.SetActive(true); */
-            
-                /*foreach(GameObject outdoorObjects in _outdoor)
-                    outdoorObjects.SetActive(false);*/
-            
+                foreach (GameObject bottomFloorGameObject in _bottomFloor)
+                {
+                    bottomFloorGameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                }
+                foreach (GameObject kitchenAndMoreGameObject in kitchenWithDoorAndLamp)
+                {
+                    kitchenAndMoreGameObject.GetComponent<SpriteRenderer>().sortingOrder = 45;
+                }
+                
                 transform.position = new Vector3(transform.position.x, transform.position.y + moveAmount);
-            
+                
                 player.GetComponentInChildren<Light2D>().intensity = _playerLightIntensity;
-                playerSortingGroup.sortingOrder = DataTransfer.PlayerSortingOrder;
-                vfxSortingGroup.sortingOrder = DataTransfer.VFXSortingOrder;
             }
+            
             DataTransfer.PlayerInsideOrOutside();
+            playerSortingGroup.sortingOrder = DataTransfer.PlayerSortingOrder;
         }
     }
 }
