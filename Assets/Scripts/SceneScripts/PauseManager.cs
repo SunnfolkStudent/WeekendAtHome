@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using NUnit.Framework;
 using PlayerScripts;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,8 +11,7 @@ namespace SceneScripts
     {
         // Declare Variables 
         /*private PlayerControls controls;  */
-
-        [SerializeField] private bool pauseSceneIsActive;
+        
         [SerializeField] private GameObject pauseScene;
         [SerializeField] private GameObject eventSystemMain;
     
@@ -23,12 +24,7 @@ namespace SceneScripts
         {
             pauseScene = GameObject.FindGameObjectWithTag("PauseScene");
             eventSystemMain = GameObject.FindWithTag("EventSystemMain");
-            pauseSceneIsActive = false;
-        }
-
-        private void Start()
-        {
-            throw new NotImplementedException();
+            StartCoroutine(SetPauseScreenInactive());
         }
 
         void Update()
@@ -36,30 +32,32 @@ namespace SceneScripts
             // Check if escape is pressed
             if (!UserInput.Pause) return;
             
-            if (!pauseSceneIsActive)
+            if (!DataTransfer.IsPause)
             {
-                SetPauseScreenActive();
+                StartCoroutine(SetPauseScreenActive());
             }
-            else if (pauseSceneIsActive)
+            else if (DataTransfer.IsPause)
             { 
-                SetPauseScreenInactive();
+                StartCoroutine(SetPauseScreenInactive());
             }
         }
 
-        public void SetPauseScreenActive()
+        private IEnumerator SetPauseScreenActive()
         {
             Time.timeScale = 0f;
             pauseScene.SetActive(true);
             eventSystemMain.SetActive(false);
-            pauseSceneIsActive = true;
+            DataTransfer.IsPause = true;
+            yield break;
         }
 
-        public void SetPauseScreenInactive()
+        public IEnumerator SetPauseScreenInactive()
         {
             Time.timeScale = 1f;
             pauseScene.SetActive(false);
             eventSystemMain.SetActive(true);
-            pauseSceneIsActive = false; 
+            DataTransfer.IsPause = false; 
+            yield break;
         }
         
     }

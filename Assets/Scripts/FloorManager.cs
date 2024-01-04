@@ -24,7 +24,6 @@ using UnityEngine;
         private void Awake()
         {
             StartCoroutine(EnableAllFloorsAndItems());
-            
         }
         
         // Start is called before the first frame update

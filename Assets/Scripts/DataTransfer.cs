@@ -10,6 +10,8 @@ public class DataTransfer : MonoBehaviour
     // Static instance stored
     public static DataTransfer Instance;
 
+    public GameObject pauseScreen;
+
     /// <summary>
     /// Set the bools inside here to true / false inside here during testing.
     /// </summary>
@@ -27,6 +29,7 @@ public class DataTransfer : MonoBehaviour
     public static bool PlayerInside = true;
     public static bool CatFlapClosed = true;
     public static bool CatOutside;
+    public static bool IsPause = false;
     public static int PlayerSortingOrder = 50;
     public static int CatSortingOrderInside = 50;
     public static int VFXSortingOrder = 5;
@@ -49,7 +52,7 @@ public class DataTransfer : MonoBehaviour
         DontDestroyOnLoad(Instance);
     }*/
     
-    void Awake()
+    private void Awake()
     {
         if (Instance != null)
         {
@@ -60,6 +63,7 @@ public class DataTransfer : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        pauseScreen.SetActive(true);
     }
     
     private void Update()
@@ -198,6 +202,19 @@ public class DataTransfer : MonoBehaviour
             PlayerSortingOrder = 50;
             VFXSortingOrder = 5;
             PlayerInside = true;
+        }
+    }
+
+    public static void TurnOnOrOffPauseScreen()
+    {
+        if (IsPause)
+        {
+            IsPause = false;
+        }
+
+        if (!IsPause)
+        {
+            IsPause = true;
         }
     }
 }
