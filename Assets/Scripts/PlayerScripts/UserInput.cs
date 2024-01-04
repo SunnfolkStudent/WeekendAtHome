@@ -29,8 +29,8 @@ namespace PlayerScripts
         public void Update()
         {
             Movement = _controls.Player.Movement.ReadValue<Vector2>();
-            Interact = _controls.Interact.Keyboard.triggered;
-            Pause = _controls.Pause.OpenMenu.triggered;
+            Interact = _controls.Player.Interact.triggered;
+            Pause = _controls.Player.OpenPauseMenu.triggered;
         }
     }
 }

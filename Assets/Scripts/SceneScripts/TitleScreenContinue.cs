@@ -29,7 +29,7 @@ public class TitleScreenContinue : MonoBehaviour
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
             Application.Quit();
         
-        if (controls.AnyButton.AnyKey.triggered)
+        if (controls.TitleScreen.AnyKey.triggered)
             levelLoader.LoadNextLevelByIndex();
     }
 }

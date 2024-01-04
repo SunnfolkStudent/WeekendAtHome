@@ -1,37 +1,63 @@
-using System;
-using System.Collections;
 using Cinemachine;
 using PlayerScripts;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ItemScripts
 {
     public class WindowsInteraction : MonoBehaviour
     {
-        private CinemachineVirtualCamera _mainCamera;
-        [SerializeField] private GameObject lookAtPoint;
+        [SerializeField] private CinemachineVirtualCamera _mainCamera;
+        private GameObject _lookAtPoint;
         [SerializeField] private GameObject player;
+        
+        [SerializeField] private bool insideTrigger;
+        [SerializeField] private bool isLookingOutside;
 
-        private void Awake()
+        private void Start()
         {
-            _mainCamera = FindFirstObjectByType<CinemachineVirtualCamera>();
+            _lookAtPoint = transform.GetChild(0).gameObject;
         }
 
-        private IEnumerator OnTriggerStay2D(Collider2D other)
+        private void Update()
         {
-            if (other.CompareTag("Player"))
+            if (insideTrigger && UserInput.Interact)
             {
-                Debug.Log("OnTriggerStay2D sees Player");
+                if (isLookingOutside)
+                {
+                    ReturnCamera();
+                }
+                else
+                {
+                    LookOutside();
+                }
             }
-            if (!UserInput.Interact)
-            {
-                yield break;
-            }
-            else if (UserInput.Interact)
-            {
-                _mainCamera.Follow = lookAtPoint.transform;
-            }
+        }
+
+        private void LookOutside()
+        {
+            _mainCamera.Follow = _lookAtPoint.transform;
+            isLookingOutside = true;
+            Debug.Log("Look outside");
+        }
+
+        private void ReturnCamera()
+        {
+            _mainCamera.Follow = player.transform; 
+            isLookingOutside = false;
+            Debug.Log("Look back at player");
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            Debug.Log("trigger enter");
+            insideTrigger = true;
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            insideTrigger = false;
+            Debug.Log("trigger exit");
+            ReturnCamera();
         }
     }
 }

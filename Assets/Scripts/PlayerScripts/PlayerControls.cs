@@ -35,6 +35,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""OpenPauseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""d1fad4c0-df93-4c10-a6e5-00a5e0157dae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""b9797ce0-2447-4f2d-9ea2-e5cbf0acc0db"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -147,39 +165,33 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                }
-            ]
-        },
-        {
-            ""name"": ""Pause"",
-            ""id"": ""b77ac212-76ea-42f5-a634-3bcfd2da6c62"",
-            ""actions"": [
-                {
-                    ""name"": ""OpenMenu"",
-                    ""type"": ""Button"",
-                    ""id"": ""5fe8bb45-1930-44a2-83a4-a5dc58a03479"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""7a08f4e8-682b-4033-9ae5-70c2c281554f"",
+                    ""id"": ""d832b2ac-d440-4b58-87de-2f0dda325645"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""OpenMenu"",
+                    ""action"": ""OpenPauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8b013715-cd06-4f80-b535-825bba913bed"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         },
         {
-            ""name"": ""AnyButton"",
+            ""name"": ""Title Screen"",
             ""id"": ""58a76a56-71fb-42be-82e3-5d7b71a5915f"",
             ""actions"": [
                 {
@@ -207,13 +219,31 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Interact"",
-            ""id"": ""a8664554-2205-48dd-b2fc-11957325c06c"",
+            ""name"": ""PauseScreen"",
+            ""id"": ""8e76ebdf-54df-4d94-a30d-24c1215a2798"",
             ""actions"": [
                 {
-                    ""name"": ""Keyboard"",
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""4c14a400-e4ad-4e7b-b516-e0242a2ee3b0"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Select"",
                     ""type"": ""Button"",
-                    ""id"": ""6b0478d8-b94a-4f59-9f39-325cf1c31e89"",
+                    ""id"": ""b3a67c49-6101-4e06-ade3-6ef63d30d338"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Continue"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed7fcc3e-dcaa-453e-a2c2-6d47aaf3b7c2"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -222,13 +252,134 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
+                    ""name"": ""Arrow Keys"",
+                    ""id"": ""3007af7b-519d-4ac9-9f75-e601858133ad"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""fdb524c2-73d8-4204-8b2d-a05bd9d84229"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""60db66c1-a31c-4409-995e-1d29400a10d4"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""7d338931-98b7-4943-bf02-f3bd4fcbcce9"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""5fd766d5-23f2-47ec-9479-75cf006a05bf"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""a553686e-061c-4ba9-90d4-bc3f3ec1043e"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""fb8a6478-7fdd-47c0-9c7f-dde665566fdc"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""64d8c7f4-560f-4252-a9b0-0e9b6a065fc8"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""e7b64abc-a198-4ff2-8561-84126ff1d5d5"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""05537b19-4e9b-4ed0-bd7a-411a2834e09d"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
-                    ""id"": ""115c6c28-b736-4782-a945-13b8d876edd9"",
+                    ""id"": ""2169d703-ac82-486c-969c-1751d08a00fe"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""57f68bdf-370c-47ea-bc94-554728cc3b64"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Keyboard"",
+                    ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -240,15 +391,16 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
-        // Pause
-        m_Pause = asset.FindActionMap("Pause", throwIfNotFound: true);
-        m_Pause_OpenMenu = m_Pause.FindAction("OpenMenu", throwIfNotFound: true);
-        // AnyButton
-        m_AnyButton = asset.FindActionMap("AnyButton", throwIfNotFound: true);
-        m_AnyButton_AnyKey = m_AnyButton.FindAction("AnyKey", throwIfNotFound: true);
-        // Interact
-        m_Interact = asset.FindActionMap("Interact", throwIfNotFound: true);
-        m_Interact_Keyboard = m_Interact.FindAction("Keyboard", throwIfNotFound: true);
+        m_Player_OpenPauseMenu = m_Player.FindAction("OpenPauseMenu", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        // Title Screen
+        m_TitleScreen = asset.FindActionMap("Title Screen", throwIfNotFound: true);
+        m_TitleScreen_AnyKey = m_TitleScreen.FindAction("AnyKey", throwIfNotFound: true);
+        // PauseScreen
+        m_PauseScreen = asset.FindActionMap("PauseScreen", throwIfNotFound: true);
+        m_PauseScreen_Move = m_PauseScreen.FindAction("Move", throwIfNotFound: true);
+        m_PauseScreen_Select = m_PauseScreen.FindAction("Select", throwIfNotFound: true);
+        m_PauseScreen_Continue = m_PauseScreen.FindAction("Continue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -311,11 +463,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_OpenPauseMenu;
+    private readonly InputAction m_Player_Interact;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @OpenPauseMenu => m_Wrapper.m_Player_OpenPauseMenu;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -328,6 +484,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @OpenPauseMenu.started += instance.OnOpenPauseMenu;
+            @OpenPauseMenu.performed += instance.OnOpenPauseMenu;
+            @OpenPauseMenu.canceled += instance.OnOpenPauseMenu;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -335,6 +497,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @OpenPauseMenu.started -= instance.OnOpenPauseMenu;
+            @OpenPauseMenu.performed -= instance.OnOpenPauseMenu;
+            @OpenPauseMenu.canceled -= instance.OnOpenPauseMenu;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -353,157 +521,127 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     }
     public PlayerActions @Player => new PlayerActions(this);
 
-    // Pause
-    private readonly InputActionMap m_Pause;
-    private List<IPauseActions> m_PauseActionsCallbackInterfaces = new List<IPauseActions>();
-    private readonly InputAction m_Pause_OpenMenu;
-    public struct PauseActions
+    // Title Screen
+    private readonly InputActionMap m_TitleScreen;
+    private List<ITitleScreenActions> m_TitleScreenActionsCallbackInterfaces = new List<ITitleScreenActions>();
+    private readonly InputAction m_TitleScreen_AnyKey;
+    public struct TitleScreenActions
     {
         private @PlayerControls m_Wrapper;
-        public PauseActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @OpenMenu => m_Wrapper.m_Pause_OpenMenu;
-        public InputActionMap Get() { return m_Wrapper.m_Pause; }
+        public TitleScreenActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @AnyKey => m_Wrapper.m_TitleScreen_AnyKey;
+        public InputActionMap Get() { return m_Wrapper.m_TitleScreen; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PauseActions set) { return set.Get(); }
-        public void AddCallbacks(IPauseActions instance)
+        public static implicit operator InputActionMap(TitleScreenActions set) { return set.Get(); }
+        public void AddCallbacks(ITitleScreenActions instance)
         {
-            if (instance == null || m_Wrapper.m_PauseActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PauseActionsCallbackInterfaces.Add(instance);
-            @OpenMenu.started += instance.OnOpenMenu;
-            @OpenMenu.performed += instance.OnOpenMenu;
-            @OpenMenu.canceled += instance.OnOpenMenu;
-        }
-
-        private void UnregisterCallbacks(IPauseActions instance)
-        {
-            @OpenMenu.started -= instance.OnOpenMenu;
-            @OpenMenu.performed -= instance.OnOpenMenu;
-            @OpenMenu.canceled -= instance.OnOpenMenu;
-        }
-
-        public void RemoveCallbacks(IPauseActions instance)
-        {
-            if (m_Wrapper.m_PauseActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IPauseActions instance)
-        {
-            foreach (var item in m_Wrapper.m_PauseActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_PauseActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public PauseActions @Pause => new PauseActions(this);
-
-    // AnyButton
-    private readonly InputActionMap m_AnyButton;
-    private List<IAnyButtonActions> m_AnyButtonActionsCallbackInterfaces = new List<IAnyButtonActions>();
-    private readonly InputAction m_AnyButton_AnyKey;
-    public struct AnyButtonActions
-    {
-        private @PlayerControls m_Wrapper;
-        public AnyButtonActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @AnyKey => m_Wrapper.m_AnyButton_AnyKey;
-        public InputActionMap Get() { return m_Wrapper.m_AnyButton; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(AnyButtonActions set) { return set.Get(); }
-        public void AddCallbacks(IAnyButtonActions instance)
-        {
-            if (instance == null || m_Wrapper.m_AnyButtonActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_AnyButtonActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_TitleScreenActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_TitleScreenActionsCallbackInterfaces.Add(instance);
             @AnyKey.started += instance.OnAnyKey;
             @AnyKey.performed += instance.OnAnyKey;
             @AnyKey.canceled += instance.OnAnyKey;
         }
 
-        private void UnregisterCallbacks(IAnyButtonActions instance)
+        private void UnregisterCallbacks(ITitleScreenActions instance)
         {
             @AnyKey.started -= instance.OnAnyKey;
             @AnyKey.performed -= instance.OnAnyKey;
             @AnyKey.canceled -= instance.OnAnyKey;
         }
 
-        public void RemoveCallbacks(IAnyButtonActions instance)
+        public void RemoveCallbacks(ITitleScreenActions instance)
         {
-            if (m_Wrapper.m_AnyButtonActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_TitleScreenActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IAnyButtonActions instance)
+        public void SetCallbacks(ITitleScreenActions instance)
         {
-            foreach (var item in m_Wrapper.m_AnyButtonActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_TitleScreenActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_AnyButtonActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_TitleScreenActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public AnyButtonActions @AnyButton => new AnyButtonActions(this);
+    public TitleScreenActions @TitleScreen => new TitleScreenActions(this);
 
-    // Interact
-    private readonly InputActionMap m_Interact;
-    private List<IInteractActions> m_InteractActionsCallbackInterfaces = new List<IInteractActions>();
-    private readonly InputAction m_Interact_Keyboard;
-    public struct InteractActions
+    // PauseScreen
+    private readonly InputActionMap m_PauseScreen;
+    private List<IPauseScreenActions> m_PauseScreenActionsCallbackInterfaces = new List<IPauseScreenActions>();
+    private readonly InputAction m_PauseScreen_Move;
+    private readonly InputAction m_PauseScreen_Select;
+    private readonly InputAction m_PauseScreen_Continue;
+    public struct PauseScreenActions
     {
         private @PlayerControls m_Wrapper;
-        public InteractActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Keyboard => m_Wrapper.m_Interact_Keyboard;
-        public InputActionMap Get() { return m_Wrapper.m_Interact; }
+        public PauseScreenActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_PauseScreen_Move;
+        public InputAction @Select => m_Wrapper.m_PauseScreen_Select;
+        public InputAction @Continue => m_Wrapper.m_PauseScreen_Continue;
+        public InputActionMap Get() { return m_Wrapper.m_PauseScreen; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(InteractActions set) { return set.Get(); }
-        public void AddCallbacks(IInteractActions instance)
+        public static implicit operator InputActionMap(PauseScreenActions set) { return set.Get(); }
+        public void AddCallbacks(IPauseScreenActions instance)
         {
-            if (instance == null || m_Wrapper.m_InteractActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_InteractActionsCallbackInterfaces.Add(instance);
-            @Keyboard.started += instance.OnKeyboard;
-            @Keyboard.performed += instance.OnKeyboard;
-            @Keyboard.canceled += instance.OnKeyboard;
+            if (instance == null || m_Wrapper.m_PauseScreenActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PauseScreenActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Select.started += instance.OnSelect;
+            @Select.performed += instance.OnSelect;
+            @Select.canceled += instance.OnSelect;
+            @Continue.started += instance.OnContinue;
+            @Continue.performed += instance.OnContinue;
+            @Continue.canceled += instance.OnContinue;
         }
 
-        private void UnregisterCallbacks(IInteractActions instance)
+        private void UnregisterCallbacks(IPauseScreenActions instance)
         {
-            @Keyboard.started -= instance.OnKeyboard;
-            @Keyboard.performed -= instance.OnKeyboard;
-            @Keyboard.canceled -= instance.OnKeyboard;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Select.started -= instance.OnSelect;
+            @Select.performed -= instance.OnSelect;
+            @Select.canceled -= instance.OnSelect;
+            @Continue.started -= instance.OnContinue;
+            @Continue.performed -= instance.OnContinue;
+            @Continue.canceled -= instance.OnContinue;
         }
 
-        public void RemoveCallbacks(IInteractActions instance)
+        public void RemoveCallbacks(IPauseScreenActions instance)
         {
-            if (m_Wrapper.m_InteractActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PauseScreenActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IInteractActions instance)
+        public void SetCallbacks(IPauseScreenActions instance)
         {
-            foreach (var item in m_Wrapper.m_InteractActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PauseScreenActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_InteractActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PauseScreenActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public InteractActions @Interact => new InteractActions(this);
+    public PauseScreenActions @PauseScreen => new PauseScreenActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnOpenPauseMenu(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
-    public interface IPauseActions
-    {
-        void OnOpenMenu(InputAction.CallbackContext context);
-    }
-    public interface IAnyButtonActions
+    public interface ITitleScreenActions
     {
         void OnAnyKey(InputAction.CallbackContext context);
     }
-    public interface IInteractActions
+    public interface IPauseScreenActions
     {
-        void OnKeyboard(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
+        void OnContinue(InputAction.CallbackContext context);
     }
 }

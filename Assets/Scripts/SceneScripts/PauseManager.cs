@@ -13,7 +13,6 @@ namespace SceneScripts
         /*private PlayerControls controls;  */
         
         [SerializeField] private GameObject pauseScene;
-        [SerializeField] private GameObject eventSystemMain;
     
         // Initialize the controls
         /*private void Awake() => controls = new PlayerControls();
@@ -23,7 +22,6 @@ namespace SceneScripts
         private void Awake()
         {
             pauseScene = GameObject.FindGameObjectWithTag("PauseScene");
-            eventSystemMain = GameObject.FindWithTag("EventSystemMain");
             StartCoroutine(SetPauseScreenInactive());
         }
 
@@ -46,7 +44,6 @@ namespace SceneScripts
         {
             Time.timeScale = 0f;
             pauseScene.SetActive(true);
-            eventSystemMain.SetActive(false);
             DataTransfer.IsPause = true;
             yield break;
         }
@@ -55,7 +52,6 @@ namespace SceneScripts
         {
             Time.timeScale = 1f;
             pauseScene.SetActive(false);
-            eventSystemMain.SetActive(true);
             DataTransfer.IsPause = false; 
             yield break;
         }
