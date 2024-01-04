@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using SceneScripts;
 using UnityEngine;
 
 public class EndCreditsLevelLoaderTimer : MonoBehaviour
@@ -22,7 +23,7 @@ public class EndCreditsLevelLoaderTimer : MonoBehaviour
     {
         // Check if the timer is done before loading the title scene
         if (timerDone)
-            levelLoader.loadSceneByName("TitleScene");
+            levelLoader.LoadSceneByName("TitleScene");
     }
 
     IEnumerator timer()

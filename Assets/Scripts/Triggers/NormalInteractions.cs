@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using Triggers;
 
 namespace Inheritance
 {

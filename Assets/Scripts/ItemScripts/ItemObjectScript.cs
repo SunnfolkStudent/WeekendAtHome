@@ -1,6 +1,7 @@
 using PlayerScripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace ItemScripts
 {
@@ -11,7 +12,7 @@ namespace ItemScripts
         public int thisObjectInt;
     
         [Header("Item Properties")]
-        public bool isInteractable;
+        public bool interactableWithChoice;
         public bool canNotInteractMultiple;
         public bool autoInteract;
     
@@ -26,11 +27,16 @@ namespace ItemScripts
         private bool _playerIsInTrigger;
 
         [Header("What Happens On Yes:")]
-        [Header("0Nothing,1BedToTwo,2BedToThree,3BedToEnd,4CatFoodFull")]
+        [Header("0 = Nothing, 1 = LoadNextScene, 2 = CatBowlFull")]
+        [Header("3 = DeathScene FrontDoor")]
+            
         public int whatHappensOnYes;
+
+        private GameObject _mainEventSystem;
 
         private void Start()
         {
+            _mainEventSystem = GameObject.FindWithTag("EventSystemMain");
             InItemCutscene = false;
         }
 
@@ -51,11 +57,12 @@ namespace ItemScripts
             }
         }
 
-        //If E is clicked when near, open the correct scene
+        //If Interact is pressed when near, open the correct scene
         private void Update()
         {
             if ((UserInput.Interact && _playerIsInTrigger && !InItemCutscene && (!alreadyUsed || !canNotInteractMultiple)) || (autoInteract && _playerIsInTrigger && !InItemCutscene && (!alreadyUsed || !canNotInteractMultiple)))
             {
+                _mainEventSystem.SetActive(false);
                 Time.timeScale = 0;
                 if (autoInteract && !canNotInteractMultiple)
                 {
@@ -65,7 +72,7 @@ namespace ItemScripts
                 CurrentYesAnswer = whatHappensOnYes;
                 CurrentObjectInt = thisObjectInt;
                 alreadyUsed = true;
-                if (isInteractable)
+                if (interactableWithChoice)
                 {
                     InItemCutscene = true;
                     SceneManager.LoadScene("InteractableItem",LoadSceneMode.Additive);

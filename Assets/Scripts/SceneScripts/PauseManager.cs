@@ -1,53 +1,66 @@
+using System;
+using PlayerScripts;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace SceneScripts
 {
     public class PauseManager : MonoBehaviour
     {
-
         // Declare Variables 
-        private PlayerControls controls;
+        /*private PlayerControls controls;  */
 
-        public static bool pauseSceneIsActive = false;
+        [SerializeField] private bool pauseSceneIsActive;
+        [SerializeField] private GameObject pauseScene;
+        [SerializeField] private GameObject eventSystemMain;
     
         // Initialize the controls
-        private void Awake() => controls = new PlayerControls();
+        /*private void Awake() => controls = new PlayerControls();
         private void OnEnable() => controls.Enable();
-        private void OnDisable() => controls.Disable();
+        private void OnDisable() => controls.Disable();*/
 
-        public void UnloadPauseScene()
+        private void Awake()
         {
-            // Unload the pause scene
-            SceneManager.UnloadSceneAsync("PauseOverlayScene");
-            return;
-        }
-
-        public void SetPauseSceneIsActiveToInactive()
-        {
-            // Resume the time
-            Time.timeScale = 1f;
+            pauseScene = GameObject.FindGameObjectWithTag("PauseScene");
+            eventSystemMain = GameObject.FindWithTag("EventSystemMain");
             pauseSceneIsActive = false;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<AudioListener>().enabled = true;
-            GameObject.FindGameObjectWithTag("EventSystemMain").SetActive(true);
-            return;
         }
-    
+
+        private void Start()
+        {
+            throw new NotImplementedException();
+        }
+
         void Update()
         {
             // Check if escape is pressed
-            if (controls.Pause.OpenMenu.triggered)
+            if (!UserInput.Pause) return;
+            
+            if (!pauseSceneIsActive)
             {
-                if (!pauseSceneIsActive)
-                {
-                    // Stops time and adds the pause scene
-                    Time.timeScale = 0f;
-                    SceneManager.LoadScene("PauseOverlayScene", LoadSceneMode.Additive);
-                    pauseSceneIsActive = true;
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<AudioListener>().enabled = false;
-                    GameObject.FindGameObjectWithTag("EventSystemMain").SetActive(false);
-                }
+                SetPauseScreenActive();
+            }
+            else if (pauseSceneIsActive)
+            { 
+                SetPauseScreenInactive();
             }
         }
+
+        public void SetPauseScreenActive()
+        {
+            Time.timeScale = 0f;
+            pauseScene.SetActive(true);
+            eventSystemMain.SetActive(false);
+            pauseSceneIsActive = true;
+        }
+
+        public void SetPauseScreenInactive()
+        {
+            Time.timeScale = 1f;
+            pauseScene.SetActive(false);
+            eventSystemMain.SetActive(true);
+            pauseSceneIsActive = false; 
+        }
+        
     }
 }

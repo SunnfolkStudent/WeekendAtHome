@@ -1,25 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CatFoodFull : MonoBehaviour
+namespace Cat
 {
-    public static bool catBowlFull;
-    private SpriteRenderer _sprite;
+    public class CatFoodFull : MonoBehaviour
+    {
+        public static bool CatBowlFull;
+        private SpriteRenderer _sprite;
 
-    private void Start()
-    {
-        _sprite = gameObject.GetComponent<SpriteRenderer>();
-    }
-    void Update()
-    {
-        if (catBowlFull)
+        private void Start()
         {
-            _sprite.enabled = true;
+            _sprite = gameObject.GetComponent<SpriteRenderer>();
         }
-        else
+        void Update()
         {
-            _sprite.enabled = false;
+            if (CatBowlFull)
+            {
+                _sprite.enabled = true;
+            }
+            else
+            {
+                _sprite.enabled = false;
+            }
         }
     }
 }

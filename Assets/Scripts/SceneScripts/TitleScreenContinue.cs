@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using SceneScripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -29,6 +30,6 @@ public class TitleScreenContinue : MonoBehaviour
             Application.Quit();
         
         if (controls.AnyButton.AnyKey.triggered)
-            levelLoader.loadNextLevel();
+            levelLoader.LoadSceneByName("Scene 1 - Evening 1");
     }
 }

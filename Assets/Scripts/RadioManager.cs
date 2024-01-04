@@ -35,21 +35,16 @@ public class RadioManager : MonoBehaviour
             musicSource.Stop();
             yield break;
         }
-        if (DataTransfer.RadioOn && !musicSource.isPlaying && Time.deltaTime > 3f)
-        {
-            sfxSource.PlayOneShot(turnOnSfx);
-        }
-        
-        yield return new WaitForSeconds(1.5f);
-        
-        if (DataTransfer.RadioOn && !musicSource.isPlaying)
+        if (DataTransfer.RadioOn)
         {
             musicSource.PlayOneShot(radioMusic);
         }
-        else
+        else if (DataTransfer.RadioOn && !musicSource.isPlaying && Time.deltaTime > 3f)
         {
-            yield return new WaitForSeconds(0f);
+            sfxSource.PlayOneShot(turnOnSfx);
         }
+
+        yield return new WaitForSeconds(1.3f);
     } 
     private void OnTriggerEnter2D(Collider2D other) { _triggerActive = true; }
     private void OnTriggerExit2D(Collider2D other) { _triggerActive = false; }

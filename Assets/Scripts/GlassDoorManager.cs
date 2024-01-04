@@ -73,8 +73,19 @@ public class GlassDoorManager : MonoBehaviour
         } */
     }
 
-    private void OnTriggerEnter2D(Collider2D other) { _triggerActive = true; }
-    private void OnTriggerExit2D(Collider2D other) { _triggerActive = false; }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision == null || !collision.CompareTag("Player")) { return; }
+        
+        _triggerActive = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision == null || !collision.CompareTag("Player")) { return; }
+        
+        _triggerActive = false; 
+    }
 
     
     /* public void SetAnimationToPlayingOrNot()

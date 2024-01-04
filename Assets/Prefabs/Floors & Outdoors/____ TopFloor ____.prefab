@@ -592,7 +592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisObjectInt: 1
-  isInteractable: 0
+  interactableWithChoice: 0
   canNotInteractMultiple: 0
   autoInteract: 0
   alreadyUsed: 0
@@ -1748,15 +1748,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 22
-  m_Sprite: {fileID: 1699056691448282568, guid: 90bf3554992bfd741ad367a80926f951, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 67da1ca5a20cb4f4db1bb27b3391f61e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.15625, y: 2.6804352}
+  m_Size: {x: 15, y: 8.4375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &1985123331542000130
@@ -1797,8 +1797,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.15625, y: 2.6804352}
-    newSize: {x: 1.15625, y: 2.6804352}
+    oldSize: {x: 15, y: 8.4375}
+    newSize: {x: 15, y: 8.4375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1818,7 +1818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisObjectInt: 3
-  isInteractable: 0
+  interactableWithChoice: 0
   canNotInteractMultiple: 0
   autoInteract: 0
   alreadyUsed: 0
@@ -2214,7 +2214,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6345409674662305885}
   - component: {fileID: 4397619293160126741}
-  - component: {fileID: 3565016463858398703}
   m_Layer: 0
   m_Name: Toilet
   m_TagString: Untagged
@@ -2283,24 +2282,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.9576211, y: 1.0848958}
   m_EdgeRadius: 0
---- !u!114 &3565016463858398703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4653975828621867932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa0e24755f39824b8cc63ccf7086793, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisObjectInt: 6
-  isInteractable: 0
-  canNotInteractMultiple: 0
-  autoInteract: 0
-  alreadyUsed: 0
-  whatHappensOnYes: 0
 --- !u!1 &4948404321491796224
 GameObject:
   m_ObjectHideFlags: 0
@@ -2774,7 +2755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisObjectInt: 2
-  isInteractable: 0
+  interactableWithChoice: 0
   canNotInteractMultiple: 0
   autoInteract: 0
   alreadyUsed: 0
@@ -4068,7 +4049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisObjectInt: 0
-  isInteractable: 0
+  interactableWithChoice: 0
   canNotInteractMultiple: 0
   autoInteract: 0
   alreadyUsed: 0
@@ -14323,7 +14304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisObjectInt: 4
-  isInteractable: 1
+  interactableWithChoice: 0
   canNotInteractMultiple: 0
   autoInteract: 1
   alreadyUsed: 0

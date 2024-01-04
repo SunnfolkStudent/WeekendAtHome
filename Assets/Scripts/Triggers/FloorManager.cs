@@ -26,14 +26,15 @@ namespace Triggers
         private void Awake()
         {
             StartCoroutine(EnableAllFloorsAndItems());
+            StartCoroutine(DisableAllFloorsExceptCurrent());
         }
         
         // Start is called before the first frame update
         private void Start()
         {
-            StartCoroutine(DisableAllFloorsExceptCurrent());
+            
         }
-        
+
         private IEnumerator EnableAllFloorsAndItems()
         {
             bottomFloor.SetActive(true);

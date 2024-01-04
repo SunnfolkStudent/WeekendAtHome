@@ -1,9 +1,7 @@
-using System;
+using PlayerScripts;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
-namespace Inheritance
+namespace Triggers
 {
     public abstract class InteractableBase : MonoBehaviour
     {
@@ -11,7 +9,7 @@ namespace Inheritance
 
         private void Update()
         {
-            if (interactable &&  Keyboard.current.eKey.wasPressedThisFrame) { Interact(); }
+            if (interactable && UserInput.Interact) { Interact(); }
         }
 
         private void OnTriggerEnter2D(Collider2D other) { if (other.CompareTag("Player")) { interactable = true; } }

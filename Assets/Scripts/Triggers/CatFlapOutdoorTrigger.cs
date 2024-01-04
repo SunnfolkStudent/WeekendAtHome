@@ -1,5 +1,6 @@
 using System;
 using Cat;
+using PlayerScripts;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -10,12 +11,15 @@ namespace Triggers
         [SerializeField] private GameObject cat;
         [SerializeField] private SortingGroup catSortingGroup;
     
-        void Start()
+        private void Awake()
         {
             // Fetch all of the objects with the Outdoor and OutdoorToDespawn tags and store them in a list
             // and hide all of the outdoor objects
             cat = GameObject.FindWithTag("Cat");
-            catSortingGroup = cat.GetComponent<SortingGroup>();
+            if (cat != null)
+            {
+                catSortingGroup = cat.GetComponent<SortingGroup>();
+            }
             
             /* if (DataTransfer.CatOutside)
             {

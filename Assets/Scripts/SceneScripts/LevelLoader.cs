@@ -1,43 +1,52 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelLoader : MonoBehaviour
+namespace SceneScripts
 {
-    
-    //Declare variables
-    public Animator transition;
-    public bool noFadeOut;
-    public float transitionTime = 1;
+    public class LevelLoader : MonoBehaviour
+    {
+        //Declare variables
+        public Animator transition;
+        public bool noFadeOut;
+        public float transitionTime = 2f;
+        
+        [Header("Transition Speed plays at default speed at 1")]
+        [SerializeField] private float transitionSpeed = 0.5f;
+        private static readonly int StartFade = Animator.StringToHash("StartFade");
 
-    public void Start()
-    {
-        //Play a no-fade animation if there is no fade out requested
-        if (noFadeOut)
-            transition.Play("Crossfade_Idle");
-    }
+        public void Start()
+        {
+            transition.speed = transitionSpeed;
+            //Play a no-fade animation if there is no fade out requested
+            if (noFadeOut)
+                transition.Play("Crossfade_Idle");
+            else
+            {
+                transition.Play("Crossfade_End");
+            }
+        }
 
-    public void loadNextLevel()
-    {
-        //Start a coroutine to wait until the fade is done
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
-        return;
-    }
+        public void LoadNextLevelByIndex()
+        {
+            //Start a coroutine to wait until the fade is done
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+            return;
+        }
 
-    public void loadSceneByName(string sceneName)
-    {
-        //Start a coroutine to wait until the fade is done
-        StartCoroutine(LoadLevel(SceneManager.GetSceneByName(sceneName).buildIndex + 1));
-        return;
-    }
-    
-    IEnumerator LoadLevel(int levelIndex)
-    {
-        //Start the fade animation and then wait until the tansition time elapses
-        transition.SetTrigger("StartFade");
-        yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene(levelIndex);
+        public void LoadSceneByName(string sceneName)
+        {
+            //Start a coroutine to wait until the fade is done
+            StartCoroutine(LoadLevel(SceneManager.GetSceneByName(sceneName).buildIndex + 1));
+            return;
+        }
+
+        private IEnumerator LoadLevel(int levelIndex)
+        {
+            //Start the fade animation and then wait until the transition time elapses
+            transition.SetTrigger(StartFade);
+            yield return new WaitForSeconds(transitionTime);
+            SceneManager.LoadScene(levelIndex);
+        }
     }
 }

@@ -1,41 +1,40 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using ItemScripts;
 using PlayerScripts;
-using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class ItemController : MonoBehaviour
+namespace ItemScripts
 {
-    public ItemType[] itemScrub;
-    public TMP_Text itemName;
-    public TMP_Text itemText;
-    public Image itemImage;
-    public AudioSource audioPlayer;
-    private UserInput _input;
-
-    //Sets Scrub To Scene
-    private void Start()
+    public class ItemController : MonoBehaviour
     {
-        itemName.text = itemScrub[ItemObjectScript.CurrentObjectInt].itemName;
-        itemText.text = itemScrub[ItemObjectScript.CurrentObjectInt].itemText;
-        itemImage.sprite = itemScrub[ItemObjectScript.CurrentObjectInt].itemImage;
-        itemImage.transform.localScale = itemScrub[ItemObjectScript.CurrentObjectInt].itemSize;
-        audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.CurrentObjectInt].itemAudio);
+        public ItemType[] itemScrub;
+        public TMP_Text itemName;
+        public TMP_Text itemText;
+        public Image itemImage;
+        public AudioSource audioPlayer;
+        private UserInput _input;
 
-    }
-
-    //Exits Scene if E is pressed
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
+        //Sets Scrub To Scene
+        private void Start()
         {
-            Time.timeScale = 1;
-            ItemObjectScript.InItemCutscene = false;
-            SceneManager.UnloadSceneAsync("Item");
+            itemName.text = itemScrub[ItemObjectScript.CurrentObjectInt].itemName;
+            itemText.text = itemScrub[ItemObjectScript.CurrentObjectInt].itemText;
+            itemImage.sprite = itemScrub[ItemObjectScript.CurrentObjectInt].itemImage;
+            itemImage.transform.localScale = itemScrub[ItemObjectScript.CurrentObjectInt].itemSize;
+            audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.CurrentObjectInt].itemAudio);
+
+        }
+
+        //Exits Scene if Interact is pressed
+        private void Update()
+        {
+            if (UserInput.Interact)
+            {
+                Time.timeScale = 1;
+                ItemObjectScript.InItemCutscene = false;
+                SceneManager.UnloadSceneAsync("Item");
+            }
         }
     }
 }
