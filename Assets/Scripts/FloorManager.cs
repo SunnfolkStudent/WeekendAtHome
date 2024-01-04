@@ -4,9 +4,7 @@ using Pathfinding;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Triggers
-{
-    // Make sure this script runs before StairsTrigger.cs, in Project Settings, in Script Execution Order.
+// Make sure this script runs before StairsTrigger.cs, in Project Settings, in Script Execution Order.
     public class FloorManager : MonoBehaviour
     {
         [Header("Bottom Floor:")]
@@ -26,13 +24,13 @@ namespace Triggers
         private void Awake()
         {
             StartCoroutine(EnableAllFloorsAndItems());
-            StartCoroutine(DisableAllFloorsExceptCurrent());
+            
         }
         
         // Start is called before the first frame update
         private void Start()
         {
-            
+            StartCoroutine(DisableAllFloorsExceptCurrent());
         }
 
         private IEnumerator EnableAllFloorsAndItems()
@@ -76,4 +74,3 @@ namespace Triggers
             yield break;
         }
     }
-}
