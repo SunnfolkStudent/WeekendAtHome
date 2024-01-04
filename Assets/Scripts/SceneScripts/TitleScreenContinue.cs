@@ -30,6 +30,6 @@ public class TitleScreenContinue : MonoBehaviour
             Application.Quit();
         
         if (controls.AnyButton.AnyKey.triggered)
-            levelLoader.LoadSceneByName("Scene 1 - Evening 1");
+            levelLoader.LoadNextLevelByIndex();
     }
 }
