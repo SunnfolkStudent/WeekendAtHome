@@ -20225,6 +20225,10 @@ PrefabInstance:
       propertyPath: m_ShadowMesh.m_Mesh
       value: 
       objectReference: {fileID: 736332564}
+    - target: {fileID: 998585703884642199, guid: 4354c83ffa8df754d948815e752df645, type: 3}
+      propertyPath: m_SortingOrder
+      value: -7
+      objectReference: {fileID: 0}
     - target: {fileID: 2801349675421101988, guid: 4354c83ffa8df754d948815e752df645, type: 3}
       propertyPath: m_ShadowMesh.m_Mesh
       value: 
@@ -20281,6 +20285,10 @@ PrefabInstance:
       propertyPath: m_ShadowMesh.m_Mesh
       value: 
       objectReference: {fileID: 338789280}
+    - target: {fileID: 8609647138218952128, guid: 4354c83ffa8df754d948815e752df645, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8646989411790814740, guid: 4354c83ffa8df754d948815e752df645, type: 3}
       propertyPath: m_ShadowMesh.m_Mesh
       value: 
