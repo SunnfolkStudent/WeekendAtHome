@@ -25,11 +25,13 @@ namespace PlayerScripts
         
         public static bool Interact;
         public static bool Pause;
+        public static bool HoldInteract;
     
         public void Update()
         {
             Movement = _controls.Player.Movement.ReadValue<Vector2>();
             Interact = _controls.Interact.Keyboard.triggered;
+            HoldInteract = _controls.Interact.Keyboard.IsPressed();
             Pause = _controls.Pause.OpenMenu.triggered;
         }
     }
