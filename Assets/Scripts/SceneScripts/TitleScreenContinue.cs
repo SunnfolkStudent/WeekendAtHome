@@ -1,35 +1,34 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using SceneScripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
-public class TitleScreenContinue : MonoBehaviour
+namespace SceneScripts
 {
-    // Declare variables
-    private PlayerControls controls;
-    [SerializeField] private LevelLoader levelLoader;
+    public class TitleScreenContinue : MonoBehaviour
+    {
+        // Declare variables
+        private PlayerControls _controls;
+        [SerializeField] private LevelLoader levelLoader;
     
-    // Initialize player controls
-    private void Awake() => controls = new PlayerControls();
-    private void OnEnable() => controls.Enable();
-    private void OnDisable() => controls.Disable();
+        // Initialize player controls
+        private void Awake() => _controls = new PlayerControls();
+        private void OnEnable() => _controls.Enable();
+        private void OnDisable() => _controls.Disable();
 
-    private String currentlyPlaying;
-    private void Start()
-    {
-        currentlyPlaying = FindAnyObjectByType<MusicManager>().musicSource.ToString();
-    }
+        private String currentlyPlaying;
+        private void Start()
+        {
+            currentlyPlaying = FindAnyObjectByType<MusicManager>().musicSource.ToString();
+        }
 
-    void Update()
-    {
-        // Check if any key is pressed and start to load the next level
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
-            Application.Quit();
+        void Update()
+        {
+            // Check if any key is pressed and start to load the next level
+            if (Keyboard.current.escapeKey.wasPressedThisFrame)
+                Application.Quit();
         
-        if (controls.TitleScreen.AnyKey.triggered)
-            levelLoader.LoadNextLevelByIndex();
+            if (_controls.TitleScreen.AnyKey.triggered)
+                levelLoader.LoadNextLevelByIndex();
+        }
     }
 }

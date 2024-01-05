@@ -241,7 +241,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Continue"",
+                    ""name"": ""Unpause"",
                     ""type"": ""Button"",
                     ""id"": ""ed7fcc3e-dcaa-453e-a2c2-6d47aaf3b7c2"",
                     ""expectedControlType"": ""Button"",
@@ -368,7 +368,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Continue"",
+                    ""action"": ""Unpause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -400,7 +400,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PauseScreen = asset.FindActionMap("PauseScreen", throwIfNotFound: true);
         m_PauseScreen_Move = m_PauseScreen.FindAction("Move", throwIfNotFound: true);
         m_PauseScreen_Select = m_PauseScreen.FindAction("Select", throwIfNotFound: true);
-        m_PauseScreen_Continue = m_PauseScreen.FindAction("Continue", throwIfNotFound: true);
+        m_PauseScreen_Unpause = m_PauseScreen.FindAction("Unpause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -572,14 +572,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IPauseScreenActions> m_PauseScreenActionsCallbackInterfaces = new List<IPauseScreenActions>();
     private readonly InputAction m_PauseScreen_Move;
     private readonly InputAction m_PauseScreen_Select;
-    private readonly InputAction m_PauseScreen_Continue;
+    private readonly InputAction m_PauseScreen_Unpause;
     public struct PauseScreenActions
     {
         private @PlayerControls m_Wrapper;
         public PauseScreenActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PauseScreen_Move;
         public InputAction @Select => m_Wrapper.m_PauseScreen_Select;
-        public InputAction @Continue => m_Wrapper.m_PauseScreen_Continue;
+        public InputAction @Unpause => m_Wrapper.m_PauseScreen_Unpause;
         public InputActionMap Get() { return m_Wrapper.m_PauseScreen; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -595,9 +595,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Select.started += instance.OnSelect;
             @Select.performed += instance.OnSelect;
             @Select.canceled += instance.OnSelect;
-            @Continue.started += instance.OnContinue;
-            @Continue.performed += instance.OnContinue;
-            @Continue.canceled += instance.OnContinue;
+            @Unpause.started += instance.OnUnpause;
+            @Unpause.performed += instance.OnUnpause;
+            @Unpause.canceled += instance.OnUnpause;
         }
 
         private void UnregisterCallbacks(IPauseScreenActions instance)
@@ -608,9 +608,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Select.started -= instance.OnSelect;
             @Select.performed -= instance.OnSelect;
             @Select.canceled -= instance.OnSelect;
-            @Continue.started -= instance.OnContinue;
-            @Continue.performed -= instance.OnContinue;
-            @Continue.canceled -= instance.OnContinue;
+            @Unpause.started -= instance.OnUnpause;
+            @Unpause.performed -= instance.OnUnpause;
+            @Unpause.canceled -= instance.OnUnpause;
         }
 
         public void RemoveCallbacks(IPauseScreenActions instance)
@@ -642,6 +642,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
-        void OnContinue(InputAction.CallbackContext context);
+        void OnUnpause(InputAction.CallbackContext context);
     }
 }

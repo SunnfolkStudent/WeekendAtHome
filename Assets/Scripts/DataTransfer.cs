@@ -204,17 +204,4 @@ public class DataTransfer : MonoBehaviour
             PlayerInside = true;
         }
     }
-
-    public static void TurnOnOrOffPauseScreen()
-    {
-        if (IsPause)
-        {
-            IsPause = false;
-        }
-
-        if (!IsPause)
-        {
-            IsPause = true;
-        }
-    }
 }

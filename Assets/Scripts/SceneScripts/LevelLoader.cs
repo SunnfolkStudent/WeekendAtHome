@@ -7,6 +7,7 @@ namespace SceneScripts
     public class LevelLoader : MonoBehaviour
     {
         //Declare variables
+        public GameObject transferBetweenLoad;
         public Animator transition;
         public bool noFadeOut;
         public float transitionTime = 2f;
@@ -37,8 +38,14 @@ namespace SceneScripts
         public void LoadSceneByName(string sceneName)
         {
             //Start a coroutine to wait until the fade is done
-            StartCoroutine(LoadLevel(SceneManager.GetSceneByName(sceneName).buildIndex + 1));
+            StartCoroutine(LoadLevel(SceneManager.GetSceneByName(sceneName).buildIndex+1));
             return;
+        }
+
+        public void LoadTitleScreen(string sceneName)
+        {
+            SceneManager.LoadScene(sceneName);
+            Destroy(transferBetweenLoad);
         }
 
         private IEnumerator LoadLevel(int levelIndex)
