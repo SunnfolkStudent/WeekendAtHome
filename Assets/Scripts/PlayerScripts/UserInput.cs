@@ -30,8 +30,8 @@ namespace PlayerScripts
         public void SwitchInputToTitleScreen()
         {
             _controls.PauseScreen.Disable();
+            _controls.Player.Disable(); 
             _controls.TitleScreen.Enable();
-            _controls.Player.Disable();
         }
 
         // The above commented code is the same as the below for Movement,

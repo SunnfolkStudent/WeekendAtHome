@@ -11,9 +11,12 @@ namespace ItemScripts
         [Header("What Scrub It Gets From The Scene")]
         public int thisObjectInt;
     
-        [Header("Item Properties")]
+        [Header("Item Properties:")]
+        [Header("If your item doesn't have a choice, be sure to uncheck the below:")]
         public bool interactableWithChoice;
+        [Header("If 'Yes' is pressed; cannot be interacted with for the remainder of the scene:")]
         public bool canNotInteractMultiple;
+        [Header("If player walks within the object's trigger, auto-interacts with item:")]
         public bool autoInteract;
     
         [Header("Disables Item")]
