@@ -18,6 +18,8 @@ namespace PlayerScripts
 
         private void Update()
         {
+            if (!DataTransfer.PlayerCanMove) return;
+            
             // Animation direction
             if (_directionV2.y > Mathf.Sqrt(0.5f))
             {
@@ -37,9 +39,6 @@ namespace PlayerScripts
             }
 
             Animate(_directionV2 == Vector2.zero ? "Player_Idle" : "Player_Walk");
-
-            if (!DataTransfer.PlayerCanMove)
-                return;
             
             _directionV2.x = Input.GetAxisRaw("Horizontal");
             _directionV2.y = Input.GetAxisRaw("Vertical");
@@ -52,7 +51,7 @@ namespace PlayerScripts
 
         private void FixedUpdate()
         {
-            if (DataTransfer.PlayerCanMove)
+            if (!DataTransfer.PlayerCanMove) return;
                 rb.MovePosition(rb.position + _directionV2.normalized * (moveSpeed * Time.fixedDeltaTime));
         }
     }

@@ -67,7 +67,7 @@ namespace Cat
                 catSortingGroup.sortingOrder = DataTransfer.CatSortingOrderInside;
             }
             
-            
+            // Consider using Math.Sign to return a value of either -1, 0 or 1, and use that for animations.
             // Calculates direction from last-pos to current-pos
             var directionValue = ((Vector2)transform.position - _lastPosition).normalized;
        

@@ -1,9 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
-using System;
-using Triggers;
 
-namespace Inheritance
+namespace Triggers
 {
     public class NormalInteractions : InteractableBase
     {
