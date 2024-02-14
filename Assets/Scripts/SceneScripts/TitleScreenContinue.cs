@@ -27,7 +27,7 @@ namespace SceneScripts
             if (Keyboard.current.escapeKey.wasPressedThisFrame)
                 Application.Quit();
         
-            if (_controls.TitleScreen.AnyKey.triggered)
+            if (_controls.TitleScreen.AnyKeyorStart.triggered)
                 levelLoader.LoadNextLevelByIndex();
         }
     }

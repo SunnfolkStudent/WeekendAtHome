@@ -1,7 +1,4 @@
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace PlayerScripts
 {
@@ -11,9 +8,17 @@ namespace PlayerScripts
 
         private void Awake() => _controls = new PlayerControls();
 
-        public void OnEnable() => _controls.Enable();
+        // Use this after cutscenes!
+        public void OnEnable()
+        {
+            _controls.Enable(); 
+        }
 
-        public void OnDisable() => _controls.Disable();
+        // Use this during cutscenes!
+        public void OnDisable()
+        { 
+            _controls.Disable();
+        } 
 
         public void SwitchInputToPauseScreen()
         {
@@ -42,16 +47,16 @@ namespace PlayerScripts
         
         // Player ActionMap Controls:
         public Vector2 Movement { get; private set; }
-        public static bool Interact;
-        public static bool Pause;
+        public static bool Interact { get; private set; }
+        public static bool Pause { get; private set; }
         
         // Title Screen ActionMap Controls:
-        public static bool AnyKey;
+        public static bool AnyKeyOrStart { get; private set; }
         
         // PauseScreen ActionMap Controls:
         public Vector2 Move { get; private set; }
-        public static bool Unpause;
-        public static bool Select;
+        public static bool Unpause { get; private set; }
+        public static bool Select { get; private set; }
         
         public void Update()
         {
@@ -59,7 +64,7 @@ namespace PlayerScripts
             Interact = _controls.Player.Interact.triggered;
             Pause = _controls.Player.OpenPauseMenu.triggered;
 
-            AnyKey = _controls.TitleScreen.AnyKey.triggered;
+            AnyKeyOrStart = _controls.TitleScreen.AnyKeyorStart.triggered;
 
             Move = _controls.PauseScreen.Move.ReadValue<Vector2>();
             Unpause = _controls.PauseScreen.Unpause.triggered;
