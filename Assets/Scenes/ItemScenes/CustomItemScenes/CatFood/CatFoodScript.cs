@@ -21,7 +21,7 @@ public class CatFoodScript : MonoBehaviour
     {
         audioPlayer = GetComponent<AudioSource>();
         //aitemName.text = ItemObjectScript.currentObjectInt.ToString();
-        audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.CurrentObjectInt].itemAudio);
+        audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.currentObjectInt].itemAudio);
 
         if (catFoodFull)
         {
@@ -39,7 +39,7 @@ public class CatFoodScript : MonoBehaviour
     {
         catFoodFull = true;
         timeline.Play();
-        audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.CurrentObjectInt].cutSceneAudio);
+        audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.currentObjectInt].cutSceneAudio);
     }
 
     public void OnClickNo()

@@ -10,7 +10,7 @@ public class DestroyScene : MonoBehaviour
 {
     private void OnEnable()
     {
-        ItemObjectScript.InItemCutscene = false;
+        ItemObjectScript.inItemCutscene = false;
         Debug.Log("DeleteScene");
         SceneManager.UnloadSceneAsync("InteractableItem");
     }

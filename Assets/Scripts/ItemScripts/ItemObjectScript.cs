@@ -1,7 +1,7 @@
+using System.Collections;
 using PlayerScripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 namespace ItemScripts
 {
@@ -22,10 +22,10 @@ namespace ItemScripts
         [Header("Disables Item")]
         public bool alreadyUsed;
     
-        public static Vector2 CurrentObjectSize;
-        public static int CurrentObjectInt;
-        public static bool InItemCutscene;
-        public static int CurrentYesAnswer;
+        // public static Vector2 CurrentObjectSize;
+        public static int currentObjectInt;
+        public static bool inItemCutscene;
+        public static int currentYesAnswer;
     
         private bool _playerIsInTrigger;
 
@@ -33,22 +33,28 @@ namespace ItemScripts
         [Header("0 = Nothing, 1 = LoadNextScene, 2 = CatBowlFull")]
         [Header("3 = DeathScene FrontDoor")]
             
-        public int whatHappensOnYes;
+        private int _whatHappensOnYes;
 
         private GameObject _mainEventSystem;
 
         private void Start()
         {
             _mainEventSystem = GameObject.FindWithTag("EventSystemMain");
-            InItemCutscene = false;
+            inItemCutscene = false;
         }
 
         //If in trigger load object.
+        
+        // TODO: Add the autoInteract inside TriggerEnter2D vs having it in Update.
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
             {
                 _playerIsInTrigger = true;
+                if (autoInteract)
+                {
+                    StartCoroutine(OpenOrCloseItemScene());
+                }
             }
         }
     
@@ -61,31 +67,62 @@ namespace ItemScripts
         }
 
         //If Interact is pressed when near, open the correct scene
+        
         private void Update()
         {
-            if ((UserInput.Interact && _playerIsInTrigger && !InItemCutscene && (!alreadyUsed || !canNotInteractMultiple)) || (autoInteract && _playerIsInTrigger && !InItemCutscene && (!alreadyUsed || !canNotInteractMultiple)))
+            if (UserInput.Interact && _playerIsInTrigger)
             {
-                _mainEventSystem.SetActive(false);
-                Time.timeScale = 0;
-                if (autoInteract && !canNotInteractMultiple)
-                {
-                    _playerIsInTrigger = false;
-                }
-
-                CurrentYesAnswer = whatHappensOnYes;
-                CurrentObjectInt = thisObjectInt;
-                alreadyUsed = true;
-                if (interactableWithChoice)
-                {
-                    InItemCutscene = true;
-                    SceneManager.LoadScene("InteractableItem",LoadSceneMode.Additive);
-                }
-                else
-                {
-                    InItemCutscene = true;
-                    SceneManager.LoadScene("Item",LoadSceneMode.Additive);
-                }
+                StartCoroutine(OpenOrCloseItemScene());
             }
+            // The below comment is to serve as inspiration for how NOT to code. <3
+            // if ((UserInput.Interact && _playerIsInTrigger && !InItemCutscene && (!alreadyUsed || !canNotInteractMultiple)) || (autoInteract && _playerIsInTrigger && !InItemCutscene && (!alreadyUsed || !canNotInteractMultiple)))
+        }
+
+        // TODO: Figure out how to solve 3 instances being sent in when pressing the button once.
+        
+        private IEnumerator OpenOrCloseItemScene()
+        {
+            if (alreadyUsed) yield break;
+            if (canNotInteractMultiple) yield break;
+
+            if (!inItemCutscene)
+            {
+               OpenItemScene();
+            }
+            else if (inItemCutscene)
+            {
+                CloseItemScene();
+            }
+            yield return new WaitForSeconds(1f);
+        }
+
+        private void OpenItemScene()
+        {
+            currentYesAnswer = _whatHappensOnYes;
+            currentObjectInt = thisObjectInt;
+
+            // _mainEventSystem.SetActive(false);
+            Time.timeScale = 0;
+
+            print("Opening Item Scene");
+            if (interactableWithChoice)
+            {
+                SceneManager.LoadScene("InteractableItem", LoadSceneMode.Additive);
+            }
+            else
+            {
+                SceneManager.LoadScene("Item", LoadSceneMode.Additive);
+            }
+            inItemCutscene = true; 
+        }
+
+        private void CloseItemScene()
+        {
+            print("Closing Item Scene");
+            // _mainEventSystem.SetActive(true);
+            Time.timeScale = 1;
+            SceneManager.UnloadSceneAsync("Item");
+            inItemCutscene = false;
         }
     }
 }

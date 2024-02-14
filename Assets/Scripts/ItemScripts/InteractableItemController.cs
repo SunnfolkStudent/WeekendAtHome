@@ -35,11 +35,11 @@ namespace ItemScripts
         private void Start()
         {
             audioPlayer = GetComponent<AudioSource>();
-            itemName.text = itemScrub[ItemObjectScript.CurrentObjectInt].itemName;
-            itemText.text = itemScrub[ItemObjectScript.CurrentObjectInt].itemText;
-            itemImage.sprite = itemScrub[ItemObjectScript.CurrentObjectInt].itemImage;
-            itemImage.transform.localScale = itemScrub[ItemObjectScript.CurrentObjectInt].itemSize;
-            audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.CurrentObjectInt].itemAudio);
+            itemName.text = itemScrub[ItemObjectScript.currentObjectInt].itemName;
+            itemText.text = itemScrub[ItemObjectScript.currentObjectInt].itemText;
+            itemImage.sprite = itemScrub[ItemObjectScript.currentObjectInt].itemImage;
+            itemImage.transform.localScale = itemScrub[ItemObjectScript.currentObjectInt].itemSize;
+            audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.currentObjectInt].itemAudio);
             _mainEventSystem = GameObject.FindWithTag("EventSystemMain");
             _levelLoaderObject = GameObject.FindWithTag("Level Loader");
             levelLoader = _levelLoaderObject.GetComponent<LevelLoader>();
@@ -49,9 +49,9 @@ namespace ItemScripts
         public void OnClickYes()
         {
             Time.timeScale = 1;
-            audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.CurrentObjectInt].cutSceneAudio);
+            audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.currentObjectInt].cutSceneAudio);
             
-            switch (ItemObjectScript.CurrentYesAnswer)
+            switch (ItemObjectScript.currentYesAnswer)
             {
                 case 0: // Nothing happens
                     Debug.Log("Nothing");
@@ -77,19 +77,19 @@ namespace ItemScripts
         {
             Time.timeScale = 1;
             Debug.Log("DeleteScene");
-            ItemObjectScript.InItemCutscene = false;
+            ItemObjectScript.inItemCutscene = false;
             SceneManager.UnloadSceneAsync("InteractableItem");
         }
 
         private void PlayNextScene()
         {
-            ItemObjectScript.InItemCutscene = false;
+            ItemObjectScript.inItemCutscene = false;
             SceneManager.LoadScene(_sceneToLoad);
         }
 
         private void PlayDeathCredits()
         {
-            ItemObjectScript.InItemCutscene = false;
+            ItemObjectScript.inItemCutscene = false;
             levelLoader.LoadSceneByName("DeathCredits");
         }
         
