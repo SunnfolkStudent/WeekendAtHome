@@ -9,13 +9,7 @@ public class DataTransfer : MonoBehaviour
 {
     // Static instance stored
     public static DataTransfer Instance;
-
-    public GameObject pauseScreen;
-
-    /// <summary>
-    /// Set the bools inside here to true / false inside here during testing.
-    /// </summary>
-    /// <returns></returns>
+    
     public const int CatSortingOrderOutside = -1;
     
     public static bool LampOn;
@@ -63,7 +57,6 @@ public class DataTransfer : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        pauseScreen.SetActive(true);
     }
     
     private void Update()

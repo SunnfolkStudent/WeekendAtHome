@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
+using ItemScripts;
 using NUnit.Framework;
 using PlayerScripts;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace SceneScripts
 {
@@ -24,34 +26,24 @@ namespace SceneScripts
         private void Start()
         {
             pauseScene = GameObject.FindGameObjectWithTag("PauseScene");
-            if (pauseScene)
+            if (pauseScene.activeSelf)
             {
+                DataTransfer.IsPause = false;
                 SetPauseScreenInactive();
             }
         }
 
         private void Update()
         {
-            if (DataTransfer.IsPause) return;
-
-            // Check if escape is pressed
-            if (UserInput.Pause && !DataTransfer.IsPause)
+            if (UserInput.Pause)
             {
+                if (ItemObjectScript.inItemCutscene) return; 
                 SetPauseScreenActive();
             }
-            else if (!UserInput.Unpause && DataTransfer.IsPause)
+            else if (UserInput.Unpause)
             {
                 SetPauseScreenInactive();
             }
-
-            /*if (!DataTransfer.IsPause)
-            {
-                StartCoroutine(SetPauseScreenActive());
-            }
-            else if (DataTransfer.IsPause)
-            { 
-                StartCoroutine(SetPauseScreenInactive());
-            }*/
         }
 
         public void SetPauseScreenActive()

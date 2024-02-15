@@ -1,26 +1,30 @@
 using System.Collections;
 using PlayerScripts;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace ItemScripts
 {
     public class ItemObjectScript : MonoBehaviour
     {
         //Variables for what object should load
-        [Header("What Scrub It Gets From The Scene")]
+        [Header("What Scrub It Gets From The Scene:")]
+        [Header("Remember to adjust the below int, depending on if it's interactable or not:")]
+        [Space(5f)] 
         public int thisObjectInt;
     
         [Header("Item Properties:")]
-        [Header("If your item doesn't have a choice, be sure to uncheck the below:")]
+        [Header("If your item has a choice, be sure to check off the below:")]
         public bool interactableWithChoice;
         [Header("If 'Yes' is pressed; cannot be interacted with for the remainder of the scene:")]
         public bool canNotInteractMultiple;
         [Header("If player walks within the object's trigger, auto-interacts with item:")]
         public bool autoInteract;
     
-        [Header("Disables Item")]
-        public bool alreadyUsed;
+        [FormerlySerializedAs("alreadyUsed")] [Header("Disables Item")]
+        public bool itemAlreadyUsed;
     
         // public static Vector2 CurrentObjectSize;
         public static int currentObjectInt;
@@ -53,7 +57,7 @@ namespace ItemScripts
                 _playerIsInTrigger = true;
                 if (autoInteract)
                 {
-                    StartCoroutine(OpenOrCloseItemScene());
+                    OpenItemScene();
                 }
             }
         }
@@ -70,31 +74,47 @@ namespace ItemScripts
         
         private void Update()
         {
-            if (UserInput.Interact && _playerIsInTrigger)
+            if (DataTransfer.IsPause) return; 
+            if (UserInput.Interact)
             {
-                StartCoroutine(OpenOrCloseItemScene());
+                if (!_playerIsInTrigger) return;
+                if (itemAlreadyUsed) return;
+                if (canNotInteractMultiple) return;
+                
+                if (inItemCutscene)
+                {
+                    CloseItemScene();
+                }
+                else
+                {
+                    OpenItemScene();
+                }
+            }
+            else if (UserInput.Pause)
+            {
+                if (!_playerIsInTrigger) return;
+                
+                CloseItemScene();
             }
             // The below comment is to serve as inspiration for how NOT to code. <3
             // if ((UserInput.Interact && _playerIsInTrigger && !InItemCutscene && (!alreadyUsed || !canNotInteractMultiple)) || (autoInteract && _playerIsInTrigger && !InItemCutscene && (!alreadyUsed || !canNotInteractMultiple)))
         }
-
-        // TODO: Figure out how to solve 3 instances being sent in when pressing the button once.
         
-        private IEnumerator OpenOrCloseItemScene()
+        /*private IEnumerator OpenOrCloseItemScene()
         {
-            if (alreadyUsed) yield break;
+            if (itemAlreadyUsed) yield break;
             if (canNotInteractMultiple) yield break;
 
             if (!inItemCutscene)
             {
-               OpenItemScene();
+                OpenItemScene();
             }
             else if (inItemCutscene)
             {
                 CloseItemScene();
             }
             yield return new WaitForSeconds(1f);
-        }
+        }*/
 
         private void OpenItemScene()
         {
