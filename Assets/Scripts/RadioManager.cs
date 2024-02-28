@@ -1,20 +1,26 @@
 using System.Collections;
 using PlayerScripts;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class RadioManager : MonoBehaviour
 {
-    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioSource turnOnSfxSource;
+    [SerializeField] private AudioSource turnOffSfxSource;
     [SerializeField] private AudioSource musicSource;
-    [SerializeField] private AudioClip turnOnSfx, turnOffSfx, radioMusic;
+    [SerializeField] private AudioClip radioMusic;
     
     private bool _triggerActive;
-    void Start()
+    private void Start()
     {
-        if (DataTransfer.RadioOn)
+        musicSource.clip = radioMusic;
+        musicSource.Play(0);
+        if (!musicSource.loop)
         {
-            StartCoroutine(PlayRadioMusic());  
+            musicSource.loop = true;
+        }
+        if (!DataTransfer.RadioOn)
+        {
+            musicSource.mute = true;
         }
     }
 
@@ -23,28 +29,42 @@ public class RadioManager : MonoBehaviour
         if (!UserInput.Interact || !_triggerActive)
             return;
         
-        DataTransfer.TurnRadioOnOrOff();
-        StartCoroutine(PlayRadioMusic());
+        // Debug.Log("TurnOnSFX length" + turnOnSfx.length);
+        // Debug.Log("TurnOffSFX length" + turnOffSfx.length);
+        
+        RadioIsBeingInteractedWith();
     }
-    
-    private IEnumerator PlayRadioMusic()
+
+    private void RadioIsBeingInteractedWith()
     {
-        if (!DataTransfer.RadioOn)
-        {
-            sfxSource.PlayOneShot(turnOffSfx);
-            musicSource.Stop();
-            yield break;
-        }
         if (DataTransfer.RadioOn)
         {
-            musicSource.PlayOneShot(radioMusic);
+            // Debug.Log("Radio on and being interacted with");
+            turnOffSfxSource.Play(0);
+            StartCoroutine(MuteRadio(0.30f));
         }
-        else if (DataTransfer.RadioOn && !musicSource.isPlaying && Time.deltaTime > 3f)
+        else if (!DataTransfer.RadioOn)
         {
-            sfxSource.PlayOneShot(turnOnSfx);
+            // Debug.Log("Radio off and being interacted with");
+            turnOnSfxSource.Play(0);
+            StartCoroutine(UnmuteRadio(1.8f));
         }
-
-        yield return new WaitForSeconds(1.3f);
+        DataTransfer.TurnRadioOnOrOff();
+    }
+    
+    private IEnumerator UnmuteRadio(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        // Debug.Log("Radio music is playing");
+        // TODO: Instead of volume going straight to max, make it so the volume gradually is increased.
+        musicSource.mute = false;
+    } 
+    
+    private IEnumerator MuteRadio(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        // Debug.Log("Radio music is muted");
+        musicSource.mute = true;
     } 
     private void OnTriggerEnter2D(Collider2D other) { _triggerActive = true; }
     private void OnTriggerExit2D(Collider2D other) { _triggerActive = false; }
