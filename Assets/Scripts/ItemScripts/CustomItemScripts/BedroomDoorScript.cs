@@ -16,12 +16,12 @@ public class BedroomDoorScript : MonoBehaviour
         _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
 
-        if (DataTransfer.BedroomDoorOpen)
+        if (DataTransfer.bedroomDoorOpen)
         {
             Debug.Log("BedroomDoorIsOpen");
             _animator.Play("BedroomDoorOpen");
         }
-        else if (!DataTransfer.BedroomDoorOpen)
+        else if (!DataTransfer.bedroomDoorOpen)
         {
              Debug.Log("BedroomDoorIsClosed");
              _animator.Play("BedroomDoorClosed");
@@ -40,7 +40,7 @@ public class BedroomDoorScript : MonoBehaviour
             return;
             
         // If bedroomDoor is open, close it. If bedroomDoor is closed, open it.
-        switch (DataTransfer.BedroomDoorOpen)
+        switch (DataTransfer.bedroomDoorOpen)
         {
             case false:
                 Debug.Log("BedroomDoorIsOpening");

@@ -28,13 +28,13 @@ public class LampManager : MonoBehaviour
         if (!_triggerActive || !UserInput.Interact)
             return;
         
-        if (DataTransfer.LampOn)
+        if (DataTransfer.lampOn)
         {
             // DataTransfer.LampOn = false;
             lampLight.intensity = 0;
             audioSource.PlayOneShot(lampOffSfx);
         }
-        else if (!DataTransfer.LampOn)
+        else if (!DataTransfer.lampOn)
         {
             // DataTransfer.LampOn = true;
             lampLight.intensity = 1;

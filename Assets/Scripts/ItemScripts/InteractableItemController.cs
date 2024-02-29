@@ -1,83 +1,113 @@
-using System;
-using Cat;
 using SceneScripts;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
+using UnityEngine.Playables;
+using UnityEngine.Serialization;
 
 namespace ItemScripts
 {
     public class InteractableItemController : MonoBehaviour
     {
-        // TODO: Make this script run the needed functions in the mainScene LevelLoader through methods from another script.
-        // TODO: Make it use the same EventSystem as in the mainScene
-        // TODO: Refactor the functions, splitting them up or using functions in other scripts.
-        
+        // TODO: Fix the interactable items, cuz they work, but there are no timelines going on. : )
+
+        private LevelLoader _levelLoader;
         public ItemType[] itemScrub;
         public TMP_Text itemName;
         public TMP_Text itemText;
         public Image itemImage;
         public AudioSource audioPlayer;
+        public PlayableAsset itemTimeline;
+        public PlayableDirector playableDirector;
+        
+        // TODO: Check if the new Timeline code works : )
 
         private string _sceneToLoad;
 
-        //Get Components
+        private void Awake()
+        {
+            playableDirector = GetComponent<PlayableDirector>();
+            playableDirector.paused += DirectorPaused;
+            playableDirector.played += DirectorPlaying;
+            playableDirector.stopped += DirectorStopped;
+        }
+        
         private void Start()
         {
+            _levelLoader = GetComponent<LevelLoader>();
             audioPlayer = GetComponent<AudioSource>();
+            audioPlayer.clip = itemScrub[ItemObjectScript.currentObjectInt].itemAudio;
+            //audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.currentObjectInt].itemAudio);
+
             itemName.text = itemScrub[ItemObjectScript.currentObjectInt].itemName;
             itemText.text = itemScrub[ItemObjectScript.currentObjectInt].itemText;
             itemImage.sprite = itemScrub[ItemObjectScript.currentObjectInt].itemImage;
             itemImage.transform.localScale = itemScrub[ItemObjectScript.currentObjectInt].itemSize;
-            audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.currentObjectInt].itemAudio);
+            
+            itemTimeline = itemScrub[ItemObjectScript.currentObjectInt].timeline;
+            itemTimeline = playableDirector.playableAsset;
         }
-
-        //When Yes is Clicked, Play Cutscene
+        
         public void OnClickYes()
         {
             Time.timeScale = 1;
-            audioPlayer.PlayOneShot(itemScrub[ItemObjectScript.currentObjectInt].cutSceneAudio);
-            
-            switch (ItemObjectScript.currentYesAnswer)
+            audioPlayer.clip = itemScrub[ItemObjectScript.currentObjectInt].cutSceneAudio;
+            audioPlayer.Play();
+            audioPlayer.loop = true;
+
+            if (itemTimeline != null)
             {
-                case 0: // Nothing happens
-                    Debug.Log("Nothing");
-                    SceneManager.UnloadSceneAsync("Item");
-                    break;
+                playableDirector.Play(itemTimeline);
+            }
+            
+            // audioPlayer.Play(itemScrub[ItemObjectScript.currentObjectInt].cutSceneAudio);
+            /*switch (ItemObjectScript.currentYesAnswer)
+            {
                 case 1: // Player goes to bed/couch, plays cutscene and then loads the next scene
-                    // Invoke(nameof(PlayNextScene),3f);
+                    if (itemName.text == "Bed")
+                    {
+                        LoadNextLevelFromBed();
+                    }
+                    else
+                    {
+                        LoadNextLevelFromCouch();
+                    }
+                    // Invoke(nameof(_levelLoader.LoadNextLevelByIndex), _levelLoader.transitionTime + 0.1f);
                     break;
-                case 2: // Player fills the catBowl to full.
-                    CatFoodFull.CatBowlFull = true;
+                case 2: // Item timeline is being played.
+                    _playableDirector.Play(itemTimeline);
                     break;
                 case 3: // Load DeathScene by FrontDoor
                     Invoke(nameof(PlayDeathCredits),22f);
                     break;
-            }
+            }*/
         }
     
         public void OnClickNo()
         {
             Time.timeScale = 1;
-            Debug.Log("DeleteScene");
-            ItemObjectScript.inItemCutscene = false;
+            Debug.Log("Leaving Interactable Scene");
             SceneManager.UnloadSceneAsync("InteractableItem");
+            ItemObjectScript.inItemCutscene = false;
         }
 
-        private void PlayNextScene()
+        private void DirectorPlaying(PlayableDirector obj)
         {
-            ItemObjectScript.inItemCutscene = false;
-            SceneManager.LoadScene(_sceneToLoad);
-        }
-
-        private void PlayDeathCredits()
-        {
-            ItemObjectScript.inItemCutscene = false;
+            // TODO: Add code here for disabling PlayerInput (OnDisable?) and other effects to let timeline play as it should.
+            // Maybe a reference to the GameController for a method in there would be good.
         }
         
+        private void DirectorPaused(PlayableDirector obj)
+        {
+            // TODO: Add code here for pauseMenu stuff to be enabled.
+            // Maybe a reference to the GameController for a method in there would be good.
+        }
+
+        private void DirectorStopped(PlayableDirector obj)
+        {
+            // TODO: Add code here for pauseMenu stuff to be enabled.
+            // Maybe a reference to the GameController for a method in there would be good.
+        }
     }
 }

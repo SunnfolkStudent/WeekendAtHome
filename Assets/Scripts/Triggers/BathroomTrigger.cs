@@ -16,7 +16,7 @@ namespace Triggers
         // Sets the bathroom to inactive while you are outside the bathroom and on the top floor
         void Update()
         {
-            if (DataTransfer.InsideBathroom)
+            if (DataTransfer.insideBathroom)
             {
                 insideBathroomToDespawn.SetActive(true);
             }
@@ -28,7 +28,7 @@ namespace Triggers
             // Checks if the player is currently inside or outside
             // If inside (going out), SetActive outsideBathroom objects, and vice versa if outside (going in).
         
-            if (DataTransfer.InsideBathroom)
+            if (DataTransfer.insideBathroom)
             {
                 insideBathroomToDespawn.SetActive(false);
                 transform.position = new Vector3(transform.position.x, transform.position.y - moveAmount);

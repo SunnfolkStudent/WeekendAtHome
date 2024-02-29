@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Timeline;
 
 namespace ItemScripts
 {
@@ -11,5 +12,6 @@ namespace ItemScripts
         public Vector2 itemSize;
         public AudioClip itemAudio;
         public AudioClip cutSceneAudio;
+        public TimelineAsset timeline;
     }
 }

@@ -290,6 +290,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QuitGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""882357d2-4bb3-4110-a02c-b223c9174f85"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -312,6 +321,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""AnyKey or Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d6bdde6-3679-4499-9023-f60ae77a5daa"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""QuitGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""71a6a0c7-2077-4d02-8a36-f11a25af5b27"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""QuitGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -571,6 +602,45 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Cutscene"",
+            ""id"": ""e5778559-df76-42a9-8376-d0a298ad06ed"",
+            ""actions"": [
+                {
+                    ""name"": ""OpenPauseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""26c7d432-a9ff-4965-ba62-973086abc1ab"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""e3072c35-60d5-4821-a2aa-719467dc4308"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""OpenPauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e33dbbf1-ce9b-4fd1-8351-5d683bd50cdc"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""OpenPauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -606,11 +676,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // Title Screen
         m_TitleScreen = asset.FindActionMap("Title Screen", throwIfNotFound: true);
         m_TitleScreen_AnyKeyorStart = m_TitleScreen.FindAction("AnyKey or Start", throwIfNotFound: true);
+        m_TitleScreen_QuitGame = m_TitleScreen.FindAction("QuitGame", throwIfNotFound: true);
         // PauseScreen
         m_PauseScreen = asset.FindActionMap("PauseScreen", throwIfNotFound: true);
         m_PauseScreen_Move = m_PauseScreen.FindAction("Move", throwIfNotFound: true);
         m_PauseScreen_Select = m_PauseScreen.FindAction("Select", throwIfNotFound: true);
         m_PauseScreen_Unpause = m_PauseScreen.FindAction("Unpause", throwIfNotFound: true);
+        // Cutscene
+        m_Cutscene = asset.FindActionMap("Cutscene", throwIfNotFound: true);
+        m_Cutscene_OpenPauseMenu = m_Cutscene.FindAction("OpenPauseMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -735,11 +809,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_TitleScreen;
     private List<ITitleScreenActions> m_TitleScreenActionsCallbackInterfaces = new List<ITitleScreenActions>();
     private readonly InputAction m_TitleScreen_AnyKeyorStart;
+    private readonly InputAction m_TitleScreen_QuitGame;
     public struct TitleScreenActions
     {
         private @PlayerControls m_Wrapper;
         public TitleScreenActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @AnyKeyorStart => m_Wrapper.m_TitleScreen_AnyKeyorStart;
+        public InputAction @QuitGame => m_Wrapper.m_TitleScreen_QuitGame;
         public InputActionMap Get() { return m_Wrapper.m_TitleScreen; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -752,6 +828,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @AnyKeyorStart.started += instance.OnAnyKeyorStart;
             @AnyKeyorStart.performed += instance.OnAnyKeyorStart;
             @AnyKeyorStart.canceled += instance.OnAnyKeyorStart;
+            @QuitGame.started += instance.OnQuitGame;
+            @QuitGame.performed += instance.OnQuitGame;
+            @QuitGame.canceled += instance.OnQuitGame;
         }
 
         private void UnregisterCallbacks(ITitleScreenActions instance)
@@ -759,6 +838,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @AnyKeyorStart.started -= instance.OnAnyKeyorStart;
             @AnyKeyorStart.performed -= instance.OnAnyKeyorStart;
             @AnyKeyorStart.canceled -= instance.OnAnyKeyorStart;
+            @QuitGame.started -= instance.OnQuitGame;
+            @QuitGame.performed -= instance.OnQuitGame;
+            @QuitGame.canceled -= instance.OnQuitGame;
         }
 
         public void RemoveCallbacks(ITitleScreenActions instance)
@@ -838,6 +920,52 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public PauseScreenActions @PauseScreen => new PauseScreenActions(this);
+
+    // Cutscene
+    private readonly InputActionMap m_Cutscene;
+    private List<ICutsceneActions> m_CutsceneActionsCallbackInterfaces = new List<ICutsceneActions>();
+    private readonly InputAction m_Cutscene_OpenPauseMenu;
+    public struct CutsceneActions
+    {
+        private @PlayerControls m_Wrapper;
+        public CutsceneActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @OpenPauseMenu => m_Wrapper.m_Cutscene_OpenPauseMenu;
+        public InputActionMap Get() { return m_Wrapper.m_Cutscene; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CutsceneActions set) { return set.Get(); }
+        public void AddCallbacks(ICutsceneActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CutsceneActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CutsceneActionsCallbackInterfaces.Add(instance);
+            @OpenPauseMenu.started += instance.OnOpenPauseMenu;
+            @OpenPauseMenu.performed += instance.OnOpenPauseMenu;
+            @OpenPauseMenu.canceled += instance.OnOpenPauseMenu;
+        }
+
+        private void UnregisterCallbacks(ICutsceneActions instance)
+        {
+            @OpenPauseMenu.started -= instance.OnOpenPauseMenu;
+            @OpenPauseMenu.performed -= instance.OnOpenPauseMenu;
+            @OpenPauseMenu.canceled -= instance.OnOpenPauseMenu;
+        }
+
+        public void RemoveCallbacks(ICutsceneActions instance)
+        {
+            if (m_Wrapper.m_CutsceneActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ICutsceneActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CutsceneActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CutsceneActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public CutsceneActions @Cutscene => new CutsceneActions(this);
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {
@@ -865,11 +993,16 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public interface ITitleScreenActions
     {
         void OnAnyKeyorStart(InputAction.CallbackContext context);
+        void OnQuitGame(InputAction.CallbackContext context);
     }
     public interface IPauseScreenActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
         void OnUnpause(InputAction.CallbackContext context);
+    }
+    public interface ICutsceneActions
+    {
+        void OnOpenPauseMenu(InputAction.CallbackContext context);
     }
 }

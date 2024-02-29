@@ -1495,7 +1495,7 @@ MonoBehaviour:
   interactableWithChoice: 1
   canNotInteractMultiple: 1
   autoInteract: 0
-  itemAlreadyUsed: 0
+  interactableAlreadyUsed: 0
 --- !u!82 &7884243779237999952
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1817,7 +1817,7 @@ MonoBehaviour:
   interactableWithChoice: 1
   canNotInteractMultiple: 0
   autoInteract: 0
-  itemAlreadyUsed: 0
+  interactableAlreadyUsed: 0
 --- !u!61 &6596171859747995825
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2556,7 +2556,7 @@ MonoBehaviour:
   interactableWithChoice: 0
   canNotInteractMultiple: 0
   autoInteract: 0
-  itemAlreadyUsed: 0
+  interactableAlreadyUsed: 0
 --- !u!1 &4068629167054898822
 GameObject:
   m_ObjectHideFlags: 0
@@ -13166,7 +13166,7 @@ MonoBehaviour:
   interactableWithChoice: 0
   canNotInteractMultiple: 0
   autoInteract: 0
-  itemAlreadyUsed: 0
+  interactableAlreadyUsed: 0
 --- !u!1 &4822912385908360341
 GameObject:
   m_ObjectHideFlags: 0
@@ -13728,7 +13728,7 @@ MonoBehaviour:
   interactableWithChoice: 1
   canNotInteractMultiple: 1
   autoInteract: 0
-  itemAlreadyUsed: 0
+  interactableAlreadyUsed: 0
 --- !u!1 &5820946730414562454
 GameObject:
   m_ObjectHideFlags: 0
@@ -15249,7 +15249,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 52
+  m_SortingOrder: 49
   m_Sprite: {fileID: 21300000, guid: 3e7d11212852d244bba4a982d9b95209, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -15271,7 +15271,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4087872838135267373, guid: 54693cb1a629091438be814a797a46ff, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e6ad9fe7ac25f194ca5b156baba646df, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -15417,8 +15417,6 @@ MonoBehaviour:
   turnOnSfxSource: {fileID: 5572585901222810544}
   turnOffSfxSource: {fileID: 4834561722234794418}
   musicSource: {fileID: 5010680891375049869}
-  turnOnSfx: {fileID: 8300000, guid: c22adfbcc80591d44803e6cdd084a159, type: 3}
-  turnOffSfx: {fileID: 8300000, guid: 32869ed56fb6b4a43b686dd1b1e3ca4d, type: 3}
   radioMusic: {fileID: 8300000, guid: e6ad9fe7ac25f194ca5b156baba646df, type: 3}
 --- !u!82 &5572585901222810544
 AudioSource:
@@ -15430,7 +15428,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 1300177940598335445, guid: 54693cb1a629091438be814a797a46ff, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c22adfbcc80591d44803e6cdd084a159, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
@@ -15700,7 +15698,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.28332496, y: -0.18416142}
+  m_Offset: {x: 0.15784138, y: -0.39330065}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15710,7 +15708,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.80835, y: 2.3391476}
+  m_Size: {x: 2.557383, y: 2.7574265}
   m_EdgeRadius: 0
 --- !u!1 &6548014276889266043
 GameObject:
@@ -16930,7 +16928,7 @@ MonoBehaviour:
   interactableWithChoice: 0
   canNotInteractMultiple: 0
   autoInteract: 0
-  itemAlreadyUsed: 0
+  interactableAlreadyUsed: 0
 --- !u!1 &9181516422188598809
 GameObject:
   m_ObjectHideFlags: 0

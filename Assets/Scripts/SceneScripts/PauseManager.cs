@@ -1,34 +1,26 @@
-using System;
-using System.Collections;
 using ItemScripts;
-using NUnit.Framework;
 using PlayerScripts;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 namespace SceneScripts
 {
     public class PauseManager : MonoBehaviour
     {
-        // Declare Variables 
-        /*private PlayerControls controls;  */
-        
         [SerializeField] private GameObject pauseScene;
         public UserInput userInput;
-    
-        // Initialize the controls
-        /*private void Awake() => controls = new PlayerControls();
-        private void OnEnable() => controls.Enable();
-        private void OnDisable() => controls.Disable();*/
+
+        [SerializeField] private bool pausedDuringCutscene;
+
+        private void Awake()
+        {
+            pauseScene = GameObject.FindGameObjectWithTag("PauseScene");
+        }
 
         private void Start()
         {
-            pauseScene = GameObject.FindGameObjectWithTag("PauseScene");
             if (pauseScene.activeSelf)
             {
-                DataTransfer.IsPause = false;
+                DataTransfer.isPause = false;
                 SetPauseScreenInactive();
             }
         }
@@ -39,6 +31,13 @@ namespace SceneScripts
             {
                 if (ItemObjectScript.inItemCutscene) return; 
                 SetPauseScreenActive();
+                pausedDuringCutscene = false;
+            }
+            else if (UserInput.PauseDuringCutscene)
+            {
+                if (ItemObjectScript.inItemCutscene) return; 
+                SetPauseScreenActive();
+                pausedDuringCutscene = true;
             }
             else if (UserInput.Unpause)
             {
@@ -46,21 +45,28 @@ namespace SceneScripts
             }
         }
 
-        public void SetPauseScreenActive()
+        private void SetPauseScreenActive()
         {
             Time.timeScale = 0f;
             userInput.SwitchInputToPauseScreen();
             pauseScene.SetActive(true);
-            DataTransfer.IsPause = true;
+            DataTransfer.isPause = true;
         }
 
         public void SetPauseScreenInactive()
         {
             Time.timeScale = 1f;
-            userInput.SwitchInputToGameScene();
+            if (pausedDuringCutscene)
+            {
+                userInput.SwitchInputToCutscene();
+            }
+            else
+            {
+                userInput.SwitchInputToGameScene();
+            }
+            pausedDuringCutscene = false;
             pauseScene.SetActive(false);
-            DataTransfer.IsPause = false; 
+            DataTransfer.isPause = false; 
         }
-        
     }
 }

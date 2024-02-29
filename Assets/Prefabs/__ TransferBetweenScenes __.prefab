@@ -892,14 +892,14 @@ MonoBehaviour:
   m_FillRect: {fileID: 7382262479297719640}
   m_HandleRect: {fileID: 1856634053366638127}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6853771912696671405}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Music_Scripts.AudioController, Assembly-CSharp
         m_MethodName: SetSfxVolume
         m_Mode: 2
@@ -1219,14 +1219,14 @@ MonoBehaviour:
   m_FillRect: {fileID: 4205668577814044242}
   m_HandleRect: {fileID: 5099195913611853}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6853771912696671405}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Music_Scripts.AudioController, Assembly-CSharp
         m_MethodName: SetMusicVolume
         m_Mode: 2
@@ -1405,11 +1405,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4087872838135267373, guid: 54693cb1a629091438be814a797a46ff, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 8cc59196119d6fe4cac2e4cb5157de59, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1502,11 +1502,10 @@ GameObject:
   - component: {fileID: 3242821697465180417}
   - component: {fileID: 5720842621899006978}
   - component: {fileID: 1105035188594258490}
-  - component: {fileID: 6853771912696671405}
   - component: {fileID: 168278647017690856}
   m_Layer: 0
   m_Name: __ TransferBetweenScenes __
-  m_TagString: Untagged
+  m_TagString: TransferBetweenScenes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1524,6 +1523,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6671225972392770089}
   - {fileID: 3880387625660578263}
   - {fileID: 7011973469163665545}
   - {fileID: 3447284207866391900}
@@ -1541,7 +1541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933e9f4e242e3154fa17081826b0345c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseScreen: {fileID: 5810920461909348882}
 --- !u!114 &1105035188594258490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1561,19 +1560,8 @@ MonoBehaviour:
   stairsTopFloor: {fileID: 0}
   bathroomTrigger: {fileID: 0}
   cat: {fileID: 0}
---- !u!114 &6853771912696671405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4552145741463328867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f89679bc54711634eada905279619521, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: 54693cb1a629091438be814a797a46ff, type: 2}
+  catSprite: {fileID: 0}
+  pauseScreen: {fileID: 5810920461909348882}
 --- !u!114 &168278647017690856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1588,6 +1576,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScene: {fileID: 5810920461909348882}
   userInput: {fileID: 0}
+--- !u!1 &5039888048183959387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6671225972392770089}
+  - component: {fileID: 6039859667898449528}
+  - component: {fileID: 8467069116677487595}
+  m_Layer: 0
+  m_Name: '>> EventSystemMain <<'
+  m_TagString: EventSystemMain
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6671225972392770089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5039888048183959387}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.405884, y: -3.7276, z: -0.18925533}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3242821697465180417}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6039859667898449528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5039888048183959387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 9208998485487061411}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!114 &8467069116677487595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5039888048183959387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
+  m_PointAction: {fileID: 1523043753548016736, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
+  m_MoveAction: {fileID: 1523043753548016736, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
+  m_SubmitAction: {fileID: 7097327185094131915, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
+  m_CancelAction: {fileID: -2706107124202575524, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
+  m_LeftClickAction: {fileID: 7097327185094131915, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
+  m_DeselectOnBackgroundClick: 0
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!1 &5244940527882226554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,7 +1703,7 @@ GameObject:
   - component: {fileID: 8865687985206581296}
   - component: {fileID: 6571619975927201690}
   m_Layer: 5
-  m_Name: PauseMenuScreen
+  m_Name: Canvas - PauseMenuScreen
   m_TagString: PauseScene
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2182,14 +2248,14 @@ MonoBehaviour:
   m_FillRect: {fileID: 4592392271352294423}
   m_HandleRect: {fileID: 6945397393705600481}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6853771912696671405}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Music_Scripts.AudioController, Assembly-CSharp
         m_MethodName: SetDialogueVolume
         m_Mode: 2
@@ -2324,7 +2390,7 @@ MonoBehaviour:
       - m_Target: {fileID: 9194322653742203763}
         m_TargetAssemblyTypeName: SceneScripts.LevelLoader, Assembly-CSharp
         m_MethodName: LoadTitleScreen
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2477,6 +2543,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5296380427483494999, guid: 7e8c756d4350ca24fbc6a6226cedcaed, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5731248728417759576, guid: 7e8c756d4350ca24fbc6a6226cedcaed, type: 3}
       propertyPath: noFadeOut
       value: 1
@@ -2529,6 +2599,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7960316218768114555, guid: 7e8c756d4350ca24fbc6a6226cedcaed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8414377540582567278, guid: 7e8c756d4350ca24fbc6a6226cedcaed, type: 3}
       propertyPath: m_Name
       value: '>> Level Loader <<'
@@ -2537,7 +2611,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4772316860480347720, guid: 7e8c756d4350ca24fbc6a6226cedcaed, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

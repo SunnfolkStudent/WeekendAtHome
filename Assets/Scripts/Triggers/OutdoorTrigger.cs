@@ -1,17 +1,15 @@
-using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.Serialization;
 
 namespace Triggers
 {
-    // TODO: Fix black semi-transparent overlay over house when going outside!
     // TODO: Make sure the VFX Weather shows better onto the snow
+    // TODO: Fix the issues between top floor and bottom floor : )
     public class OutdoorTrigger : MonoBehaviour
     {
         // Declare Variables
-        [SerializeField] private GameObject[] _bottomFloor;
+        [SerializeField] private GameObject[] bottomFloor;
         [SerializeField] private GameObject[] kitchenWithDoorAndLamp;
 
         [SerializeField] private GameObject backgroundBottomFloor;
@@ -28,21 +26,21 @@ namespace Triggers
             // Fetch all of the objects with the Outdoor and OutdoorToDespawn tags and store them in a list
             // and hide all of the outdoor objects.
             
-            _bottomFloor = GameObject.FindGameObjectsWithTag("BottomFloor");
+            bottomFloor = GameObject.FindGameObjectsWithTag("BottomFloor");
             
             player = GameObject.FindWithTag("Player");
 
             _playerLightIntensity = player.GetComponentInChildren<Light2D>().intensity;
             
             playerSortingGroup = player.GetComponent<SortingGroup>();
-            playerSortingGroup.sortingOrder = DataTransfer.PlayerSortingOrder;
+            playerSortingGroup.sortingOrder = DataTransfer.playerSortingOrder;
             
             vfxSortingGroup = GameObject.FindWithTag("VFX").GetComponent<SortingGroup>();
-            vfxSortingGroup.sortingOrder = DataTransfer.VFXSortingOrder;
+            vfxSortingGroup.sortingOrder = DataTransfer.vfxSortingOrder;
 
-            if (DataTransfer.PlayerInside)
+            if (DataTransfer.playerInside)
             {
-                foreach (GameObject bottomFloorGameObject in _bottomFloor)
+                foreach (GameObject bottomFloorGameObject in bottomFloor)
                 {
                     bottomFloorGameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
                 }
@@ -55,9 +53,9 @@ namespace Triggers
                 
                 Debug.Log("OutdoorTrigger - Player Is Inside");
             }
-            if (!DataTransfer.PlayerInside)
+            if (!DataTransfer.playerInside)
             {
-                foreach (GameObject bottomFloorGameObject in _bottomFloor)
+                foreach (GameObject bottomFloorGameObject in bottomFloor)
                 {
                     bottomFloorGameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
                 }
@@ -82,11 +80,11 @@ namespace Triggers
             // Sets the light2d child of player to an intensity of 0 and then moves down
             // Does opposite when player reenter.
             
-            if (DataTransfer.PlayerInside)
+            if (DataTransfer.playerInside)
             {
                 Debug.Log("Player Goes Outdoors");
 
-                foreach (GameObject bottomFloorGameObject in _bottomFloor)
+                foreach (GameObject bottomFloorGameObject in bottomFloor)
                 {
                     bottomFloorGameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
                 }
@@ -96,15 +94,18 @@ namespace Triggers
                     kitchenAndMoreGameObject.GetComponent<SpriteRenderer>().sortingOrder = 55;
                 }
 
-                transform.position = new Vector3(transform.position.x, transform.position.y - moveAmount);
+                var transform1 = transform;
+                var position = transform1.position;
+                position = new Vector3(position.x, position.y - moveAmount);
+                transform1.position = position;
 
                 player.GetComponentInChildren<Light2D>().intensity = playerOutdoorLightValue;
             }
-            else if (!DataTransfer.PlayerInside)
+            else if (!DataTransfer.playerInside)
             {
                 Debug.Log("Player Goes Inside");
             
-                foreach (GameObject bottomFloorGameObject in _bottomFloor)
+                foreach (GameObject bottomFloorGameObject in bottomFloor)
                 {
                     bottomFloorGameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
                 }
@@ -112,14 +113,17 @@ namespace Triggers
                 {
                     kitchenAndMoreGameObject.GetComponent<SpriteRenderer>().sortingOrder = 45;
                 }
-                
-                transform.position = new Vector3(transform.position.x, transform.position.y + moveAmount);
-                
+
+                var transform1 = transform;
+                var position = transform1.position;
+                position = new Vector3(position.x, position.y + moveAmount);
+                transform1.position = position;
+
                 player.GetComponentInChildren<Light2D>().intensity = _playerLightIntensity;
             }
             
             DataTransfer.PlayerInsideOrOutside();
-            playerSortingGroup.sortingOrder = DataTransfer.PlayerSortingOrder;
+            playerSortingGroup.sortingOrder = DataTransfer.playerSortingOrder;
         }
     }
 }

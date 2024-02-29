@@ -12,20 +12,20 @@ public class ChangeBools : MonoBehaviour
     {
         if (PlayerCanMove)
         {
-            DataTransfer.PlayerCanMove = true;
+            DataTransfer.playerCanMove = true;
         }
         else
         {
-            DataTransfer.PlayerCanMove = false;
+            DataTransfer.playerCanMove = false;
         }
 
         if (OnTopFloor)
         {
-            DataTransfer.OnTopFloor = true;
+            DataTransfer.onTopFloor = true;
         }
         else
         {
-            DataTransfer.OnTopFloor = false;
+            DataTransfer.onTopFloor = false;
         }
     }
 }

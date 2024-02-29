@@ -1,200 +1,177 @@
-using System;
 using PlayerScripts;
-using Triggers;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class DataTransfer : MonoBehaviour
 {
     // Static instance stored
-    public static DataTransfer Instance;
+    private static DataTransfer _instance;
     
+    public static bool lampOn;
+    public static bool tvOn;
+    public static bool radioOn = true;
+    public static bool glassDoorOpen;
+    public static bool bedroomDoorOpen;
+    public static bool playerCanMove = true; // PlayerCanMove should be true from the start.
+    public static bool onTopFloor = false; // Change this in Editor if you're changing starting floors.
+    public static bool insideBathroom;
+    public static bool playerInside = true;
+    public static bool catFlapClosed = true;
+    public static bool catOutside;
+    public static bool isPause = false;
+    public static int playerSortingOrder = 50;
+    public static int catSortingOrderInside = 50;
     public const int CatSortingOrderOutside = -1;
-    
-    public static bool LampOn;
-    public static bool TvOn;
-    public static bool RadioOn = true;
-    public static bool GlassDoorOpen;
-    public static bool BedroomDoorOpen;
-    public static bool PlayerCanMove = true; // PlayerCanMove should be true from the start.
-    public static bool OnTopFloor = false; // Change this in Editor if you're changing starting floors.
-    public static bool InsideBathroom;
-    public static bool PlayerInside = true;
-    public static bool CatFlapClosed = true;
-    public static bool CatOutside;
-    public static bool IsPause = false;
-    public static int PlayerSortingOrder = 50;
-    public static int CatSortingOrderInside = 50;
-    public static int VFXSortingOrder = 5;
-    
-    //Awake is always called before any Start functions
-    
-    /*private void Awake()
-    {
-        //Check if instance already exists
-        if (Instance != null && Instance != this)
-        {
-            Instance = this;
-        }
-        //If instance already exists and it's not this:
-        else if (Instance != this)
-        {
-            Destroy(gameObject);   
-        } 
-        //Sets this to not be destroyed when reloading scene
-        DontDestroyOnLoad(Instance);
-    }*/
+    public static int vfxSortingOrder = 5;
     
     private void Awake()
     {
-        if (Instance != null)
+        if (_instance != null)
         {
             Destroy(gameObject);  // Ensures only one instance is available
         }
         else
         {
-            Instance = this;
+            _instance = this;
             DontDestroyOnLoad(gameObject);
         }
     }
     
     private void Update()
     {
-        if (PlayerInside && !OnTopFloor)
+        if (playerInside && !onTopFloor)
         {
-            PlayerSortingOrder = 50;
-            CatSortingOrderInside = 50;
+            playerSortingOrder = 50;
+            catSortingOrderInside = 50;
         }
-        else if (PlayerInside && OnTopFloor)
+        else if (playerInside && onTopFloor)
         {
-            CatSortingOrderInside = -1;
+            catSortingOrderInside = -1;
         }
-        else if (!PlayerInside)
+        else if (!playerInside)
         {
-            PlayerSortingOrder = -1;
-            CatSortingOrderInside = 50;
+            playerSortingOrder = -1;
+            catSortingOrderInside = 50;
         }
     }
     public static void TurnLampOnOrOff()
     {
-        if (LampOn)
+        if (lampOn)
         {
-           LampOn = false;
+           lampOn = false;
         }
-        else if (!LampOn)
+        else if (!lampOn)
         {
-            LampOn = true;
+            lampOn = true;
         }
     }
     public static void TurnTVOnOrOff()
     {
-        if (TvOn)
+        if (tvOn)
         {
-            TvOn = false;
+            tvOn = false;
         }
-        else if (!TvOn)
+        else if (!tvOn)
         {
-            TvOn = true;
+            tvOn = true;
         }
     }
     public static void TurnRadioOnOrOff()
     {
-        if (RadioOn)
+        if (radioOn)
         {
-            RadioOn = false;
+            radioOn = false;
         }
-        else if (!RadioOn)
+        else if (!radioOn)
         {
-            RadioOn = true;
+            radioOn = true;
         }
     }
     public static void OpenOrCloseGlassDoor()
     {
-        if (GlassDoorOpen)
+        if (glassDoorOpen)
         {
-            GlassDoorOpen = false;
+            glassDoorOpen = false;
         }
-        else if (!GlassDoorOpen)
+        else if (!glassDoorOpen)
         {
-            GlassDoorOpen = true;
+            glassDoorOpen = true;
         }
     }
 
     public static void OpenOrCloseBedroomDoor()
     {
-        if (BedroomDoorOpen)
+        if (bedroomDoorOpen)
         {
-            BedroomDoorOpen = false;
+            bedroomDoorOpen = false;
         }
-        else if (!BedroomDoorOpen)
+        else if (!bedroomDoorOpen)
         {
-            BedroomDoorOpen = true;
+            bedroomDoorOpen = true;
         }
     }
     public static void CanPlayerMove(UserInput userInput)
     {
-        if (PlayerCanMove)
+        if (playerCanMove)
         {
-            PlayerCanMove = false;
+            playerCanMove = false;
             userInput.OnDisable();
         }
-        else if (!PlayerCanMove)
+        else if (!playerCanMove)
         {
-            PlayerCanMove = true;
+            playerCanMove = true;
             userInput.OnEnable();
         }
     }
     public static void SwitchFloors()
     {
-        if (OnTopFloor)
+        if (onTopFloor)
         {
-            OnTopFloor = false;
-            CatSortingOrderInside = 50;
+            onTopFloor = false;
+            catSortingOrderInside = 50;
         }
-        else if (!OnTopFloor)
+        else if (!onTopFloor)
         {
-            OnTopFloor = true;
-            CatSortingOrderInside = -1;
+            onTopFloor = true;
+            catSortingOrderInside = -1;
         }
     }
 
     public static void EnterOrExitBathroom()
     {
-        if (InsideBathroom)
+        if (insideBathroom)
         {
-            InsideBathroom = false;
+            insideBathroom = false;
         }
         else
         {
-            InsideBathroom = true;
+            insideBathroom = true;
         }
     }
 
     public static void OpenOrCloseCatFlapDoor()
     {
-        if (CatFlapClosed)
+        if (catFlapClosed)
         {
-            CatFlapClosed = false;
+            catFlapClosed = false;
         }
         else
         {
-            CatFlapClosed = true;
+            catFlapClosed = true;
         }
     }
     public static void PlayerInsideOrOutside()
     {
-        if (PlayerInside)
+        if (playerInside)
         {
-            PlayerSortingOrder = -1;
-            VFXSortingOrder = 60;
-            PlayerInside = false;
+            playerSortingOrder = -1;
+            vfxSortingOrder = 60;
+            playerInside = false;
         }
-        else if (!PlayerInside)
+        else if (!playerInside)
         {
-            PlayerSortingOrder = 50;
-            VFXSortingOrder = 5;
-            PlayerInside = true;
+            playerSortingOrder = 50;
+            vfxSortingOrder = 5;
+            playerInside = true;
         }
     }
 }

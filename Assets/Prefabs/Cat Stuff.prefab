@@ -427,11 +427,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisObjectInt: 7
-  isInteractable: 0
+  interactableWithChoice: 0
   canNotInteractMultiple: 0
   autoInteract: 0
-  alreadyUsed: 0
-  whatHappensOnYes: 0
 --- !u!1 &3695447187006227299
 GameObject:
   m_ObjectHideFlags: 0

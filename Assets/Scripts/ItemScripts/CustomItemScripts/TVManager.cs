@@ -30,12 +30,12 @@ public class TVManager : MonoBehaviour
         // the float below in the ChangeLightAndWait is the initial start-up time before it starts changing colours (if 0f, it will blink very often)
         StartCoroutine(ChangeLightAndWait(1f));
             
-        if (DataTransfer.TvOn)
+        if (DataTransfer.tvOn)
         {
             audioSource.PlayOneShot(tvTurningOn);
             light2D.enabled = true; 
         }
-        else if (!DataTransfer.TvOn)
+        else if (!DataTransfer.tvOn)
         {
             audioSource.PlayOneShot(tvTurningOff);
             light2D.enabled = false;
@@ -43,7 +43,7 @@ public class TVManager : MonoBehaviour
     }
     private IEnumerator ChangeLightAndWait(float waitTime)
     {
-        if (!DataTransfer.TvOn)
+        if (!DataTransfer.tvOn)
         {
             yield break;
         }

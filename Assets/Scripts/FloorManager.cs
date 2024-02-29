@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using Pathfinding;
-using Unity.VisualScripting;
 using UnityEngine;
 
 // Make sure this script runs before StairsTrigger.cs, in Project Settings, in Script Execution Order.
@@ -17,8 +14,12 @@ using UnityEngine;
         public GameObject stairsTopFloor;
         public GameObject bathroomTrigger;
 
-        [Header("Cat:")]
+        [Header("Cat:")] 
         public GameObject cat;
+        public SpriteRenderer catSprite;
+
+        [Header("PauseScreen")] 
+        public GameObject pauseScreen;
 
         // Awake is called before any Start functions, across scripts.
         private void Awake()
@@ -41,34 +42,42 @@ using UnityEngine;
             topFloor.SetActive(true);
             stairsTopFloor.SetActive(true);
             bathroomTrigger.SetActive(true);
+
+            catSprite.enabled = true;
+            
+            pauseScreen.SetActive(true);
             
             yield break;
         }
 
         private IEnumerator DisableAllFloorsExceptCurrent()
         {
-            if (!DataTransfer.OnTopFloor)
+            if (!DataTransfer.onTopFloor)
             {
                 topFloor.SetActive(false);
                 stairsTopFloor.SetActive(false);
                 bathroomTrigger.SetActive(false);
+                catSprite.enabled = true;
+                pauseScreen.SetActive(false);
                 
                 int layerDefault = LayerMask.NameToLayer("Default");
                 cat.layer = layerDefault;
-                Debug.Log("Current layer (cat): Default");
+                Debug.Log("Current cat layer: Default");
             }
-            else if (DataTransfer.OnTopFloor)
+            else if (DataTransfer.onTopFloor)
             {
-                // Recalculate the graph for the cat, using only the bottom floor Scan.
-                AstarPath.active.Scan();
+                // TODO: Recalculate the graph for the cat, using only the bottom floor Scan, or create preset floor layouts.
+                AstarPath.active.ScanAsync();
                 
                 bottomFloor.SetActive(false);
                 stairsBottomFloor.SetActive(false);
                 toesInteraction.SetActive(false);
+                catSprite.enabled = false;
+                pauseScreen.SetActive(false);
                 
                 int layerCat = LayerMask.NameToLayer("Cat");
                 cat.layer = layerCat;
-                Debug.Log("Current layer (cat): Cat");
+                Debug.Log("Current cat layer: Cat");
             }
             yield break;
         }
