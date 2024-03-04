@@ -593,10 +593,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisObjectInt: 1
   interactableWithChoice: 0
-  canNotInteractMultiple: 0
+  usedInteractableInt: 0
   autoInteract: 0
-  alreadyUsed: 0
-  whatHappensOnYes: 0
+  disableAutoInteractAfterFirstAutoInteract: 1
 --- !u!1 &1721187252782061767
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,7 +727,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5501527777465772250
 Transform:
   m_ObjectHideFlags: 0
@@ -1687,7 +1686,7 @@ GameObject:
   - component: {fileID: 56153229309120535}
   m_Layer: 0
   m_Name: BathroomMirror
-  m_TagString: Untagged
+  m_TagString: TopFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1748,7 +1747,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 22
-  m_Sprite: {fileID: 21300000, guid: 67da1ca5a20cb4f4db1bb27b3391f61e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1756,7 +1755,7 @@ SpriteRenderer:
   m_Size: {x: 15, y: 8.4375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &1985123331542000130
@@ -1819,10 +1818,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisObjectInt: 3
   interactableWithChoice: 0
-  canNotInteractMultiple: 0
+  usedInteractableInt: 0
   autoInteract: 0
-  alreadyUsed: 0
-  whatHappensOnYes: 0
+  disableAutoInteractAfterFirstAutoInteract: 1
 --- !u!1 &4253946111378933685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,10 +2754,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisObjectInt: 2
   interactableWithChoice: 0
-  canNotInteractMultiple: 0
+  usedInteractableInt: 0
   autoInteract: 0
-  alreadyUsed: 0
-  whatHappensOnYes: 0
+  disableAutoInteractAfterFirstAutoInteract: 1
 --- !u!1 &5485742836738287106
 GameObject:
   m_ObjectHideFlags: 0
@@ -4050,10 +4047,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisObjectInt: 0
   interactableWithChoice: 0
-  canNotInteractMultiple: 0
+  usedInteractableInt: 0
   autoInteract: 0
-  alreadyUsed: 0
-  whatHappensOnYes: 0
+  disableAutoInteractAfterFirstAutoInteract: 1
 --- !u!1 &7811738885623459241
 GameObject:
   m_ObjectHideFlags: 0
@@ -4147,7 +4143,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  lookAtPoint: {fileID: 1721187252782061767}
+  player: {fileID: 0}
+  insideTrigger: 0
+  isLookingOutside: 0
 --- !u!1 &7917767976279278759
 GameObject:
   m_ObjectHideFlags: 0
@@ -14305,10 +14303,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisObjectInt: 4
   interactableWithChoice: 0
-  canNotInteractMultiple: 0
+  usedInteractableInt: 0
   autoInteract: 1
-  alreadyUsed: 0
-  whatHappensOnYes: 1
+  disableAutoInteractAfterFirstAutoInteract: 1
 --- !u!1 &9129170696869828535
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Triggers
@@ -8,46 +6,32 @@ namespace Triggers
     public class StairsTrigger : MonoBehaviour
     {
         // Declare variables
-        public GameObject cat;
+        private GameObject _cat;
+        private SpriteRenderer _catSprite;
         public GameObject[] bottomFloorArray;
         public GameObject[] topFloorArray;
-        public GameObject pauseScreen;
-    
+
+        [Header("Turn this on if this is the trigger on the bottom floor.")]
+        [SerializeField] private bool bottomFloorTrigger;
+        
         private void Awake()
         {
             // Apply tags to all activated gameObjects from FloorManager.
             
             bottomFloorArray = GameObject.FindGameObjectsWithTag("BottomFloor");
             topFloorArray = GameObject.FindGameObjectsWithTag("TopFloor");
-            cat = GameObject.FindWithTag("Cat");
-            pauseScreen = GameObject.FindWithTag("PauseScene");
-
-            /* if (DataTransfer.OnTopFloor)
-            {
-                foreach(GameObject bottomFloorGameObject in bottomFloorArray)
-                    if (!bottomFloorGameObject.Equals(this.gameObject))
-                        bottomFloorGameObject.SetActive(false);
-
-                foreach(GameObject topFloorGameObject in topFloorArray)
-                    topFloorGameObject.SetActive(true);
-            }
-            else
-            {
-                foreach(GameObject topFloorGameObject in topFloorArray)
-                    if (!topFloorGameObject.Equals(this.gameObject))
-                        topFloorGameObject.SetActive(false);
-
-                foreach(GameObject bottomFloorGameObject in bottomFloorArray)
-                    bottomFloorGameObject.SetActive(true);
-            } */
+            _cat = GameObject.FindWithTag("Cat");
+            _catSprite = _cat.GetComponentInChildren<SpriteRenderer>();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!DataTransfer.onTopFloor)
+            if (!other.CompareTag("Player")) return;
+            if (bottomFloorTrigger)
             {
+                print("Going from Bottom Floor to Top Floor");
                 foreach(GameObject bottomFloorGameObject in bottomFloorArray)
-                    if (!bottomFloorGameObject.Equals(this.gameObject))
+                    if (!bottomFloorGameObject.Equals(gameObject))
                         bottomFloorGameObject.SetActive(false);
             
                 foreach(GameObject topFloorGameObject in topFloorArray)
@@ -57,21 +41,24 @@ namespace Triggers
                 // The code below assigns the gameObject "cat" the layer with the name "Cat".
                 
                 int layerCat = LayerMask.NameToLayer("Cat");
-                cat.layer = layerCat;
-                // Debug.Log("Current layer (cat): Cat");
+                _cat.layer = layerCat;
+                _catSprite.enabled = false;
+                // DataTransfer.onTopFloor = true;
             }
-            else if (DataTransfer.onTopFloor)
+            else if (!bottomFloorTrigger)
             {
+                print("Going from Top Floor to Bottom Floor");
                 foreach(GameObject topFloorGameObject in topFloorArray)
-                    if (!topFloorGameObject.Equals(this.gameObject))
+                    if (!topFloorGameObject.Equals(gameObject))
                         topFloorGameObject.SetActive(false);
             
                 foreach(GameObject bottomFloorGameObject in bottomFloorArray)
                     bottomFloorGameObject.SetActive(true);
                 
                 int layerDefault = LayerMask.NameToLayer("Default");
-                cat.layer = layerDefault;
-                // Debug.Log("Current layer (cat): Default");
+                _cat.layer = layerDefault;
+                _catSprite.enabled = true;
+                // DataTransfer.onTopFloor = false;
             }
             DataTransfer.SwitchFloors();
         }

@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e9792bcc565054aa0b2552ce78df4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bottomFloor: []
+  bottomFloor: []
   kitchenWithDoorAndLamp:
   - {fileID: 0}
   - {fileID: 0}
@@ -631,9 +631,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2799496c4f78d224186ab63f0f67a23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cat: {fileID: 0}
   bottomFloorArray: []
   topFloorArray: []
+  bottomFloorTrigger: 1
 --- !u!1 &6048717616425276664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,6 +1057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2799496c4f78d224186ab63f0f67a23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cat: {fileID: 0}
   bottomFloorArray: []
   topFloorArray: []
+  bottomFloorTrigger: 0

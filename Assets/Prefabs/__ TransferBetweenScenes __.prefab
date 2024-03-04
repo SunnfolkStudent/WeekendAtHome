@@ -1555,7 +1555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bottomFloor: {fileID: 0}
   stairsBottomFloor: {fileID: 0}
-  toesInteraction: {fileID: 0}
+  toesTriggerBox: {fileID: 0}
   topFloor: {fileID: 0}
   stairsTopFloor: {fileID: 0}
   bathroomTrigger: {fileID: 0}
@@ -1642,11 +1642,11 @@ MonoBehaviour:
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
-  m_PointAction: {fileID: 1523043753548016736, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
-  m_MoveAction: {fileID: 1523043753548016736, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
-  m_SubmitAction: {fileID: 7097327185094131915, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
-  m_CancelAction: {fileID: -2706107124202575524, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
-  m_LeftClickAction: {fileID: 7097327185094131915, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
+  m_PointAction: {fileID: -5305853241001335066, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
+  m_MoveAction: {fileID: -5305853241001335066, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
+  m_SubmitAction: {fileID: -8254355353221043945, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
+  m_CancelAction: {fileID: 9172677998340620459, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
+  m_LeftClickAction: {fileID: -8254355353221043945, guid: dd43142c71a6efa4ba33fef1e2d5d83d, type: 3}
   m_MiddleClickAction: {fileID: 0}
   m_RightClickAction: {fileID: 0}
   m_ScrollWheelAction: {fileID: 0}

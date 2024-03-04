@@ -110,9 +110,8 @@ namespace ItemScripts
             else
             {
                 Debug.LogWarning("Beep boop, no assigned TriggeredObject to this gameObject: " + gameObject);
+                return;
             }
-
-            if (currentTriggeredObject != gameObject) return;
             
             if (autoInteract)
             {
@@ -133,6 +132,11 @@ namespace ItemScripts
             if (!other.CompareTag("Player")) return;
             if (!_playerIsInTrigger) return;
             ItemController.playerIsInsideItemTrigger = _playerIsInTrigger;
+            
+            if (currentTriggeredObject == null)
+            {
+                currentTriggeredObject = gameObject;
+            }
 
             if (UserInput.Interact)
             {
