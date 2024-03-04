@@ -46,6 +46,7 @@ public class DataTransfer : MonoBehaviour
         else if (playerInside && onTopFloor)
         {
             catSortingOrderInside = -1;
+            
         }
         else if (!playerInside)
         {

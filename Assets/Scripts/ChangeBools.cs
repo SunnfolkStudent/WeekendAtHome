@@ -23,7 +23,7 @@ public class ChangeBools : MonoBehaviour
         {
             DataTransfer.onTopFloor = true;
         }
-        else
+        if (!OnTopFloor)
         {
             DataTransfer.onTopFloor = false;
         }

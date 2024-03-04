@@ -1,43 +1,54 @@
+using System;
 using System.Collections;
-using PlayerScripts;
 using UnityEngine;
 
-namespace ItemScripts
+namespace ItemScripts.CustomItemScripts
 {
-    public class RadioManager : MonoBehaviour
+    public class BackgroundMusic : MonoBehaviour
     {
+        private GameObject _backgroundMusic;
         [SerializeField] private AudioSource turnOnSfxSource;
         [SerializeField] private AudioSource turnOffSfxSource;
         [SerializeField] private AudioSource musicSource;
         [SerializeField] private AudioClip radioMusic;
-    
-        private bool _triggerActive;
+        
         private void Start()
         {
+            if (!DataTransfer.radioOn)
+            {
+                StartCoroutine(MuteRadio(0f));
+            }
             musicSource.clip = radioMusic;
             musicSource.Play(0);
             if (!musicSource.loop)
             {
                 musicSource.loop = true;
             }
-            if (!DataTransfer.radioOn)
-            {
-                musicSource.mute = true;
-            }
         }
 
         private void Update()
         {
-            if (!UserInput.Interact || !_triggerActive)
-                return;
-        
-            // Debug.Log("TurnOnSFX length" + turnOnSfx.length);
-            // Debug.Log("TurnOffSFX length" + turnOffSfx.length);
-        
-            RadioIsBeingInteractedWith();
+            if (DataTransfer.onTopFloor)
+            {
+                print("On top floor, music reduced to 0.4f.");
+                musicSource.volume = 0.4f;
+            }
+            else if (!DataTransfer.onTopFloor)
+            {
+                if (DataTransfer.playerInside)
+                {
+                    print("Inside bottom floor, music at 1.0f.");
+                    musicSource.volume = 1f;
+                }
+                else if (!DataTransfer.playerInside)
+                {
+                    print("Outside, music at 0.6f.");
+                    musicSource.volume = 0.6f;
+                }
+            }
         }
 
-        private void RadioIsBeingInteractedWith()
+        public void RadioIsBeingInteractedWith()
         {
             if (DataTransfer.radioOn)
             {
@@ -67,8 +78,6 @@ namespace ItemScripts
             yield return new WaitForSeconds(delay);
             // Debug.Log("Radio music is muted");
             musicSource.mute = true;
-        } 
-        private void OnTriggerEnter2D(Collider2D other) { _triggerActive = true; }
-        private void OnTriggerExit2D(Collider2D other) { _triggerActive = false; }
+        }
     }
 }
