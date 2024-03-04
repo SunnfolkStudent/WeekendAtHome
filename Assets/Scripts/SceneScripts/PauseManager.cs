@@ -1,3 +1,4 @@
+using System.Collections;
 using ItemScripts;
 using PlayerScripts;
 using UnityEngine;
@@ -27,22 +28,26 @@ namespace SceneScripts
 
         private void Update()
         {
-            if (UserInput.Pause)
+            if (UserInput.Escape)
             {
-                if (ItemObjectScript.inItemCutscene) return; 
-                SetPauseScreenActive();
-                pausedDuringCutscene = false;
+                StartCoroutine(AreWePausing(false));
             }
-            else if (UserInput.PauseDuringCutscene)
+            if (UserInput.PauseDuringCutscene)
             {
-                if (ItemObjectScript.inItemCutscene) return; 
-                SetPauseScreenActive();
-                pausedDuringCutscene = true;
+                StartCoroutine(AreWePausing(true));
             }
-            else if (UserInput.Unpause)
+            if (UserInput.Unpause)
             {
                 SetPauseScreenInactive();
             }
+        }
+
+        private IEnumerator AreWePausing(bool duringCutscene)
+        {
+            if (ItemObjectScript.inItemScene) yield break;
+            pausedDuringCutscene = duringCutscene;
+            print("Setting pauseScreen Active.");
+            SetPauseScreenActive();
         }
 
         private void SetPauseScreenActive()

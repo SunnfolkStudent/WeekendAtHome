@@ -89,7 +89,7 @@ namespace PlayerScripts
         // Player ActionMap Controls:
         public Vector2 Movement { get; private set; }
         public static bool Interact { get; private set; }
-        public static bool Pause { get; private set; }
+        public static bool Escape { get; private set; }
         
         // Title Screen ActionMap Controls:
         public static bool AnyKeyOrStart { get; private set; }
@@ -107,7 +107,7 @@ namespace PlayerScripts
         {
             Movement = _controls.Player.Movement.ReadValue<Vector2>();
             Interact = _controls.Player.Interact.triggered;
-            Pause = _controls.Player.OpenPauseMenu.triggered;
+            Escape = _controls.Player.OpenPauseMenu.triggered;
 
             AnyKeyOrStart = _controls.TitleScreen.AnyKeyorStart.triggered;
             QuitGame = _controls.TitleScreen.QuitGame.triggered;

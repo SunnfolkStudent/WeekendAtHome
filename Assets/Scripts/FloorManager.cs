@@ -7,7 +7,7 @@ using UnityEngine;
         [Header("Bottom Floor:")]
         public GameObject bottomFloor;
         public GameObject stairsBottomFloor;
-        public GameObject toesInteraction;
+        public BoxCollider2D toesTriggerBox;
         
         [Header("Top Floor:")]
         public GameObject topFloor;
@@ -37,7 +37,7 @@ using UnityEngine;
         {
             bottomFloor.SetActive(true);
             stairsBottomFloor.SetActive(true);
-            toesInteraction.SetActive(true);
+            toesTriggerBox.enabled = true;
 
             topFloor.SetActive(true);
             stairsTopFloor.SetActive(true);
@@ -57,6 +57,7 @@ using UnityEngine;
                 topFloor.SetActive(false);
                 stairsTopFloor.SetActive(false);
                 bathroomTrigger.SetActive(false);
+                toesTriggerBox.enabled = true;
                 catSprite.enabled = true;
                 pauseScreen.SetActive(false);
                 
@@ -66,12 +67,11 @@ using UnityEngine;
             }
             else if (DataTransfer.onTopFloor)
             {
-                // TODO: Recalculate the graph for the cat, using only the bottom floor Scan, or create preset floor layouts.
                 AstarPath.active.ScanAsync();
                 
                 bottomFloor.SetActive(false);
                 stairsBottomFloor.SetActive(false);
-                toesInteraction.SetActive(false);
+                toesTriggerBox.enabled = false;
                 catSprite.enabled = false;
                 pauseScreen.SetActive(false);
                 

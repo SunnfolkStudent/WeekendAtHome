@@ -1,10 +1,7 @@
-using System;
 using System.Collections;
-using ItemScripts;
 using Pathfinding;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Cat
@@ -16,35 +13,30 @@ namespace Cat
         public GameObject goal;
         public AudioSource meowAudioSource;
         public AudioClip[] meows;
-        public Vector2[] goalSpots; 
-        
+        public Vector2[] goalSpots;
+
         public bool[] staysForRandom;
         public float[] howLongToStay;
-        
+
         private string _direction;
         private Vector2 _directionValue;
-        private Vector2 _lastPosition; 
-        
+        private Vector2 _lastPosition;
+
         [SerializeField] private GameObject cat;
         [SerializeField] private SortingGroup catSortingGroup;
-        private BoxCollider2D _triggerBox;
-        
+
         public bool onTheMove = true;
-        [FormerlySerializedAs("catSpeed")] public float catMaxSpeed = 2f;
-        
+
         private int _randomGoal;
         private float _timeBetweenMeows;
-        private bool _destinationReached;
+        public bool destinationReached;
         private bool _goingTowardsCatFood;
-        private bool _triggerActive;
 
         private void Start()
         {
             cat = GameObject.FindWithTag("Cat");
             catSortingGroup = cat.GetComponent<SortingGroup>();
-            _triggerBox = GameObject.FindWithTag("CatInteraction").GetComponent<BoxCollider2D>();
-            catMaxSpeed = cat.GetComponent<AIPath>().maxSpeed;
-            
+
             if (DataTransfer.catOutside)
             {
                 catSortingGroup.sortingOrder = DataTransfer.CatSortingOrderOutside;
@@ -60,7 +52,7 @@ namespace Cat
         private void Update()
         {
             // TODO: Fix bug that happens when player is outside and walks inside, causing the cat to appear above the inside walls if outside as well.
-            
+
             if (DataTransfer.catOutside)
             {
                 catSortingGroup.sortingOrder = DataTransfer.CatSortingOrderOutside;
@@ -73,15 +65,15 @@ namespace Cat
             {
                 catSortingGroup.sortingOrder = DataTransfer.catSortingOrderInside;
             }
-            
+
             // Consider using Math.Sign to return a value of either -1, 0 or 1, and use that for animations.
             // Calculates direction from last-pos to current-pos
             var position = transform.position;
             var directionValue = ((Vector2)position - _lastPosition).normalized;
-       
+
             // Updates last-pos for use in next Update() cycle
             _lastPosition = position;
-            
+
             if (directionValue.y > Mathf.Sqrt(0.5f))
             {
                 _direction = "_Up";
@@ -89,7 +81,7 @@ namespace Cat
             else if (directionValue.y < -Mathf.Sqrt(0.5f))
             {
                 _direction = "_Down";
-            } 
+            }
             else if (directionValue.x > Mathf.Sqrt(0.5f))
             {
                 _direction = "_Right";
@@ -98,22 +90,12 @@ namespace Cat
             {
                 _direction = "_Left";
             }
+
             Animate(directionValue == Vector2.zero ? "Toes_Idle" : "Toes_Walk");
         }
+
         private void FixedUpdate()
         {
-            if (onTheMove)
-            {
-                //If At Destination. Play Goal Function
-                if (aiPath.reachedDestination && !_destinationReached)
-                {
-                    _destinationReached = true;
-                    /* Debug.Log(_randomGoal);*/
-                    onTheMove = false;
-                    //Debug.Log("Reached Destination");
-                    OnGoalEnter();
-                }
-            }
             //Counter For Random Occasional Meows
             if (_timeBetweenMeows > 0)
             {
@@ -125,24 +107,35 @@ namespace Cat
                 meowAudioSource.PlayOneShot(meowAudioSource.clip);
                 _timeBetweenMeows = Random.Range(10, 30);
             }
-            if (!CatFoodFull.CatBowlFull) return;
             
+            if (!onTheMove) return;
+
+            //If At Destination. Play Goal Function
+            if (aiPath.reachedDestination && !destinationReached)
+            {
+                destinationReached = true;
+                onTheMove = false;
+                OnGoalEnter();
+            }
+
+            if (!CatFoodFull.CatBowlFull) return;
+
             _goingTowardsCatFood = true;
-            goal.transform.position = new Vector3(1,0,0);
+            goal.transform.position = new Vector3(1, 0, 0);
         }
         
         private void Animate(string unitAnimation)
         {
             anim.Play(unitAnimation + _direction);
         }
-        
+
         //Plays When At Goal, Sets A New Goal, Then Starts Coroutine
-        private void OnGoalEnter()
+        internal void OnGoalEnter()
         {
             StartCoroutine(WaitForNewGoal());
         }
 
-        //Waits For Seconds, Then Starts New Goal
+        // Waits random amount of seconds, then starts new Goal
         private IEnumerator WaitForNewGoal()
         {
             yield return new WaitForSeconds(howLongToStay[_randomGoal]);
@@ -150,17 +143,18 @@ namespace Cat
             {
                 yield return new WaitForSeconds(Random.Range(0, 10));
             }
-
+    
             if (_goingTowardsCatFood)
             {
                 yield return new WaitForSeconds(13);
                 CatFoodFull.CatBowlFull = false;
                 _goingTowardsCatFood = false;
             }
+
             _randomGoal = Random.Range(0, goalSpots.Length);
             goal.transform.position = goalSpots[_randomGoal];
             onTheMove = true;
-            _destinationReached = false;
+            destinationReached = false;
         }
     }
 }

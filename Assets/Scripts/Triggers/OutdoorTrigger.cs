@@ -49,9 +49,7 @@ namespace Triggers
                 {
                     kitchenAndMoreGameObject.GetComponent<SpriteRenderer>().sortingOrder = 45;
                 }
-                
-                
-                Debug.Log("OutdoorTrigger - Player Is Inside");
+                // Debug.Log("OutdoorTrigger - Player Is Inside");
             }
             if (!DataTransfer.playerInside)
             {
@@ -59,13 +57,12 @@ namespace Triggers
                 {
                     bottomFloorGameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
                 }
-                
+
                 foreach (GameObject kitchenAndMoreGameObject in kitchenWithDoorAndLamp)
                 {
                     kitchenAndMoreGameObject.GetComponent<SpriteRenderer>().sortingOrder = 55;
                 }
-                
-                Debug.Log("OutdoorTrigger - Player Is Outside");
+                // Debug.Log("OutdoorTrigger - Player Is Outside");
             }
         }
 

@@ -1,44 +1,56 @@
-using System;
+using System.Collections;
 using ItemScripts;
+using Pathfinding;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Cat
 {
     public class CatInteractionScript : MonoBehaviour
     {
-        [SerializeField] private CatScript catScript;
-        private bool _triggerActive;
+        private GameObject _catPNG;
+        private CatScript _catScript;
+        
+        [Header("If a random number between 0-100 is below the threshold, choose new goal:")] 
+        [Range(0, 100)]
+        [SerializeField] private int threshold = 33;
 
         private void Start()
         {
-            catScript = GameObject.FindWithTag("Cat").GetComponent<CatScript>();
+            _catPNG = GameObject.FindGameObjectWithTag("CatPNG");
+            _catScript = GetComponent<CatScript>();
+            _catScript.aiPath = GetComponentInParent<AIPath>();
+        }
+        public IEnumerator CheckIfCatShouldStop()
+        {
+            yield return new WaitUntil(() => !ItemController.playerIsInsideItemTrigger || ItemObjectScript.currentlyOpeningItem);
+            
+            if (ItemObjectScript.currentlyOpeningItem)
+            {
+                StartCoroutine(InteractingWithCat());
+            }
+            else if (!ItemController.playerIsInsideItemTrigger) 
+                yield break;
         }
 
-        private void Update()
+        private IEnumerator InteractingWithCat()
         {
-            if (_triggerActive && ItemObjectScript.inItemCutscene)
+            Debug.Log("Cat is stopping, cuz player is interacting with it");
+            _catScript.aiPath.isStopped = true;
+            yield return new WaitUntil(() => ItemObjectScript.inItemScene);
+            yield return null;
+            yield return new WaitUntil(() => !ItemObjectScript.inItemScene);
+            _catScript.aiPath.isStopped = false;
+            if (CheckIfCatChangesRoute())
             {
-                catScript.catMaxSpeed = 0f;
-            }
-            else
-            {
-                catScript.catMaxSpeed = 2f;
+                _catScript.OnGoalEnter();
             }
         }
 
-        // TODO: Investigate why these triggers are not working...
-        
-        private void OnTriggerEnter2D(Collider2D other)
+        private bool CheckIfCatChangesRoute()
         {
-            print("Player has entered Cat Trigger");
-            if (!other.CompareTag("Player")) return;
-            _triggerActive = true;
-        }
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            print("Player has left Cat Trigger");
-            if (!other.CompareTag("Player")) return;
-            _triggerActive = false;
+            var number = Random.Range(1, 100);
+            return number <= threshold;
         }
     }
 }

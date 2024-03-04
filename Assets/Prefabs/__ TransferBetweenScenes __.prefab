@@ -1265,15 +1265,15 @@ RectTransform:
   m_GameObject: {fileID: 3470037932316540001}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1.6146697}
-  m_LocalScale: {x: 9.558264, y: 4.9124594, z: 4.155947}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6012864232827561330}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -110.870316, y: 70.25205}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -110.87059, y: 70.25177}
+  m_SizeDelta: {x: 880.4011, y: 495.2259}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6442254066135006217
 CanvasRenderer:
@@ -1576,6 +1576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScene: {fileID: 5810920461909348882}
   userInput: {fileID: 0}
+  pausedDuringCutscene: 0
 --- !u!1 &5039888048183959387
 GameObject:
   m_ObjectHideFlags: 0

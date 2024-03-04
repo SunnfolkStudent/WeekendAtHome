@@ -1,3 +1,5 @@
+using System;
+using ItemScripts;
 using UnityEngine;
 
 namespace PlayerScripts
@@ -61,6 +63,13 @@ namespace PlayerScripts
         {
             if (!DataTransfer.playerCanMove) return;
             rb.MovePosition(rb.position + _directionV2.normalized * (moveSpeed * Time.fixedDeltaTime));
+        }
+
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            if (!other.CompareTag("BottomFloor") && !other.CompareTag("CatPNG") &&
+                !other.CompareTag("TopFloor")) return;
+            print("Currently inside Trigger of: " + other.gameObject.name);
         }
     }
 }

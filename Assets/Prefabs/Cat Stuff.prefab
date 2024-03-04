@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 6579907892378589325}
   - component: {fileID: 3503166479181974908}
   - component: {fileID: 761358526874448170}
+  - component: {fileID: 8100374368613819157}
   m_Layer: 0
   m_Name: Toes Interaction
   m_TagString: BottomFloor
@@ -430,6 +431,20 @@ MonoBehaviour:
   interactableWithChoice: 0
   canNotInteractMultiple: 0
   autoInteract: 0
+  playerIsInTrigger: 0
+--- !u!114 &8100374368613819157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2168989407851218850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26531ec24a66ff7498873f3b5ea329c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 33
 --- !u!1 &3695447187006227299
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,6 +752,8 @@ MonoBehaviour:
   - 8
   cat: {fileID: 1585401999032617709}
   catSortingGroup: {fileID: 645500915541137228}
+  onTheMove: 1
+  destinationReached: 0
 --- !u!82 &1804135296446572343
 AudioSource:
   m_ObjectHideFlags: 0

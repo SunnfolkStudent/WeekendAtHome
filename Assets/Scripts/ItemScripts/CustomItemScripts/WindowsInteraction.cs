@@ -2,11 +2,11 @@ using Cinemachine;
 using PlayerScripts;
 using UnityEngine;
 
-namespace ItemScripts
+namespace ItemScripts.CustomItemScripts
 {
     public class WindowsInteraction : MonoBehaviour
     {
-        [SerializeField] private CinemachineVirtualCamera _mainCamera;
+        [SerializeField] private CinemachineVirtualCamera mainCamera;
         private GameObject _lookAtPoint;
         [SerializeField] private GameObject player;
         
@@ -35,28 +35,26 @@ namespace ItemScripts
 
         private void LookOutside()
         {
-            _mainCamera.Follow = _lookAtPoint.transform;
+            mainCamera.Follow = _lookAtPoint.transform;
             isLookingOutside = true;
-            Debug.Log("Look outside");
         }
 
         private void ReturnCamera()
         {
-            _mainCamera.Follow = player.transform; 
+            mainCamera.Follow = player.transform; 
             isLookingOutside = false;
-            Debug.Log("Look back at player");
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("trigger enter");
+            if (!other.CompareTag("Player")) return;
             insideTrigger = true;
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
+            if (!other.CompareTag("Player")) return;
             insideTrigger = false;
-            Debug.Log("trigger exit");
             ReturnCamera();
         }
     }

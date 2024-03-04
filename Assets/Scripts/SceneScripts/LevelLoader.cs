@@ -8,7 +8,7 @@ namespace SceneScripts
 {
     public class LevelLoader : MonoBehaviour
     {
-        public static int currentGameSceneIndex;
+        public static Scene currentGameScene;
         
         public UserInput userInput;
         private PlayerControls _controls;
@@ -31,8 +31,9 @@ namespace SceneScripts
             //Play a no-fade animation if there is no fade out requested
             transition.Play(noFadeOut ? "Crossfade_Idle" : "Crossfade_End");
 
-            currentGameSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            if (currentGameSceneIndex == 0 || !_controls.TitleScreen.enabled)
+            currentGameScene = SceneManager.GetActiveScene();
+            print("This is the " + currentGameScene.name + " with the index: " + currentGameScene.buildIndex);
+            if (currentGameScene.buildIndex == 0 || !_controls.TitleScreen.enabled)
             {
                 userInput.SwitchInputToTitleScreen();
             }
@@ -84,7 +85,7 @@ namespace SceneScripts
         public void LoadNextLevelByIndex()
         {
             //Start a coroutine to wait until the fade is done
-            StartCoroutine(LoadLevel(SceneManager.GetSceneAt(currentGameSceneIndex).buildIndex + 1));
+            StartCoroutine(LoadLevel(SceneManager.GetSceneByBuildIndex(currentGameScene.buildIndex).buildIndex + 1));
         }
 
         public void LoadSceneByName(string sceneName)
