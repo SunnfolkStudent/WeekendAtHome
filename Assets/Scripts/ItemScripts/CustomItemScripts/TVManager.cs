@@ -4,53 +4,90 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using Random = UnityEngine.Random;
 
-public class TVManager : MonoBehaviour
+namespace ItemScripts.CustomItemScripts
 {
-    [SerializeField] private Light2D light2D;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip tvTurningOn, tvTurningOff;
-
-    private float _timer;
-    private bool _triggerActive;
-    
-    // Start is called before the first frame update
-    private void Start()
+    public class TVManager : MonoBehaviour
     {
-        light2D = GetComponent<Light2D>();
-    }
-    private void OnTriggerEnter2D(Collider2D other) { _triggerActive = true; } 
-    private void OnTriggerExit2D(Collider2D other) { _triggerActive = false; }
+        private Light2D _tvLight;
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioClip tvTurningOn, tvTurningOff;
 
-    private void Update()
-    {
-        if (!UserInput.Interact || !_triggerActive) 
-            return;
+        [Header("Tv Light Settings:")] 
+        [SerializeField] [Range(0, 1)] private float lightIntensity = 0.25f;
+        [SerializeField] [Range(0, 1)] private float colourTransparency = 0.02f;
         
-        DataTransfer.TurnTVOnOrOff();
-        // the float below in the ChangeLightAndWait is the initial start-up time before it starts changing colours (if 0f, it will blink very often)
-        StartCoroutine(ChangeLightAndWait(1f));
-            
-        if (DataTransfer.tvOn)
+        [Header("How often (in seconds) does the TV switch colours?")]
+        [SerializeField] private float colourSwitchTimer = 2f;
+        private bool _triggerActive;
+        
+        private void Start()
         {
-            audioSource.PlayOneShot(tvTurningOn);
-            light2D.enabled = true; 
+            _tvLight = GetComponent<Light2D>();
+            StartCoroutine(NewScene());
         }
-        else if (!DataTransfer.tvOn)
+
+        private IEnumerator NewScene()
         {
-            audioSource.PlayOneShot(tvTurningOff);
-            light2D.enabled = false;
+            yield return null;
+
+            if (DataTransfer.tvOn)
+            {
+                StartCoroutine(ChangeLightContinuously());
+            }
+            else
+            {
+                _tvLight.enabled = false;
+            }
         }
-    }
-    private IEnumerator ChangeLightAndWait(float waitTime)
-    {
-        if (!DataTransfer.tvOn)
+
+        private IEnumerator PlayerNearTV()
         {
-            yield break;
+            yield return new WaitUntil(() => !ItemObjectScript.inItemScene && UserInput.Interact || !_triggerActive);
+            if (!_triggerActive) yield break;
+            DataTransfer.TurnTVOnOrOff();
+            yield return null;
+            if (DataTransfer.tvOn)
+            {
+                audioSource.PlayOneShot(tvTurningOn);
+                _tvLight.enabled = true; 
+                StartCoroutine(ChangeLightContinuously());
+            }
+            else if (!DataTransfer.tvOn)
+            {
+                audioSource.PlayOneShot(tvTurningOff);
+                _tvLight.enabled = false;
+                StopCoroutine(ChangeLightContinuously());
+            }
+            yield return PlayerNearTV();
         }
-        light2D.intensity = 0.25f;
-        light2D.shapeLightFalloffSize = 0.8f;
-        light2D.color = new Color(Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255), 0.02f);
-        yield return new WaitForSeconds(waitTime);
-        yield return ChangeLightAndWait(2f);
+
+        #region --- Triggers ---
+
+        private void OnTriggerEnter2D(Collider2D other)
+        { 
+            if (!other.CompareTag("Player")) return; 
+            _triggerActive = true;
+            StartCoroutine(PlayerNearTV());
+        }
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (!other.CompareTag("Player")) return;
+            _triggerActive = false;
+        }
+
+        #endregion
+        
+        private IEnumerator ChangeLightContinuously()
+        {
+            if (!DataTransfer.tvOn)
+            { 
+                _tvLight.intensity = 0;
+                yield break;
+            }
+            _tvLight.intensity = lightIntensity;
+            _tvLight.color = new Color(Random.Range(0, 255), Random.Range(0, 255), Random.Range(0, 255), colourTransparency);
+            yield return new WaitForSeconds(colourSwitchTimer);
+            yield return ChangeLightContinuously();
+        }
     }
 }

@@ -1,31 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using Triggers;
 using UnityEngine;
 
 public class ChangeBools : MonoBehaviour
 {
-    public bool PlayerCanMove = true; // PlayerCanMove should be true from the start.
-    public bool OnTopFloor = false; // Change this in Editor if you're changing starting floors.
+    private StairsTrigger _stairsTrigger;
+    public bool OnTopFloor; // Change this in Editor if you're changing starting floors.
     
     // Update is called once per frame
-    void Update()
+    void Start()
     {
-        if (PlayerCanMove)
-        {
-            DataTransfer.playerCanMove = true;
-        }
-        else
-        {
-            DataTransfer.playerCanMove = false;
-        }
-
+        _stairsTrigger = GetComponentInParent<StairsTrigger>();
         if (OnTopFloor)
         {
-            DataTransfer.onTopFloor = true;
-        }
-        if (!OnTopFloor)
-        {
-            DataTransfer.onTopFloor = false;
+            _stairsTrigger.StartingOnTopFloor();
         }
     }
 }

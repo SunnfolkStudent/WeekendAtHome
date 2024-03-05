@@ -1,45 +1,72 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using PlayerScripts;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.Serialization;
 
-public class LampManager : MonoBehaviour
+namespace ItemScripts.CustomItemScripts
 {
-    [SerializeField] private Light2D lampLight;
-    
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip lampOnSfx, lampOffSfx;
-    
-    private bool _triggerActive;
-    
-    // Start is called before the first frame update
-
-    private void OnTriggerEnter2D(Collider2D other) { _triggerActive = true; }
-    private void OnTriggerExit2D(Collider2D other) { _triggerActive = false; }
-
-    // Update is called once per frame
-    private void Update()
+    public class LampManager : MonoBehaviour
     {
-        if (!_triggerActive || !UserInput.Interact)
-            return;
+        [SerializeField] private Light2D lampLight;
+    
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioClip lampOnSfx, lampOffSfx;
+    
+        private bool _triggerActive;
+
+        private void Start()
+        {
+            lampLight = GetComponent<Light2D>();
+
+            if (DataTransfer.lampOn)
+            {
+                lampLight.enabled = true;
+            }
+            else
+            {
+                lampLight.enabled = false;
+            }
+            // StartCoroutine(NewScene());
+        }
         
-        if (DataTransfer.lampOn)
+        private IEnumerator NewScene()
         {
-            // DataTransfer.LampOn = false;
-            lampLight.intensity = 0;
-            audioSource.PlayOneShot(lampOffSfx);
+            yield return null;
+            lampLight.enabled = DataTransfer.lampOn;
         }
-        else if (!DataTransfer.lampOn)
+
+        private IEnumerator PlayerNearLamp()
         {
-            // DataTransfer.LampOn = true;
-            lampLight.intensity = 1;
-            audioSource.PlayOneShot(lampOnSfx);
+            yield return new WaitUntil(() => !ItemObjectScript.inItemScene && UserInput.Interact || !_triggerActive);
+            if (!_triggerActive) yield break;
+            DataTransfer.TurnLampOnOrOff();
+            yield return null;
+            if (DataTransfer.lampOn)
+            {
+                audioSource.PlayOneShot(lampOnSfx);
+                // lampLight.intensity = 1;
+                lampLight.enabled = true; 
+            }
+            else if (!DataTransfer.lampOn)
+            {
+                audioSource.PlayOneShot(lampOffSfx);
+                // lampLight.intensity = 0;
+                lampLight.enabled = false;
+            }
+            yield return PlayerNearLamp();
         }
-        DataTransfer.TurnLampOnOrOff();
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (!other.CompareTag("Player")) return; 
+            _triggerActive = true;
+            StartCoroutine(PlayerNearLamp());
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (!other.CompareTag("Player")) return; 
+            _triggerActive = false;
+        }
     }
 }

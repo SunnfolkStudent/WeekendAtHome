@@ -7,15 +7,16 @@ public class DataTransfer : MonoBehaviour
     private static DataTransfer _instance;
     
     public static bool lampOn;
-    public static bool tvOn;
+    public static bool tvOn = true;
     public static bool radioOn = true;
     public static bool glassDoorOpen;
     public static bool bedroomDoorOpen;
     public static bool playerCanMove = true; // PlayerCanMove should be true from the start.
-    public static bool onTopFloor = false; // Change this in Editor if you're changing starting floors.
+    public static bool onTopFloor; // Change this in Editor if you're changing starting floors.
     public static bool insideBathroom;
     public static bool playerInside = true;
     public static bool catFlapClosed = true;
+    public static bool catIsDead;
     public static bool catOutside;
     public static bool isPause = false;
     public static int playerSortingOrder = 50;
@@ -110,7 +111,7 @@ public class DataTransfer : MonoBehaviour
             bedroomDoorOpen = true;
         }
     }
-    public static void CanPlayerMove(UserInput userInput)
+    public static void SwitchCanPlayerMove(UserInput userInput)
     {
         if (playerCanMove)
         {

@@ -19,39 +19,37 @@ namespace ItemScripts.CustomItemScripts
             _animator = GetComponent<Animator>();
             _audioSource = GetComponent<AudioSource>();
 
-            _animator.Play(DataTransfer.glassDoorOpen ? "GlassDoorOpen" : "GlassDoorClosed");
+            if (DataTransfer.glassDoorOpen)
+            {
+                _animator.Play("GlassDoorOpen");
+            }
+            else
+            {
+                _animator.Play("GlassDoorClosed");
+            }
         }
 
-        private void Update()
+        private IEnumerator PlayerIsNearGlassDoor()
         {
-            _slideTimer += Time.deltaTime;
-        
-            if (!_triggerActive)
-                return;
-        
-            // if animation is done, and player is within triggerBox and presses Interact, continue downwards.
-            if (!(_slideTimer > 2.25f) || !UserInput.Interact) 
-                return;
-            
-            AstarPath.active.UpdateGraphs(_collider2D.bounds); 
+            yield return new WaitUntil(() => !_triggerActive || UserInput.Interact);
+
+            if (!_triggerActive) yield break;
             
             // If glassDoor is Open, close it. If glassDoor is Closed, open it.
-            switch (DataTransfer.glassDoorOpen)
+            if (DataTransfer.glassDoorOpen)
             {
-                case false:
-                    _animator.Play("GlassDoorOpening");
-                    _audioSource.PlayOneShot(doorOpening);
-                    StartCoroutine(UpdateCatPath(true));
-                    break;
-                case true:
-                    _animator.Play("GlassDoorClosing");
-                    _audioSource.PlayOneShot(doorClosing);
-                    StartCoroutine(UpdateCatPath(false));
-                    break;
+                _animator.Play("GlassDoorOpening");
+                _audioSource.PlayOneShot(doorOpening);
+                StartCoroutine(UpdateCatPath(true));
+            }
+            else
+            {
+                _animator.Play("GlassDoorClosing");
+                _audioSource.PlayOneShot(doorClosing);
+                StartCoroutine(UpdateCatPath(false));
             }
             DataTransfer.OpenOrCloseGlassDoor();
-            
-            _slideTimer = -Time.deltaTime;
+            yield return PlayerIsNearGlassDoor();
         }
 
         private IEnumerator UpdateCatPath(bool doorIsOpening)
@@ -67,17 +65,16 @@ namespace ItemScripts.CustomItemScripts
             AstarPath.active.UpdateGraphs(_collider2D.bounds); 
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (collision == null || !collision.CompareTag("Player")) { return; }
-        
+            if (other == null || !other.CompareTag("Player")) return;
             _triggerActive = true;
+            StartCoroutine(PlayerIsNearGlassDoor());
         }
 
-        private void OnTriggerExit2D(Collider2D collision)
+        private void OnTriggerExit2D(Collider2D other)
         {
-            if (collision == null || !collision.CompareTag("Player")) { return; }
-        
+            if (other == null || !other.CompareTag("Player")) { return; }
             _triggerActive = false; 
         }
     }

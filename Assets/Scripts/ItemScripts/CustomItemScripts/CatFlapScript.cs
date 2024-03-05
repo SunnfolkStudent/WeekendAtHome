@@ -1,7 +1,7 @@
+using System;
 using System.Collections;
 using PlayerScripts;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace ItemScripts.CustomItemScripts
 {
@@ -18,17 +18,22 @@ namespace ItemScripts.CustomItemScripts
         {
             catFlapDoorObject = GameObject.FindWithTag("CatFlapCollision");
             _catFlapDoorTrigger = GetComponent<BoxCollider2D>();
-            
+        }
+
+        private void Start()
+        {
             if (DataTransfer.catFlapClosed)
             {
+                print("catFlapClosed");
                 catFlapDoorObject.SetActive(true);
             }
             else if (!DataTransfer.catFlapClosed)
             {
+                print("catFlapOpen");
                 catFlapDoorObject.SetActive(false);
             }
         }
-    
+
         private void OnTriggerStay2D(Collider2D collision)
         {
             if (collision.CompareTag("Player") && UserInput.Interact)
@@ -53,7 +58,7 @@ namespace ItemScripts.CustomItemScripts
 
         private IEnumerator UpdateCatPath()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.3f);
             AstarPath.active.UpdateGraphs(_catFlapDoorTrigger.bounds);
         }
     }

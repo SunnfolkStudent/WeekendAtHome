@@ -1,4 +1,5 @@
 using System.Collections;
+using Pathfinding;
 using UnityEngine;
 
 // Make sure this script runs before StairsTrigger.cs, in Project Settings, in Script Execution Order.
@@ -52,25 +53,31 @@ using UnityEngine;
 
         private IEnumerator DisableAllFloorsExceptCurrent()
         {
-            if (!DataTransfer.onTopFloor)
-            {
-                topFloor.SetActive(false);
-                stairsTopFloor.SetActive(false);
-                bathroomTrigger.SetActive(false);
-                toesTriggerBox.enabled = true;
-                catSprite.enabled = true;
-                pauseScreen.SetActive(false);
-                
-                int layerDefault = LayerMask.NameToLayer("Default");
-                cat.layer = layerDefault;
-                Debug.Log("Current cat layer: Default");
-            }
-            else if (DataTransfer.onTopFloor)
+            topFloor.SetActive(false);
+            stairsTopFloor.SetActive(false);
+            bathroomTrigger.SetActive(false);
+            pauseScreen.SetActive(false);
+            toesTriggerBox.enabled = true;
+            catSprite.enabled = true;
+            int layerDefault = LayerMask.NameToLayer("Default");
+            cat.layer = layerDefault;
+            // Debug.Log("Current cat layer: Default");
+            
+            if (!DataTransfer.catIsDead)
             {
                 AstarPath.active.ScanAsync();
-                
+                yield return new WaitUntil(() => !AstarPath.active.isScanning);
+            }
+            else
+            {
+                GameObject.FindWithTag("CatStuff").SetActive(false);
+            }
+            
+            if (DataTransfer.onTopFloor)
+            {
                 bottomFloor.SetActive(false);
                 stairsBottomFloor.SetActive(false);
+                topFloor.SetActive(false);
                 toesTriggerBox.enabled = false;
                 catSprite.enabled = false;
                 pauseScreen.SetActive(false);
@@ -79,6 +86,5 @@ using UnityEngine;
                 cat.layer = layerCat;
                 Debug.Log("Current cat layer: Cat");
             }
-            yield break;
         }
     }

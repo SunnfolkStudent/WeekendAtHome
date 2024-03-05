@@ -97,21 +97,12 @@ namespace ItemScripts
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return;
-            if (_playerIsInTrigger) return; 
             _playerIsInTrigger = true;
             
             ItemController.playerIsInsideItemTrigger = _playerIsInTrigger;
-            
-            if (currentTriggeredObject == null)
-            {
-                currentTriggeredObject = gameObject;
-                print("CurrentTriggeredObject assigned to: " + currentTriggeredObject.name);
-            }
-            else
-            {
-                Debug.LogWarning("Beep boop, no assigned TriggeredObject to this gameObject: " + gameObject);
-                return;
-            }
+
+            currentTriggeredObject = gameObject;
+            print("CurrentTriggeredObject assigned to: " + currentTriggeredObject.name);
             
             if (autoInteract)
             {
@@ -121,31 +112,28 @@ namespace ItemScripts
                     autoInteract = false;
                 }
             }
-            if (_cat == gameObject)
+            else
+            {
+                StartCoroutine(InsideItemTrigger());
+            }
+            
+            if (_cat == currentTriggeredObject)
             {
                 StartCoroutine(_catInteractionScript.CheckIfCatShouldStop());
             }
         }
 
-        private void OnTriggerStay2D(Collider2D other)
+        private IEnumerator InsideItemTrigger()
         {
-            if (!other.CompareTag("Player")) return;
-            if (!_playerIsInTrigger) return;
-            ItemController.playerIsInsideItemTrigger = _playerIsInTrigger;
-            
-            if (currentTriggeredObject == null)
+            yield return new WaitUntil(() => UserInput.Interact || !_playerIsInTrigger);
+            if (!_playerIsInTrigger) yield break;
+            if (inItemScene)
             {
-                currentTriggeredObject = gameObject;
+                print("Player tried to Interact, but was currently in an ItemScene.");
+                yield break;
             }
-
-            if (UserInput.Interact)
-            {
-                print("Player tried to Interact");
-                if (currentTriggeredObject == gameObject)
-                {
-                    OpenYourItemScene();
-                }
-            }
+            OpenYourItemScene();
+            yield return InsideItemTrigger();
         }
 
         private void OnTriggerExit2D(Collider2D other)
@@ -154,7 +142,10 @@ namespace ItemScripts
             _playerIsInTrigger = false;
             
             ItemController.playerIsInsideItemTrigger = _playerIsInTrigger;
-            currentTriggeredObject = null;
+            if (currentTriggeredObject == gameObject)
+            {
+                currentTriggeredObject = null;
+            }
             
             if (_cat == gameObject)
             {
@@ -167,7 +158,6 @@ namespace ItemScripts
         #region --- Opening & Loading Item Scenes ---
         private void OpenYourItemScene()
         {
-            if (inItemScene) return;
             // This is 2 because of main gameScene + item Scene... (DontDestroyOnLoad Scene doesn't count)
             if (SceneManager.loadedSceneCount > 2)
             {

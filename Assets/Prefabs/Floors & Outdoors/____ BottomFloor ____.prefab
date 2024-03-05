@@ -15714,8 +15714,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -1.8539001, y: 1.40725, z: 0}
-    m_Extent: {x: 2.0647001, y: 1.97655, z: 0}
+    m_Center: {x: -1.8561499, y: 1.4146, z: 0}
+    m_Extent: {x: 2.06565, y: 1.9724001, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -15729,11 +15729,11 @@ MonoBehaviour:
   - {x: -3.1268244, y: 0.88640386, z: 0}
   - {x: -2.3150387, y: 0.23368752, z: 0}
   - {x: -1.7276115, y: 0.48708725, z: 0}
-  - {x: -1.1517029, y: 0.9362959, z: 0}
-  - {x: -0.59357643, y: 1.2357181, z: 0}
-  - {x: -0.60184383, y: 1.4773779, z: 0}
-  - {x: -1.0941129, y: 1.8116767, z: 0}
-  - {x: -1.6524992, y: 1.9684888, z: 0}
+  - {x: -1.1008458, y: 0.6565798, z: 0}
+  - {x: -0.59357643, y: 0.8670016, z: 0}
+  - {x: -0.67813015, y: 1.7825226, z: 0}
+  - {x: -1.0941129, y: 1.9388204, z: 0}
+  - {x: -1.6270709, y: 2.1973474, z: 0}
   - {x: -2.0731564, y: 2.5258033, z: 0}
   - {x: -2.2113738, y: 2.571876, z: 0}
   - {x: -2.3035197, y: 2.5949125, z: 0}
@@ -15750,10 +15750,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e4d2d6ce612b941bc2ce726e8e64e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light2D: {fileID: 272498162252827277}
   audioSource: {fileID: 7438731664499076518}
   tvTurningOn: {fileID: 8300000, guid: f78db3b19cd7bfe4bb29c73fe18cdd1b, type: 3}
   tvTurningOff: {fileID: 8300000, guid: 5e0f327976aebb446903fb913178a9e0, type: 3}
+  lightIntensity: 0.25
+  colourTransparency: 0.02
+  colourSwitchTimer: 2
 --- !u!1 &7464279559059815715
 GameObject:
   m_ObjectHideFlags: 0
@@ -16759,22 +16761,6 @@ PrefabInstance:
     - target: {fileID: 8593199179726591994, guid: 76411079f38397f448646851f4dcbcc9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8703646612187806895, guid: 76411079f38397f448646851f4dcbcc9, type: 3}
-      propertyPath: m_LocalBounds.m_Center.x
-      value: 1.1297
-      objectReference: {fileID: 0}
-    - target: {fileID: 8703646612187806895, guid: 76411079f38397f448646851f4dcbcc9, type: 3}
-      propertyPath: m_LocalBounds.m_Center.y
-      value: -1.8519502
-      objectReference: {fileID: 0}
-    - target: {fileID: 8703646612187806895, guid: 76411079f38397f448646851f4dcbcc9, type: 3}
-      propertyPath: m_LocalBounds.m_Extent.x
-      value: 3.9492
-      objectReference: {fileID: 0}
-    - target: {fileID: 8703646612187806895, guid: 76411079f38397f448646851f4dcbcc9, type: 3}
-      propertyPath: m_LocalBounds.m_Extent.y
-      value: 3.76125
       objectReference: {fileID: 0}
     - target: {fileID: 8959912714915892335, guid: 76411079f38397f448646851f4dcbcc9, type: 3}
       propertyPath: m_Name
