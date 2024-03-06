@@ -24,9 +24,9 @@ namespace Triggers
             _catSprite = _cat.GetComponentInChildren<SpriteRenderer>();
         }
 
-        public void StartingOnTopFloor()
+        public void PlayerOnTopFloor()
         {
-            print("Starting on Top Floor");
+            print("Player on Top Floor");
             foreach(GameObject bottomFloorGameObject in bottomFloorArray)
                 if (!bottomFloorGameObject.Equals(gameObject))
                     bottomFloorGameObject.SetActive(false);
@@ -48,21 +48,7 @@ namespace Triggers
             if (!other.CompareTag("Player")) return;
             if (bottomFloorTrigger)
             {
-                print("Going from Bottom Floor to Top Floor");
-                foreach(GameObject bottomFloorGameObject in bottomFloorArray)
-                    if (!bottomFloorGameObject.Equals(gameObject))
-                        bottomFloorGameObject.SetActive(false);
-            
-                foreach(GameObject topFloorGameObject in topFloorArray)
-                    topFloorGameObject.SetActive(true);
-                
-                // gameObject.layer uses only integers, but we can turn a layer name into a layer integer using LayerMask.NameToLayer()
-                // The code below assigns the gameObject "cat" the layer with the name "Cat".
-                
-                int layerCat = LayerMask.NameToLayer("Cat");
-                _cat.layer = layerCat;
-                _catSprite.enabled = false;
-                // DataTransfer.onTopFloor = true;
+                PlayerOnTopFloor();
             }
             else if (!bottomFloorTrigger)
             {

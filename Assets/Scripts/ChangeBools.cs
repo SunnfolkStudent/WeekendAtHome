@@ -1,18 +1,26 @@
 using Triggers;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ChangeBools : MonoBehaviour
 {
     private StairsTrigger _stairsTrigger;
-    public bool OnTopFloor; // Change this in Editor if you're changing starting floors.
+    private OutdoorTrigger _outdoorTrigger;
+    public bool onTopFloor; // Change this in Editor if you're changing starting floors.
+    public bool playerOutside; // Change this in Editor if player starts scene outside.
     
     // Update is called once per frame
     void Start()
     {
         _stairsTrigger = GetComponentInParent<StairsTrigger>();
-        if (OnTopFloor)
+        _outdoorTrigger = GameObject.Find("OutdoorTrigger").GetComponent<OutdoorTrigger>();
+        if (onTopFloor)
         {
-            _stairsTrigger.StartingOnTopFloor();
+            _stairsTrigger.PlayerOnTopFloor();
+        }
+        if (playerOutside)
+        {
+            _outdoorTrigger.PlayerStartsOutside(true);
         }
     }
 }

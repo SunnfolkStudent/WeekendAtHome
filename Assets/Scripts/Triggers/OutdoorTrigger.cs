@@ -5,14 +5,11 @@ using UnityEngine.Rendering.Universal;
 namespace Triggers
 {
     // TODO: Make sure the VFX Weather shows better onto the snow
-    // TODO: Fix the issues between top floor and bottom floor : )
     public class OutdoorTrigger : MonoBehaviour
     {
         // Declare Variables
         [SerializeField] private GameObject[] bottomFloor;
         [SerializeField] private GameObject[] kitchenWithDoorAndLamp;
-
-        [SerializeField] private GameObject backgroundBottomFloor;
         
         [SerializeField] private GameObject player;
         [SerializeField] private SortingGroup playerSortingGroup;
@@ -37,39 +34,71 @@ namespace Triggers
             
             vfxSortingGroup = GameObject.FindWithTag("VFX").GetComponent<SortingGroup>();
             vfxSortingGroup.sortingOrder = DataTransfer.vfxSortingOrder;
-
-            if (DataTransfer.playerInside)
+        }
+        
+        public void PlayerStartsOutside(bool startsOutside)
+        {
+            if (startsOutside)
             {
-                foreach (GameObject bottomFloorGameObject in bottomFloor)
-                {
-                    bottomFloorGameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-                }
-
-                foreach (GameObject kitchenAndMoreGameObject in kitchenWithDoorAndLamp)
-                {
-                    kitchenAndMoreGameObject.GetComponent<SpriteRenderer>().sortingOrder = 45;
-                }
-                // Debug.Log("OutdoorTrigger - Player Is Inside");
+                DataTransfer.playerInside = true;
+                PlayerOutdoors();
             }
-            if (!DataTransfer.playerInside)
+            else
             {
-                foreach (GameObject bottomFloorGameObject in bottomFloor)
-                {
-                    bottomFloorGameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
-                }
-
-                foreach (GameObject kitchenAndMoreGameObject in kitchenWithDoorAndLamp)
-                {
-                    kitchenAndMoreGameObject.GetComponent<SpriteRenderer>().sortingOrder = 55;
-                }
-                // Debug.Log("OutdoorTrigger - Player Is Outside");
+                DataTransfer.playerInside = false;
+                PlayerIndoors();
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void PlayerIndoors()
         {
-            if (collision == null) return;
-            if (!collision.CompareTag("Player")) return;
+            foreach (GameObject bottomFloorGameObject in bottomFloor)
+            {
+                bottomFloorGameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            }
+
+            foreach (GameObject kitchenAndMoreGameObject in kitchenWithDoorAndLamp)
+            {
+                kitchenAndMoreGameObject.GetComponent<SpriteRenderer>().sortingOrder = 45;
+            }
+            var transform1 = transform;
+            var position = transform1.position;
+            position = new Vector3(position.x, position.y + moveAmount);
+            transform1.position = position;
+
+            player.GetComponentInChildren<Light2D>().intensity = _playerLightIntensity;
+            
+            DataTransfer.PlayerInsideOrOutside();
+            playerSortingGroup.sortingOrder = DataTransfer.playerSortingOrder;
+        }
+
+        private void PlayerOutdoors()
+        {
+            foreach (GameObject bottomFloorGameObject in bottomFloor)
+            {
+                bottomFloorGameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
+            }
+                
+            foreach (GameObject kitchenAndMoreGameObject in kitchenWithDoorAndLamp)
+            {
+                kitchenAndMoreGameObject.GetComponent<SpriteRenderer>().sortingOrder = 55;
+            }
+
+            var transform1 = transform;
+            var position = transform1.position;
+            position = new Vector3(position.x, position.y - moveAmount);
+            transform1.position = position;
+
+            player.GetComponentInChildren<Light2D>().intensity = playerOutdoorLightValue;
+            
+            DataTransfer.PlayerInsideOrOutside();
+            playerSortingGroup.sortingOrder = DataTransfer.playerSortingOrder;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other == null) return;
+            if (!other.CompareTag("Player")) return;
             
             // Ran when the player enters the outdoor trigger
             // Checks if the player is currently inside or outside
@@ -81,46 +110,14 @@ namespace Triggers
             {
                 Debug.Log("Player Goes Outdoors");
 
-                foreach (GameObject bottomFloorGameObject in bottomFloor)
-                {
-                    bottomFloorGameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, transparencyValue);
-                }
-                
-                foreach (GameObject kitchenAndMoreGameObject in kitchenWithDoorAndLamp)
-                {
-                    kitchenAndMoreGameObject.GetComponent<SpriteRenderer>().sortingOrder = 55;
-                }
-
-                var transform1 = transform;
-                var position = transform1.position;
-                position = new Vector3(position.x, position.y - moveAmount);
-                transform1.position = position;
-
-                player.GetComponentInChildren<Light2D>().intensity = playerOutdoorLightValue;
+                PlayerOutdoors();
             }
             else if (!DataTransfer.playerInside)
             {
                 Debug.Log("Player Goes Inside");
             
-                foreach (GameObject bottomFloorGameObject in bottomFloor)
-                {
-                    bottomFloorGameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-                }
-                foreach (GameObject kitchenAndMoreGameObject in kitchenWithDoorAndLamp)
-                {
-                    kitchenAndMoreGameObject.GetComponent<SpriteRenderer>().sortingOrder = 45;
-                }
-
-                var transform1 = transform;
-                var position = transform1.position;
-                position = new Vector3(position.x, position.y + moveAmount);
-                transform1.position = position;
-
-                player.GetComponentInChildren<Light2D>().intensity = _playerLightIntensity;
+                PlayerIndoors();
             }
-            
-            DataTransfer.PlayerInsideOrOutside();
-            playerSortingGroup.sortingOrder = DataTransfer.playerSortingOrder;
         }
     }
 }

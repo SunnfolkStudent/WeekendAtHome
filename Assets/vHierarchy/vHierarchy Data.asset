@@ -15,6 +15,11 @@ MonoBehaviour:
   sceneDatas_byGuid:
     keys:
     - 800fa97b75f5bea4cacaa8f01537d515
+    - 7c0cdf758f5cf72438aa1b0360b82321
+    - 769a144be51074f499b02799d8f42612
+    - 52eded667af6c0b40a22cf0c4f45731d
+    - 7ac6f3a8da4a87d4c98e73a3f0924e17
+    - 24cd706aa89451e428a8c85ab7585bdb
     values:
     - goDatas_byGlobalId:
         keys:
@@ -27,6 +32,9 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-800fa97b75f5bea4cacaa8f01537d515-4552145741463328867-1528015983
         - globalObjectIdString: GlobalObjectId_V1-2-800fa97b75f5bea4cacaa8f01537d515-5648724575417015910-5351942871940071274
         - globalObjectIdString: GlobalObjectId_V1-2-800fa97b75f5bea4cacaa8f01537d515-1493295696414452779-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-800fa97b75f5bea4cacaa8f01537d515-2052860727457425277-2110807414
+        - globalObjectIdString: GlobalObjectId_V1-2-800fa97b75f5bea4cacaa8f01537d515-478510896358948799-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-800fa97b75f5bea4cacaa8f01537d515-5039888048183959387-1528015983
         values:
         - colorIndex: 0
           iconNameOrGuid: Camera Icon
@@ -40,9 +48,192 @@ MonoBehaviour:
           iconNameOrGuid: AvatarMask On Icon
         - colorIndex: 0
           iconNameOrGuid: SphereCollider Icon
-        - colorIndex: 0
+        - colorIndex: 1
           iconNameOrGuid: Canvas Icon
         - colorIndex: 7
           iconNameOrGuid: WheelCollider Icon
         - colorIndex: 0
           iconNameOrGuid: StandaloneInputModule Icon
+        - colorIndex: 0
+          iconNameOrGuid: Camera Icon
+        - colorIndex: 7
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: StandaloneInputModule Icon
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-7c0cdf758f5cf72438aa1b0360b82321-5648724575417015910-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-7c0cdf758f5cf72438aa1b0360b82321-478510896358948799-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-7c0cdf758f5cf72438aa1b0360b82321-2052860727457425277-93386300
+        - globalObjectIdString: GlobalObjectId_V1-2-7c0cdf758f5cf72438aa1b0360b82321-8221695531472607026-7444308942300706973
+        - globalObjectIdString: GlobalObjectId_V1-2-7c0cdf758f5cf72438aa1b0360b82321-1881774867-0
+        - globalObjectIdString: GlobalObjectId_V1-2-7c0cdf758f5cf72438aa1b0360b82321-1493295696414452779-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-7c0cdf758f5cf72438aa1b0360b82321-7401930136834782068-4226384181140457577
+        - globalObjectIdString: GlobalObjectId_V1-2-7c0cdf758f5cf72438aa1b0360b82321-4746338407046140150-1151048025
+        - globalObjectIdString: GlobalObjectId_V1-2-7c0cdf758f5cf72438aa1b0360b82321-4552145741463328867-1528015983
+        - globalObjectIdString: GlobalObjectId_V1-2-7c0cdf758f5cf72438aa1b0360b82321-5039888048183959387-1528015983
+        - globalObjectIdString: GlobalObjectId_V1-2-7c0cdf758f5cf72438aa1b0360b82321-3986723927683438309-392779446321163777
+        values:
+        - colorIndex: 7
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 7
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: Camera Icon
+        - colorIndex: 0
+          iconNameOrGuid: Light Icon
+        - colorIndex: 0
+          iconNameOrGuid: AudioClip Icon
+        - colorIndex: 0
+          iconNameOrGuid: StandaloneInputModule Icon
+        - colorIndex: 0
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 0
+          iconNameOrGuid: SphereCollider Icon
+        - colorIndex: 1
+          iconNameOrGuid: Canvas Icon
+        - colorIndex: 0
+          iconNameOrGuid: StandaloneInputModule Icon
+        - colorIndex: 0
+          iconNameOrGuid: Terrain Icon
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-769a144be51074f499b02799d8f42612-2052860727457425277-471703504697517093
+        - globalObjectIdString: GlobalObjectId_V1-2-769a144be51074f499b02799d8f42612-8221695531472607026-7444308942300706973
+        - globalObjectIdString: GlobalObjectId_V1-2-769a144be51074f499b02799d8f42612-1881774867-0
+        - globalObjectIdString: GlobalObjectId_V1-2-769a144be51074f499b02799d8f42612-3986723927683438309-392779446321163777
+        - globalObjectIdString: GlobalObjectId_V1-2-769a144be51074f499b02799d8f42612-7401930136834782068-4226384181140457577
+        - globalObjectIdString: GlobalObjectId_V1-2-769a144be51074f499b02799d8f42612-4746338407046140150-1151048025
+        - globalObjectIdString: GlobalObjectId_V1-2-769a144be51074f499b02799d8f42612-4552145741463328867-1528015983
+        - globalObjectIdString: GlobalObjectId_V1-2-769a144be51074f499b02799d8f42612-5648724575417015910-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-769a144be51074f499b02799d8f42612-1493295696414452779-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-769a144be51074f499b02799d8f42612-478510896358948799-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-769a144be51074f499b02799d8f42612-5039888048183959387-1528015983
+        values:
+        - colorIndex: 0
+          iconNameOrGuid: Camera Icon
+        - colorIndex: 0
+          iconNameOrGuid: Light Icon
+        - colorIndex: 0
+          iconNameOrGuid: AudioClip Icon
+        - colorIndex: 0
+          iconNameOrGuid: Terrain Icon
+        - colorIndex: 0
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 0
+          iconNameOrGuid: SphereCollider Icon
+        - colorIndex: 1
+          iconNameOrGuid: Canvas Icon
+        - colorIndex: 7
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: StandaloneInputModule Icon
+        - colorIndex: 7
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: StandaloneInputModule Icon
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-52eded667af6c0b40a22cf0c4f45731d-2052860727457425277-738792829
+        - globalObjectIdString: GlobalObjectId_V1-2-52eded667af6c0b40a22cf0c4f45731d-6494337255510890559-5270421146933867953
+        - globalObjectIdString: GlobalObjectId_V1-2-52eded667af6c0b40a22cf0c4f45731d-8221695531472607026-7444308942300706973
+        - globalObjectIdString: GlobalObjectId_V1-2-52eded667af6c0b40a22cf0c4f45731d-7401930136834782068-4226384181140457577
+        - globalObjectIdString: GlobalObjectId_V1-2-52eded667af6c0b40a22cf0c4f45731d-4746338407046140150-1151048025
+        - globalObjectIdString: GlobalObjectId_V1-2-52eded667af6c0b40a22cf0c4f45731d-4552145741463328867-1528015983
+        - globalObjectIdString: GlobalObjectId_V1-2-52eded667af6c0b40a22cf0c4f45731d-5648724575417015910-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-52eded667af6c0b40a22cf0c4f45731d-478510896358948799-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-52eded667af6c0b40a22cf0c4f45731d-1493295696414452779-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-52eded667af6c0b40a22cf0c4f45731d-5039888048183959387-1528015983
+        - globalObjectIdString: GlobalObjectId_V1-2-52eded667af6c0b40a22cf0c4f45731d-3986723927683438309-392779446321163777
+        values:
+        - colorIndex: 0
+          iconNameOrGuid: Camera Icon
+        - colorIndex: 0
+          iconNameOrGuid: AudioClip Icon
+        - colorIndex: 0
+          iconNameOrGuid: Light Icon
+        - colorIndex: 0
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 0
+          iconNameOrGuid: SphereCollider Icon
+        - colorIndex: 1
+          iconNameOrGuid: Canvas Icon
+        - colorIndex: 7
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 7
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: StandaloneInputModule Icon
+        - colorIndex: 0
+          iconNameOrGuid: StandaloneInputModule Icon
+        - colorIndex: 0
+          iconNameOrGuid: Terrain Icon
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-7ac6f3a8da4a87d4c98e73a3f0924e17-8221695531472607026-7444308942300706973
+        - globalObjectIdString: GlobalObjectId_V1-2-7ac6f3a8da4a87d4c98e73a3f0924e17-2052860727457425277-711663577
+        - globalObjectIdString: GlobalObjectId_V1-2-7ac6f3a8da4a87d4c98e73a3f0924e17-478510896358948799-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-7ac6f3a8da4a87d4c98e73a3f0924e17-5648724575417015910-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-7ac6f3a8da4a87d4c98e73a3f0924e17-1493295696414452779-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-7ac6f3a8da4a87d4c98e73a3f0924e17-4746338407046140150-1151048025
+        - globalObjectIdString: GlobalObjectId_V1-2-7ac6f3a8da4a87d4c98e73a3f0924e17-7401930136834782068-4226384181140457577
+        - globalObjectIdString: GlobalObjectId_V1-2-7ac6f3a8da4a87d4c98e73a3f0924e17-4552145741463328867-1528015983
+        - globalObjectIdString: GlobalObjectId_V1-2-7ac6f3a8da4a87d4c98e73a3f0924e17-5039888048183959387-1528015983
+        - globalObjectIdString: GlobalObjectId_V1-2-7ac6f3a8da4a87d4c98e73a3f0924e17-3986723927683438309-392779446321163777
+        values:
+        - colorIndex: 0
+          iconNameOrGuid: Light Icon
+        - colorIndex: 0
+          iconNameOrGuid: Camera Icon
+        - colorIndex: 7
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 7
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: StandaloneInputModule Icon
+        - colorIndex: 0
+          iconNameOrGuid: SphereCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 1
+          iconNameOrGuid: Canvas Icon
+        - colorIndex: 0
+          iconNameOrGuid: StandaloneInputModule Icon
+        - colorIndex: 0
+          iconNameOrGuid: Terrain Icon
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-24cd706aa89451e428a8c85ab7585bdb-8221695531472607026-7444308942300706973
+        - globalObjectIdString: GlobalObjectId_V1-2-24cd706aa89451e428a8c85ab7585bdb-1881774867-0
+        - globalObjectIdString: GlobalObjectId_V1-2-24cd706aa89451e428a8c85ab7585bdb-2052860727457425277-534924144
+        - globalObjectIdString: GlobalObjectId_V1-2-24cd706aa89451e428a8c85ab7585bdb-478510896358948799-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-24cd706aa89451e428a8c85ab7585bdb-5648724575417015910-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-24cd706aa89451e428a8c85ab7585bdb-1493295696414452779-5351942871940071274
+        - globalObjectIdString: GlobalObjectId_V1-2-24cd706aa89451e428a8c85ab7585bdb-4746338407046140150-1151048025
+        - globalObjectIdString: GlobalObjectId_V1-2-24cd706aa89451e428a8c85ab7585bdb-7401930136834782068-4226384181140457577
+        - globalObjectIdString: GlobalObjectId_V1-2-24cd706aa89451e428a8c85ab7585bdb-5039888048183959387-1528015983
+        - globalObjectIdString: GlobalObjectId_V1-2-24cd706aa89451e428a8c85ab7585bdb-4552145741463328867-1528015983
+        - globalObjectIdString: GlobalObjectId_V1-2-24cd706aa89451e428a8c85ab7585bdb-3986723927683438309-392779446321163777
+        values:
+        - colorIndex: 0
+          iconNameOrGuid: Light Icon
+        - colorIndex: 0
+          iconNameOrGuid: AudioClip Icon
+        - colorIndex: 0
+          iconNameOrGuid: Camera Icon
+        - colorIndex: 7
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 7
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: StandaloneInputModule Icon
+        - colorIndex: 0
+          iconNameOrGuid: SphereCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 0
+          iconNameOrGuid: StandaloneInputModule Icon
+        - colorIndex: 1
+          iconNameOrGuid: Canvas Icon
+        - colorIndex: 0
+          iconNameOrGuid: Terrain Icon

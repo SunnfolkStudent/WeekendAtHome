@@ -12,7 +12,7 @@ public class DataTransfer : MonoBehaviour
     public static bool glassDoorOpen;
     public static bool bedroomDoorOpen;
     public static bool playerCanMove = true; // PlayerCanMove should be true from the start.
-    public static bool onTopFloor; // Change this in Editor if you're changing starting floors.
+    public static bool onTopFloor;
     public static bool insideBathroom;
     public static bool playerInside = true;
     public static bool catFlapClosed = true;
