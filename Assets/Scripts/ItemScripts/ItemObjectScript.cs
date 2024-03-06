@@ -13,13 +13,13 @@ namespace ItemScripts
     {
         #region --- Initialization ---
         
-        [Header("Int for scrub retrieved in item scenes:")]
-        [Space(5f)]
+        [Header("1. Is your item an interactable?")]
+        public bool interactableWithChoice;
+        
+        [Header("2. Give it the right int, based on whether it's an interactable or no:")] 
         public int thisObjectInt;
         
-        [Header("If your item has a choice / is an Interactable, be sure to check off the below:")]
-        public bool interactableWithChoice;
-        [Header("A corresponding usedInteractable int, for after 'Yes' choice:")]
+        [Header("(3.) If interactable, give it an int to show after being used. Comes after 'Yes' choice:")]
         public int usedInteractableInt;
         
         private bool _choiceHasBeenMade;
